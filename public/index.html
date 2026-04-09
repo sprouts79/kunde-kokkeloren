@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kokkeløren — Kundeområde</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --ink:   #0B1215;
+  --ink2:  #5A5A52;
+  --lbl:   #8A8A80;
+  --bg:    #ffffff;
+  --off:   #F7F6F2;
+  --line:  #E0DED6;
+  --green: #0B8A0F;
+  --yellow:#FFE100;
+}
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+.wrap {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 80px 24px 120px;
+}
+.eyebrow {
+  font-size: 11px; font-weight: 700;
+  letter-spacing: .08em; text-transform: uppercase;
+  color: var(--lbl); margin-bottom: 14px;
+}
+h1 {
+  font-size: 36px; font-weight: 800;
+  letter-spacing: -.04em; line-height: 1.08;
+  margin-bottom: 12px;
+}
+.sub {
+  font-size: 15px; color: var(--ink2);
+  line-height: 1.65; margin-bottom: 56px;
+  max-width: 440px;
+}
+.cards { display: flex; flex-direction: column; gap: 1px; border: 1px solid var(--line); }
+.card {
+  display: flex; align-items: stretch;
+  background: var(--bg);
+  text-decoration: none; color: inherit;
+  border-bottom: 1px solid var(--line);
+  transition: background .1s;
+}
+.card:last-child { border-bottom: none; }
+.card:hover { background: var(--off); }
+.card-accent {
+  width: 4px; flex-shrink: 0;
+  background: var(--ink);
+}
+.card-accent.green { background: var(--green); }
+.card-body { padding: 20px 22px; flex: 1; }
+.card-label {
+  font-size: 11px; font-weight: 700;
+  letter-spacing: .07em; text-transform: uppercase;
+  color: var(--lbl); margin-bottom: 5px; display: block;
+}
+.card-title {
+  font-size: 17px; font-weight: 800;
+  letter-spacing: -.03em; line-height: 1.2;
+  margin-bottom: 5px;
+}
+.card-desc {
+  font-size: 13px; color: var(--ink2);
+  line-height: 1.55;
+}
+.card-arrow {
+  display: flex; align-items: center;
+  padding: 0 20px;
+  font-size: 18px; color: var(--lbl);
+  flex-shrink: 0;
+}
+.footer {
+  margin-top: 48px;
+  font-size: 12px; color: var(--lbl);
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="eyebrow">Simpleness × Kokkeløren</div>
+  <h1>Kundeområde.</h1>
+  <div class="sub">Strategiske leveranser fra Simpleness. Oppdateres løpende.</div>
+
+  <div class="cards">
+    <a href="kreativ-strategi.html" class="card">
+      <div class="card-accent"></div>
+      <div class="card-body">
+        <span class="card-label">Markedsføring</span>
+        <div class="card-title">Kreativ strategi</div>
+        <div class="card-desc">Målgrupper, personaer og konsepter. Innsikt fra kundeundersøkelse og desk research. Grunnlag for annonseproduksjon.</div>
+      </div>
+      <div class="card-arrow">→</div>
+    </a>
+    <a href="innholdsstrategi.html" class="card">
+      <div class="card-accent green"></div>
+      <div class="card-body">
+        <span class="card-label">SEO og innhold</span>
+        <div class="card-title">Innholdsstrategi</div>
+        <div class="card-desc">SEO-sider, redaksjonelle artikler og søkeordanalyse. Komplett innhold klar for publisering.</div>
+      </div>
+      <div class="card-arrow">→</div>
+    </a>
+  </div>
+
+  <div class="footer">Simpleness · simpleness.no</div>
+</div>
+</body>
+</html>
