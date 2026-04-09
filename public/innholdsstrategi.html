@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kokkeløren — Innholdsstrategi</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,sans-serif;background:#fff;color:#111;font-size:14px;line-height:1.6}
+
+nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid #e5e5e5;display:flex;align-items:center;padding:0 48px;overflow-x:auto}
+.nav-brand{font-size:14px;font-weight:600;color:#111;padding:16px 0;margin-right:48px;white-space:nowrap;flex-shrink:0}
+.nav-links{display:flex;list-style:none}
+.nav-links a{display:block;padding:16px 14px;font-size:13px;color:#999;text-decoration:none;border-bottom:2px solid transparent;transition:color .15s,border-color .15s;white-space:nowrap}
+.nav-links a:hover{color:#111}
+.nav-links a.active{color:#111;border-bottom-color:#111}
+
+section{max-width:860px;margin:0 auto;padding:56px 48px;border-bottom:1px solid #e5e5e5}
+section:last-child{border-bottom:none}
+
+.slbl{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:#999;margin-bottom:24px}
+h1{font-size:28px;font-weight:400;color:#111;margin-bottom:8px;line-height:1.25}
+.subtitle{font-size:13px;color:#666;max-width:540px;line-height:1.7;margin-bottom:32px}
+h2{font-size:18px;font-weight:500;color:#111;margin:36px 0 12px;line-height:1.3}
+h2:first-of-type{margin-top:0}
+h3{font-size:14px;font-weight:600;color:#111;margin:24px 0 8px}
+
+p{font-size:14px;color:#444;line-height:1.7;margin-bottom:12px;max-width:620px}
+p.note{font-size:13px;color:#666;font-style:italic;padding:12px 16px;background:#f7f7f7;border-left:3px solid #ddd;margin:16px 0}
+p.warn{border-left-color:#e8a030;background:#fdf8f0}
+p.good{border-left-color:#2a6e2a;background:#f2faf2}
+
+table{width:100%;border-collapse:collapse;margin:16px 0 24px;font-size:13px}
+th{text-align:left;padding:10px 12px;background:#f7f7f7;border:1px solid #e5e5e5;font-weight:600;color:#111;font-size:11px;text-transform:uppercase;letter-spacing:.5px}
+td{padding:10px 12px;border:1px solid #e5e5e5;color:#333;vertical-align:top}
+tr:hover td{background:#fafafa}
+
+.badge{display:inline-block;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;padding:2px 7px;border-radius:2px;margin-right:4px}
+.b-green{background:#f0f7f0;color:#2a6e2a;border:1px solid #b8ddb8}
+.b-orange{background:#fdf3e7;color:#9a6200;border:1px solid #f5ddb0}
+.b-blue{background:#eff5ff;color:#2a5db0;border:1px solid #c5d8f7}
+.b-red{background:#fef0f0;color:#b02a2a;border:1px solid #f5b8b8}
+.b-gray{background:#f5f5f5;color:#666;border:1px solid #ddd}
+.b-done{background:#2a6e2a;color:#fff}
+.b-wait{background:#9a6200;color:#fff}
+
+.type-card{border:1px solid #e5e5e5;margin:16px 0;overflow:hidden}
+.type-head{padding:18px 22px;border-bottom:1px solid #e5e5e5;display:flex;align-items:center;justify-content:space-between}
+.type-name{font-size:16px;font-weight:500;color:#111}
+.type-body{padding:16px 22px}
+.type-body p{margin-bottom:8px}
+
+.format-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#e5e5e5;border:1px solid #e5e5e5;margin:16px 0}
+.format-cell{background:#fff;padding:16px 18px}
+.format-name{font-size:14px;font-weight:600;color:#111;margin-bottom:4px}
+.format-ex{font-size:12px;color:#888;font-style:italic;margin-bottom:8px}
+.format-desc{font-size:13px;color:#444;line-height:1.6}
+.format-tags{margin-top:8px;display:flex;gap:4px;flex-wrap:wrap}
+
+.stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#e5e5e5;border:1px solid #e5e5e5;margin:16px 0}
+.stat{background:#fff;padding:16px 18px;text-align:center}
+.stat-val{font-size:24px;font-weight:400;color:#111;line-height:1}
+.stat-lbl{font-size:11px;color:#999;margin-top:6px;text-transform:uppercase;letter-spacing:.5px}
+
+.link-diagram{font-family:monospace;font-size:13px;color:#666;background:#f7f7f7;padding:20px 24px;border:1px solid #e5e5e5;margin:16px 0;line-height:1.8;white-space:pre}
+
+.insight-card{border:1px solid #e5e5e5;margin:12px 0;padding:16px 20px;background:#fff}
+.insight-card.opportunity{border-left:3px solid #2a6e2a;background:#f8fcf8}
+.insight-title{font-size:14px;font-weight:600;color:#111;margin-bottom:4px}
+.insight-desc{font-size:13px;color:#555;line-height:1.6}
+.insight-action{font-size:12px;color:#2a6e2a;font-weight:600;margin-top:8px}
+
+.timeline{margin:20px 0}
+.tl-item{display:flex;gap:16px;padding:12px 0;border-bottom:1px solid #f0f0f0}
+.tl-item:last-child{border-bottom:none}
+.tl-num{width:28px;height:28px;background:#111;color:#fff;font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+.tl-content{flex:1}
+.tl-title{font-size:14px;font-weight:600;color:#111}
+.tl-desc{font-size:13px;color:#666;margin-top:2px}
+
+.price-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:#e5e5e5;border:1px solid #e5e5e5;margin:16px 0}
+.price-cell{background:#fff;padding:16px 18px;text-align:center}
+.price-name{font-size:13px;font-weight:600;color:#111;margin-bottom:4px}
+.price-val{font-size:22px;font-weight:400;color:#111}
+.price-sub{font-size:11px;color:#999;margin-top:2px}
+
+footer{max-width:860px;margin:0 auto;padding:32px 48px;font-size:12px;color:#bbb}
+
+@media(max-width:700px){
+  nav{padding:0 16px}
+  section{padding:36px 16px}
+  .format-grid{grid-template-columns:1fr}
+  .stat-row{grid-template-columns:1fr 1fr}
+  .price-grid{grid-template-columns:1fr}
+  footer{padding:24px 16px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">Kokkeløren · Innholdsstrategi</div>
+  <ul class="nav-links">
+    <li><a href="#oversikt" class="active">Oversikt</a></li>
+    <li><a href="#sidetyper">Sidetyper</a></li>
+    <li><a href="#seo">SEO-sider</a></li>
+    <li><a href="#redaksjonelt">Redaksjonelt</a></li>
+    <li><a href="#funn">Funn & innspill</a></li>
+    <li><a href="#fakta">Faktaark</a></li>
+  </ul>
+</nav>
+
+<!-- OVERSIKT -->
+<section id="oversikt">
+  <div class="slbl">01 — Oversikt</div>
+  <h1>Innholdsstrategi for Kokkeløren.</h1>
+  <div class="subtitle">SEO-landingssider + redaksjonelt innhold. To sidetyper som ikke overlapper — én rangerer, den andre overbeviser. Sammen dekker de hele funnel.</div>
+
+  <div class="stat-row">
+    <div class="stat"><div class="stat-val">9</div><div class="stat-lbl">SEO-sider (aktive)</div></div>
+    <div class="stat"><div class="stat-val">8</div><div class="stat-lbl">Redaksjonelle (planlagt)</div></div>
+    <div class="stat"><div class="stat-val">4</div><div class="stat-lbl">Fjernede (innspill)</div></div>
+    <div class="stat"><div class="stat-val">~30</div><div class="stat-lbl">Faktafeil rettet</div></div>
+  </div>
+
+  <h2>Produksjonsrekkefølge</h2>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-num">1</div>
+      <div class="tl-content">
+        <div class="tl-title">Faktasjekk SEO-sider <span class="badge b-done">Ferdig</span></div>
+        <div class="tl-desc">9 sider rettet mot verifiserte produktfakta. 4 sider fjernet (produkter som ikke finnes).</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-num">2</div>
+      <div class="tl-content">
+        <div class="tl-title">Versus-sider <span class="badge b-wait">Neste</span></div>
+        <div class="tl-desc">Kokkeløren vs. Adams, Kokkeløren vs. HelloFresh. Høyest konverteringsverdi av redaksjonelle sider.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-num">3</div>
+      <div class="tl-content">
+        <div class="tl-title">Deep dives</div>
+        <div class="tl-desc">Sausene som gjør forskjellen, Møt produsentene. Bygger E-E-A-T og differensiering.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-num">4</div>
+      <div class="tl-content">
+        <div class="tl-title">Listicles & advertorial</div>
+        <div class="tl-desc">Toppfunnel-volum. Native ad-destinasjoner.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SIDETYPER -->
+<section id="sidetyper">
+  <div class="slbl">02 — To sidetyper</div>
+  <h1>Forskjellig formål, forskjellig prosess.</h1>
+  <div class="subtitle">SEO-sider styres av søkeintensjon. Redaksjonelle sider styres av funnel-posisjon og format. De overlapper aldri.</div>
+
+  <div class="type-card">
+    <div class="type-head">
+      <div class="type-name">Type 1 — SEO-landingssider</div>
+      <span class="badge b-blue">Søkeintensjon-styrt</span>
+    </div>
+    <div class="type-body">
+      <p><strong>Formål:</strong> Rangere i Google, bli sitert av AI-svar, konvertere betalt trafikk.</p>
+      <p><strong>Styrt av:</strong> Søkeintensjon. Én side per intent-cluster. Ingen to sider konkurrerer om samme keyword.</p>
+      <p><strong>Kjennetegn:</strong> Svarer på et konkret spørsmål. Strukturert H1→H2→H3 hierarki. Sitérbare påstander med tall. Schema markup. Meta tags. CTA.</p>
+      <p><strong>Tone:</strong> Vipps-direkte som grunnlinje, med Kokkelørens varme og egenart der det passer naturlig.</p>
+    </div>
+  </div>
+
+  <div class="type-card">
+    <div class="type-head">
+      <div class="type-name">Type 2 — Redaksjonelle sider</div>
+      <span class="badge b-orange">Funnel-styrt</span>
+    </div>
+    <div class="type-body">
+      <p><strong>Formål:</strong> Engasjere, overbevise, bygge tillit. Destinasjoner for native ads og betalt sosial.</p>
+      <p><strong>Styrt av:</strong> Funnel-posisjon og overtalelsesformat. Kan dele keywords med SEO-sider (redaksjonelle eier long-tail/informational, SEO eier commercial/transactional).</p>
+      <p><strong>Kjennetegn:</strong> Skrevet for å leses, ikke bare skummes. Lengre, fortellende, med redaksjonell vinkel. Konverterer via soft CTA.</p>
+      <p><strong>Tone:</strong> Mer redaksjonell frihet. Personlig, fortellende. Kokkelørens stemme — varm ekspertise, stolt uten jåleri.</p>
+    </div>
+  </div>
+
+  <h2>Redaksjonelle underformater</h2>
+  <div class="format-grid">
+    <div class="format-cell">
+      <div class="format-name">Listicle</div>
+      <div class="format-ex">"7 grunner til å prøve matkasse"</div>
+      <div class="format-desc">Lavterskel, scanbar. Gir kunnskap uten å pushe salg. For de nysgjerrige som ennå ikke er overbevist.</div>
+      <div class="format-tags"><span class="badge b-green">TOF</span><span class="badge b-gray">Native ads</span></div>
+    </div>
+    <div class="format-cell">
+      <div class="format-name">Versus (brand)</div>
+      <div class="format-ex">"Kokkeløren vs. Adams Matkasse"</div>
+      <div class="format-desc">1-mot-1 sammenligning. Transparent og rettferdig, men med Kokkelørens vinkel. Konverterer hardt.</div>
+      <div class="format-tags"><span class="badge b-orange">MOF</span><span class="badge b-gray">Søk</span></div>
+    </div>
+    <div class="format-cell">
+      <div class="format-name">Advertorial</div>
+      <div class="format-ex">"Vi testet Norges dyreste matkasse"</div>
+      <div class="format-desc">Redaksjonell troverdighet. Ligner nyhetsartikkel. Lengre lesetid, dypere engasjement.</div>
+      <div class="format-tags"><span class="badge b-orange">MOF</span><span class="badge b-gray">Strossle / Taboola</span></div>
+    </div>
+    <div class="format-cell">
+      <div class="format-name">Deep dive</div>
+      <div class="format-ex">"Sausene som gjør forskjellen"</div>
+      <div class="format-desc">Ekspertise og dybde. Bygger E-E-A-T. Viser at Kokkeløren vet mer om mat enn konkurrentene.</div>
+      <div class="format-tags"><span class="badge b-red">BOF</span><span class="badge b-gray">Intern lenking</span></div>
+    </div>
+  </div>
+
+  <p class="note"><strong>Quiz-funnel</strong> ("Hvilken matkasse passer deg?") er planlagt men scopes separat som utviklingsprosjekt.</p>
+</section>
+
+<!-- SEO-SIDER -->
+<section id="seo">
+  <div class="slbl">03 — SEO-landingssider</div>
+  <h1>9 aktive sider, faktarettet.</h1>
+  <div class="subtitle">Én side per søkeintensjon. Pillar + cluster + geo + nisje. Alle er faktasjekket mot kokkeloren.no og kundeanalysen.</div>
+
+  <table>
+    <thead>
+      <tr><th>#</th><th>Side</th><th>Intent-cluster</th><th>Type</th><th>Status</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>01</td><td>Matkasse-guide</td><td>"hva er matkasse", "hvordan fungerer matkasse"</td><td><span class="badge b-blue">Pillar</span></td><td><span class="badge b-done">✓</span></td></tr>
+      <tr><td>02</td><td>Beste matkasse</td><td>"beste matkasse", "matkasse test"</td><td><span class="badge b-blue">Cluster</span></td><td><span class="badge b-done">✓</span></td></tr>
+      <tr><td>03</td><td>Matkasse vs. handle selv</td><td>"er matkasse verdt det"</td><td><span class="badge b-blue">Cluster</span></td><td><span class="badge b-done">✓</span></td></tr>
+      <tr><td>04</td><td>Matkasse pris</td><td>"matkasse pris", "hva koster matkasse"</td><td><span class="badge b-blue">Cluster</span></td><td><span class="badge b-done">✓</span></td></tr>
+      <tr><td>05</td><td>Matkasse tilbud</td><td>"matkasse tilbud", "matkasse rabatt"</td><td><span class="badge b-blue">Cluster</span></td><td><span class="badge b-wait">Trenger data</span></td></tr>
+      <tr><td>06</td><td>Matkasse Stavanger</td><td>"matkasse stavanger"</td><td><span class="badge b-green">Geo</span></td><td><span class="badge b-done">✓</span></td></tr>
+      <tr><td>09</td><td>Matkasse gave</td><td>"matkasse gave", "gavekort matkasse"</td><td><span class="badge b-orange">Nisje</span></td><td><span class="badge b-done">✓</span></td></tr>
+      <tr><td>10</td><td>Matkasse Oslo</td><td>"matkasse oslo"</td><td><span class="badge b-green">Geo</span></td><td><span class="badge b-done">✓</span></td></tr>
+      <tr><td>11</td><td>Matkasse Trondheim</td><td>"matkasse trondheim"</td><td><span class="badge b-green">Geo</span></td><td><span class="badge b-done">✓</span></td></tr>
+      <tr><td>13</td><td>Matkasse familie</td><td>"matkasse familie", "matkasse barn"</td><td><span class="badge b-orange">Nisje</span></td><td><span class="badge b-done">✓</span></td></tr>
+    </tbody>
+  </table>
+
+  <h2>Intern lenke-struktur</h2>
+  <div class="link-diagram">SEO-sider (rangerer, konverterer)
+    ↕ lenker til/fra
+Redaksjonelle sider (engasjerer, overbeviser)
+
+Pillar (01) → alle cluster + geo + nisje
+Cluster → tilbake til pillar + relevante redaksjonelle
+Geo-sider → pillar + pris-side
+Versus (R01, R02) → SEO-side 02 (beste matkasse)
+Deep dives (R06, R07) → pillar + cluster</div>
+</section>
+
+<!-- REDAKSJONELT -->
+<section id="redaksjonelt">
+  <div class="slbl">04 — Redaksjonelle sider (planlagt)</div>
+  <h1>8 sider som bygger tillit og konverterer.</h1>
+  <div class="subtitle">Versus-sider har høyest konverteringsverdi og skrives først. Deep dives bygger E-E-A-T. Listicles og advertorial gir toppfunnel-volum.</div>
+
+  <table>
+    <thead>
+      <tr><th>#</th><th>Side</th><th>Format</th><th>Funnel</th><th>Prioritet</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>R01</td><td>Kokkeløren vs. Adams Matkasse</td><td><span class="badge b-orange">Versus</span></td><td>MOF</td><td><span class="badge b-wait">Neste</span></td></tr>
+      <tr><td>R02</td><td>Kokkeløren vs. HelloFresh</td><td><span class="badge b-orange">Versus</span></td><td>MOF</td><td><span class="badge b-wait">Neste</span></td></tr>
+      <tr><td>R03</td><td>X grunner til å prøve matkasse</td><td><span class="badge b-green">Listicle</span></td><td>TOF</td><td></td></tr>
+      <tr><td>R04</td><td>X ting du bør vite før du bestiller matkasse</td><td><span class="badge b-green">Listicle</span></td><td>TOF</td><td></td></tr>
+      <tr><td>R05</td><td>Vi testet Norges dyreste matkasse i fire uker</td><td><span class="badge b-blue">Advertorial</span></td><td>MOF</td><td></td></tr>
+      <tr><td>R06</td><td>Sausene som gjør forskjellen</td><td><span class="badge b-red">Deep dive</span></td><td>MOF/BOF</td><td></td></tr>
+      <tr><td>R07</td><td>Møt produsentene bak Kokkeløren</td><td><span class="badge b-red">Deep dive</span></td><td>MOF/BOF</td><td></td></tr>
+      <tr><td>R08</td><td>Hva koster matkasse egentlig — og er det verdt det?</td><td><span class="badge b-red">Deep dive</span></td><td>MOF</td><td></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- FUNN & INNSPILL -->
+<section id="funn">
+  <div class="slbl">05 — Funn & innspill til Kokkeløren</div>
+  <h1>Fjernede sider og produktmuligheter.</h1>
+  <div class="subtitle">Fire søkeord med volum som Kokkeløren ikke kan betjene i dag — fordi produktene ikke finnes. Hvert av dem representerer en mulighet.</div>
+
+  <div class="insight-card opportunity">
+    <div class="insight-title">Vegetar matkasse <span class="badge b-green">Høy etterspørsel</span></div>
+    <div class="insight-desc">Keyword "vegetar matkasse" har søkevolum. ~28 kunder i undersøkelsen savner mer vegetar. Kokkeløren har ingen vegetarpakke. Potensielt segment blokkerer kjøp: «Hadde tenkt å prøve dere, men vi spiser ikke kjøtt.»</div>
+    <div class="insight-action">→ Vurder vegetarmeny eller markering av vegetarretter i eksisterende meny</div>
+  </div>
+
+  <div class="insight-card opportunity">
+    <div class="insight-title">Glutenfri / allergifilter <span class="badge b-orange">Reelt hinder</span></div>
+    <div class="insight-desc">24% av eksisterende kunder har allergi eller spesielle behov. 11% synes det er vanskelig å tilpasse. Allergener er oppført per oppskrift, men abonnementet kan ikke filtreres. Kunder med cøliaki avventer: «Vi har avventet å bestille ettersom jeg har cøliaki.»</div>
+    <div class="insight-action">→ Implementer allergenfilter i bestillingsflyt, eller tydeliggjør allergenmerkingen</div>
+  </div>
+
+  <div class="insight-card">
+    <div class="insight-title">Lavkarbo matkasse</div>
+    <div class="insight-desc">Voksende segment i søk. Kokkeløren har ingen dedikert lavkarbo-meny. Lavere prioritet enn vegetar og allergi, men verdt å vurdere som merkbar rett-kategori.</div>
+    <div class="insight-action">→ Vurder å merke lavkarbo-vennlige retter i ukemenyen</div>
+  </div>
+
+  <div class="insight-card">
+    <div class="insight-title">Student / single-pakke <span class="badge b-orange">Markedsgap</span></div>
+    <div class="insight-desc">Kokkeløren har ingen single-pakke. Minste størrelse er 2 voksne (1049 kr/uke). Studentsegmentet er urealistisk uten en 1-persons opsjon. «Jeg er alene. Har dere noe tilbud til de som er det?»</div>
+    <div class="insight-action">→ Vurder 1-persons pakke for å åpne nytt segment</div>
+  </div>
+
+  <h2>Andre funn fra kundeanalysen</h2>
+
+  <div class="insight-card">
+    <div class="insight-title">Barnevennlighet er en utfordring</div>
+    <div class="insight-desc">8,5% av kundene nevner at maten ikke er barnevennlig nok. Rettene er ofte for avanserte eller sterke for barn. «God mat og gode råvarer, men ikke veldig barnevennlig.» Familiesiden (13) er tonet ned for å reflektere dette ærlig.</div>
+  </div>
+
+  <div class="insight-card">
+    <div class="insight-title">Abonnement er vanskelig å styre</div>
+    <div class="insight-desc">3930 supporthenvendelser (34% av all support) handler om å hoppe over uker, endre levering eller avslutte. 46 forbedringsforslag handler om mer valgfrihet og tilpasning.</div>
+  </div>
+
+  <div class="insight-card">
+    <div class="insight-title">Norske råvarer — ikke alltid norske</div>
+    <div class="insight-desc">Noen kunder velger Kokkeløren eksplisitt for norske råvarer. Når utenlandske ingredienser dukker opp uten forvarsel (nederlandske tomater, aspargesbønner fra Senegal), brytes tilliten. Innholdet sier nå "norske råvarer og småskalaprodusenter" — ikke "100% norsk".</div>
+  </div>
+</section>
+
+<!-- FAKTAARK -->
+<section id="fakta">
+  <div class="slbl">06 — Verifiserte produktfakta</div>
+  <h1>Dette er Kokkeløren.</h1>
+  <div class="subtitle">Alle faktapåstander i innholdet er sjekket mot disse dataene. Sist verifisert mot kokkeloren.no april 2026.</div>
+
+  <h2>Produkt</h2>
+  <table>
+    <tr><td style="width:180px"><strong>Hva</strong></td><td>Matkasse med 3 middager per uke</td></tr>
+    <tr><td><strong>Menyvalg</strong></td><td>Nei — kokkene bestemmer ukemenyen</td></tr>
+    <tr><td><strong>Håndlagde sauser</strong></td><td>Ja, alle sauser og dressinger lages fra bunnen</td></tr>
+    <tr><td><strong>Råvarer</strong></td><td>Norske småskalaprodusenter (ikke 100% norsk)</td></tr>
+    <tr><td><strong>Siden</strong></td><td>2016</td></tr>
+    <tr><td><strong>Vegetarpakke</strong></td><td>Nei</td></tr>
+    <tr><td><strong>Allergifilter</strong></td><td>Nei (allergener oppført per oppskrift)</td></tr>
+    <tr><td><strong>Single-pakke</strong></td><td>Nei</td></tr>
+  </table>
+
+  <h2>Priser (april 2026)</h2>
+  <div class="price-grid">
+    <div class="price-cell">
+      <div class="price-name">2 voksne</div>
+      <div class="price-val">1 049 kr</div>
+      <div class="price-sub">per uke · 3 middager</div>
+    </div>
+    <div class="price-cell">
+      <div class="price-name">Liten familie</div>
+      <div class="price-val">1 249 kr</div>
+      <div class="price-sub">per uke · 2 voksne + 2 barn</div>
+    </div>
+    <div class="price-cell">
+      <div class="price-name">Stor familie</div>
+      <div class="price-val">1 449 kr</div>
+      <div class="price-sub">per uke · 4 voksne</div>
+    </div>
+  </div>
+
+  <h2>Leveringsområde</h2>
+  <p>Østlandet · Bergen · Sørlandet · Stavanger · Trondheim</p>
+  <p style="font-size:13px;color:#888">Levering lørdag–tirsdag (varierer etter område). Hentepunkter i Oslo. Bestillingsfrist søndager.</p>
+
+  <h2>Kundedata (n=434)</h2>
+  <div class="stat-row">
+    <div class="stat"><div class="stat-val">8,3</div><div class="stat-lbl">Tilfredshet</div></div>
+    <div class="stat"><div class="stat-val">8,5</div><div class="stat-lbl">Smak</div></div>
+    <div class="stat"><div class="stat-val">94%</div><div class="stat-lbl">Anbefaler</div></div>
+    <div class="stat"><div class="stat-val">6,9</div><div class="stat-lbl">Prisopplevelse</div></div>
+  </div>
+
+  <h2>Konkurrenter</h2>
+  <table>
+    <thead><tr><th>Aktør</th><th>Pris</th><th>Menyvalg</th><th>Tilfredshet</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Kokkeløren</strong></td><td>1049–1449 kr/uke</td><td>Nei (kokkene bestemmer)</td><td>8,31/10</td></tr>
+      <tr><td>HelloFresh</td><td>Fra ~68 kr/rett</td><td>Ja (fleksibelt)</td><td>4,3–4,8</td></tr>
+      <tr><td>Adams Matkasse</td><td>Fra ~68 kr/rett</td><td>Ja</td><td>4,76/10</td></tr>
+      <tr><td>GodtLevert</td><td>Fra ~68 kr/rett</td><td>Ja</td><td>4,63/10</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<footer>
+  Kokkeløren · Innholdsstrategi · Simpleness · April 2026
+</footer>
+
+<script>
+const sections=document.querySelectorAll('section[id]');
+const links=document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll',()=>{
+  let cur='';
+  sections.forEach(s=>{if(window.scrollY>=s.offsetTop-80)cur=s.id;});
+  links.forEach(a=>{a.classList.remove('active');if(a.getAttribute('href')==='#'+cur)a.classList.add('active');});
+});
+</script>
+</body>
+</html>
