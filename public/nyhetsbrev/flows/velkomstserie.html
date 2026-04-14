@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Velkomstserie — Flow preview</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root { --admin-font: "Plus Jakarta Sans", sans-serif; --admin-black: #090A08; --border: 1px solid rgba(9,10,8,0.08); --accent: #89FF58; --pale: #F6FFEE; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--admin-font); background: #fff; color: var(--admin-black); line-height: 1.5; -webkit-font-smoothing: antialiased; }
+.topbar { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,0.96); backdrop-filter: blur(8px); border-bottom: var(--border); display: flex; align-items: center; height: 52px; padding: 0 1.5rem; }
+.topbar a { text-decoration: none; color: var(--admin-black); font-size: 0.875rem; font-weight: 700; display: flex; align-items: center; gap: 0.5rem; }
+.topbar a::before { content: "←"; font-size: 1rem; }
+.wrap { max-width: 720px; margin: 0 auto; padding: 3rem 1.5rem 6rem; }
+h1 { font-size: 3rem; font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 0.5rem; }
+.subtitle { font-size: 1rem; line-height: 1.6; margin-bottom: 0.5rem; max-width: 560px; }
+.flow-meta { font-size: 0.8rem; color: rgba(9,10,8,0.5); margin-bottom: 3rem; }
+.email-section { margin-bottom: 3rem; }
+.email-label { display: inline-block; font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; background: var(--accent); padding: 2px 8px; border-radius: 4px; margin-bottom: 0.5rem; }
+.email-name { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.25rem; }
+.email-timing { font-size: 0.8rem; color: rgba(9,10,8,0.5); margin-bottom: 0.75rem; }
+.email-subject { font-size: 0.875rem; margin-bottom: 1rem; }
+.email-subject strong { font-weight: 700; }
+.preview-frame { border: var(--border); border-radius: 12px; overflow: hidden; }
+.arrow { text-align: center; padding: 1.5rem 0; font-size: 1.5rem; color: rgba(9,10,8,0.15); }
+</style>
+</head>
+<body>
+<div class="topbar"><a href="../maler.html">Maler</a></div>
+<div class="wrap">
+  <h1>Velkomstserie.</h1>
+  <p class="subtitle">3-stegs automatisert flow for nye abonnenter. Introduksjon → verdi → konvertering.</p>
+  <p class="flow-meta">Trigger: ny e-postabonnent · Delay: dag 0 → dag 2 → dag 5</p>
+
+  <!-- E-POST 1 -->
+  <div class="email-section">
+    <div class="email-label">E-post 1 / 3</div>
+    <div class="email-name">Velkommen</div>
+    <div class="email-timing">Sendes umiddelbart</div>
+    <div class="email-subject"><strong>Emne:</strong> Velkommen til [merkenavn] — her er hva du kan forvente</div>
+    <div class="preview-frame">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:600px;margin:0 auto;background:#ffffff">
+        <tr><td style="padding:24px 32px;border-bottom:1px solid #e5e5e5;font-family:'Plus Jakarta Sans',Helvetica,Arial,sans-serif;font-size:18px;font-weight:700;color:#090A08">simpleness</td></tr>
+        <tr><td style="padding:0"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='280' fill='%23F6FFEE'%3E%3Crect width='600' height='280'/%3E%3Ctext x='300' y='140' text-anchor='middle' fill='%23515B12' font-family='sans-serif' font-size='14'%3EVelkomstbilde · merkevare%3C/text%3E%3C/svg%3E" width="600" style="display:block;width:100%;height:auto" alt="Velkommen"></td></tr>
+        <tr><td style="padding:32px"><h1 style="font-family:Georgia,serif;font-size:28px;font-weight:400;line-height:1.2;color:#090A08;margin:0 0 16px">Velkommen — hyggelig å ha deg med.</h1><p style="font-family:'Plus Jakarta Sans',Helvetica,Arial,sans-serif;font-size:16px;line-height:1.6;color:#090A08;margin:0 0 24px">Vi er [merkenavn]. Her er en kort intro om hvem vi er og hva du kan forvente av oss i innboksen din. Ingen spam, bare verdi.</p><a href="#" style="display:inline-block;background:#090A08;color:#ffffff;font-family:'Plus Jakarta Sans',Helvetica,Arial,sans-serif;font-size:15px;font-weight:500;text-decoration:none;padding:12px 28px;border-radius:8px">Se hva vi gjør →</a></td></tr>
+        <tr><td style="padding:32px;background:#f7f7f7;border-top:1px solid #e5e5e5"><p style="font-family:'Plus Jakarta Sans',Helvetica,Arial,sans-serif;font-size:12px;color:#999;margin:0;text-align:center"><a href="#" style="color:#999;text-decoration:underline">Meld deg av</a></p></td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="arrow">↓ 2 dager</div>
+
+  <!-- E-POST 2 -->
+  <div class="email-section">
+    <div class="email-label">E-post 2 / 3</div>
+    <div class="email-name">Verdi</div>
+    <div class="email-timing">Sendes dag 2</div>
+    <div class="email-subject"><strong>Emne:</strong> Tre ting du kan gjøre med [merkenavn] i dag</div>
+    <div class="preview-frame">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:600px;margin:0 auto;background:#ffffff">
+        <tr><td style="padding:24px 32px;border-bottom:1px solid #e5e5e5;font-family:'Plus Jakarta Sans',Helvetica,Arial,sans-serif;font-size:18px;font-weight:700;color:#090A08">simpleness</td></tr>
+        <tr><td style="padding:0"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='240' fill='%23DFF7CC'%3E%3Crect width='600' height='240'/%3E%3Ctext x='300' y='120' text-anchor='middle' fill='%23515B12' font-family='sans-serif' font-size='14'%3EVerdi-bilde · produkt i bruk%3C/text%3E%3C/svg%3E" width="600" style="display:block;width:100%;height:auto" alt="Verdi"></td></tr>
+        <tr><td style="padding:32px"><h1 style="font-family:Georgia,serif;font-size:28px;font-weight:400;line-height:1.2;color:#090A08;margin:0 0 16px">Det du trenger å vite.</h1><p style="font-family:'Plus Jakarta Sans',Helvetica,Arial,sans-serif;font-size:16px;line-height:1.6;color:#090A08;margin:0 0 16px"><strong>1. Fordel nummer én.</strong> Kort forklaring på hvorfor dette er verdifullt for mottakeren.</p><p style="font-family:'Plus Jakarta Sans',Helvetica,Arial,sans-serif;font-size:16px;line-height:1.6;color:#090A08;margin:0 0 16px"><strong>2. Fordel nummer to.</strong> Konkret eksempel eller tall som beviser verdien.</p><p style="font-family:'Plus Jakarta Sans',Helvetica,Arial,sans-serif;font-size:16px;line-height:1.6;color:#090A08;margin:0 0 24px"><strong>3. Fordel nummer tre.</strong> Det som skiller oss fra alternativene.</p><a href="#" style="display:inline-block;background:#090A08;color:#ffffff;font-family:'Plus Jakarta Sans',Helvetica,Arial,sans-serif;font-size:15px;font-weight:500;text-decoration:none;padding:12px 28px;border-radius:8px">Utforsk →</a></td></tr>
+        <tr><td style="padding:32px;background:#f7f7f7;border-top:1px solid #e5e5e5"><p style="font-family:'Plus Jakarta Sans',Helvetica,Arial,sans-serif;font-size:12px;color:#999;margin:0;text-align:center"><a href="#" style="color:#999;text-decoration:underline">Meld deg av</a></p></td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="arrow">↓ 3 dager</div>
+
+  <!-- E-POST 3 -->
+  <div class="email-section">
+    <div class="email-label">E-post 3 / 3</div>
+    <div class="email-name">Konvertering</div>
+    <div class="email-timing">Sendes dag 5</div>
+    <div class="email-subject"><strong>Emne:</strong> Klar til å prøve? Her er et tilbud til deg.</div>
+    <div class="preview-frame">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:600px;margin:0 auto;background:#ffffff">
+        <tr><td style="padding:24px 32px;border-bottom:1px solid #e5e5e5;font-family:'Plus Jakarta Sans',Helvetica,Arial,sans-serif;font-size:18px;font-weight:700;color:#090A08">simpleness</td></tr>
+        <tr><td style="padding:32px"><h1 style="font-family:Georgia,serif;font-size:28px;font-weight:400;line-height:1.2;color:#090A08;margin:0 0 16px">Vi har noe til deg.</h1><p style="font-family:'Plus Jakarta Sans',Helvetica,Arial,sans-serif;font-size:16px;line-height:1.6;color:#090A08;margin:0 0 24px">Som ny abonnent får du [tilbud]. Gyldig i [antall] dager. Ingen forpliktelser.</p></td></tr>
+        <tr><td style="padding:0 32px 32px">
+          <table width="100%" cellpadding="0" cellspacing="0" border="0">
+            <tr>
+              <td width="48%" valign="top" style="padding-right:12px"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='180' fill='%23F6FFEE'%3E%3Crect width='260' height='180'/%3E%3Ctext x='130' y='90' text-anchor='middle' fill='%23515B12' font-family='sans-serif' font-size='12'%3EProdukt 1%3C/text%3E%3C/svg%3E" width="260" style="display:block;width:100%;height:auto;border-radius:8px" alt="Produkt"><p style="font-family:'Plus Jakarta Sans',Helvetica,Arial,sans-serif;font-size:15px;font-weight:700;margin:8px 0 0;color:#090A08">Populært valg</p></td>
+              <td width="48%" valign="top" style="padding-left:12px"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='180' fill='%23F6FFEE'%3E%3Crect width='260' height='180'/%3E%3Ctext x='130' y='90' text-anchor='middle' fill='%23515B12' font-family='sans-serif' font-size='12'%3EProdukt 2%3C/text%3E%3C/svg%3E" width="260" style="display:block;width:100%;height:auto;border-radius:8px" alt="Produkt"><p style="font-family:'Plus Jakarta Sans',Helvetica,Arial,sans-serif;font-size:15px;font-weight:700;margin:8px 0 0;color:#090A08">Bestselger</p></td>
+            </tr>
+          </table>
+        </td></tr>
+        <tr><td align="center" style="padding:0 32px 32px"><a href="#" style="display:inline-block;background:#090A08;color:#ffffff;font-family:'Plus Jakarta Sans',Helvetica,Arial,sans-serif;font-size:16px;font-weight:500;text-decoration:none;padding:14px 36px;border-radius:8px">Bruk tilbudet →</a></td></tr>
+        <tr><td style="padding:32px;background:#f7f7f7;border-top:1px solid #e5e5e5"><p style="font-family:'Plus Jakarta Sans',Helvetica,Arial,sans-serif;font-size:12px;color:#999;margin:0;text-align:center"><a href="#" style="color:#999;text-decoration:underline">Meld deg av</a></p></td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+</body>
+</html>
