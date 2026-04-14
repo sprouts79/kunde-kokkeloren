@@ -29,6 +29,15 @@ body { font-family: var(--font-family); background: var(--color-white); color: v
 .section-label { font-size: 0.875rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 1rem; margin-top: 3rem; }
 .section-label:first-of-type { margin-top: 0; }
 
+/* Module cards */
+.module-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.75rem; margin-bottom: 1rem; }
+.module-card { border: var(--border); border-radius: var(--radius-lg); padding: 1.25rem; }
+.module-name { font-size: 1rem; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 0.25rem; }
+.module-desc { font-size: 0.8125rem; line-height: 1.5; margin-bottom: 0.75rem; }
+.module-tag { display: inline-block; font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; padding: 2px 7px; border-radius: 4px; background: var(--color-green-pale); }
+.module-tag.shared { background: var(--color-accent); }
+
+/* Page grid */
 .page-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.75rem; }
 .page-link { border: var(--border); border-radius: var(--radius-md); padding: 1rem 1.25rem; text-decoration: none; color: var(--color-black); transition: background 0.15s; display: block; }
 .page-link:hover { background: var(--color-green-pale); }
@@ -39,7 +48,7 @@ body { font-family: var(--font-family); background: var(--color-white); color: v
 
 @media (max-width: 640px) {
   .title { font-size: 2.25rem; }
-  .page-grid { grid-template-columns: 1fr; }
+  .module-grid, .page-grid { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -50,9 +59,62 @@ body { font-family: var(--font-family); background: var(--color-white); color: v
 <div class="wrap">
   <div class="header">
     <h1 class="title">Landingssider.</h1>
-    <p class="subtitle">16 ferdige landingssider — 9 SEO-sider for organisk synlighet og 7 redaksjonelle artikler. Alle med Kokkeløren-design, fonter og bilder.</p>
+    <p class="subtitle">16 ferdige landingssider — 9 SEO-sider og 7 redaksjonelle artikler. Delte moduler oppdateres ett sted og reflekteres på tvers.</p>
   </div>
 
+  <!-- TEMPLATES & MODULES -->
+  <div class="section-label">Templates og moduler</div>
+  <div class="module-grid">
+    <div class="module-card">
+      <div class="module-name">Nav</div>
+      <div class="module-desc">Sticky header med logo, lenker og CTA-knapp. Kokkeløren-branding med Valizas-font.</div>
+      <span class="module-tag shared">Delt · 16 sider</span>
+    </div>
+    <div class="module-card">
+      <div class="module-name">Hero</div>
+      <div class="module-desc">Eyebrow + H1 + lead-tekst + fullbredde produktbilde. Bruker display-font.</div>
+      <span class="module-tag shared">Delt · 16 sider</span>
+    </div>
+    <div class="module-card">
+      <div class="module-name">Anmeldelser</div>
+      <div class="module-desc">3 kundekort med ★★★★★, sitat og navn+alder. Intro-tekst til venstre.</div>
+      <span class="module-tag shared">Delt · 16 sider</span>
+    </div>
+    <div class="module-card">
+      <div class="module-name">CTA-banner</div>
+      <div class="module-desc">Fullbredde med overskrift, undertekst og bestill-knapp. Mørk bakgrunn.</div>
+      <span class="module-tag shared">Delt · 16 sider</span>
+    </div>
+    <div class="module-card">
+      <div class="module-name">Footer</div>
+      <div class="module-desc">Logo, kontaktinfo, 3 lenkegrupper og copyright. Matcher kokkeloren.no.</div>
+      <span class="module-tag shared">Delt · 16 sider</span>
+    </div>
+    <div class="module-card">
+      <div class="module-name">FAQ</div>
+      <div class="module-desc">Accordion med spørsmål/svar. Schema.org FAQ-markup for SEO.</div>
+      <span class="module-tag">Utvalgte sider</span>
+    </div>
+    <div class="module-card">
+      <div class="module-name">Artikkelinnhold</div>
+      <div class="module-desc">Brødtekst, H2/H3, bilder, highlight-bokser, info-kort. Sidespesifikt.</div>
+      <span class="module-tag">Per side</span>
+    </div>
+    <div class="module-card">
+      <div class="module-name">Sammenligning</div>
+      <div class="module-desc">Tabelloppsett med konkurrent vs. Kokkeløren. Pris, score, egenskaper.</div>
+      <span class="module-tag">Utvalgte sider</span>
+    </div>
+    <div class="module-card">
+      <div class="module-name">Brand config</div>
+      <div class="module-desc">Farger, fonter og CSS-variabler. Kokkeløren-profil: #F1EDE2, Valizas, GT Flexa.</div>
+      <span class="module-tag shared">Delt · alle</span>
+    </div>
+  </div>
+
+  <hr style="border:none;border-top:var(--border);margin:2rem 0 0">
+
+  <!-- PAGES -->
   <div class="section-label">SEO-sider</div>
   <div class="page-grid">
     <a href="landingssider/design/01-matkasse-guide.html" class="page-link"><div class="page-link-title">Matkasse-guide</div><div class="page-link-type">Pillar page</div></a>
