@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maler — Nyhetsbrev</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --color-white: #FFFFFF; --color-black: #090A08; --color-accent: #89FF58;
+  --color-green-pale: #F6FFEE;
+  --font-family: "Banana Grotesk", "Plus Jakarta Sans", sans-serif;
+  --border: 1px solid rgba(9,10,8,0.08); --radius-lg: 12px; --radius-md: 8px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; }
+body { font-family: var(--font-family); background: var(--color-white); color: var(--color-black); line-height: 1.5; -webkit-font-smoothing: antialiased; }
+
+.topbar { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,0.96); backdrop-filter: blur(8px); border-bottom: var(--border); display: flex; align-items: center; height: 52px; padding: 0 1.5rem; }
+.topbar a { text-decoration: none; color: var(--color-black); font-size: 0.875rem; font-weight: 700; letter-spacing: -0.02em; display: flex; align-items: center; gap: 0.5rem; }
+.topbar a::before { content: "←"; font-size: 1rem; }
+
+.wrap { max-width: 960px; margin: 0 auto; padding: 3rem 1.5rem 6rem; }
+.title { font-size: 3.75rem; font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 0.75rem; }
+.subtitle { font-size: 1rem; line-height: 1.6; margin-bottom: 3rem; max-width: 560px; }
+
+.template-section { margin-bottom: 4rem; }
+.template-label { font-size: 0.875rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 1rem; }
+.template-card { border: var(--border); border-radius: var(--radius-lg); overflow: hidden; margin-bottom: 1.5rem; }
+.template-info { padding: 1.5rem; }
+.template-name { font-size: 1.25rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 0.5rem; }
+.template-desc { font-size: 0.875rem; line-height: 1.55; margin-bottom: 1rem; }
+
+.module-stack { display: flex; flex-direction: column; }
+.module-block { padding: 12px 20px; font-size: 0.8125rem; font-weight: 500; border-bottom: var(--border); display: flex; justify-content: space-between; align-items: center; }
+.module-block:last-child { border-bottom: none; }
+.module-block-name { font-weight: 700; }
+.module-block-note { font-size: 0.75rem; font-weight: 400; }
+.module-block.shared { background: var(--color-green-pale); }
+.module-block.unique { background: #fff; }
+
+.tag { display: inline-block; font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; padding: 2px 7px; border-radius: 4px; }
+.tag-shared { background: var(--color-accent); }
+.tag-unique { background: rgba(9,10,8,0.06); }
+
+.footer { margin-top: 4rem; padding-top: 2rem; border-top: var(--border); font-size: 0.75rem; }
+</style>
+</head>
+<body>
+
+<div class="topbar"><a href="index.html">Nyhetsbrev</a></div>
+
+<div class="wrap">
+  <h1 class="title">Maler.</h1>
+  <p class="subtitle">E-postmaler brukt for periodiske nyhetsbrev og automatiserte flows. Hver mal definerer hvilke moduler som brukes og i hvilken rekkefølge.</p>
+
+  <!-- ═══ PERIODISKE NYHETSBREV ═══ -->
+  <div class="template-label">Periodiske nyhetsbrev</div>
+
+  <!-- PRODUKTNYHET -->
+  <div class="template-section">
+    <div class="template-card">
+      <div class="template-info">
+        <div class="template-name">Produktnyhet</div>
+        <div class="template-desc">Nye produkter, sesongvarer eller menynyheter. Visuelt drevet med produktkort og hero-bilde.</div>
+      </div>
+      <div class="module-stack">
+        <div class="module-block shared"><span class="module-block-name">Header</span> <span class="tag tag-shared">Delt modul</span></div>
+        <div class="module-block shared"><span class="module-block-name">Hero</span> <span class="tag tag-shared">Delt modul</span></div>
+        <div class="module-block unique"><span class="module-block-name">Tekstblokk</span> <span class="module-block-note">Introduksjon — hva er nytt</span></div>
+        <div class="module-block unique"><span class="module-block-name">Produktkort × 2–4</span> <span class="tag tag-unique">Unikt innhold</span></div>
+        <div class="module-block shared"><span class="module-block-name">CTA-knapp</span> <span class="tag tag-shared">Delt modul</span></div>
+        <div class="module-block shared"><span class="module-block-name">Footer</span> <span class="tag tag-shared">Delt modul</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SALG -->
+  <div class="template-section">
+    <div class="template-card">
+      <div class="template-info">
+        <div class="template-name">Salg / kampanje</div>
+        <div class="template-desc">Tidsbegrensede tilbud, rabattkoder, sesongsalg. Direkte og handlingsorientert.</div>
+      </div>
+      <div class="module-stack">
+        <div class="module-block shared"><span class="module-block-name">Header</span> <span class="tag tag-shared">Delt modul</span></div>
+        <div class="module-block unique"><span class="module-block-name">Hero (kampanje)</span> <span class="module-block-note">Stort bilde med tilbudsoverskrift + rabattkode</span></div>
+        <div class="module-block unique"><span class="module-block-name">Tekstblokk</span> <span class="module-block-note">Vilkår og utløpsdato</span></div>
+        <div class="module-block unique"><span class="module-block-name">Produktkort × 2–3</span> <span class="tag tag-unique">Utvalgte produkter</span></div>
+        <div class="module-block shared"><span class="module-block-name">CTA-knapp</span> <span class="tag tag-shared">Delt modul</span></div>
+        <div class="module-block shared"><span class="module-block-name">Footer</span> <span class="tag tag-shared">Delt modul</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- REDAKSJONELT -->
+  <div class="template-section">
+    <div class="template-card">
+      <div class="template-info">
+        <div class="template-name">Redaksjonelt</div>
+        <div class="template-desc">Tips, oppskrifter, bak kulissene. Innholdsdrevet — bygger relasjon over tid.</div>
+      </div>
+      <div class="module-stack">
+        <div class="module-block shared"><span class="module-block-name">Header</span> <span class="tag tag-shared">Delt modul</span></div>
+        <div class="module-block shared"><span class="module-block-name">Bildebanner</span> <span class="tag tag-shared">Delt modul</span></div>
+        <div class="module-block unique"><span class="module-block-name">Tekstblokk (artikkel)</span> <span class="module-block-note">Hovedinnhold — 2–4 avsnitt</span></div>
+        <div class="module-block shared"><span class="module-block-name">Skillelinje</span> <span class="tag tag-shared">Delt modul</span></div>
+        <div class="module-block unique"><span class="module-block-name">Tekstblokk (oppsummering)</span> <span class="tag tag-unique">Unikt innhold</span></div>
+        <div class="module-block shared"><span class="module-block-name">CTA-knapp</span> <span class="tag tag-shared">Delt modul</span></div>
+        <div class="module-block shared"><span class="module-block-name">Footer</span> <span class="tag tag-shared">Delt modul</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DIGEST -->
+  <div class="template-section">
+    <div class="template-card">
+      <div class="template-info">
+        <div class="template-name">Digest</div>
+        <div class="template-desc">Ukentlig eller månedlig oppsummering. Kompakt format med flere elementer.</div>
+      </div>
+      <div class="module-stack">
+        <div class="module-block shared"><span class="module-block-name">Header</span> <span class="tag tag-shared">Delt modul</span></div>
+        <div class="module-block unique"><span class="module-block-name">Tekstblokk (intro)</span> <span class="module-block-note">Kort velkomsttekst</span></div>
+        <div class="module-block shared"><span class="module-block-name">Skillelinje</span> <span class="tag tag-shared">Delt modul</span></div>
+        <div class="module-block unique"><span class="module-block-name">Produktkort × 2</span> <span class="module-block-note">Populære denne perioden</span></div>
+        <div class="module-block shared"><span class="module-block-name">Skillelinje</span> <span class="tag tag-shared">Delt modul</span></div>
+        <div class="module-block unique"><span class="module-block-name">Tekstblokk (innhold)</span> <span class="module-block-note">Lenker til artikler/tips</span></div>
+        <div class="module-block shared"><span class="module-block-name">CTA-knapp</span> <span class="tag tag-shared">Delt modul</span></div>
+        <div class="module-block shared"><span class="module-block-name">Footer</span> <span class="tag tag-shared">Delt modul</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ FLOWS ═══ -->
+  <div class="template-label" style="margin-top:2rem">Automatiserte flows</div>
+
+  <!-- VELKOMSTSERIE -->
+  <div class="template-section">
+    <div class="template-card">
+      <div class="template-info">
+        <div class="template-name">Velkomstserie (3 e-poster)</div>
+        <div class="template-desc">Trigger: ny abonnent. E-post 1: velkommen + merkevare. E-post 2: verdipåminnelse. E-post 3: konvertering (CTA).</div>
+      </div>
+      <div class="module-stack">
+        <div class="module-block shared" style="background:rgba(137,255,88,0.15)"><span class="module-block-name">E-post 1 — Velkommen</span> <span class="module-block-note">Header → Hero → Tekst (intro) → CTA → Footer</span></div>
+        <div class="module-block shared" style="background:rgba(137,255,88,0.10)"><span class="module-block-name">E-post 2 — Verdi</span> <span class="module-block-note">Header → Bildebanner → Tekst (fordeler) → Tekst (sosial proof) → CTA → Footer</span></div>
+        <div class="module-block shared" style="background:rgba(137,255,88,0.05)"><span class="module-block-name">E-post 3 — Konvertering</span> <span class="module-block-note">Header → Hero (tilbud) → Produktkort × 2 → CTA → Footer</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABANDONED CART -->
+  <div class="template-section">
+    <div class="template-card">
+      <div class="template-info">
+        <div class="template-name">Abandoned cart (2 e-poster)</div>
+        <div class="template-desc">Trigger: forlatt handlekurv. E-post 1: påminnelse (1t). E-post 2: incentiv (24t).</div>
+      </div>
+      <div class="module-stack">
+        <div class="module-block shared" style="background:rgba(137,255,88,0.15)"><span class="module-block-name">E-post 1 — Påminnelse</span> <span class="module-block-note">Header → Tekst (du glemte noe) → Produktkort (kurv) → CTA → Footer</span></div>
+        <div class="module-block shared" style="background:rgba(137,255,88,0.05)"><span class="module-block-name">E-post 2 — Incentiv</span> <span class="module-block-note">Header → Tekst (siste sjanse) → Produktkort (kurv) → CTA (med rabatt) → Footer</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- POST-PURCHASE -->
+  <div class="template-section">
+    <div class="template-card">
+      <div class="template-info">
+        <div class="template-name">Post-purchase (2 e-poster)</div>
+        <div class="template-desc">Trigger: etter kjøp. E-post 1: takk + ordreinfo (umiddelbart). E-post 2: kryssalg (7d).</div>
+      </div>
+      <div class="module-stack">
+        <div class="module-block shared" style="background:rgba(137,255,88,0.15)"><span class="module-block-name">E-post 1 — Takk</span> <span class="module-block-note">Header → Tekst (takk for bestillingen) → Tekst (hva skjer nå) → Footer</span></div>
+        <div class="module-block shared" style="background:rgba(137,255,88,0.05)"><span class="module-block-name">E-post 2 — Kryssalg</span> <span class="module-block-note">Header → Tekst (basert på ditt kjøp) → Produktkort × 2 → CTA → Footer</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WIN-BACK -->
+  <div class="template-section">
+    <div class="template-card">
+      <div class="template-info">
+        <div class="template-name">Win-back (2 e-poster)</div>
+        <div class="template-desc">Trigger: 60+ dager inaktiv. E-post 1: gjenaktivering (60d). E-post 2: siste sjanse (90d).</div>
+      </div>
+      <div class="module-stack">
+        <div class="module-block shared" style="background:rgba(137,255,88,0.15)"><span class="module-block-name">E-post 1 — Vi savner deg</span> <span class="module-block-note">Header → Hero (personlig) → Tekst (hva er nytt) → CTA → Footer</span></div>
+        <div class="module-block shared" style="background:rgba(137,255,88,0.05)"><span class="module-block-name">E-post 2 — Siste sjanse</span> <span class="module-block-note">Header → Tekst (eksklusivt tilbud) → CTA (med incentiv) → Footer</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">Simpleness Design System · Nyhetsbrev-maler · v0.1</div>
+</div>
+</body>
+</html>
