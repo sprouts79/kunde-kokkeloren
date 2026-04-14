@@ -4,21 +4,23 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kokkeløren — Innholdsstrategi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:system-ui,-apple-system,sans-serif;background:#fff;color:#111;font-size:14px;line-height:1.6}
+body{font-family:"Banana Grotesk","Plus Jakarta Sans",sans-serif;-webkit-font-smoothing:antialiased;background:#fff;color:#111;font-size:14px;line-height:1.6}
 
-.topbar{background:#fff;border-bottom:1px solid #e5e5e5;display:flex;align-items:center;height:40px;padding:0 48px}
+.topbar{background:#fff;border-bottom:1px solid rgba(9,10,8,0.08);display:flex;align-items:center;height:40px;padding:0 48px}
 .topbar a{text-decoration:none;color:#111;font-size:12px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;display:flex;align-items:center;gap:0.5rem}
 .topbar a::before{content:"←";font-size:14px;text-transform:none}
-nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.97);backdrop-filter:blur(8px);border-bottom:1px solid #e5e5e5;display:flex;align-items:center;padding:0 48px;overflow-x:auto}
+nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.97);backdrop-filter:blur(8px);border-bottom:1px solid rgba(9,10,8,0.08);display:flex;align-items:center;padding:0 48px;overflow-x:auto}
 .nav-brand{font-size:14px;font-weight:600;color:#111;padding:16px 0;margin-right:48px;white-space:nowrap;flex-shrink:0}
 .nav-links{display:flex;list-style:none}
 .nav-links a{display:block;padding:16px 14px;font-size:13px;color:#999;text-decoration:none;border-bottom:2px solid transparent;transition:color .15s,border-color .15s;white-space:nowrap}
 .nav-links a:hover{color:#111}
-.nav-links a.active{color:#111;border-bottom-color:#111}
+.nav-links a.active{color:#090A08;border-bottom-color:#89FF58;font-weight:700}
 
-section{max-width:900px;margin:0 auto;padding:56px 48px;border-bottom:1px solid #e5e5e5}
+section{max-width:900px;margin:0 auto;padding:56px 48px;border-bottom:1px solid rgba(9,10,8,0.08)}
 section:last-child{border-bottom:none}
 
 .slbl{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:#999;margin-bottom:24px}
@@ -36,20 +38,20 @@ p.note{font-size:13px;color:#666;font-style:italic;padding:12px 16px;background:
 .b-red{background:#fef0f0;color:#b02a2a;border:1px solid #f5b8b8}
 .b-gray{background:#f5f5f5;color:#666;border:1px solid #ddd}
 
-.insight-card{border:1px solid #e5e5e5;margin:12px 0;padding:16px 20px}
+.insight-card{border:1px solid rgba(9,10,8,0.08);margin:12px 0;padding:16px 20px}
 .insight-card.opp{border-left:3px solid #2a6e2a;background:#f8fcf8}
 .insight-card.warn{border-left:3px solid #e8a030;background:#fdf8f0}
 .insight-title{font-size:14px;font-weight:600;color:#111;margin-bottom:4px}
 .insight-desc{font-size:13px;color:#555;line-height:1.6}
 .insight-action{font-size:12px;color:#2a6e2a;font-weight:600;margin-top:8px}
 
-.type-card{border:1px solid #e5e5e5;margin:16px 0;overflow:hidden}
-.type-head{padding:16px 20px;border-bottom:1px solid #e5e5e5;display:flex;align-items:center;justify-content:space-between}
+.type-card{border:1px solid rgba(9,10,8,0.08);margin:16px 0;overflow:hidden}
+.type-head{padding:16px 20px;border-bottom:1px solid rgba(9,10,8,0.08);display:flex;align-items:center;justify-content:space-between}
 .type-name{font-size:15px;font-weight:500;color:#111}
 .type-body{padding:16px 20px;font-size:13px;color:#444;line-height:1.7}
 .type-body p{font-size:13px;margin-bottom:8px;max-width:none}
 
-.format-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#e5e5e5;border:1px solid #e5e5e5;margin:16px 0}
+.format-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#e5e5e5;border:1px solid rgba(9,10,8,0.08);margin:16px 0}
 .format-cell{background:#fff;padding:16px 18px}
 .format-name{font-size:14px;font-weight:600;color:#111;margin-bottom:4px}
 .format-ex{font-size:12px;color:#888;font-style:italic;margin-bottom:6px}
@@ -67,7 +69,7 @@ p.note{font-size:13px;color:#666;font-style:italic;padding:12px 16px;background:
 .page-wire-toggle{font-size:11px;color:#999;margin-left:8px}
 .page-wire.open .page-wire-toggle{transform:rotate(90deg)}
 
-.pw-h1{font-size:16px;font-weight:600;color:#111;margin:0 0 12px;padding-bottom:8px;border-bottom:1px solid #e5e5e5}
+.pw-h1{font-size:16px;font-weight:600;color:#111;margin:0 0 12px;padding-bottom:8px;border-bottom:1px solid rgba(9,10,8,0.08)}
 .pw-h2{font-size:13px;font-weight:700;color:#111;margin:20px 0 6px;text-transform:uppercase;letter-spacing:.3px}
 .pw-h2:first-child{margin-top:0}
 .pw-h3{font-size:13px;font-weight:600;color:#333;margin:12px 0 4px}
@@ -82,9 +84,26 @@ p.note{font-size:13px;color:#666;font-style:italic;padding:12px 16px;background:
 .dl-btn:hover{background:#333}
 .dl-note{font-size:11px;color:#999}
 
-.link-diagram{font-family:monospace;font-size:12px;color:#666;background:#f7f7f7;padding:16px 20px;border:1px solid #e5e5e5;margin:16px 0;line-height:1.8;white-space:pre}
+.link-diagram{font-family:monospace;font-size:12px;color:#666;background:#f7f7f7;padding:16px 20px;border:1px solid rgba(9,10,8,0.08);margin:16px 0;line-height:1.8;white-space:pre}
 
 footer{max-width:900px;margin:0 auto;padding:32px 48px;font-size:12px;color:#bbb}
+
+/* ── THEME CARDS ── */
+.theme-grid{display:flex;flex-direction:column;gap:24px;margin:24px 0}
+.theme-card{border:1px solid rgba(9,10,8,0.08);overflow:hidden}
+.theme-head{padding:20px 24px;background:#fff;cursor:default}
+.theme-name{font-size:18px;font-weight:700;color:#090A08;margin-bottom:4px;letter-spacing:-0.01em}
+.theme-desc{font-size:14px;color:rgba(9,10,8,0.55);line-height:1.6}
+.theme-tag{display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:2px 7px;border-radius:2px;margin-right:6px;margin-bottom:8px}
+.theme-tag-series{background:#f0f7f0;color:#2a6e2a;border:1px solid #b8ddb8}
+.theme-tag-wip{background:#fdf3e7;color:#9a6200;border:1px solid #f5ddb0}
+.concept-list{border-top:1px solid rgba(9,10,8,0.08)}
+.concept-item{padding:16px 24px;border-bottom:1px solid rgba(9,10,8,0.06);display:flex;gap:16px;align-items:flex-start}
+.concept-item:last-child{border-bottom:none}
+.concept-num{width:24px;height:24px;flex-shrink:0;background:#89FF58;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;margin-top:1px}
+.concept-info{flex:1}
+.concept-name{font-size:14px;font-weight:700;color:#090A08;margin-bottom:2px}
+.concept-desc{font-size:13px;color:rgba(9,10,8,0.55);line-height:1.55}
 
 @media(max-width:700px){
   nav{padding:0 16px}
@@ -105,8 +124,8 @@ footer{max-width:900px;margin:0 auto;padding:32px 48px;font-size:12px;color:#bbb
   <ul class="nav-links">
     <li><a href="#innsikt" class="active">Innsikt</a></li>
     <li><a href="#sidetyper">Sidetyper</a></li>
-    <li><a href="#seo">SEO-sider</a></li>
-    <li><a href="#redaksjonelt">Redaksjonelt</a></li>
+    <li><a href="#landingssider">Landingssider</a></li>
+    <li><a href="#temaer">Redaksjonelle temaer</a></li>
   </ul>
 </nav>
 
@@ -245,8 +264,8 @@ Redaksjonelle ← soft CTA → SEO-sider</div>
 </section>
 
 <!-- 3. SEO-SIDER -->
-<section id="seo">
-  <div class="slbl">03 — SEO-landingssider</div>
+<section id="landingssider">
+  <div class="slbl">03 — Landingssider</div>
   <h1>9 sider med ferdig copy.</h1>
   <div class="subtitle">Klikk på en side for å lese teksten. Alle er faktasjekket mot kokkeloren.no.</div>
 
@@ -4708,11 +4727,10 @@ These three citable claims are optimized for AI citation and should appear promi
   </div>
 
   <p class="note"><strong>Side 05 — Matkasse tilbud</strong> er planlagt men ikke skrevet. Trenger kampanjedata fra Kokkeløren.</p>
-</section>
 
 <!-- 4. REDAKSJONELT -->
-<section id="redaksjonelt">
-  <div class="slbl">04 — Redaksjonelle sider</div>
+
+  <h2 style="margin-top:48px">Redaksjonelle artikler</h2>
   <h1>8 sider — brief og vinkling.</h1>
   <div class="subtitle">Klikk på en side for å lese briefen. Versus-sider skrives først (høyest konverteringsverdi), deretter deep dives, til slutt listicles og advertorial.</div>
 
@@ -5658,6 +5676,77 @@ Du vet hvem som har laget maten din. Og det er i en kasse for seg.
 - Betalt sosial som retargeting mot folk som har besøkt kokkeloren.no
 </script>
   </div>
+
+
+<!-- 4. REDAKSJONELLE TEMAER -->
+<section id="temaer">
+  <div class="slbl">04 — Redaksjonelle temaer</div>
+  <h1>Innholdskonsepter for Kokkeløren.</h1>
+  <div class="subtitle">Redaksjonelle serier som bygger merkevare, engasjement og tillit over tid. Hvert tema har ett eller flere konsepter som kan rulles ut på tvers av kanaler — video, artikler, nyhetsbrev og sosiale medier.</div>
+
+  <div class="theme-grid">
+
+    <!-- TEMA 1: JEG ER EN KOKKELØR -->
+    <div class="theme-card">
+      <div class="theme-head">
+        <span class="theme-tag theme-tag-series">Serie</span>
+        <div class="theme-name">Jeg er en Kokkelør</div>
+        <div class="theme-desc">Intervjuserier med kjente mennesker hvor Kokkelørens matkasse har blitt en viktig del av hverdagen. Autentiske historier om mat, hverdag og hva som skjer når noen andre har gjort jobben med å finne råvarene.</div>
+      </div>
+    </div>
+
+    <!-- TEMA 2: EKTE RÅVARER -->
+    <div class="theme-card">
+      <div class="theme-head">
+        <span class="theme-tag theme-tag-series">Serie</span>
+        <div class="theme-name">Ekte råvarer</div>
+        <div class="theme-desc">En serie med innhold som viser hvorfor Kokkelørens ingredienser gir en helt annen smakopplevelse. Fra produsent til tallerken — dokumentert, ikke påstått.</div>
+      </div>
+      <div class="concept-list">
+        <div class="concept-item">
+          <div class="concept-num">1</div>
+          <div class="concept-info">
+            <div class="concept-name">Møt våre produsenter</div>
+            <div class="concept-desc">En serie med intervjuer av våre faste lokale produsenter. Strøm-Larsen, Galåvolden Gård, Stølsvidda, Gårdsand — hvem de er, hvordan de jobber, og hvorfor det smaker forskjellig.</div>
+          </div>
+        </div>
+        <div class="concept-item">
+          <div class="concept-num">2</div>
+          <div class="concept-info">
+            <div class="concept-name">På kjøkkenet</div>
+            <div class="concept-desc">En serie som viser hvordan Kokkeløren lager sine sauser og oppskrifter fra start til slutt. Kjøkkensjef Tore tar oss med fra idé til ferdig rett.</div>
+          </div>
+        </div>
+        <div class="concept-item">
+          <div class="concept-num">3</div>
+          <div class="concept-info">
+            <div class="concept-name">Blindtest</div>
+            <div class="concept-desc">Ekte mennesker som reagerer på forskjellen mellom Kokkeløren og andre matkasser. Ikke scripted — bare ærlige reaksjoner på smak og kvalitet.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TEMA 3: KOKKESAMARBEID -->
+    <div class="theme-card">
+      <div class="theme-head">
+        <span class="theme-tag theme-tag-series">Serie</span>
+        <div class="theme-name">Kokkesamarbeid</div>
+        <div class="theme-desc">Intervjuer med kokkene vi samarbeider med og rettene de lager for oss. Hvem er menneskene bak oppskriftene, og hva tenker de når de setter sammen en meny for Kokkeløren.</div>
+      </div>
+    </div>
+
+    <!-- TEMA 4: SPONSORHISTORIE -->
+    <div class="theme-card">
+      <div class="theme-head">
+        <span class="theme-tag theme-tag-wip">WIP</span>
+        <div class="theme-name">Sponsorhistorie</div>
+        <div class="theme-desc">En serie med videoer om noen Kokkeløren sponser som har en unik historie. Format, vinkling og deltakere er under utvikling.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
 
   <div class="page-wire" id="side-R08">
     <div class="page-wire-head">
