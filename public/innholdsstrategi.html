@@ -154,9 +154,16 @@ p.note{font-size:var(--text-sm);color:rgba(9,10,8,0.6);font-style:italic;padding
 
 /* ── RESPONSIVE ── */
 @media (max-width: 640px) {
+  .nav { overflow-x: auto; -webkit-overflow-scrolling: touch; gap: 0; }
+  .nav-logo { font-size: var(--text-xs); margin-right: var(--sp-3); }
+  .nav-tab { padding: 0 var(--sp-3); font-size: var(--text-xs); }
   .wrap { padding: var(--sp-8) var(--sp-4) var(--sp-16); }
   .h1 { font-size: var(--text-5xl); }
   .format-grid { grid-template-columns: 1fr; }
+  .page-wire-head { flex-wrap: wrap; }
+  .page-wire-intent { margin-left: 0; margin-top: var(--sp-1); }
+  .theme-card { border-radius: var(--radius-md); }
+  .concept-item { gap: var(--sp-3); }
 }
 </style>
 </head>
@@ -167,8 +174,7 @@ p.note{font-size:var(--text-sm);color:rgba(9,10,8,0.6);font-style:italic;padding
 <nav class="nav">
   <div class="nav-logo">Innholdsstrategi</div>
   <button class="nav-tab on" onclick="go('innsikt',this)">Innsikt</button>
-  <button class="nav-tab" onclick="go('sidetyper',this)">Sidetyper</button>
-  <button class="nav-tab" onclick="go('landingssider',this)">Landingssider</button>
+  <button class="nav-tab" onclick="go('landingssider',this)">SEO Landingssider</button>
   <button class="nav-tab" onclick="go('temaer',this)">Redaksjonelle temaer</button>
 </nav>
 
@@ -237,8 +243,14 @@ p.note{font-size:var(--text-sm);color:rgba(9,10,8,0.6);font-style:italic;padding
 </div></div>
 
 <!-- ═════ SIDETYPER ═════ -->
-<div id="p-sidetyper" class="pg"><div class="wrap">
-<h1 class="h1">Sidetyper.</h1>
+</div></div>
+
+<!-- ═════ LANDINGSSIDER ═════ -->
+<div id="p-landingssider" class="pg"><div class="wrap">
+<h1 class="h1">SEO Landingssider.</h1>
+<p class="subtitle">16 ferdige landingssider — 9 SEO-sider og 7 redaksjonelle artikler. Klikk på en side for å se innholdet.</p>
+
+<h2 class="h2" style="margin-top:0">Sidetyper.</h2>
 <p class="subtitle">To sidetyper som ikke overlapper — SEO-landingssider og redaksjonelle artikler. Definert av format og intensjon.</p>
   <div class="type-card">
     <div class="type-head">
@@ -301,12 +313,11 @@ Geo-sider → pillar + pris-side
 Versus (R01, R02) → SEO-side 02 (beste matkasse)
 Deep dives (R06, R07) → pillar + cluster
 Redaksjonelle ← soft CTA → SEO-sider</div>
-</div></div>
 
-<!-- ═════ LANDINGSSIDER ═════ -->
-<div id="p-landingssider" class="pg"><div class="wrap">
-<h1 class="h1">Landingssider.</h1>
-<p class="subtitle">16 ferdige landingssider — 9 SEO-sider og 7 redaksjonelle artikler. Klikk på en side for å se innholdet.</p>
+<hr>
+
+<h2 class="h2">SEO-sider</h2>
+
 
 
   <div class="page-wire" id="side-01">
@@ -4769,7 +4780,7 @@ These three citable claims are optimized for AI citation and should appear promi
 
 <!-- 4. REDAKSJONELT -->
 
-  <h2 style="margin-top:48px">Redaksjonelle artikler</h2>
+  <h2 class="h2">Redaksjonelle artikler</h2>
   <h1>8 sider — brief og vinkling.</h1>
   <div class="subtitle">Klikk på en side for å lese briefen. Versus-sider skrives først (høyest konverteringsverdi), deretter deep dives, til slutt listicles og advertorial.</div>
 
@@ -5724,9 +5735,6 @@ Du vet hvem som har laget maten din. Og det er i en kasse for seg.
 <div id="p-temaer" class="pg"><div class="wrap">
 <h1 class="h1">Redaksjonelle temaer.</h1>
 <p class="subtitle">Innholdskonsepter som bygger merkevare, engasjement og tillit over tid. Hvert tema kan rulles ut på tvers av kanaler — video, artikler, nyhetsbrev og sosiale medier.</p>
-  <div class="slbl">04 — Redaksjonelle temaer</div>
-  <h1>Innholdskonsepter for Kokkeløren.</h1>
-  <div class="subtitle">Redaksjonelle serier som bygger merkevare, engasjement og tillit over tid. Hvert tema har ett eller flere konsepter som kan rulles ut på tvers av kanaler — video, artikler, nyhetsbrev og sosiale medier.</div>
 
   <div class="theme-grid">
 
