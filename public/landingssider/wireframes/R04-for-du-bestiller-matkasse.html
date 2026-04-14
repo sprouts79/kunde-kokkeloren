@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>8 ting du bør vite før du bestiller matkasse</title>
+  <meta name="description" content="Matkasse høres enkelt ut. Og det er det, stort sett. Men det er noen ting de fleste ikke tenker på før de har bestilt.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Valizas:wght@400;500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --page-bg:      #faf9f5;
+      --nav-bg:       #ffffff;
+      --body-text:    #181d27;
+      --heading-text: #3a2b2f;
+      --btn-bg:       #4f4240;
+      --btn-text:     #ffffff;
+      --btn-radius:   8px;
+      --border:       #ebe8e0;
+      --neutral-90:   #2b1d20;
+      --neutral-80:   #3a2b2f;
+      --neutral-70:   #4f4240;
+      --neutral-30:   #cecbc0;
+      --neutral-20:   #ebe8e0;
+      --neutral-10:   #faf9f5;
+      --font-display: 'Valizas', Georgia, serif;
+      --font-body:    'Plus Jakarta Sans', Helvetica, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font-body);
+      font-size: 20px;
+      line-height: 1.54;
+      color: var(--body-text);
+      background: var(--page-bg);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    nav {
+      background: var(--nav-bg);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-inner {
+      max-width: 1488px;
+      margin: 0 auto;
+      padding: 0 40px;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--heading-text);
+      text-decoration: none;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 17px;
+      color: var(--body-text);
+      text-decoration: none;
+    }
+    .nav-links a:hover { text-decoration: underline; }
+    .btn {
+      display: inline-block;
+      background: var(--btn-bg);
+      color: var(--btn-text);
+      border-radius: var(--btn-radius);
+      padding: 10px 18px;
+      font-size: 17px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+    }
+    .btn:hover { background: var(--neutral-90); color: white; }
+    .btn-light {
+      background: var(--page-bg);
+      color: var(--heading-text);
+      font-size: 18px;
+      padding: 13px 28px;
+    }
+    .btn-light:hover { background: white; color: var(--heading-text); }
+
+    .container { max-width: 1488px; margin: 0 auto; padding: 0 40px; }
+    .article-body { max-width: 740px; margin: 0 auto; }
+
+    .hero { padding: 72px 40px 56px; max-width: 1488px; margin: 0 auto; }
+    .eyebrow {
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--neutral-70);
+      margin-bottom: 20px;
+    }
+    h1 {
+      font-family: var(--font-display);
+      font-size: 56px;
+      font-weight: 500;
+      color: var(--heading-text);
+      line-height: 1.1;
+      max-width: 760px;
+      margin-bottom: 28px;
+    }
+    .hero-lead {
+      font-size: 21px;
+      line-height: 1.6;
+      color: var(--body-text);
+      max-width: 620px;
+    }
+
+    h2 {
+      font-family: var(--font-display);
+      font-size: 40px;
+      font-weight: 500;
+      color: var(--heading-text);
+      line-height: 1.15;
+      margin-bottom: 20px;
+      margin-top: 64px;
+    }
+    h2:first-child { margin-top: 0; }
+    
+    p {
+      font-size: 20px;
+      line-height: 1.6;
+      color: var(--body-text);
+      margin-bottom: 20px;
+    }
+    p:last-child { margin-bottom: 0; }
+    strong { color: var(--heading-text); }
+
+    .listicle-item {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 32px;
+      margin: 56px 0;
+      align-items: start;
+    }
+    
+    .listicle-number {
+      font-family: var(--font-display);
+      font-size: 72px;
+      font-weight: 500;
+      color: var(--neutral-20);
+      line-height: 1;
+      text-align: right;
+    }
+
+    .listicle-content h3 {
+      font-family: var(--font-display);
+      font-size: 32px;
+      font-weight: 500;
+      color: var(--heading-text);
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .listicle-content p {
+      font-size: 20px;
+      line-height: 1.6;
+      color: var(--body-text);
+      margin-bottom: 16px;
+    }
+
+    .listicle-content p:last-child {
+      margin-bottom: 0;
+    }
+
+    .cta-banner { background: var(--neutral-90); padding: 80px 40px; text-align: center; }
+    .cta-banner h2 {
+      font-family: var(--font-display);
+      font-size: 40px;
+      font-weight: 500;
+      color: white;
+      margin: 0 0 16px;
+    }
+    .cta-banner p { font-size: 20px; color: var(--neutral-30); max-width: 480px; margin: 0 auto 40px; }
+
+    footer { background: var(--neutral-90); color: var(--neutral-30); padding: 60px 40px 36px; }
+    .footer-grid {
+      max-width: 1488px; margin: 0 auto;
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px; padding-bottom: 48px;
+      border-bottom: 1px solid var(--neutral-80);
+    }
+    .footer-logo { font-family: var(--font-display); font-size: 22px; color: white; margin-bottom: 10px; }
+    .footer-tagline { font-size: 15px; line-height: 1.5; }
+    .footer-col h4 { font-size: 13px; color: white; font-weight: 600; text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 10px; }
+    .footer-col ul li a { font-size: 16px; color: var(--neutral-30); text-decoration: none; }
+    .footer-col ul li a:hover { color: white; }
+    .footer-bottom { max-width: 1488px; margin: 24px auto 0; font-size: 13px; color: var(--neutral-70); }
+
+    .wf-badge {
+      position: fixed; bottom: 20px; right: 20px;
+      background: rgba(24,29,39,0.82); color: rgba(255,255,255,0.85);
+      font-size: 11px; font-family: monospace;
+      padding: 6px 12px; border-radius: 5px; z-index: 999; pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">Kokkeløren</a>
+    <ul class="nav-links">
+      <li><a href="/var-matkasse">Vår matkasse</a></li>
+      <li><a href="/vare-produsenter">Produsenter</a></li>
+      <li><a href="/recipes">Oppskrifter</a></li>
+      <li><a href="/om-oss">Om oss</a></li>
+      <li><a href="/kasse/abonnement/matkasse" class="btn">Bestill matkasse</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="article-body">
+    <p class="eyebrow">Listicle</p>
+    <h1>8 ting du bør vite før du bestiller matkasse</h1>
+    <p class="hero-lead">Matkasse høres enkelt ut. Og det er det, stort sett. Men det er noen ting de fleste ikke tenker på før de har bestilt. Her er det du bør vite — uten filter.</p>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <div class="article-body">
+
+      <div class="listicle-item">
+        <div class="listicle-number">01</div>
+        <div class="listicle-content">
+          <h3>De fleste matkasser har ingen binding</h3>
+          <p>Det vanligste spørsmålet folk har før de bestiller er: «Binder jeg meg?» Svaret er nesten alltid nei. Kokkeløren, Godtlevert og HelloFresh har alle ingen bindingstid. Du kan bestille én uke, prøve det, og avslutte uten gebyr.</p>
+          <p>Det du bør passe på er bestillingsfristen. Hos de fleste aktører må du pause eller avbestille innen søndagen uken før levering. Glemmer du det, får du en kasse til.</p>
+        </div>
+      </div>
+
+      <div class="listicle-item">
+        <div class="listicle-number">02</div>
+        <div class="listicle-content">
+          <h3>Prisen er per uke — ikke per måned</h3>
+          <p>Når du ser «matkasse fra 580 kr», er det per uke, ikke per måned. Tre middager for to personer fra Godtlevert koster rundt 580–830 kroner per uke. Kokkeløren koster 1049 kroner per uke. HelloFresh lander på 700–800 kroner pluss levering.</p>
+          <p>Over en måned med ukentlig levering snakker vi 2300–4200 kroner, avhengig av aktør og størrelse. Det er viktig å ha det klart før du starter.</p>
+        </div>
+      </div>
+
+      <div class="listicle-item">
+        <div class="listicle-number">03</div>
+        <div class="listicle-content">
+          <h3>Matkasse erstatter ikke all mathandling</h3>
+          <p>Tre middager i uken betyr at du fortsatt trenger frokost, lunsj, helgemiddager og alt det andre. Matkasse er ikke en komplett matløsning — det er en middagsløsning for tre av ukens syv dager.</p>
+          <p>Noen aktører, som Godtlevert, lar deg legge til brød, frukt og meieriprodukter i bestillingen. Hos Kokkeløren får du kun middagsingredienser.</p>
+        </div>
+      </div>
+
+      <div class="listicle-item">
+        <div class="listicle-number">04</div>
+        <div class="listicle-content">
+          <h3>Ikke alle matkasser passer alle dietter</h3>
+          <p>Hvis du er vegetarianer, har cøliaki, eller trenger laktosefrie alternativer, sjekk nøye før du bestiller.</p>
+          <p>Godtlevert har rundt 30 naturlig glutenfrie og 30 laktosefrie retter per uke. HelloFresh har vegetarvalg og allergenmerking. Kokkeløren har ingen diettfiltrering — kokkene bestemmer menyen, og du kan ikke velge bort retter basert på allergier. Allergener er oppført per oppskrift, men du kan ikke filtrere dem bort automatisk.</p>
+        </div>
+      </div>
+
+      <div class="listicle-item">
+        <div class="listicle-number">05</div>
+        <div class="listicle-content">
+          <h3>Leveringsdag og -sted varierer</h3>
+          <p>De fleste matkasser leveres på mandager eller tirsdager. Kokkeløren leverer lørdag til tirsdag, avhengig av område. HelloFresh lar deg velge mellom søndag, mandag og tirsdag.</p>
+          <p>Du trenger ikke være hjemme — kassen settes utenfor døren. Men sjekk at leveringsadressen din dekkes. Kokkeløren leverer til Østlandet, Bergen, Sørlandet, Stavanger og Trondheim. HelloFresh og Godtlevert dekker hele Norge.</p>
+        </div>
+      </div>
+
+      <div class="listicle-item">
+        <div class="listicle-number">06</div>
+        <div class="listicle-content">
+          <h3>Tilberedningstiden er sjelden under 20 minutter</h3>
+          <p>Noen matkasser annonserer med «middag på 15 minutter». Vær realistisk. De fleste oppskrifter tar 25–40 minutter når du regner med hakking, steking og tilberedning. Noen retter tar 50–60 minutter — spesielt de med langtidssteking eller ovn.</p>
+          <p>Kokkelørens retter varierer mellom «Enkel», «Medium» og «Avansert». De enkleste rettene klarer du på 25 minutter. De mest avanserte kan ta en time. Godtlevert og HelloFresh holder seg stort sett under 30 minutter.</p>
+        </div>
+      </div>
+
+      <div class="listicle-item">
+        <div class="listicle-number">07</div>
+        <div class="listicle-content">
+          <h3>De dyreste matkassene er ikke alltid best for deg</h3>
+          <p>Kokkeløren vinner test etter test på smak og råvarekvalitet. Men det betyr ikke at det er den riktige matkassen for alle. Hvis du prioriterer valgfrihet, lavere pris, eller spesifikke diettbehov, kan en annen aktør passe bedre.</p>
+          <p>Den beste matkassen er den som passer ditt budsjett, din hverdag og dine preferanser. Ikke den som har flest terningkast 6.</p>
+        </div>
+      </div>
+
+      <div class="listicle-item">
+        <div class="listicle-number">08</div>
+        <div class="listicle-content">
+          <h3>Start med én uke — ikke fire</h3>
+          <p>De fleste aktører lokker med rabatterte førstekasser. Det er fint, men ikke la det binde deg til flere uker enn du trenger for å vurdere. Bestill én uke. Lag alle tre rettene. Vurder etterpå.</p>
+          <p>Spørsmålene du bør stille deg: Var det gøy å lage? Smakte det bra? Sparte det deg tid? Var prisen verdt opplevelsen? Svarer du ja på de fleste, bestill en uke til. Svarer du nei, avslutt. Ingen drama.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<section class="cta-banner">
+  <h2>Klar for å prøve?</h2>
+  <p>Kokkeløren gir deg tre middager med norske råvarer og hjemmelagde sauser for 1049 kr/uke. Ingen binding, ingen skjulte kostnader.</p>
+  <a href="/kasse/abonnement/matkasse" class="btn btn-light">Bestill matkasse</a>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo">Kokkeløren</div>
+      <p class="footer-tagline">En prisvinnende matkasse proppfull av smak, kjærlighet og ekte matglede</p>
+    </div>
+    <div class="footer-col">
+      <h4>Handle</h4>
+      <ul>
+        <li><a href="/var-matkasse">Vår matkasse</a></li>
+        <li><a href="/gavekort-fra-kokkeloren">Gavekort</a></li>
+        <li><a href="/vare-produsenter">Produsenter</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Kokkeløren</h4>
+      <ul>
+        <li><a href="/om-oss">Om oss</a></li>
+        <li><a href="/kontakt-oss">Kontakt</a></li>
+        <li><a href="/faq">Spørsmål</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Følg oss</h4>
+      <ul>
+        <li><a href="https://www.instagram.com/kokkeloren.no/">Instagram</a></li>
+        <li><a href="https://www.facebook.com/kokkeloren">Facebook</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2025 Kokkeløren Holding AS (917 554 145)</div>
+</footer>
+
+<div class="wf-badge">Wireframe · R04 8 ting før bestilling</div>
+
+</body>
+</html>

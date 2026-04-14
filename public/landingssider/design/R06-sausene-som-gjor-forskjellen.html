@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sausene som gjør forskjellen</title>
+  <meta name="description" content="De små boksene i Kokkeløren-kassen er grunnen til at maten smaker annerledes. Her er historien bak.">
+  <style>
+    @font-face { font-family: 'GT Flexa'; src: url('/assets/fonts/GT-Flexa-Standard-Light.woff2') format('woff2'); font-weight: 300; font-style: normal; }
+    @font-face { font-family: 'GT Flexa'; src: url('/assets/fonts/GT-Flexa-Standard-Light-Italic.woff2') format('woff2'); font-weight: 300; font-style: italic; }
+    @font-face { font-family: 'GT Flexa'; src: url('/assets/fonts/GT-Flexa-Standard-Medium.woff2') format('woff2'); font-weight: 500; font-style: normal; }
+    @font-face { font-family: 'Valizas'; src: url('/assets/fonts/ValizasWeb-Regular.woff2') format('woff2'); font-weight: 400; font-style: normal; }
+    @font-face { font-family: 'Valizas'; src: url('/assets/fonts/ValizasWeb-RegularItalic.woff2') format('woff2'); font-weight: 400; font-style: italic; }
+  </style>
+  <style>
+    :root {
+      --page-bg:      #F1EDE2;
+      --nav-bg:       #F1EDE2;
+      --body-text:    #31261D;
+      --heading-text: #31261D;
+      --btn-bg:       #31261D;
+      --btn-text:     #ffffff;
+      --btn-radius:   8px;
+      --border:       #D9D3C7;
+      --neutral-90:   #31261D;
+      --neutral-80:   #31261D;
+      --neutral-70:   #31261D;
+      --neutral-30:   #B79B68;
+      --neutral-20:   #E8E2D9;
+      --neutral-10:   #F1EDE2;
+      --font-display: 'Valizas', Georgia, serif;
+      --font-body:    'GT Flexa', Helvetica, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font-body);
+      font-size: 20px;
+      line-height: 1.54;
+      color: var(--body-text);
+      background: var(--page-bg);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    nav {
+      background: var(--nav-bg);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-inner {
+      max-width: 1488px;
+      margin: 0 auto;
+      padding: 0 40px;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--heading-text);
+      text-decoration: none;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 17px;
+      color: var(--body-text);
+      text-decoration: none;
+    }
+    .nav-links a:hover { text-decoration: underline; }
+    a.btn, a.btn:visited, .nav-links a.btn { color: #ffffff !important; }
+    .btn {
+      display: inline-block;
+      background: var(--btn-bg);
+      color: #ffffff;
+      border-radius: var(--btn-radius);
+      padding: 10px 18px;
+      font-size: 17px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+    }
+    .btn:hover { background: var(--neutral-90); color: white; }
+    .btn-light {
+      background: var(--page-bg);
+      color: var(--heading-text);
+      font-size: 18px;
+      padding: 13px 28px;
+    }
+    .btn-light:hover { background: white; color: var(--heading-text); }
+
+    .container { max-width: 1488px; margin: 0 auto; padding: 0 40px; }
+    .article-body { max-width: 740px; margin: 0 auto; }
+
+    .hero { padding: 72px 40px 56px; max-width: 1488px; margin: 0 auto; }
+    .eyebrow {
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--neutral-70);
+      margin-bottom: 20px;
+    }
+    h1 {
+      font-family: var(--font-display);
+      font-size: 56px;
+      font-weight: 500;
+      color: var(--heading-text);
+      line-height: 1.1;
+      max-width: 760px;
+      margin-bottom: 28px;
+    }
+    .hero-lead {
+      font-size: 21px;
+      line-height: 1.6;
+      color: var(--body-text);
+      max-width: 620px;
+    }
+
+    h2 {
+      font-family: var(--font-display);
+      font-size: 40px;
+      font-weight: 500;
+      color: var(--heading-text);
+      line-height: 1.15;
+      margin-bottom: 20px;
+      margin-top: 64px;
+    }
+    h2:first-child { margin-top: 0; }
+    
+    h3 {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 500;
+      color: var(--heading-text);
+      margin-bottom: 12px;
+      margin-top: 36px;
+    }
+
+    p {
+      font-size: 20px;
+      line-height: 1.6;
+      color: var(--body-text);
+      margin-bottom: 20px;
+    }
+    p:last-child { margin-bottom: 0; }
+    strong { color: var(--heading-text); }
+    blockquote {
+      font-size: 19px;
+      font-style: italic;
+      color: var(--neutral-80);
+      margin: 24px 0;
+      line-height: 1.55;
+    }
+
+    .pull-quote {
+      background: var(--neutral-20);
+      border-radius: 16px;
+      padding: 36px 40px;
+      margin: 48px 0;
+    }
+    .pull-quote p {
+      font-family: var(--font-display);
+      font-size: 26px;
+      font-weight: 500;
+      color: var(--heading-text);
+      line-height: 1.35;
+      margin: 0;
+    }
+
+    .content-box {
+      background: var(--neutral-20);
+      border-radius: 16px;
+      padding: 32px;
+      margin: 32px 0;
+    }
+
+    .cta-banner { background: var(--neutral-90); padding: 80px 40px; text-align: center; }
+    .cta-banner h2 {
+      font-family: var(--font-display);
+      font-size: 40px;
+      font-weight: 500;
+      color: white;
+      margin: 0 0 16px;
+    }
+    .cta-banner p { font-size: 20px; color: var(--neutral-30); max-width: 480px; margin: 0 auto 40px; }
+
+    footer { background: var(--neutral-90); color: var(--neutral-30); padding: 60px 40px 36px; }
+    .footer-grid {
+      max-width: 1488px; margin: 0 auto;
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px; padding-bottom: 48px;
+      border-bottom: 1px solid var(--neutral-80);
+    }
+    .footer-logo { font-family: var(--font-display); font-size: 22px; color: white; margin-bottom: 10px; }
+    .footer-tagline { font-size: 15px; line-height: 1.5; }
+    .footer-col h4 { font-size: 13px; color: white; font-weight: 600; text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 10px; }
+    .footer-col ul li a { font-size: 16px; color: var(--neutral-30); text-decoration: none; }
+    .footer-col ul li a:hover { color: white; }
+    .footer-bottom { max-width: 1488px; margin: 24px auto 0; font-size: 13px; color: var(--neutral-70); }
+
+
+    /* Hero image */
+    .hero-img {
+      width: 100%;
+      max-width: 900px;
+      margin: 40px auto 0;
+      display: block;
+      border-radius: 16px;
+      object-fit: cover;
+      aspect-ratio: 16/9;
+    }
+    /* Inline content images */
+    .content-img {
+      width: 100%;
+      border-radius: 12px;
+      object-fit: cover;
+      aspect-ratio: 16/9;
+      margin: 48px 0 16px;
+      display: block;
+    }
+    /* Social proof / reviews */
+    .reviews {
+      margin: 64px 0;
+    }
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 32px;
+    }
+    .review-card {
+      background: var(--neutral-20);
+      border-radius: 16px;
+      padding: 28px;
+    }
+    .review-card p {
+      font-size: 17px;
+      line-height: 1.65;
+      color: var(--body-text);
+      margin-bottom: 16px;
+    }
+    .review-card .reviewer {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--neutral-70);
+      margin-bottom: 0;
+    }
+    @media (max-width: 900px) {
+      .reviews-grid { grid-template-columns: 1fr; }
+    }
+    /* ── Nav logo (tekst-basert, matches kokkeloren.no) ── */
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--heading-text) !important;
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+
+    /* ── Footer — blåkopiert fra kokkeloren.no ── */
+    footer {
+      background: var(--neutral-90);
+      color: white;
+      padding: 64px 40px 32px;
+      margin-top: 80px;
+    }
+    .footer-top {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 64px;
+      margin-bottom: 48px;
+    }
+    .footer-logo {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 400;
+      color: white;
+      margin-bottom: 16px;
+    }
+    .footer-tagline {
+      font-size: 15px;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.55);
+      max-width: 260px;
+      margin-bottom: 16px;
+    }
+    .footer-contact a {
+      color: rgba(255,255,255,0.7) !important;
+      text-decoration: none;
+      font-size: 14px;
+      line-height: 2;
+      display: block;
+    }
+    .footer-contact a:hover { color: white !important; }
+    .footer-cols {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+    .footer-col h4 {
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      text-transform: none;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 16px;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      font-size: 15px;
+      line-height: 2.2;
+      display: block;
+    }
+    .footer-col a:hover { color: white; }
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 13px;
+      color: rgba(255,255,255,0.35);
+    }
+    @media (max-width: 768px) {
+      .footer-top { grid-template-columns: 1fr; gap: 40px; }
+      .footer-cols { grid-template-columns: 1fr 1fr; }
+    }
+    /* Rank card images (02-beste-matkasse) */
+    .rank-img {
+      width: 100%;
+      border-radius: 12px;
+      object-fit: cover;
+      aspect-ratio: 4/3;
+      display: block;
+      margin-bottom: 24px;
+    }
+
+    /* Body text — GT Flexa Light */
+    body { font-weight: 300; }
+    p, li, td, blockquote { font-weight: 300; }
+
+    /* FAQ accordion answer padding */
+    .accordion-content { padding-top: 4px; }
+    .accordion-content p { padding-top: 12px; }
+
+    /* CTA banner — lys bakgrunn, mørk tekst, ingen luft mot footer */
+    .cta-banner {
+      background: var(--neutral-20) !important;
+      color: var(--heading-text) !important;
+      margin-bottom: 0 !important;
+      margin-top: 80px !important;
+    }
+    .cta-banner h2 { color: var(--heading-text) !important; }
+    .cta-banner p  { color: var(--body-text) !important; opacity: 0.8; }
+    .cta-banner .btn {
+      background: var(--btn-bg) !important;
+      color: #ffffff !important;
+    }
+    .cta-banner .btn:hover { opacity: 0.85; }
+    footer { margin-top: 0 !important; }
+  </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-inner">
+      <a href="https://www.kokkeloren.no" class="nav-logo">Kokkeløren.</a>
+      <ul class="nav-links">
+        <li><a href="https://www.kokkeloren.no/var-matkasse">Vår matkasse</a></li>
+        <li><a href="https://www.kokkeloren.no/vare-produsenter">Produsenter</a></li>
+        <li><a href="https://www.kokkeloren.no/recipes">Oppskrifter</a></li>
+        <li><a href="https://www.kokkeloren.no/om-oss">Om oss</a></li>
+      </ul>
+      <a href="https://www.kokkeloren.no/bestill" class="btn">Bestill matkasse</a>
+    </div>
+  </nav>
+
+<header class="hero">
+  <div class="article-body">
+    <p class="eyebrow">Deep dive</p>
+    <h1>Sausene som gjør forskjellen</h1>
+    <p class="hero-lead">De små boksene i Kokkeløren-kassen er grunnen til at maten smaker annerledes enn alt annet du har prøvd fra en matkasse. Her er historien bak.</p>
+  <img src="/assets/images/Simpleness_Kokkeløren_1125_7019.jpg" alt="Kokkeløren matkasse" class="hero-img">
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <div class="article-body">
+
+      <h2>Hva er det egentlig i de boksene?</h2>
+      <p>Hver uke følger det med to til fire små bokser i Kokkeløren-kassen. De inneholder sauser, dressinger, marinader og pureer — alt laget fra bunnen av på Kokkelørens eget kjøkken. Ikke fra pose. Ikke fra glass. Fra en gryte, en blender og en kokk som har smakt seg frem til riktig balanse.</p>
+      <p>Dagbladet la merke til det allerede i sin matkassetest: det mest slående var nettopp de små boksene med hjemmelagde sauser, dipper og pureer.</p>
+      <p>Det høres kanskje ut som en liten detalj. Men det er denne detaljen som gjør at en hverdagsmiddag på tretti minutter kan smake som noe du ville betalt 400 kroner for på restaurant.</p>
+
+      <img src="/assets/images/Kokkeløren_0525_4949.jpg" alt="Kokkeløren" class="content-img">
+
+  <h2>Fra ferdigkjøpt til hjemmelaget — hva er forskjellen?</h2>
+      <p>De fleste matkasser bruker ferdigprodukter der det er mulig. En tacosaus fra pose. En dressing fra flaske. En buljong fra terning. Det funker, men det smaker likt hver gang — fordi det er likt hver gang.</p>
+      <p>Kokkelørens kokker lager alt selv. Noen eksempler fra de siste ukemenyene:</p>
+
+      <div class="content-box">
+        <h3>Tomatillo salsa</h3>
+        <p>Friske tomatilloer, koriander, hvitløk og lime. Brukt i burritoretten med langtidsstekt svin og tortillas fra Como México i Stavanger. En salsa du ikke finner i butikkhyllene i Norge.</p>
+      </div>
+
+      <div class="content-box">
+        <h3>Nam Prik Pao</h3>
+        <p>En thailandsk chilipasta laget med tørkede chili, tamarind, fiskesaus og palmesukker. Gir Tom Yum-suppen den dybden og kompleksiteten som skiller en autentisk thailandsk smak fra en som bare er sterk.</p>
+      </div>
+
+      <div class="content-box">
+        <h3>Soppsaus med trøffelolje</h3>
+        <p>Kremet, jordnær, med en snev av trøffel. Servert med ferske pastaplater fra La Piersante i Østfold og sprøstekt bacon fra Jæren Smak.</p>
+      </div>
+
+      <div class="content-box">
+        <h3>Gremolata</h3>
+        <p>Persille, hvitløk, sitronskall. En klassisk italiensk tilbehørssaus som løfter en enkel kjøttrett til noe du husker neste dag.</p>
+      </div>
+
+      <div class="content-box">
+        <h3>Peanøttsaus med satay</h3>
+        <p>Egenprodusert krydderblanding, peanøtter, kokosmelk, lime. Ikke den søte varianten fra butikken — denne har varme, syre og dybde.</p>
+      </div>
+
+      <h2>Hvorfor lager de alt selv?</h2>
+      <p>Det korte svaret: fordi det smaker bedre.</p>
+      <p>Det lengre svaret handler om kontroll. Når du lager en saus fra bunnen av, bestemmer du alt — mengden salt, balansen mellom syre og sødme, intensiteten i krydderet. Du smaker underveis. Du justerer. Du lander på noe som er tilpasset akkurat den retten den skal serveres med.</p>
+      <p>Ferdigprodukter er designet for å være gode nok til alt. Kokkelørens sauser er laget for å være perfekte til én ting.</p>
+      <p>Det er også derfor Kokkeløren ikke tilbyr menyvalg. Kokkene designer hele måltidet som en helhet — protein, grønnsaker, stivelse og saus som henger sammen. Sausen er ikke et tilbehør. Den er limet som binder retten.</p>
+
+      <img src="/assets/images/AVE_7145_AnneValeur.jpg" alt="Kokkeløren" class="content-img">
+
+  <h2>Kokken bak sausene</h2>
+      <p>Tore Heldal er en av Kokkelørens grunnleggere og kjøkkensjefen som designer ukens menyer og sauser. Han er kokken som dukker opp i oppskriftene med tips og triks — «Kokken Tore sier» er et fast innslag.</p>
+      <p>Tore har bakgrunn fra noen av Oslos beste restaurantkjøkken. Det merkes i sausene. En hverdagsmiddag fra Kokkeløren har en kompleksitet i smaken som du sjelden finner i noe du lager hjemme — ikke fordi oppskriften er vanskelig, men fordi sausene allerede har gjort jobben.</p>
+
+      <h2>Hva sier testene?</h2>
+      <p>Kokkeløren scorer 8,46 av 10 på smak i sin egen kundeundersøkelse (434 respondenter, 2025–2026). Det er det høyeste enkelttallet de måler. Til sammenligning scorer de 6,88 på prisopplevelse — kundene vet at de betaler mer, men smaken er grunnen til at de blir.</p>
+      <p>TV2 Hjelper deg ga Kokkeløren terningkast 6, den høyeste scoren i sin matkassetest. Testdommeren — en kokk fra Statholdergaarden — trakk frem nettopp sausene og kvaliteten på råvarene.</p>
+      <blockquote>«Det mest slående elementet var de hjemmelagde sauseboksene.» — Dagbladet</blockquote>
+      <p>Godt.no skrev i sin test at Kokkeløren gir deg mer for pengene. Maten ble beskrevet som oppfinnsom og morsom å lage.</p>
+
+      <h2>Kasseforskjell</h2>
+      <p>Det er mange matkasser i Norge. De fleste løser det samme problemet: hva skal vi ha til middag? Kokkeløren løser det problemet også. Men de gjør noe i tillegg — de lager sausene selv. Og det er den forskjellen du smaker.</p>
+      <p>Hver lille boks i kassen er et par timer med kokkehåndverk, porsjonert perfekt og klar til bruk. Du trenger ikke vite hva nam prik pao er for å lage en Tom Yum som smaker autentisk. Sausen gjør jobben for deg.</p>
+      <p>Det er faktisk kasseforskjell.</p>
+
+    </div>
+  </div>
+</main>
+  <!-- ANMELDELSER -->
+  <div class="article-body reviews">
+    <h2>Hva kundene sier</h2>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <p>«Finnes det noe sted man kan legge ut tilbakemeldinger? Jeg er vilt imponert over kvalitet, smaker, pris — kort sagt hele pakka — og anbefaler dere til alle jeg snakker med.»</p>
+        <p class="reviewer">— My</p>
+      </div>
+      <div class="review-card">
+        <p>«Tusen, tusen takk for et fantastisk måltid. Nydelige råvarer, perfekte porsjoner og den ekstra lille touchen som er helt magisk! Vi snakker varmt om dere som leverandør.»</p>
+        <p class="reviewer">— Mette</p>
+      </div>
+      <div class="review-card">
+        <p>«Risottoen som var med i forrige ukes matkasse er den beste vi noen gang har spist! Vi elsker de nye oppskriftene — noe nytt og spennende hver uke.»</p>
+        <p class="reviewer">— Julie</p>
+      </div>
+    </div>
+  </div>
+
+
+<section class="cta-banner">
+  <h2>Bestill matkasse</h2>
+  <p>Kokkeløren leverer tre middager i uken til Østlandet, Bergen, Sørlandet, Stavanger og Trondheim. Ingen binding.</p>
+  <a href="/kasse/abonnement/matkasse" class="btn btn-light">Bestill matkasse</a>
+</section>
+
+<footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">Kokkeløren.</div>
+        <p class="footer-tagline">En prisvinnende matkasse proppfull av smak, kjærlighet og ekte matglede.</p>
+        <p class="footer-contact"><a href="mailto:post@kokkeloren.no">post@kokkeloren.no</a><br><a href="tel:+4745180893">+47 451 80 893</a></p>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Handle hos oss</h4>
+          <ul>
+            <li><a href="https://www.kokkeloren.no/var-matkasse">Vår matkasse</a></li>
+            <li><a href="https://www.kokkeloren.no/handleri">Kokkelørens Handleri</a></li>
+            <li><a href="https://www.kokkeloren.no/gavekort">Gavekort</a></li>
+            <li><a href="https://www.kokkeloren.no/vare-produsenter">Våre produsenter</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Kokkeløren</h4>
+          <ul>
+            <li><a href="https://www.kokkeloren.no/om-oss">Om oss</a></li>
+            <li><a href="https://www.kokkeloren.no/kontakt">Kontakt oss</a></li>
+            <li><a href="https://www.kokkeloren.no/faq">Ofte stilte spørsmål</a></li>
+            <li><a href="https://www.kokkeloren.no/vilkar">Vilkår og garantier</a></li>
+            <li><a href="https://www.kokkeloren.no/personvern">Personvern</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Hold kontakten</h4>
+          <ul>
+            <li><a href="https://www.instagram.com/kokkeloren">Instagram</a></li>
+            <li><a href="https://www.facebook.com/kokkeloren">Facebook</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Kokkeløren Holding AS (org. 917 554 145)</p>
+    </div>
+  </footer>
+
+
+</body>
+</html>

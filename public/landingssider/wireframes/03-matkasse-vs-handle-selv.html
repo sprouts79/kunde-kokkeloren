@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Matkasse vs. Handle Selv — Hva Lønner Seg? | Kokkeløren</title>
+  <meta name="description" content="Ærlig sammenligning: Matkasse vs. å handle selv. Se på pris, matsvinn, tid og hvem det passer for.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Valizas:wght@400;500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --page-bg:      #faf9f5;
+      --nav-bg:       #ffffff;
+      --body-text:    #181d27;
+      --heading-text: #3a2b2f;
+      --btn-bg:       #4f4240;
+      --btn-text:     #ffffff;
+      --btn-radius:   8px;
+      --border:       #ebe8e0;
+      --neutral-90:   #2b1d20;
+      --neutral-80:   #3a2b2f;
+      --neutral-70:   #4f4240;
+      --neutral-30:   #cecbc0;
+      --neutral-20:   #ebe8e0;
+      --neutral-10:   #faf9f5;
+      --green:        #76b75d;
+      --green-dark:   #315923;
+      --card-radius:  24px;
+      --font-display: 'Valizas', Georgia, serif;
+      --font-body:    'Plus Jakarta Sans', Helvetica, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font-body);
+      font-size: 20px;
+      line-height: 1.54;
+      color: var(--body-text);
+      background: var(--page-bg);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    nav {
+      background: var(--nav-bg);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-inner {
+      max-width: 1488px;
+      margin: 0 auto;
+      padding: 0 40px;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+    }
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--heading-text);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 17px;
+      color: var(--body-text);
+      text-decoration: none;
+    }
+    .nav-links a:hover { text-decoration: underline; }
+
+    .btn {
+      display: inline-block;
+      background: var(--btn-bg);
+      color: var(--btn-text);
+      border-radius: var(--btn-radius);
+      padding: 10px 18px;
+      font-family: var(--font-body);
+      font-size: 17px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .btn:hover { background: var(--neutral-90); }
+
+    .container { max-width: 1488px; margin: 0 auto; padding: 0 40px; }
+    .article-body { max-width: 740px; margin: 0 auto; }
+
+    .hero { padding: 72px 40px 56px; }
+    .eyebrow {
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--neutral-70);
+      margin-bottom: 20px;
+    }
+    h1 {
+      font-family: var(--font-display);
+      font-size: 56px;
+      font-weight: 500;
+      color: var(--heading-text);
+      line-height: 1.1;
+      max-width: 800px;
+      margin-bottom: 28px;
+    }
+    .hero-lead {
+      font-size: 21px;
+      line-height: 1.6;
+      color: var(--body-text);
+      max-width: 620px;
+    }
+
+    h2 {
+      font-family: var(--font-display);
+      font-size: 40px;
+      font-weight: 500;
+      color: var(--heading-text);
+      line-height: 1.1;
+      margin: 56px 0 24px;
+    }
+
+    h3 {
+      font-family: var(--font-body);
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--heading-text);
+      margin: 32px 0 16px;
+    }
+
+    .pull-quote {
+      border-left: 4px solid var(--neutral-70);
+      padding-left: 24px;
+      font-size: 24px;
+      font-weight: 500;
+      color: var(--heading-text);
+      margin: 40px 0;
+      line-height: 1.4;
+      max-width: 600px;
+    }
+
+    .content-box {
+      background: var(--border);
+      border-radius: 16px;
+      padding: 32px;
+      margin: 32px 0;
+      line-height: 1.6;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 32px 0;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    table th, table td {
+      padding: 16px;
+      text-align: left;
+      border: 1px solid var(--border);
+    }
+    table th {
+      background: var(--border);
+      font-weight: 600;
+      color: var(--heading-text);
+    }
+    table tr:nth-child(odd) {
+      background: rgba(235, 232, 224, 0.4);
+    }
+
+    .accordion {
+      margin: 32px 0;
+    }
+    .accordion-item {
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      margin-bottom: 16px;
+      overflow: hidden;
+    }
+    .accordion-button {
+      width: 100%;
+      padding: 20px 24px;
+      background: white;
+      border: none;
+      text-align: left;
+      cursor: pointer;
+      font-family: var(--font-body);
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--heading-text);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .accordion-button:hover {
+      background: var(--page-bg);
+    }
+    .accordion-button.active {
+      background: var(--border);
+    }
+    .chevron {
+      width: 20px;
+      height: 20px;
+      transition: transform 0.3s;
+    }
+    .accordion-button.active .chevron {
+      transform: rotate(180deg);
+    }
+    .accordion-content {
+      display: none;
+      padding: 0 24px 24px;
+      background: white;
+      line-height: 1.6;
+    }
+    .accordion-item.open .accordion-content {
+      display: block;
+    }
+
+    .cta-banner {
+      background: var(--neutral-90);
+      color: white;
+      padding: 56px 40px;
+      text-align: center;
+      margin: 72px 0 0;
+    }
+    .cta-banner h2 {
+      color: white;
+      margin-bottom: 20px;
+    }
+    .cta-banner p {
+      max-width: 600px;
+      margin: 0 auto 32px;
+      font-size: 20px;
+      line-height: 1.6;
+    }
+    .cta-banner .btn {
+      background: white;
+      color: var(--heading-text);
+    }
+    .cta-banner .btn:hover {
+      background: var(--page-bg);
+    }
+
+    footer {
+      background: var(--neutral-90);
+      color: white;
+      padding: 56px 40px;
+      margin-top: 72px;
+    }
+    .footer-grid {
+      max-width: 1488px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    .footer-col h4 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+    .footer-col ul {
+      list-style: none;
+    }
+    .footer-col a {
+      color: white;
+      text-decoration: none;
+      font-size: 15px;
+      line-height: 2;
+    }
+    .footer-col a:hover { text-decoration: underline; }
+    .footer-bottom {
+      max-width: 1488px;
+      margin: 0 auto;
+      padding-top: 40px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 14px;
+    }
+
+    .wireframe-badge {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--neutral-90);
+      color: white;
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      z-index: 1000;
+    }
+
+    p {
+      margin-bottom: 16px;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    @media (max-width: 768px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      h1 {
+        font-size: 36px;
+      }
+      h2 {
+        font-size: 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">Kokkeløren</a>
+      <ul class="nav-links">
+        <li><a href="/meny">Meny</a></li>
+        <li><a href="/om-oss">Om oss</a></li>
+        <li><a href="/faq">FAQ</a></li>
+      </ul>
+      <a href="/start" class="btn">Start nå</a>
+    </div>
+  </nav>
+
+  <div class="hero">
+    <div class="article-body">
+      <div class="eyebrow">Sammenligning</div>
+      <h1>Matkasse vs. Handle Selv — Hva Lønner Seg?</h1>
+      <p class="hero-lead">Spørsmålet er berettiget. Kunne du ikke bare handle selv? Vi gir deg et ærlig svar. Regnet som det faktisk fungerer, ikke som det gjør seg best i markedsføring.</p>
+    </div>
+  </div>
+
+  <div class="article-body">
+
+    <div class="pull-quote">Så regnet slår likt, eller matkasse blir billigere, alt etter hvor disiplinert du er.</div>
+
+    <h2>Penger — Matkasse mot Dagligvare</h2>
+    <p>Det vanligste spørsmålet er om pris. Her er tallene.</p>
+
+    <p><strong>Familie på 2 personer, 3 middager per uke:</strong></p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Leverandør</th>
+          <th>Ukepris</th>
+          <th>Pris per porsjon</th>
+          <th>Kommentar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Kokkeløren</td>
+          <td>1049 kr</td>
+          <td>116,50 kr</td>
+          <td>Lokale ingredienser</td>
+        </tr>
+        <tr>
+          <td>Godtlevert</td>
+          <td>299 kr</td>
+          <td>37,50 kr</td>
+          <td>Varieret</td>
+        </tr>
+        <tr>
+          <td>HelloFresh</td>
+          <td>199 kr</td>
+          <td>24,88 kr</td>
+          <td>Billigst</td>
+        </tr>
+        <tr>
+          <td><strong>Dagligvarebutikken (vanligvis)</strong></td>
+          <td><strong>380–550 kr</strong></td>
+          <td><strong>47,50–69 kr</strong></td>
+          <td>Med impulskjøp og matsvinn</td>
+        </tr>
+        <tr>
+          <td><strong>Dagligvarebutikken (smart kjøpt)</strong></td>
+          <td><strong>240–320 kr</strong></td>
+          <td><strong>30–40 kr</strong></td>
+          <td>Planlagt, intet kastet</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Matsvinn — Det Som Vanligvis Blir Glemt</h3>
+    <p>Norske husholdninger kaster 42,6 kg mat per person per år (Matvett 2023). For en familie på fire blir det 170 kg — cirka 160 kroner per uke i søppel. Over tolv måneder blir det 8300 kroner.</p>
+    <p>Med matkasse kastes det mindre fordi du får akkurat det du trenger. Ikke syltetøy som blir dårlig, ikke tre hvitløk hvor ett blir slimet før du bruker det.</p>
+    <p>Matkasser reduserer matsvinn med opptil 60 prosent (Matvett). En familie som kastet 160 kroner per uke kan redusere det til 64 kroner. Det gjør matkassen 96 kroner billigere per uke — 5000 kroner per år.</p>
+
+    <h2>Tid — Hva Sparer du?</h2>
+    <p>Tid er penger og stress. Her er regnskapet.</p>
+    <p>Nordmenn bruker 2,5 timer per uke på matplanlegging og innkjøp (SSB 2021). Det er planlegging, liste, å sjekke hva som finnes hjemme, kjøretur og handlerunden. Med matkasse faller det bort.</p>
+    <p>Pluss: hvert dag spørsmål: hva skal vi ha? Det er mentalt overlap som forsvinner med matkasse. Beslutningen er allerede tatt.</p>
+    <p>Regnet konkret: 2,5 timer per uke ganger 52 uker blir 130 timer per år. Til gjennomsnittlig timelønn på 200 kroner blir det 26 000 kroner. Selv om matkassen koster 100 kroner mer per uke enn billigste alternativ, tjener du inn det på tiden alene.</p>
+
+    <h2>Variasjon og Ernæring</h2>
+    <p>De fleste lager de samme fem rettene hver uke. Stekt kylling. Pasta. En fiskeret. Det blir repetisjon. Du blir lei. Du lærer ingen nye teknikker.</p>
+    <p>Med matkasse møter du nye ting. Retter fra cuisiner du ikke kjenner godt. Ingredienskombiner du ikke ville tenkt på selv. Teknikker du tar med deg. Og sesongvarer som smaker noe: verse tomat fra mai til september, ikke bleke tomat fra Spania i februar.</p>
+    <p>Variert mat er bedre helse. Du får flere vitaminer og mineraler. Kokkeløren jobber med ernæringsfysiologer som sikrer at rettene dekker behovet ditt. Du vet hva du spiser.</p>
+
+    <h2>Når Matkasse IKKE Passer</h2>
+    <div class="content-box">
+      <p><strong>Mange allergi eller sjeldne diettbehov:</strong> Kokkeløren lister opp allergener per oppskrift, men har ikke automatisk allergifiltrering. Du kan bytte ingredienser kostnadsfritt. Men hvis du må justere mer enn halvparten av hver oppskrift, lønner det seg ikke.</p>
+
+      <p><strong>Du er veldig prisbeviste og disiplinert:</strong> Hvis du planlegger måltider grundig, handler bare på tilbud, aldri impulskjøper, og ikke kaster mat, kan du få det billigere selv. Det krever disiplin som få har over tid.</p>
+
+      <p><strong>Du jobber skift eller uforutsigbar arbeidstid:</strong> Du er låst til leveringsdag og oppskriftene som kommer. Kokkeløren lar deg pause en-to uker gratis, men hvis du pauser 30 prosent av året, forsvinner fordelen.</p>
+
+      <p><strong>Du har lite kjøleskapplass:</strong> En matkasse bruker plass noen dager. Hvis kjøleskapet allerede er fullt, blir det upraktisk.</p>
+    </div>
+
+    <h2>Hvem Passer Matkasse For?</h2>
+
+    <h3>Travle par uten små barn</h3>
+    <p>Du jobber fulltid, har høy tidsverdi. Matkasse sparer både timer og stress. Månedlig verdi cirka 1500–2500 kroner.</p>
+
+    <h3>Småbarnsfamilier</h3>
+    <p>Du har veldig høy tidsverdi. Småbarn stjeler hverdagen. Matkasse fjerner "hva skal vi spise?"-stresset og reduserer matsvinn fordi mat som ligger blandes fort. Månedlig verdi cirka 2500–4000 kroner.</p>
+
+    <h3>Studenter</h3>
+    <p>Du har lavt budsjett, høy kroneverdi per time. Du handler på impulser og kaster mat. Billig matkasse gir struktur. Månedlig verdi cirka 500–1500 kroner.</p>
+
+    <h3>Pensjonister (aktive)</h3>
+    <p>Du har tiden, men er lei å handle hver dag. Du liker nye retter og inspirasjon. Månedlig verdi cirka 500–2000 kroner.</p>
+
+    <h3>Hvis du er prisbeviste og har tid</h3>
+    <p>Billigere selv hvis du handler smart og bruker alt. Men det krever 2,5 timer per uke. De fleste gjør det ikke konsekvent.</p>
+
+    <h2>FAQ</h2>
+
+    <div class="accordion">
+      <div class="accordion-item open">
+        <button class="accordion-button active" onclick="toggleAccordion(this)">
+          <span>Hvor lenge tar det å koke en rett?</span>
+          <svg class="chevron" viewBox="0 0 20 20" fill="none">
+            <path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <div class="accordion-content">
+          <p>30–45 minutter fra du pakker ut til maten ligger på bordet. Samme tid som en hjemmelaget rett.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-button" onclick="toggleAccordion(this)">
+          <span>Kan jeg bytte oppskrift hvis jeg ikke liker den?</span>
+          <svg class="chevron" viewBox="0 0 20 20" fill="none">
+            <path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <div class="accordion-content">
+          <p>Kokkeløren har faste menyer — kokkene bestemmer hva som skal være med denne uken. Du kan ikke velge fritt mellom oppskrifter.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-button" onclick="toggleAccordion(this)">
+          <span>Hva hvis jeg blir syk?</span>
+          <svg class="chevron" viewBox="0 0 20 20" fill="none">
+            <path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <div class="accordion-content">
+          <p>Du pauserer. Kokkeløren tillater minst to pauser per år gratis.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-button" onclick="toggleAccordion(this)">
+          <span>Kan jeg starte og stoppe når som helst?</span>
+          <svg class="chevron" viewBox="0 0 20 20" fill="none">
+            <path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <div class="accordion-content">
+          <p>Ja. Ingen binding. Start én uke, si opp neste uke. Ingen straf. Test det bare.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-button" onclick="toggleAccordion(this)">
+          <span>Er matkasse bedre kvalitet enn butikkmat?</span>
+          <svg class="chevron" viewBox="0 0 20 20" fill="none">
+            <path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <div class="accordion-content">
+          <p>Vanligvis ja. Den er planlagt til 3–5 dager i kjøleskap, ikke 10 dager som butikkvare. Kokkeløren bruker også høyere kvalitets ingredienser fra små norske produsenter som <strong>Strøm-Larsen</strong>, <strong>Galåvolden Gård</strong> og <strong>Stølsvidda</strong>.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="cta-banner">
+    <div class="container">
+      <h2>Skal du teste?</h2>
+      <p>Hvis du er et travelt par, småbarnsfamilie, student eller pensjonist som vil ha inspirasjon — lønner det seg trolig. Det eneste du risikerer er frakt på første ordre. De fleste gir 30–50 prosent rabatt.</p>
+      <a href="/start" class="btn">Se denne ukens meny</a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Om Kokkeløren</h4>
+        <ul>
+          <li><a href="/om-oss">Om oss</a></li>
+          <li><a href="/karriere">Karriere</a></li>
+          <li><a href="/presse">Presse</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Kundeservice</h4>
+        <ul>
+          <li><a href="/faq">FAQ</a></li>
+          <li><a href="/kontakt">Kontakt oss</a></li>
+          <li><a href="/personvern">Personvern</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Ressurser</h4>
+        <ul>
+          <li><a href="/oppskrifter">Oppskrifter</a></li>
+          <li><a href="/blogg">Blogg</a></li>
+          <li><a href="/meny">Denne ukens meny</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Sosiale medier</h4>
+        <ul>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">TikTok</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Kokkeløren. Alle rettigheter reservert.</p>
+    </div>
+  </footer>
+
+  <div class="wireframe-badge">03-matkasse-vs-handle-selv.html</div>
+
+  <script>
+    function toggleAccordion(button) {
+      const item = button.closest('.accordion-item');
+      const isOpen = item.classList.contains('open');
+      
+      document.querySelectorAll('.accordion-item').forEach(i => {
+        i.classList.remove('open');
+        i.querySelector('.accordion-button').classList.remove('active');
+      });
+      
+      if (!isOpen) {
+        item.classList.add('open');
+        button.classList.add('active');
+      }
+    }
+  </script>
+
+</body>
+</html>

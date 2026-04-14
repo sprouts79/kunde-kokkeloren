@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Matkasse for Familie — Barnevennlige Middager fra Kokkeløren</title>
+  <meta name="description" content="Matkasse spesialisert for familier med barn. Fleksible porsjoner, barnevennlige oppskrifter og norske ingredienser fra Kokkeløren. Ingen bindingstid.">
+  <style>
+    @font-face { font-family: 'GT Flexa'; src: url('/assets/fonts/GT-Flexa-Standard-Light.woff2') format('woff2'); font-weight: 300; font-style: normal; }
+    @font-face { font-family: 'GT Flexa'; src: url('/assets/fonts/GT-Flexa-Standard-Light-Italic.woff2') format('woff2'); font-weight: 300; font-style: italic; }
+    @font-face { font-family: 'GT Flexa'; src: url('/assets/fonts/GT-Flexa-Standard-Medium.woff2') format('woff2'); font-weight: 500; font-style: normal; }
+    @font-face { font-family: 'Valizas'; src: url('/assets/fonts/ValizasWeb-Regular.woff2') format('woff2'); font-weight: 400; font-style: normal; }
+    @font-face { font-family: 'Valizas'; src: url('/assets/fonts/ValizasWeb-RegularItalic.woff2') format('woff2'); font-weight: 400; font-style: italic; }
+  </style>
+  <style>
+    :root {
+      --page-bg:      #F1EDE2;
+      --nav-bg:       #F1EDE2;
+      --body-text:    #31261D;
+      --heading-text: #31261D;
+      --btn-bg:       #31261D;
+      --btn-text:     #ffffff;
+      --btn-radius:   8px;
+      --border:       #D9D3C7;
+      --neutral-90:   #31261D;
+      --neutral-80:   #31261D;
+      --neutral-70:   #31261D;
+      --neutral-30:   #B79B68;
+      --neutral-20:   #E8E2D9;
+      --neutral-10:   #F1EDE2;
+      --green:        #6CC24A;
+      --green-dark:   #6CC24A;
+      --card-radius:  24px;
+      --font-display: 'Valizas', Georgia, serif;
+      --font-body:    'GT Flexa', Helvetica, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font-body);
+      font-size: 20px;
+      line-height: 1.54;
+      color: var(--body-text);
+      background: var(--page-bg);
+      -webkit-font-smoothing: antialiased;
+    }
+    nav {
+      background: var(--nav-bg);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-inner {
+      max-width: 1488px;
+      margin: 0 auto;
+      padding: 0 40px;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+    }
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--heading-text);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 17px;
+      color: var(--body-text);
+      text-decoration: none;
+    }
+    .nav-links a:hover { text-decoration: underline; }
+    a.btn, a.btn:visited, .nav-links a.btn { color: #ffffff !important; }
+    .btn {
+      display: inline-block;
+      background: var(--btn-bg);
+      color: #ffffff;
+      border-radius: var(--btn-radius);
+      padding: 10px 18px;
+      font-family: var(--font-body);
+      font-size: 17px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .btn:hover { background: var(--neutral-90); }
+    .container { max-width: 1488px; margin: 0 auto; padding: 0 40px; }
+    .article-body { max-width: 740px; margin: 0 auto; }
+    .hero { padding: 72px 40px 56px; max-width: 1488px; margin: 0 auto; }
+    .eyebrow {
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--neutral-70);
+      margin-bottom: 20px;
+    }
+    h1 {
+      font-family: var(--font-display);
+      font-size: 56px;
+      font-weight: 500;
+      color: var(--heading-text);
+      line-height: 1.1;
+      max-width: 800px;
+      margin-bottom: 28px;
+    }
+    .hero-lead {
+      font-size: 21px;
+      line-height: 1.6;
+      color: var(--body-text);
+      max-width: 620px;
+      margin-bottom: 32px;
+    }
+    h2.display {
+      font-family: var(--font-display);
+      font-size: 40px;
+      font-weight: 500;
+      color: var(--heading-text);
+      line-height: 1.15;
+      margin-top: 56px;
+      margin-bottom: 20px;
+    }
+    h2.display:first-of-type { margin-top: 0; }
+    h3 {
+      font-family: var(--font-body);
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--heading-text);
+      margin-bottom: 8px;
+      margin-top: 32px;
+    }
+    h3:first-child { margin-top: 0; }
+    p {
+      font-size: 20px;
+      line-height: 1.6;
+      color: var(--body-text);
+      margin-bottom: 20px;
+    }
+    strong { color: var(--heading-text); font-weight: 600; }
+    hr { border: none; border-top: 1px solid var(--border); margin: 64px 0; }
+    .comparison-table {
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      margin: 28px 0;
+      font-size: 15px;
+    }
+    .table-row {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--border);
+      gap: 12px;
+    }
+    .table-row:last-child { border-bottom: none; }
+    .table-row.header {
+      background: var(--neutral-20);
+      font-weight: 600;
+      font-size: 14px;
+    }
+    .faq-section { padding: 64px 0; }
+    .faq-list { list-style: none; margin-top: 36px; }
+    .faq-item { border-top: 1px solid var(--border); }
+    .faq-item:last-child { border-bottom: 1px solid var(--border); }
+    .faq-btn {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 22px 0;
+      text-align: left;
+      font-family: var(--font-body);
+      font-size: 20px;
+      color: var(--body-text);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    .faq-btn:hover { color: var(--neutral-70); }
+    .faq-icon { flex-shrink: 0; transition: transform 0.2s; }
+    .faq-content {
+      display: none;
+      font-size: 18px;
+      line-height: 1.6;
+      color: var(--body-text);
+      padding-bottom: 22px;
+    }
+    .faq-item.open .faq-content { display: block; }
+    .faq-item.open .faq-icon { transform: rotate(180deg); }
+    .cta-banner { background: var(--neutral-90); padding: 80px 40px; text-align: center; }
+    .cta-banner h2 {
+      font-family: var(--font-display);
+      font-size: 40px;
+      font-weight: 500;
+      color: white;
+      margin-bottom: 16px;
+    }
+    .cta-banner p {
+      font-size: 20px;
+      color: var(--neutral-30);
+      max-width: 480px;
+      margin: 0 auto 40px;
+    }
+    footer { background: var(--neutral-90); color: var(--neutral-30); padding: 60px 40px 36px; }
+    .footer-grid {
+      max-width: 1488px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid var(--neutral-80);
+    }
+    .footer-logo { font-family: var(--font-display); font-size: 22px; color: white; margin-bottom: 10px; }
+    .footer-tagline { font-size: 15px; line-height: 1.5; color: var(--neutral-30); }
+    .footer-col h4 {
+      font-size: 13px; color: white; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 16px;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 10px; }
+    .footer-col ul li a { font-size: 16px; color: var(--neutral-30); text-decoration: none; }
+    .footer-col ul li a:hover { color: white; }
+    .footer-bottom { max-width: 1488px; margin: 24px auto 0; font-size: 13px; color: var(--neutral-70); }
+
+    /* Hero image */
+    .hero-img {
+      width: 100%;
+      max-width: 900px;
+      margin: 40px auto 0;
+      display: block;
+      border-radius: 16px;
+      object-fit: cover;
+      aspect-ratio: 16/9;
+    }
+    /* Inline content images */
+    .content-img {
+      width: 100%;
+      border-radius: 12px;
+      object-fit: cover;
+      aspect-ratio: 16/9;
+      margin: 48px 0 16px;
+      display: block;
+    }
+    /* Social proof / reviews */
+    .reviews {
+      margin: 64px 0;
+    }
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 32px;
+    }
+    .review-card {
+      background: var(--neutral-20);
+      border-radius: 16px;
+      padding: 28px;
+    }
+    .review-card p {
+      font-size: 17px;
+      line-height: 1.65;
+      color: var(--body-text);
+      margin-bottom: 16px;
+    }
+    .review-card .reviewer {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--neutral-70);
+      margin-bottom: 0;
+    }
+    @media (max-width: 900px) {
+      .reviews-grid { grid-template-columns: 1fr; }
+    }
+    /* ── Nav logo (tekst-basert, matches kokkeloren.no) ── */
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--heading-text) !important;
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+
+    /* ── Footer — blåkopiert fra kokkeloren.no ── */
+    footer {
+      background: var(--neutral-90);
+      color: white;
+      padding: 64px 40px 32px;
+      margin-top: 80px;
+    }
+    .footer-top {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 64px;
+      margin-bottom: 48px;
+    }
+    .footer-logo {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 400;
+      color: white;
+      margin-bottom: 16px;
+    }
+    .footer-tagline {
+      font-size: 15px;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.55);
+      max-width: 260px;
+      margin-bottom: 16px;
+    }
+    .footer-contact a {
+      color: rgba(255,255,255,0.7) !important;
+      text-decoration: none;
+      font-size: 14px;
+      line-height: 2;
+      display: block;
+    }
+    .footer-contact a:hover { color: white !important; }
+    .footer-cols {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+    .footer-col h4 {
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      text-transform: none;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 16px;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      font-size: 15px;
+      line-height: 2.2;
+      display: block;
+    }
+    .footer-col a:hover { color: white; }
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 13px;
+      color: rgba(255,255,255,0.35);
+    }
+    @media (max-width: 768px) {
+      .footer-top { grid-template-columns: 1fr; gap: 40px; }
+      .footer-cols { grid-template-columns: 1fr 1fr; }
+    }
+    /* Rank card images (02-beste-matkasse) */
+    .rank-img {
+      width: 100%;
+      border-radius: 12px;
+      object-fit: cover;
+      aspect-ratio: 4/3;
+      display: block;
+      margin-bottom: 24px;
+    }
+
+    /* Body text — GT Flexa Light */
+    body { font-weight: 300; }
+    p, li, td, blockquote { font-weight: 300; }
+
+    /* FAQ accordion answer padding */
+    .accordion-content { padding-top: 4px; }
+    .accordion-content p { padding-top: 12px; }
+
+    /* CTA banner — lys bakgrunn, mørk tekst, ingen luft mot footer */
+    .cta-banner {
+      background: var(--neutral-20) !important;
+      color: var(--heading-text) !important;
+      margin-bottom: 0 !important;
+      margin-top: 80px !important;
+    }
+    .cta-banner h2 { color: var(--heading-text) !important; }
+    .cta-banner p  { color: var(--body-text) !important; opacity: 0.8; }
+    .cta-banner .btn {
+      background: var(--btn-bg) !important;
+      color: #ffffff !important;
+    }
+    .cta-banner .btn:hover { opacity: 0.85; }
+    footer { margin-top: 0 !important; }
+  </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-inner">
+      <a href="https://www.kokkeloren.no" class="nav-logo">Kokkeløren.</a>
+      <ul class="nav-links">
+        <li><a href="https://www.kokkeloren.no/var-matkasse">Vår matkasse</a></li>
+        <li><a href="https://www.kokkeloren.no/vare-produsenter">Produsenter</a></li>
+        <li><a href="https://www.kokkeloren.no/recipes">Oppskrifter</a></li>
+        <li><a href="https://www.kokkeloren.no/om-oss">Om oss</a></li>
+      </ul>
+      <a href="https://www.kokkeloren.no/bestill" class="btn">Bestill matkasse</a>
+    </div>
+  </nav>
+
+<header class="hero">
+  <div class="article-body">
+    <p class="eyebrow">Nisje · Familie</p>
+    <h1>Matkasse for Familie — Ferske oppskrifter, ingen stressende planlegging</h1>
+    <p class="hero-lead">Du får mat levert hjem. Ingredienser i riktig mengde for familien din, oppskrifter som varer cirka 20–30 minutter, og siden hele familien spiser det samme, blir det ikke tre ulike middager på kjøkkenet.</p>
+  <img src="/assets/images/Simpleness_Kokkeløren_1125_7107.jpg" alt="Kokkeløren matkasse" class="hero-img">
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <div class="article-body">
+
+      <h2 class="display">Hvorfor velge matkasse for familien</h2>
+
+      <h3>Du sparer tid</h3>
+      <p>Planlegging, dagligvarehandelen, og hvis en eller flere skal ha andre middager — det blir mange timer i løpet av uken. Med Kokkeløren blir planleggingen gjort, handelen er unna, og alle spiser det samme.</p>
+
+      <h3>Mindre matsvinn</h3>
+      <p>Du kjøper for mye når du handler selv. Med en matkasse får du akkurat hva du trenger. Ikke mer, ikke mindre.</p>
+
+      <h3>Nye oppskrifter hver uke</h3>
+      <p>De fleste familier roterer mellom åtte til ti middager, år etter år. En matkasse gir deg nye kombinasjoner hver uke. Barna er ofte mer åpne for det enn du tror.</p>
+
+      <h3>Du vet hvor ingrediensene kommer fra</h3>
+      <p>Kokkeløren bruker norske ingredienser fra små produsenter: Strøm-Larsen (pølser), Galåvolden Gård (ost), Stølsvidda (viltkjøtt). Det er dyrere enn det billigste alternativet, men det betyr noe.</p>
+
+      <img src="/assets/images/Kokkeløren_0525_4834.jpg" alt="Kokkeløren" class="content-img">
+
+  <h2 class="display">Slik fungerer familiekassen</h2>
+
+      <p>Du velger hvor mange personer og hvor mange middager per uke. Vi sender oppskrifter som varer 20–30 minutter. Alle spiser det samme — ikke separate retter.</p>
+
+      <p>Hvis barnet ditt ikke spiser ett eller flere av ingrediensene, kan du velge en annen oppskrift når du bestiller. Allergener er oppført per oppskrift — du ser dem før du bestiller.</p>
+
+      <p>Bestillingsprosessen er enkel. Logg inn, velg størrelse og hyppighet, se oppskriftene på forhånd, gjør endringer hvis du vil, velg leveringsdag. Alt kan endres ved neste leveranse.</p>
+
+      <p>Du kan pause når som helst. Ingen binding, ingen gebyr.</p>
+
+      <h2 class="display">Ernæring for barn</h2>
+
+      <p>Barn skal få minst 400 gram frukt og grønt daglig. Det skal helst være fargevariert — rødt, gult og grønt på tallerkenen. Kornprodukter som helkorn. Protein fra kjøtt, fisk, egg eller bønner, gjerne variert gjennom uken. Melkeprodukter daglig. Og fett — barn trenger fett for hjerneutviklingen.</p>
+
+      <p>Hver oppskrift i Kokkeløren familiekassen er sjekket av en ernæringsfysiolog. Vi balanserer protein, fett og karbohydrater. Vi sikrer fargevarieteten. Og vi gjør at barna gjenkjenner maten — den skal se ut og smake som noe de allerede liker.</p>
+
+      <img src="/assets/images/AVE_6874_AnneValeur.jpg" alt="Kokkeløren" class="content-img">
+
+  <h2 class="display">Kokkeløren vs. andre matkasser for familier</h2>
+
+      <div class="comparison-table">
+        <div class="table-row header">
+          <div>Faktor</div>
+          <div>Kokkeløren</div>
+          <div>Adams</div>
+          <div>Godtlevert</div>
+        </div>
+        <div class="table-row">
+          <div><strong>Norske råvarer</strong></div>
+          <div>Ja, småskalaprodusenter</div>
+          <div>Delvis</div>
+          <div>Delvis</div>
+        </div>
+        <div class="table-row">
+          <div><strong>Bindingstid</strong></div>
+          <div>Nei</div>
+          <div>Ja</div>
+          <div>Ja</div>
+        </div>
+        <div class="table-row">
+          <div><strong>Oppskriftvarighet</strong></div>
+          <div>20–30 min</div>
+          <div>20–30 min</div>
+          <div>20–30 min</div>
+        </div>
+        <div class="table-row">
+          <div><strong>Allergikoder</strong></div>
+          <div>Ja, detaljert</div>
+          <div>Begrenset</div>
+          <div>Ja</div>
+        </div>
+      </div>
+
+      <p>Kokkeløren er unik på to punkter for norske familier. Vi bruker norske råvarer fra småskalaprodusenter. Og vi har ingen bindingstid. Med Adams Matkasse og Godtlevert bindes du til flere måneder selv om livet endrer seg.</p>
+
+      <h2 class="display">Tips: Slik får du barna til å like matkasse-middager</h2>
+
+      <h3>La dem velge mellom to oppskrifter</h3>
+      <p>De velger, og nå blir det «deres» middag. Det endrer noe i hodet deres før de setter seg til bordet.</p>
+
+      <h3>La dem hjelpe</h3>
+      <p>Barn som hjelper i kjøkkenet, spiser det de har laget. Eierskap gjør maten deres, ikke matkassens.</p>
+
+      <h3>Bruk det rette språket</h3>
+      <p>Si ikke «her er hva matkassen sendte». Si «vi lager nummer tre som du valgte».</p>
+
+      <h3>Gjør nye ingredienser til spenning, ikke skrekk</h3>
+      <p>Hvis det er linser første gang: «I dag tester vi linser — italienske barn spiser det hele tiden!»</p>
+
+      <h3>Gi det tid</h3>
+      <p>Barn trenger gjerne 10–15 ganger før en smak blir OK. Hvis de ikke spiser det første gangen, si «vi prøver igjen neste uke».</p>
+
+      <hr>
+
+      <div class="faq-section">
+        <h2 class="display">FAQ — Matkasse for familier</h2>
+        <ul class="faq-list">
+          <li class="faq-item">
+            <button class="faq-btn">
+              <span>Hvor mange personer skal familiekassen være for?</span>
+              <span class="faq-icon">▼</span>
+            </button>
+            <div class="faq-content">
+              Du velger selv når du bestiller. Og du kan endre ved neste leveranse hvis familien endrer seg eller hvis en uke blir annerledes enn vanlig.
+            </div>
+          </li>
+          <li class="faq-item">
+            <button class="faq-btn">
+              <span>Hva gjør dere hvis et barn har allergi?</span>
+              <span class="faq-icon">▼</span>
+            </button>
+            <div class="faq-content">
+              Allergener er oppført per oppskrift — du ser dem når du velger. Vi kan ikke tilby spesial-dietter, men du kan velge oppskrifter som passer allergiene dine.
+            </div>
+          </li>
+          <li class="faq-item">
+            <button class="faq-btn">
+              <span>Hva hvis oppskriften ikke passer vår familie?</span>
+              <span class="faq-icon">▼</span>
+            </button>
+            <div class="faq-content">
+              Du velger oppskriftene når du bestiller — alle er synlige på forhånd. Hvis ingen passer, kan du pause eller hoppe over uken.
+            </div>
+          </li>
+          <li class="faq-item">
+            <button class="faq-btn">
+              <span>Hvor ofte skal vi få matkasse?</span>
+              <span class="faq-icon">▼</span>
+            </button>
+            <div class="faq-content">
+              Det er helt opp til deg. Noen tar to middager per uke. Andre tar tre til fire per uke, som er vanligst. Du endrer det når som helst via appen.
+            </div>
+          </li>
+          <li class="faq-item">
+            <button class="faq-btn">
+              <span>Kan vi pausere sommeren?</span>
+              <span class="faq-icon">▼</span>
+            </button>
+            <div class="faq-content">
+              Ja. Pause fra en uke til flere måneder. Ingen straff, ingen gebyr.
+            </div>
+          </li>
+          <li class="faq-item">
+            <button class="faq-btn">
+              <span>Hva med barn som er veldig kresne?</span>
+              <span class="faq-icon">▼</span>
+            </button>
+            <div class="faq-content">
+              Hvis barnet ditt bare vil nudler og kjøttboller, er det kanskje ikke løsningen akkurat nå. Men mange foreldre oppdager at når hele familien spiser det samme, blir barnet langt mindre kresent over tid.
+            </div>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</main>
+  <!-- ANMELDELSER -->
+  <div class="article-body reviews">
+    <h2>Hva kundene sier</h2>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <p>«Finnes det noe sted man kan legge ut tilbakemeldinger? Jeg er vilt imponert over kvalitet, smaker, pris — kort sagt hele pakka — og anbefaler dere til alle jeg snakker med.»</p>
+        <p class="reviewer">— My</p>
+      </div>
+      <div class="review-card">
+        <p>«Tusen, tusen takk for et fantastisk måltid. Nydelige råvarer, perfekte porsjoner og den ekstra lille touchen som er helt magisk! Vi snakker varmt om dere som leverandør.»</p>
+        <p class="reviewer">— Mette</p>
+      </div>
+      <div class="review-card">
+        <p>«Risottoen som var med i forrige ukes matkasse er den beste vi noen gang har spist! Vi elsker de nye oppskriftene — noe nytt og spennende hver uke.»</p>
+        <p class="reviewer">— Julie</p>
+      </div>
+    </div>
+  </div>
+
+
+<div class="cta-banner">
+  <h2>Bestill matkasse</h2>
+  <p>Velg Liten eller Stor familie, se oppskriftene, og start når det passer deg.</p>
+  <a href="/kasse/abonnement/matkasse" class="btn" style="background: white; color: var(--btn-bg); font-weight: 600;">Bestill nå</a>
+</div>
+
+<footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">Kokkeløren.</div>
+        <p class="footer-tagline">En prisvinnende matkasse proppfull av smak, kjærlighet og ekte matglede.</p>
+        <p class="footer-contact"><a href="mailto:post@kokkeloren.no">post@kokkeloren.no</a><br><a href="tel:+4745180893">+47 451 80 893</a></p>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Handle hos oss</h4>
+          <ul>
+            <li><a href="https://www.kokkeloren.no/var-matkasse">Vår matkasse</a></li>
+            <li><a href="https://www.kokkeloren.no/handleri">Kokkelørens Handleri</a></li>
+            <li><a href="https://www.kokkeloren.no/gavekort">Gavekort</a></li>
+            <li><a href="https://www.kokkeloren.no/vare-produsenter">Våre produsenter</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Kokkeløren</h4>
+          <ul>
+            <li><a href="https://www.kokkeloren.no/om-oss">Om oss</a></li>
+            <li><a href="https://www.kokkeloren.no/kontakt">Kontakt oss</a></li>
+            <li><a href="https://www.kokkeloren.no/faq">Ofte stilte spørsmål</a></li>
+            <li><a href="https://www.kokkeloren.no/vilkar">Vilkår og garantier</a></li>
+            <li><a href="https://www.kokkeloren.no/personvern">Personvern</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Hold kontakten</h4>
+          <ul>
+            <li><a href="https://www.instagram.com/kokkeloren">Instagram</a></li>
+            <li><a href="https://www.facebook.com/kokkeloren">Facebook</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Kokkeløren Holding AS (org. 917 554 145)</p>
+    </div>
+  </footer>
+
+
+<script>
+document.querySelectorAll('.faq-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    btn.closest('.faq-item').classList.toggle('open');
+  });
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Matkasse som gave | Kokkeløren</title>
+  <meta name="description" content="Gi matkasse i gave til matglade venner. Se hvordan du bestiller gavekort, og hvilke matkasser som passer best til ulike anledninger.">
+  <style>
+    @font-face { font-family: 'GT Flexa'; src: url('/assets/fonts/GT-Flexa-Standard-Light.woff2') format('woff2'); font-weight: 300; font-style: normal; }
+    @font-face { font-family: 'GT Flexa'; src: url('/assets/fonts/GT-Flexa-Standard-Light-Italic.woff2') format('woff2'); font-weight: 300; font-style: italic; }
+    @font-face { font-family: 'GT Flexa'; src: url('/assets/fonts/GT-Flexa-Standard-Medium.woff2') format('woff2'); font-weight: 500; font-style: normal; }
+    @font-face { font-family: 'Valizas'; src: url('/assets/fonts/ValizasWeb-Regular.woff2') format('woff2'); font-weight: 400; font-style: normal; }
+    @font-face { font-family: 'Valizas'; src: url('/assets/fonts/ValizasWeb-RegularItalic.woff2') format('woff2'); font-weight: 400; font-style: italic; }
+  </style>
+  <style>
+    :root {
+      --page-bg:      #F1EDE2;
+      --nav-bg:       #F1EDE2;
+      --body-text:    #31261D;
+      --heading-text: #31261D;
+      --btn-bg:       #31261D;
+      --btn-text:     #ffffff;
+      --btn-radius:   8px;
+      --border:       #D9D3C7;
+      --neutral-90:   #31261D;
+      --neutral-80:   #31261D;
+      --neutral-70:   #31261D;
+      --neutral-30:   #B79B68;
+      --neutral-20:   #E8E2D9;
+      --neutral-10:   #F1EDE2;
+      --green:        #6CC24A;
+      --green-dark:   #6CC24A;
+      --card-radius:  24px;
+      --font-display: 'Valizas', Georgia, serif;
+      --font-body:    'GT Flexa', Helvetica, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font-body);
+      font-size: 20px;
+      line-height: 1.54;
+      color: var(--body-text);
+      background: var(--page-bg);
+      -webkit-font-smoothing: antialiased;
+    }
+    nav {
+      background: var(--nav-bg);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-inner {
+      max-width: 1488px;
+      margin: 0 auto;
+      padding: 0 40px;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+    }
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--heading-text);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 17px;
+      color: var(--body-text);
+      text-decoration: none;
+    }
+    .nav-links a:hover { text-decoration: underline; }
+    a.btn, a.btn:visited, .nav-links a.btn { color: #ffffff !important; }
+    .btn {
+      display: inline-block;
+      background: var(--btn-bg);
+      color: #ffffff;
+      border-radius: var(--btn-radius);
+      padding: 10px 18px;
+      font-family: var(--font-body);
+      font-size: 17px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .btn:hover { background: var(--neutral-90); }
+    .container { max-width: 1488px; margin: 0 auto; padding: 0 40px; }
+    .article-body { max-width: 740px; margin: 0 auto; }
+    .hero { padding: 72px 40px 56px; max-width: 1488px; margin: 0 auto; }
+    .eyebrow {
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--neutral-70);
+      margin-bottom: 20px;
+    }
+    h1 {
+      font-family: var(--font-display);
+      font-size: 56px;
+      font-weight: 500;
+      color: var(--heading-text);
+      line-height: 1.1;
+      max-width: 800px;
+      margin-bottom: 28px;
+    }
+    .hero-lead {
+      font-size: 21px;
+      line-height: 1.6;
+      color: var(--body-text);
+      max-width: 620px;
+      margin-bottom: 32px;
+    }
+    h2.display {
+      font-family: var(--font-display);
+      font-size: 40px;
+      font-weight: 500;
+      color: var(--heading-text);
+      line-height: 1.15;
+      margin-top: 56px;
+      margin-bottom: 20px;
+    }
+    h2.display:first-of-type { margin-top: 0; }
+    h3 {
+      font-family: var(--font-body);
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--heading-text);
+      margin-bottom: 8px;
+      margin-top: 32px;
+    }
+    h3:first-child { margin-top: 0; }
+    p {
+      font-size: 20px;
+      line-height: 1.6;
+      color: var(--body-text);
+      margin-bottom: 20px;
+    }
+    p:last-child { margin-bottom: 0; }
+    strong { color: var(--heading-text); font-weight: 600; }
+    hr { border: none; border-top: 1px solid var(--border); margin: 64px 0; }
+    .comparison-table {
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      margin: 28px 0;
+      font-size: 16px;
+    }
+    .table-row {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border);
+      gap: 12px;
+    }
+    .table-row:last-child { border-bottom: none; }
+    .table-row.header {
+      background: var(--neutral-20);
+      font-weight: 600;
+      font-size: 15px;
+    }
+    .faq-section { padding: 64px 0; }
+    .faq-list { list-style: none; margin-top: 36px; }
+    .faq-item { border-top: 1px solid var(--border); }
+    .faq-item:last-child { border-bottom: 1px solid var(--border); }
+    .faq-btn {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 22px 0;
+      text-align: left;
+      font-family: var(--font-body);
+      font-size: 20px;
+      color: var(--body-text);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    .faq-btn:hover { color: var(--neutral-70); }
+    .faq-icon { flex-shrink: 0; transition: transform 0.2s; }
+    .faq-content {
+      display: none;
+      font-size: 18px;
+      line-height: 1.6;
+      color: var(--body-text);
+      padding-bottom: 22px;
+    }
+    .faq-item.open .faq-content { display: block; }
+    .faq-item.open .faq-icon { transform: rotate(180deg); }
+    .cta-banner { background: var(--neutral-90); padding: 80px 40px; text-align: center; }
+    .cta-banner h2 {
+      font-family: var(--font-display);
+      font-size: 40px;
+      font-weight: 500;
+      color: white;
+      margin-bottom: 16px;
+    }
+    .cta-banner p {
+      font-size: 20px;
+      color: var(--neutral-30);
+      max-width: 480px;
+      margin: 0 auto 40px;
+    }
+    footer { background: var(--neutral-90); color: var(--neutral-30); padding: 60px 40px 36px; }
+    .footer-grid {
+      max-width: 1488px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid var(--neutral-80);
+    }
+    .footer-logo { font-family: var(--font-display); font-size: 22px; color: white; margin-bottom: 10px; }
+    .footer-tagline { font-size: 15px; line-height: 1.5; color: var(--neutral-30); }
+    .footer-col h4 {
+      font-size: 13px; color: white; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 16px;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 10px; }
+    .footer-col ul li a { font-size: 16px; color: var(--neutral-30); text-decoration: none; }
+    .footer-col ul li a:hover { color: white; }
+    .footer-bottom { max-width: 1488px; margin: 24px auto 0; font-size: 13px; color: var(--neutral-70); }
+
+    /* Hero image */
+    .hero-img {
+      width: 100%;
+      max-width: 900px;
+      margin: 40px auto 0;
+      display: block;
+      border-radius: 16px;
+      object-fit: cover;
+      aspect-ratio: 16/9;
+    }
+    /* Inline content images */
+    .content-img {
+      width: 100%;
+      border-radius: 12px;
+      object-fit: cover;
+      aspect-ratio: 16/9;
+      margin: 48px 0 16px;
+      display: block;
+    }
+    /* Social proof / reviews */
+    .reviews {
+      margin: 64px 0;
+    }
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 32px;
+    }
+    .review-card {
+      background: var(--neutral-20);
+      border-radius: 16px;
+      padding: 28px;
+    }
+    .review-card p {
+      font-size: 17px;
+      line-height: 1.65;
+      color: var(--body-text);
+      margin-bottom: 16px;
+    }
+    .review-card .reviewer {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--neutral-70);
+      margin-bottom: 0;
+    }
+    @media (max-width: 900px) {
+      .reviews-grid { grid-template-columns: 1fr; }
+    }
+    /* ── Nav logo (tekst-basert, matches kokkeloren.no) ── */
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--heading-text) !important;
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+
+    /* ── Footer — blåkopiert fra kokkeloren.no ── */
+    footer {
+      background: var(--neutral-90);
+      color: white;
+      padding: 64px 40px 32px;
+      margin-top: 80px;
+    }
+    .footer-top {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 64px;
+      margin-bottom: 48px;
+    }
+    .footer-logo {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 400;
+      color: white;
+      margin-bottom: 16px;
+    }
+    .footer-tagline {
+      font-size: 15px;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.55);
+      max-width: 260px;
+      margin-bottom: 16px;
+    }
+    .footer-contact a {
+      color: rgba(255,255,255,0.7) !important;
+      text-decoration: none;
+      font-size: 14px;
+      line-height: 2;
+      display: block;
+    }
+    .footer-contact a:hover { color: white !important; }
+    .footer-cols {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+    .footer-col h4 {
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      text-transform: none;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 16px;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      font-size: 15px;
+      line-height: 2.2;
+      display: block;
+    }
+    .footer-col a:hover { color: white; }
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 13px;
+      color: rgba(255,255,255,0.35);
+    }
+    @media (max-width: 768px) {
+      .footer-top { grid-template-columns: 1fr; gap: 40px; }
+      .footer-cols { grid-template-columns: 1fr 1fr; }
+    }
+    /* Rank card images (02-beste-matkasse) */
+    .rank-img {
+      width: 100%;
+      border-radius: 12px;
+      object-fit: cover;
+      aspect-ratio: 4/3;
+      display: block;
+      margin-bottom: 24px;
+    }
+
+    /* Body text — GT Flexa Light */
+    body { font-weight: 300; }
+    p, li, td, blockquote { font-weight: 300; }
+
+    /* FAQ accordion answer padding */
+    .accordion-content { padding-top: 4px; }
+    .accordion-content p { padding-top: 12px; }
+
+    /* CTA banner — lys bakgrunn, mørk tekst, ingen luft mot footer */
+    .cta-banner {
+      background: var(--neutral-20) !important;
+      color: var(--heading-text) !important;
+      margin-bottom: 0 !important;
+      margin-top: 80px !important;
+    }
+    .cta-banner h2 { color: var(--heading-text) !important; }
+    .cta-banner p  { color: var(--body-text) !important; opacity: 0.8; }
+    .cta-banner .btn {
+      background: var(--btn-bg) !important;
+      color: #ffffff !important;
+    }
+    .cta-banner .btn:hover { opacity: 0.85; }
+    footer { margin-top: 0 !important; }
+  </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-inner">
+      <a href="https://www.kokkeloren.no" class="nav-logo">Kokkeløren.</a>
+      <ul class="nav-links">
+        <li><a href="https://www.kokkeloren.no/var-matkasse">Vår matkasse</a></li>
+        <li><a href="https://www.kokkeloren.no/vare-produsenter">Produsenter</a></li>
+        <li><a href="https://www.kokkeloren.no/recipes">Oppskrifter</a></li>
+        <li><a href="https://www.kokkeloren.no/om-oss">Om oss</a></li>
+      </ul>
+      <a href="https://www.kokkeloren.no/bestill" class="btn">Bestill matkasse</a>
+    </div>
+  </nav>
+
+<header class="hero">
+  <div class="article-body">
+    <p class="eyebrow">Gave · Nisje</p>
+    <h1>Matkasse som gave — Den perfekte gaven for matglade</h1>
+    <p class="hero-lead">Matkasse som gave er praktisk. Den blir brukt, uke etter uke. Mottakeren får ferske ingredienser og oppskrifter levert hjem, alt porsjonert og planlagt.</p>
+  <img src="/assets/images/Simpleness_Kokkeløren_1125_6051_V2.jpg" alt="Kokkeløren matkasse" class="hero-img">
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <div class="article-body">
+
+      <h2 class="display">Hvorfor gi mat som gave?</h2>
+      <p>Nordmenn liker praktiske gaver. En matkasse blir brukt, og hele familien deler det. Det blir ikke rotete matlagning — oppskriftene er enkle, ingrediensene ligger klar.</p>
+      <p>58 prosent av nordmenn søker etter måter å spise bedre på. En matkasse med varierte ingredienser fra norske produsenter treffer akkurat det.</p>
+
+      <img src="/assets/images/Kokkeløren_0525_1070.jpg" alt="Kokkeløren" class="content-img">
+
+  <h2 class="display">Hvorfor er matkasse som gave så praktisk?</h2>
+      <p>Du slipper å gjette. Ikke størrelse, ikke farge, ikke stil. Bare noe som blir brukt hver uke.</p>
+      <p>Det er enkelt. Kokkeløren velger menyen for deg — tre nye retter hver uke, bestemt av kokkene. Du slipper å planlegge eller velge oppskrifter. Allergeninformasjon er tilgjengelig per rett.</p>
+      <p>Og prisen er rettferdig. Du sender mange uker med ordentlig middag uten å bruke tusenlapper.</p>
+
+      <h2 class="display">Slik bestiller du matkasse som gave</h2>
+
+      <h3>Gavekort eller direkte abonnement?</h3>
+      <p><strong>Gavekort:</strong> Mottakeren velger selv. Trygt hvis du er usikker på preferanser eller allergi.</p>
+      <p><strong>Direkte abonnement:</strong> Du velger matkassen, og vi sender den rett til dem. Raskere og mer personlig hvis du kjenner hva de liker.</p>
+
+      <h3>Hvor lenge?</h3>
+      <p>En boks er fint for testing. En måned som takk. Tre eller seks måneder blir ordentlig.</p>
+
+      <h3>Skriv en kort hilsen</h3>
+      <p>Et par setninger om hvorfor du valgte Kokkeløren. Det viser at du har tenkt på dem.</p>
+
+      <h3>Send</h3>
+      <p>Første boks ankommer normalt tre til fem dager etter du bestiller.</p>
+
+      <img src="/assets/images/AVE_6680_AnneValeur.jpg" alt="Kokkeløren" class="content-img">
+
+  <h2 class="display">Kokkeløren vs. konkurrentene</h2>
+
+      <div class="comparison-table">
+        <div class="table-row header">
+          <div>Matkasse</div>
+          <div>Gavekort</div>
+          <div>Direkte</div>
+          <div>Min lengde</div>
+          <div>Fleksibilitet</div>
+        </div>
+        <div class="table-row">
+          <div><strong>Kokkeløren</strong></div>
+          <div>Ja</div>
+          <div>Ja</div>
+          <div>1 boks</div>
+          <div>Pause når som helst</div>
+        </div>
+        <div class="table-row">
+          <div><strong>Godtlevert</strong></div>
+          <div>Ja</div>
+          <div>Ja</div>
+          <div>1 måned</div>
+          <div>Faste måneder</div>
+        </div>
+        <div class="table-row">
+          <div><strong>HelloFresh</strong></div>
+          <div>Ja</div>
+          <div>Ja</div>
+          <div>1 måned</div>
+          <div>Mange valg</div>
+        </div>
+        <div class="table-row">
+          <div><strong>Adams</strong></div>
+          <div>Ja</div>
+          <div>Ja</div>
+          <div>4 uker</div>
+          <div>Færre valg</div>
+        </div>
+      </div>
+
+      <p>Kokkeløren er mest fleksibel. Du kan kjøpe en enkelt boks eller tolv måneder. Mottakeren kan pausere eller stanse når som helst uten å forklare seg.</p>
+
+      <h2 class="display">Beste matkasse-gaver til ulike anledninger</h2>
+
+      <h3>Julegave</h3>
+      <p>Gi tre måneder. Jul er når folk har minst tid til planlegging og mest bruk for hjelp med middag.</p>
+
+      <h3>Bursdagsgave</h3>
+      <p>En måned eller et gavekort. Personlig uten å være bindende.</p>
+
+      <h3>Bryllupsgave eller gave til nygifte</h3>
+      <p>To til tre måneder. Praktisk når de skal etablere seg og lage mat i sitt eget hjem.</p>
+
+      <h3>Takk til venn eller familie</h3>
+      <p>En boks eller et gavekort. Ikke stor, men meningsfull.</p>
+
+      <h3>Housewarming eller nye naboer</h3>
+      <p>En matkasse er praktisk når innflyttere har lite tid til planlegging.</p>
+
+      <h3>For de som jobber mye eller har små barn</h3>
+      <p>Gi seks måneder. Du gir en gave som gjør hverdagen enklere.</p>
+
+      <hr>
+
+      <div class="faq-section">
+        <h2 class="display">FAQ — Matkasse som gave</h2>
+        <ul class="faq-list">
+          <li class="faq-item">
+            <button class="faq-btn">
+              <span>Kan mottageren bytte eller stanse?</span>
+              <span class="faq-icon">▼</span>
+            </button>
+            <div class="faq-content">
+              Ja. Når som helst, uten å forklare seg. De kan bytte variant, pausere, eller stanse. Ingen dårlig samvittighet.
+            </div>
+          </li>
+          <li class="faq-item">
+            <button class="faq-btn">
+              <span>Når ankommer første boks?</span>
+              <span class="faq-icon">▼</span>
+            </button>
+            <div class="faq-content">
+              Normalt tre til fem dager. Raskt nok til siste minutts-gave.
+            </div>
+          </li>
+          <li class="faq-item">
+            <button class="faq-btn">
+              <span>Hva hvis de ikke liker det vi velger?</span>
+              <span class="faq-icon">▼</span>
+            </button>
+            <div class="faq-content">
+              Kjøp et gavekort i stedet. Da velger de selv. Eller spør dem uformelt om preferanser.
+            </div>
+          </li>
+          <li class="faq-item">
+            <button class="faq-btn">
+              <span>Kan jeg gi det som e-gave?</span>
+              <span class="faq-icon">▼</span>
+            </button>
+            <div class="faq-content">
+              Ja. Gavekort både fysisk og digitalt. E-gavekort kan sendes samme dag.
+            </div>
+          </li>
+          <li class="faq-item">
+            <button class="faq-btn">
+              <span>Hva hvis de er på ferie første uke?</span>
+              <span class="faq-icon">▼</span>
+            </button>
+            <div class="faq-content">
+              De kan pausere før første boks ankommer. To minutter i appen.
+            </div>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</main>
+  <!-- ANMELDELSER -->
+  <div class="article-body reviews">
+    <h2>Hva kundene sier</h2>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <p>«Finnes det noe sted man kan legge ut tilbakemeldinger? Jeg er vilt imponert over kvalitet, smaker, pris — kort sagt hele pakka — og anbefaler dere til alle jeg snakker med.»</p>
+        <p class="reviewer">— My</p>
+      </div>
+      <div class="review-card">
+        <p>«Tusen, tusen takk for et fantastisk måltid. Nydelige råvarer, perfekte porsjoner og den ekstra lille touchen som er helt magisk! Vi snakker varmt om dere som leverandør.»</p>
+        <p class="reviewer">— Mette</p>
+      </div>
+      <div class="review-card">
+        <p>«Risottoen som var med i forrige ukes matkasse er den beste vi noen gang har spist! Vi elsker de nye oppskriftene — noe nytt og spennende hver uke.»</p>
+        <p class="reviewer">— Julie</p>
+      </div>
+    </div>
+  </div>
+
+
+<div class="cta-banner">
+  <h2>Bestill matkasse</h2>
+  <p>Velg lengde, skriv en personlig melding, og vi sender den direkte til mottakeren.</p>
+  <a href="/kasse/gave" class="btn" style="background: white; color: var(--btn-bg); font-weight: 600;">Bestill gavekort</a>
+</div>
+
+<footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">Kokkeløren.</div>
+        <p class="footer-tagline">En prisvinnende matkasse proppfull av smak, kjærlighet og ekte matglede.</p>
+        <p class="footer-contact"><a href="mailto:post@kokkeloren.no">post@kokkeloren.no</a><br><a href="tel:+4745180893">+47 451 80 893</a></p>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Handle hos oss</h4>
+          <ul>
+            <li><a href="https://www.kokkeloren.no/var-matkasse">Vår matkasse</a></li>
+            <li><a href="https://www.kokkeloren.no/handleri">Kokkelørens Handleri</a></li>
+            <li><a href="https://www.kokkeloren.no/gavekort">Gavekort</a></li>
+            <li><a href="https://www.kokkeloren.no/vare-produsenter">Våre produsenter</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Kokkeløren</h4>
+          <ul>
+            <li><a href="https://www.kokkeloren.no/om-oss">Om oss</a></li>
+            <li><a href="https://www.kokkeloren.no/kontakt">Kontakt oss</a></li>
+            <li><a href="https://www.kokkeloren.no/faq">Ofte stilte spørsmål</a></li>
+            <li><a href="https://www.kokkeloren.no/vilkar">Vilkår og garantier</a></li>
+            <li><a href="https://www.kokkeloren.no/personvern">Personvern</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Hold kontakten</h4>
+          <ul>
+            <li><a href="https://www.instagram.com/kokkeloren">Instagram</a></li>
+            <li><a href="https://www.facebook.com/kokkeloren">Facebook</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Kokkeløren Holding AS (org. 917 554 145)</p>
+    </div>
+  </footer>
+
+
+<script>
+document.querySelectorAll('.faq-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    btn.closest('.faq-item').classList.toggle('open');
+  });
+});
+</script>
+
+</body>
+</html>

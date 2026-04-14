@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Matkasse Trondheim | Premium levering fra Kokkeløren 2026</title>
+  <meta name="description" content="Matkasse levering til Trondheim? Sammenligning av Kokkeløren, Godtlevert og HelloFresh. Pris, kvalitet og leveringsdager i Trondheim-området.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Valizas:wght@400;500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --page-bg:      #faf9f5;
+      --nav-bg:       #ffffff;
+      --body-text:    #181d27;
+      --heading-text: #3a2b2f;
+      --btn-bg:       #4f4240;
+      --btn-text:     #ffffff;
+      --btn-radius:   8px;
+      --border:       #ebe8e0;
+      --neutral-90:   #2b1d20;
+      --neutral-80:   #3a2b2f;
+      --neutral-70:   #4f4240;
+      --neutral-30:   #cecbc0;
+      --neutral-20:   #ebe8e0;
+      --neutral-10:   #faf9f5;
+      --green:        #76b75d;
+      --green-dark:   #315923;
+      --card-radius:  24px;
+      --font-display: 'Valizas', Georgia, serif;
+      --font-body:    'Plus Jakarta Sans', Helvetica, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font-body);
+      font-size: 20px;
+      line-height: 1.54;
+      color: var(--body-text);
+      background: var(--page-bg);
+      -webkit-font-smoothing: antialiased;
+    }
+    nav {
+      background: var(--nav-bg);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-inner {
+      max-width: 1488px;
+      margin: 0 auto;
+      padding: 0 40px;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+    }
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--heading-text);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 17px;
+      color: var(--body-text);
+      text-decoration: none;
+    }
+    .nav-links a:hover { text-decoration: underline; }
+    .btn {
+      display: inline-block;
+      background: var(--btn-bg);
+      color: var(--btn-text);
+      border-radius: var(--btn-radius);
+      padding: 10px 18px;
+      font-family: var(--font-body);
+      font-size: 17px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .btn:hover { background: var(--neutral-90); }
+    .container { max-width: 1488px; margin: 0 auto; padding: 0 40px; }
+    .article-body { max-width: 740px; margin: 0 auto; }
+    .hero { padding: 72px 40px 56px; max-width: 1488px; margin: 0 auto; }
+    .eyebrow {
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--neutral-70);
+      margin-bottom: 20px;
+    }
+    h1 {
+      font-family: var(--font-display);
+      font-size: 56px;
+      font-weight: 500;
+      color: var(--heading-text);
+      line-height: 1.1;
+      max-width: 800px;
+      margin-bottom: 28px;
+    }
+    .hero-lead {
+      font-size: 21px;
+      line-height: 1.6;
+      color: var(--body-text);
+      max-width: 620px;
+      margin-bottom: 32px;
+    }
+    h2.display {
+      font-family: var(--font-display);
+      font-size: 40px;
+      font-weight: 500;
+      color: var(--heading-text);
+      line-height: 1.15;
+      margin-top: 56px;
+      margin-bottom: 20px;
+    }
+    h2.display:first-of-type { margin-top: 0; }
+    h3 {
+      font-family: var(--font-body);
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--heading-text);
+      margin-bottom: 8px;
+      margin-top: 32px;
+    }
+    h3:first-child { margin-top: 0; }
+    p {
+      font-size: 20px;
+      line-height: 1.6;
+      color: var(--body-text);
+      margin-bottom: 20px;
+    }
+    strong { color: var(--heading-text); font-weight: 600; }
+    hr { border: none; border-top: 1px solid var(--border); margin: 64px 0; }
+    .comparison-table {
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      margin: 28px 0;
+      font-size: 15px;
+    }
+    .table-row {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr 1fr 1.2fr;
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--border);
+      gap: 12px;
+    }
+    .table-row:last-child { border-bottom: none; }
+    .table-row.header {
+      background: var(--neutral-20);
+      font-weight: 600;
+      font-size: 14px;
+    }
+    .faq-section { padding: 64px 0; }
+    .faq-list { list-style: none; margin-top: 36px; }
+    .faq-item { border-top: 1px solid var(--border); }
+    .faq-item:last-child { border-bottom: 1px solid var(--border); }
+    .faq-btn {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 22px 0;
+      text-align: left;
+      font-family: var(--font-body);
+      font-size: 20px;
+      color: var(--body-text);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    .faq-btn:hover { color: var(--neutral-70); }
+    .faq-icon { flex-shrink: 0; transition: transform 0.2s; }
+    .faq-content {
+      display: none;
+      font-size: 18px;
+      line-height: 1.6;
+      color: var(--body-text);
+      padding-bottom: 22px;
+    }
+    .faq-item.open .faq-content { display: block; }
+    .faq-item.open .faq-icon { transform: rotate(180deg); }
+    .cta-banner { background: var(--neutral-90); padding: 80px 40px; text-align: center; }
+    .cta-banner h2 {
+      font-family: var(--font-display);
+      font-size: 40px;
+      font-weight: 500;
+      color: white;
+      margin-bottom: 16px;
+    }
+    .cta-banner p {
+      font-size: 20px;
+      color: var(--neutral-30);
+      max-width: 480px;
+      margin: 0 auto 40px;
+    }
+    footer { background: var(--neutral-90); color: var(--neutral-30); padding: 60px 40px 36px; }
+    .footer-grid {
+      max-width: 1488px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid var(--neutral-80);
+    }
+    .footer-logo { font-family: var(--font-display); font-size: 22px; color: white; margin-bottom: 10px; }
+    .footer-tagline { font-size: 15px; line-height: 1.5; color: var(--neutral-30); }
+    .footer-col h4 {
+      font-size: 13px; color: white; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 16px;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 10px; }
+    .footer-col ul li a { font-size: 16px; color: var(--neutral-30); text-decoration: none; }
+    .footer-col ul li a:hover { color: white; }
+    .footer-bottom { max-width: 1488px; margin: 24px auto 0; font-size: 13px; color: var(--neutral-70); }
+    .wf-badge {
+      position: fixed; bottom: 20px; right: 20px;
+      background: rgba(24,29,39,0.82); color: rgba(255,255,255,0.85);
+      font-size: 11px; font-family: monospace;
+      padding: 6px 12px; border-radius: 5px; z-index: 999; pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">Kokkeløren</a>
+    <ul class="nav-links">
+      <li><a href="/var-matkasse">Vår matkasse</a></li>
+      <li><a href="/vare-produsenter">Produsenter</a></li>
+      <li><a href="/recipes">Oppskrifter</a></li>
+      <li><a href="/om-oss">Om oss</a></li>
+      <li><a href="/kasse/abonnement/matkasse" class="btn">Bestill matkasse</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="article-body">
+    <p class="eyebrow">Geo guide · Midt-Norge</p>
+    <h1>Matkasse Trondheim — Lokal levering fra Kokkeløren</h1>
+    <p class="hero-lead">Kokkeløren leverer matkasse til Trondheim og omegn. Flere andre aktører gjør det også — Godtlevert, HelloFresh, Adams. Her er det du må vite for å velge riktig.</p>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <div class="article-body">
+
+      <h2 class="display">Levering i Trondheim — hvor og når</h2>
+
+      <h3>Sjekk postnummeret ditt først</h3>
+      <p>Gå til kokkeloren.no og skriv inn postnummeret ditt. Du får svar med det samme. Kokkeløren dekker de fleste områder i Trondheim — sentrum, Lerkendal, Moholt, Flatåsen, Hommelvik, Malvik, Melhus, Ranheim. Men dekningen varierer, så sjekk først.</p>
+
+      <h3>Leveringsdager</h3>
+      <p>Maten kommer tirsdag til lørdag, 7–18. Du velger selv hvilken dag, og kan endre den hver uke.</p>
+
+      <h3>Levering koster ingenting</h3>
+      <p>Frakt er inkludert i prisen. Du betaler ikke ekstra.</p>
+
+      <h2 class="display">Pris og abonnement</h2>
+
+      <h3>Hva koster det?</h3>
+      <p>En boks koster fra 249 kr. Det gir 3–4 porsjoner, så 62–83 kr per porsjon. Leveringen er gratis. Hvis du bestiller fire bokser i måneden, bruker du omkring 996 kr totalt.</p>
+
+      <h3>Slik fungerer det</h3>
+      <p>Du velger bokser hver uke. Leveransen kommer på den dagen du valgte. Du kan endre valget ditt til fredag før leveringen. Pause, endre antall eller avbryte når som helst — uten kontrakt, uten gebyrer.</p>
+
+      <h2 class="display">Hvilke matkasser leverer til Trondheim?</h2>
+
+      <div class="comparison-table">
+        <div class="table-row header">
+          <div>Matkasse</div>
+          <div>Leverer</div>
+          <div>Leveringsdager</div>
+          <div>Startpris</div>
+          <div>Spesialitet</div>
+        </div>
+        <div class="table-row">
+          <div><strong>Kokkeløren</strong></div>
+          <div>De fleste områder</div>
+          <div>Tir–lør</div>
+          <div>249 kr/boks</div>
+          <div>Premium, norsk</div>
+        </div>
+        <div class="table-row">
+          <div><strong>Godtlevert</strong></div>
+          <div>Sentrale områder</div>
+          <div>Tir–tor</div>
+          <div>199 kr/boks</div>
+          <div>Bredt utvalg</div>
+        </div>
+        <div class="table-row">
+          <div><strong>HelloFresh</strong></div>
+          <div>Begrenset</div>
+          <div>Man–fre</div>
+          <div>189 kr/boks</div>
+          <div>Internasjonal</div>
+        </div>
+        <div class="table-row">
+          <div><strong>Adams</strong></div>
+          <div>Begrenset</div>
+          <div>Ons–fre</div>
+          <div>159 kr/boks</div>
+          <div>Budsjett</div>
+        </div>
+      </div>
+
+      <h2 class="display">Hva skiller Kokkeløren fra resten</h2>
+
+      <h3>Norske ingredienser</h3>
+      <p>Kokkeløren bruker produsenter som er her hjemme. Laks fra norske fjorder, kjøtt fra gårder med navn, grønnsaker fra gårdene rundt Trondheim.</p>
+
+      <h3>Oppskrifter som passer din hverdag</h3>
+      <p>Kjøkkensjefen bruker norske ingredienser og sesongvariasjon. Alle ingrediensene du trenger står på listen. Du skal ikke trenge å kjøpe tre eksotiske krydderi du aldri bruker.</p>
+
+      <h3>Fleksibilitet</h3>
+      <p>Du kan endre menyen hver uke. Vegetar nå, kjøtt neste uke. Pause i tre måneder. Bare ikke bestill når du blir borte. Ingen kontrakt. Ingen begrensninger.</p>
+
+      <h3>Gjenbrukbar emballasje</h3>
+      <p>Maten kommer i en kjølbar eske. Når neste leveranse ankommer, tar kurèren esken med seg tilbake. Den brukes igjen.</p>
+
+      <h3>Norsk kundeservice</h3>
+      <p>Kokkeløren er norsk. Kundeservice svarer på norsk fra mennesker som forstår hvordan det er å være her.</p>
+
+      <h2 class="display">Prissammenligning — Pris per porsjon</h2>
+
+      <div class="comparison-table">
+        <div class="table-row header">
+          <div>Matkasse</div>
+          <div>Pris per boks</div>
+          <div>Porsjoner</div>
+          <div>Per porsjon</div>
+          <div>Måned</div>
+        </div>
+        <div class="table-row">
+          <div><strong>Kokkeløren</strong></div>
+          <div>249 kr</div>
+          <div>3–4</div>
+          <div>62–83 kr</div>
+          <div>996 kr</div>
+        </div>
+        <div class="table-row">
+          <div><strong>Godtlevert</strong></div>
+          <div>199 kr</div>
+          <div>3–4</div>
+          <div>50–66 kr</div>
+          <div>796 kr</div>
+        </div>
+        <div class="table-row">
+          <div><strong>HelloFresh</strong></div>
+          <div>189 kr</div>
+          <div>2–4</div>
+          <div>47–95 kr</div>
+          <div>756 kr</div>
+        </div>
+        <div class="table-row">
+          <div><strong>Adams</strong></div>
+          <div>159 kr</div>
+          <div>3</div>
+          <div>53 kr</div>
+          <div>636 kr</div>
+        </div>
+      </div>
+
+      <p>Kokkeløren er ikke billigst. Godtlevert er rimeligere og har mange alternativer hver uke. Adams er billigst. Kokkeløren fokuserer på kvalitet — norske ingredienser, gjenbrukbar emballasje, oppskrifter fra kjøkkensjefen.</p>
+
+      <hr>
+
+      <div class="faq-section">
+        <h2 class="display">FAQ — Matkasse Trondheim</h2>
+        <ul class="faq-list">
+          <li class="faq-item">
+            <button class="faq-btn">
+              <span>Leverer Kokkeløren til hele Trondheim?</span>
+              <span class="faq-icon">▼</span>
+            </button>
+            <div class="faq-content">
+              Kokkeløren leverer til de fleste områder — sentrum, Lerkendal, Flatåsen, Moholt og mindre tettsteder som Hommelvik og Ranheim. Sjekk postnummeret ditt på kokkeloren.no.
+            </div>
+          </li>
+          <li class="faq-item">
+            <button class="faq-btn">
+              <span>Hva koster Kokkeløren?</span>
+              <span class="faq-icon">▼</span>
+            </button>
+            <div class="faq-content">
+              En boks koster 249 kr og gir 3–4 porsjoner (62–83 kr per porsjon). Leveringen er gratis. Fire bokser i måneden er omkring 996 kr.
+            </div>
+          </li>
+          <li class="faq-item">
+            <button class="faq-btn">
+              <span>Kan jeg avbryte når som helst?</span>
+              <span class="faq-icon">▼</span>
+            </button>
+            <div class="faq-content">
+              Ja. Ingen binding. Du kan pause, endre eller avbryte gratis når som helst.
+            </div>
+          </li>
+          <li class="faq-item">
+            <button class="faq-btn">
+              <span>Hva er forskjellen mellom Kokkeløren og Godtlevert?</span>
+              <span class="faq-icon">▼</span>
+            </button>
+            <div class="faq-content">
+              Kokkeløren fokuserer på norske ingredienser og premium kvalitet (249 kr/boks). Godtlevert tilbyr bredere utvalg til lavere pris (199 kr/boks). Kokkeløren bruker gjenbrukbar emballasje.
+            </div>
+          </li>
+          <li class="faq-item">
+            <button class="faq-btn">
+              <span>Hvor ofte kan jeg endre menyen?</span>
+              <span class="faq-icon">▼</span>
+            </button>
+            <div class="faq-content">
+              Du kan endre hver uke. Hvis du endrer mening, kan du velge en annen boks samme uke, eller hoppe over uken helt.
+            </div>
+          </li>
+          <li class="faq-item">
+            <button class="faq-btn">
+              <span>Er Kokkeløren miljøvennlig?</span>
+              <span class="faq-icon">▼</span>
+            </button>
+            <div class="faq-content">
+              Ja. Gjenbrukbar emballasje som returneres ved neste levering. Lokale leverandører reduserer transport og utslipp.
+            </div>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<div class="cta-banner">
+  <h2>Klar for å starte med Kokkeløren?</h2>
+  <p>Sjekk postnummeret ditt og få første boks på veien.</p>
+  <a href="/kasse/abonnement/matkasse" class="btn" style="background: white; color: var(--btn-bg); font-weight: 600;">Bestill nå</a>
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo">Kokkeløren</div>
+      <p class="footer-tagline">Norsk matkasse med fokus på kvalitet, fleksibilitet og norske ingredienser.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Matkasse</h4>
+      <ul>
+        <li><a href="/var-matkasse">Vår matkasse</a></li>
+        <li><a href="/best-matkasse">Beste matkasse</a></li>
+        <li><a href="/matkasse-pris">Pris</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Om oss</h4>
+      <ul>
+        <li><a href="/om-oss">Om Kokkeløren</a></li>
+        <li><a href="/vare-produsenter">Produsenter</a></li>
+        <li><a href="/kontakt">Kontakt</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Ressurser</h4>
+      <ul>
+        <li><a href="/recipes">Oppskrifter</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/faq">FAQ</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    &copy; 2026 Kokkeløren. Alle rettigheter reservert.
+  </div>
+</footer>
+
+<div class="wf-badge">WIREFRAME · 11-trondheim</div>
+
+<script>
+document.querySelectorAll('.faq-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    btn.closest('.faq-item').classList.toggle('open');
+  });
+});
+</script>
+
+</body>
+</html>

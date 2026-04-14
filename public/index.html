@@ -4,116 +4,121 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kokkeløren — Kundeområde</title>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
-  --ink:   #0B1215;
-  --ink2:  #5A5A52;
-  --lbl:   #8A8A80;
-  --bg:    #ffffff;
-  --off:   #F7F6F2;
-  --line:  #E0DED6;
-  --green: #0B8A0F;
-  --yellow:#FFE100;
+  --color-white:  #FFFFFF;
+  --color-black:  #090A08;
+  --color-accent: #89FF58;
+  --color-green-pale: #F6FFEE;
+  --font-family: "Banana Grotesk", "Plus Jakarta Sans", sans-serif;
+  --border: 1px solid rgba(9,10,8,0.08);
+  --radius-lg: 12px; --radius-md: 8px;
 }
-body {
-  font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
-  background: var(--bg);
-  color: var(--ink);
-  min-height: 100vh;
-  -webkit-font-smoothing: antialiased;
-}
-.wrap {
-  max-width: 680px;
-  margin: 0 auto;
-  padding: 80px 24px 120px;
-}
-.eyebrow {
-  font-size: 11px; font-weight: 700;
-  letter-spacing: .08em; text-transform: uppercase;
-  color: var(--lbl); margin-bottom: 14px;
-}
-h1 {
-  font-size: 36px; font-weight: 800;
-  letter-spacing: -.04em; line-height: 1.08;
-  margin-bottom: 12px;
-}
-.sub {
-  font-size: 15px; color: var(--ink2);
-  line-height: 1.65; margin-bottom: 56px;
-  max-width: 440px;
-}
-.cards { display: flex; flex-direction: column; gap: 1px; border: 1px solid var(--line); }
-.card {
-  display: flex; align-items: stretch;
-  background: var(--bg);
-  text-decoration: none; color: inherit;
-  border-bottom: 1px solid var(--line);
-  transition: background .1s;
-}
-.card:last-child { border-bottom: none; }
-.card:hover { background: var(--off); }
-.card-accent {
-  width: 4px; flex-shrink: 0;
-  background: var(--ink);
-}
-.card-accent.green { background: var(--green); }
-.card-body { padding: 20px 22px; flex: 1; }
-.card-label {
-  font-size: 11px; font-weight: 700;
-  letter-spacing: .07em; text-transform: uppercase;
-  color: var(--lbl); margin-bottom: 5px; display: block;
-}
-.card-title {
-  font-size: 17px; font-weight: 800;
-  letter-spacing: -.03em; line-height: 1.2;
-  margin-bottom: 5px;
-}
-.card-desc {
-  font-size: 13px; color: var(--ink2);
-  line-height: 1.55;
-}
-.card-arrow {
-  display: flex; align-items: center;
-  padding: 0 20px;
-  font-size: 18px; color: var(--lbl);
-  flex-shrink: 0;
-}
-.footer {
-  margin-top: 48px;
-  font-size: 12px; color: var(--lbl);
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; }
+body { font-family: var(--font-family); background: var(--color-white); color: var(--color-black); line-height: 1.5; -webkit-font-smoothing: antialiased; }
+
+.wrap { max-width: 960px; margin: 0 auto; padding: 4rem 1.5rem 6rem; }
+.header { margin-bottom: 4rem; padding-bottom: 2rem; border-bottom: 2px solid var(--color-black); }
+.logo { font-size: 0.875rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 1.5rem; }
+.title { font-size: 3.75rem; font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 1rem; }
+.subtitle { font-size: 1rem; line-height: 1.6; max-width: 560px; }
+
+.section-label { font-size: 0.875rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 1rem; margin-top: 3rem; }
+.section-label:first-of-type { margin-top: 0; }
+
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 2rem; }
+.card { border: var(--border); border-radius: var(--radius-lg); padding: 1.5rem; text-decoration: none; color: var(--color-black); transition: box-shadow 0.2s; display: flex; flex-direction: column; }
+.card:hover { box-shadow: 0 2px 12px rgba(9,10,8,0.08); }
+.card-badge { display: inline-block; font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; padding: 3px 8px; border-radius: 4px; margin-bottom: 0.75rem; align-self: flex-start; }
+.badge-black { background: var(--color-black); color: var(--color-white); }
+.badge-green { background: var(--color-accent); color: var(--color-black); }
+.card-title { font-size: 1.25rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 0.5rem; }
+.card-desc { font-size: 0.875rem; line-height: 1.55; flex: 1; }
+.card-meta { font-size: 0.75rem; margin-top: 1rem; padding-top: 0.75rem; border-top: var(--border); }
+
+.page-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.75rem; margin-bottom: 2rem; }
+.page-link { border: var(--border); border-radius: var(--radius-md); padding: 1rem 1.25rem; text-decoration: none; color: var(--color-black); transition: background 0.15s; display: block; }
+.page-link:hover { background: var(--color-green-pale); }
+.page-link-title { font-size: 0.875rem; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 0.25rem; }
+.page-link-type { font-size: 0.75rem; }
+
+.footer { margin-top: 4rem; padding-top: 2rem; border-top: var(--border); font-size: 0.75rem; }
+
+@media (max-width: 640px) {
+  .title { font-size: 2.25rem; }
+  .grid, .page-grid { grid-template-columns: 1fr; }
 }
 </style>
 </head>
 <body>
 <div class="wrap">
-  <div class="eyebrow">Simpleness × Kokkeløren</div>
-  <h1>Kundeområde.</h1>
-  <div class="sub">Strategiske leveranser fra Simpleness. Oppdateres løpende.</div>
 
-  <div class="cards">
+  <div class="header">
+    <div class="logo">Simpleness / Kokkeløren</div>
+    <h1 class="title">Kundeområde.</h1>
+    <p class="subtitle">Alle leveranser og prosjekter for Kokkeløren, samlet på ett sted.</p>
+  </div>
+
+  <div class="section-label">Prosjekter</div>
+  <div class="grid">
     <a href="kreativ-strategi.html" class="card">
-      <div class="card-accent"></div>
-      <div class="card-body">
-        <span class="card-label">Markedsføring</span>
-        <div class="card-title">Kreativ strategi</div>
-        <div class="card-desc">Målgrupper, personaer og konsepter. Innsikt fra kundeundersøkelse og desk research. Grunnlag for annonseproduksjon.</div>
-      </div>
-      <div class="card-arrow">→</div>
+      <span class="card-badge badge-green">Kreativ strategi</span>
+      <div class="card-title">Kreativt rammeverk</div>
+      <div class="card-desc">Målgrupper, personaer, innsikt og konsepter. Komplett kreativ strategi med modell, TOV og explore/expand-rytme.</div>
+      <div class="card-meta">3 faner · NO/EN · April 2026</div>
     </a>
     <a href="innholdsstrategi.html" class="card">
-      <div class="card-accent green"></div>
-      <div class="card-body">
-        <span class="card-label">SEO og innhold</span>
-        <div class="card-title">Innholdsstrategi</div>
-        <div class="card-desc">SEO-sider, redaksjonelle artikler og søkeordanalyse. Komplett innhold klar for publisering.</div>
-      </div>
-      <div class="card-arrow">→</div>
+      <span class="card-badge badge-black">Innholdsstrategi</span>
+      <div class="card-title">Innholdsstrategi</div>
+      <div class="card-desc">SEO-strategi, søkeord, sidestruktur og redaksjonell plan for organisk vekst.</div>
+      <div class="card-meta">April 2026</div>
     </a>
   </div>
 
-  <div class="footer">Simpleness · simpleness.no</div>
+  <div class="section-label">Landingssider — Design</div>
+  <div class="page-grid">
+    <a href="landingssider/design/01-matkasse-guide.html" class="page-link"><div class="page-link-title">Matkasse-guide</div><div class="page-link-type">SEO-side</div></a>
+    <a href="landingssider/design/02-beste-matkasse.html" class="page-link"><div class="page-link-title">Beste matkasse</div><div class="page-link-type">SEO-side</div></a>
+    <a href="landingssider/design/03-matkasse-vs-handle-selv.html" class="page-link"><div class="page-link-title">Matkasse vs. handle selv</div><div class="page-link-type">SEO-side</div></a>
+    <a href="landingssider/design/04-matkasse-pris.html" class="page-link"><div class="page-link-title">Matkasse pris</div><div class="page-link-type">SEO-side</div></a>
+    <a href="landingssider/design/06-matkasse-stavanger.html" class="page-link"><div class="page-link-title">Matkasse Stavanger</div><div class="page-link-type">SEO · By</div></a>
+    <a href="landingssider/design/09-matkasse-gave.html" class="page-link"><div class="page-link-title">Matkasse gave</div><div class="page-link-type">SEO-side</div></a>
+    <a href="landingssider/design/10-matkasse-oslo.html" class="page-link"><div class="page-link-title">Matkasse Oslo</div><div class="page-link-type">SEO · By</div></a>
+    <a href="landingssider/design/11-matkasse-trondheim.html" class="page-link"><div class="page-link-title">Matkasse Trondheim</div><div class="page-link-type">SEO · By</div></a>
+    <a href="landingssider/design/13-matkasse-familie.html" class="page-link"><div class="page-link-title">Matkasse familie</div><div class="page-link-type">SEO-side</div></a>
+    <a href="landingssider/design/R01-kokkeloren-vs-godtlevert.html" class="page-link"><div class="page-link-title">Kokkeløren vs. GodtLevert</div><div class="page-link-type">Redaksjonell</div></a>
+    <a href="landingssider/design/R02-kokkeloren-vs-hellofresh.html" class="page-link"><div class="page-link-title">Kokkeløren vs. HelloFresh</div><div class="page-link-type">Redaksjonell</div></a>
+    <a href="landingssider/design/R03-grunner-til-matkasse.html" class="page-link"><div class="page-link-title">7 grunner til matkasse</div><div class="page-link-type">Redaksjonell</div></a>
+    <a href="landingssider/design/R04-for-du-bestiller-matkasse.html" class="page-link"><div class="page-link-title">Før du bestiller matkasse</div><div class="page-link-type">Redaksjonell</div></a>
+    <a href="landingssider/design/R05-vi-testet-norges-dyreste-matkasse.html" class="page-link"><div class="page-link-title">Vi testet Norges dyreste matkasse</div><div class="page-link-type">Redaksjonell</div></a>
+    <a href="landingssider/design/R06-sausene-som-gjor-forskjellen.html" class="page-link"><div class="page-link-title">Sausene som gjør forskjellen</div><div class="page-link-type">Redaksjonell</div></a>
+    <a href="landingssider/design/R07-mot-produsentene.html" class="page-link"><div class="page-link-title">Møt produsentene</div><div class="page-link-type">Redaksjonell</div></a>
+  </div>
+
+  <div class="section-label">Landingssider — Wireframes</div>
+  <div class="page-grid">
+    <a href="landingssider/wireframes/01-matkasse-guide.html" class="page-link"><div class="page-link-title">Matkasse-guide</div><div class="page-link-type">Wireframe</div></a>
+    <a href="landingssider/wireframes/02-beste-matkasse.html" class="page-link"><div class="page-link-title">Beste matkasse</div><div class="page-link-type">Wireframe</div></a>
+    <a href="landingssider/wireframes/03-matkasse-vs-handle-selv.html" class="page-link"><div class="page-link-title">Matkasse vs. handle selv</div><div class="page-link-type">Wireframe</div></a>
+    <a href="landingssider/wireframes/04-matkasse-pris.html" class="page-link"><div class="page-link-title">Matkasse pris</div><div class="page-link-type">Wireframe</div></a>
+    <a href="landingssider/wireframes/06-matkasse-stavanger.html" class="page-link"><div class="page-link-title">Matkasse Stavanger</div><div class="page-link-type">Wireframe</div></a>
+    <a href="landingssider/wireframes/09-matkasse-gave.html" class="page-link"><div class="page-link-title">Matkasse gave</div><div class="page-link-type">Wireframe</div></a>
+    <a href="landingssider/wireframes/10-matkasse-oslo.html" class="page-link"><div class="page-link-title">Matkasse Oslo</div><div class="page-link-type">Wireframe</div></a>
+    <a href="landingssider/wireframes/11-matkasse-trondheim.html" class="page-link"><div class="page-link-title">Matkasse Trondheim</div><div class="page-link-type">Wireframe</div></a>
+    <a href="landingssider/wireframes/13-matkasse-familie.html" class="page-link"><div class="page-link-title">Matkasse familie</div><div class="page-link-type">Wireframe</div></a>
+    <a href="landingssider/wireframes/R01-kokkeloren-vs-godtlevert.html" class="page-link"><div class="page-link-title">Kokkeløren vs. GodtLevert</div><div class="page-link-type">Wireframe</div></a>
+    <a href="landingssider/wireframes/R02-kokkeloren-vs-hellofresh.html" class="page-link"><div class="page-link-title">Kokkeløren vs. HelloFresh</div><div class="page-link-type">Wireframe</div></a>
+    <a href="landingssider/wireframes/R03-grunner-til-matkasse.html" class="page-link"><div class="page-link-title">7 grunner til matkasse</div><div class="page-link-type">Wireframe</div></a>
+    <a href="landingssider/wireframes/R04-for-du-bestiller-matkasse.html" class="page-link"><div class="page-link-title">Før du bestiller matkasse</div><div class="page-link-type">Wireframe</div></a>
+    <a href="landingssider/wireframes/R05-vi-testet-norges-dyreste-matkasse.html" class="page-link"><div class="page-link-title">Vi testet Norges dyreste matkasse</div><div class="page-link-type">Wireframe</div></a>
+    <a href="landingssider/wireframes/R06-sausene-som-gjor-forskjellen.html" class="page-link"><div class="page-link-title">Sausene som gjør forskjellen</div><div class="page-link-type">Wireframe</div></a>
+    <a href="landingssider/wireframes/R07-mot-produsentene.html" class="page-link"><div class="page-link-title">Møt produsentene</div><div class="page-link-type">Wireframe</div></a>
+  </div>
+
+  <div class="footer">Simpleness AS · Kundeområde for Kokkeløren · April 2026</div>
 </div>
 </body>
 </html>

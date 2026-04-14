@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Matkasse pris 2026 — Komplett prisoversikt og sammenligning | Kokkeløren</title>
+  <meta name="description" content="Hvor mye koster matkasse i Norge? Sammenlign priser, rabatter og tilbud fra Kokkeløren, Godtlevert, HelloFresh, Linas og Adams. Eller er det billigere å handle selv?">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Valizas:wght@400;500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --page-bg:      #faf9f5;
+      --nav-bg:       #ffffff;
+      --body-text:    #181d27;
+      --heading-text: #3a2b2f;
+      --btn-bg:       #4f4240;
+      --btn-text:     #ffffff;
+      --btn-radius:   8px;
+      --border:       #ebe8e0;
+      --neutral-90:   #2b1d20;
+      --neutral-80:   #3a2b2f;
+      --neutral-70:   #4f4240;
+      --neutral-30:   #cecbc0;
+      --neutral-20:   #ebe8e0;
+      --neutral-10:   #faf9f5;
+      --green:        #76b75d;
+      --green-dark:   #315923;
+      --card-radius:  24px;
+      --font-display: 'Valizas', Georgia, serif;
+      --font-body:    'Plus Jakarta Sans', Helvetica, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font-body);
+      font-size: 20px;
+      line-height: 1.54;
+      color: var(--body-text);
+      background: var(--page-bg);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    nav {
+      background: var(--nav-bg);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-inner {
+      max-width: 1488px;
+      margin: 0 auto;
+      padding: 0 40px;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+    }
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--heading-text);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 17px;
+      color: var(--body-text);
+      text-decoration: none;
+    }
+    .nav-links a:hover { text-decoration: underline; }
+
+    .btn {
+      display: inline-block;
+      background: var(--btn-bg);
+      color: var(--btn-text);
+      border-radius: var(--btn-radius);
+      padding: 10px 18px;
+      font-family: var(--font-body);
+      font-size: 17px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .btn:hover { background: var(--neutral-90); }
+
+    .container { max-width: 1488px; margin: 0 auto; padding: 0 40px; }
+    .article-body { max-width: 740px; margin: 0 auto; }
+
+    .hero { padding: 72px 40px 56px; }
+    .eyebrow {
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--neutral-70);
+      margin-bottom: 20px;
+    }
+    h1 {
+      font-family: var(--font-display);
+      font-size: 56px;
+      font-weight: 500;
+      color: var(--heading-text);
+      line-height: 1.1;
+      max-width: 800px;
+      margin-bottom: 28px;
+    }
+    .hero-lead {
+      font-size: 21px;
+      line-height: 1.6;
+      color: var(--body-text);
+      max-width: 620px;
+    }
+
+    h2 {
+      font-family: var(--font-display);
+      font-size: 40px;
+      font-weight: 500;
+      color: var(--heading-text);
+      line-height: 1.1;
+      margin: 56px 0 24px;
+    }
+
+    h3 {
+      font-family: var(--font-body);
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--heading-text);
+      margin: 32px 0 16px;
+    }
+
+    .pull-quote {
+      border-left: 4px solid var(--neutral-70);
+      padding-left: 24px;
+      font-size: 24px;
+      font-weight: 500;
+      color: var(--heading-text);
+      margin: 40px 0;
+      line-height: 1.4;
+      max-width: 600px;
+    }
+
+    .content-box {
+      background: var(--border);
+      border-radius: 16px;
+      padding: 32px;
+      margin: 32px 0;
+      line-height: 1.6;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 32px 0;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    table th, table td {
+      padding: 16px;
+      text-align: left;
+      border: 1px solid var(--border);
+    }
+    table th {
+      background: var(--border);
+      font-weight: 600;
+      color: var(--heading-text);
+    }
+    table tr:nth-child(odd) {
+      background: rgba(235, 232, 224, 0.4);
+    }
+
+    .price-list {
+      list-style: none;
+      margin: 32px 0;
+    }
+    .price-list-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      margin-bottom: 12px;
+      background: white;
+    }
+    .price-list-item:hover {
+      background: var(--page-bg);
+    }
+    .price-item-label {
+      font-weight: 500;
+      color: var(--heading-text);
+    }
+    .price-item-value {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--neutral-70);
+    }
+
+    .accordion {
+      margin: 32px 0;
+    }
+    .accordion-item {
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      margin-bottom: 16px;
+      overflow: hidden;
+    }
+    .accordion-button {
+      width: 100%;
+      padding: 20px 24px;
+      background: white;
+      border: none;
+      text-align: left;
+      cursor: pointer;
+      font-family: var(--font-body);
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--heading-text);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .accordion-button:hover {
+      background: var(--page-bg);
+    }
+    .accordion-button.active {
+      background: var(--border);
+    }
+    .chevron {
+      width: 20px;
+      height: 20px;
+      transition: transform 0.3s;
+    }
+    .accordion-button.active .chevron {
+      transform: rotate(180deg);
+    }
+    .accordion-content {
+      display: none;
+      padding: 0 24px 24px;
+      background: white;
+      line-height: 1.6;
+    }
+    .accordion-item.open .accordion-content {
+      display: block;
+    }
+
+    .cta-banner {
+      background: var(--neutral-90);
+      color: white;
+      padding: 56px 40px;
+      text-align: center;
+      margin: 72px 0 0;
+    }
+    .cta-banner h2 {
+      color: white;
+      margin-bottom: 20px;
+    }
+    .cta-banner p {
+      max-width: 600px;
+      margin: 0 auto 32px;
+      font-size: 20px;
+      line-height: 1.6;
+    }
+    .cta-banner .btn {
+      background: white;
+      color: var(--heading-text);
+    }
+    .cta-banner .btn:hover {
+      background: var(--page-bg);
+    }
+
+    footer {
+      background: var(--neutral-90);
+      color: white;
+      padding: 56px 40px;
+      margin-top: 72px;
+    }
+    .footer-grid {
+      max-width: 1488px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    .footer-col h4 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+    .footer-col ul {
+      list-style: none;
+    }
+    .footer-col a {
+      color: white;
+      text-decoration: none;
+      font-size: 15px;
+      line-height: 2;
+    }
+    .footer-col a:hover { text-decoration: underline; }
+    .footer-bottom {
+      max-width: 1488px;
+      margin: 0 auto;
+      padding-top: 40px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 14px;
+    }
+
+    .wireframe-badge {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--neutral-90);
+      color: white;
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      z-index: 1000;
+    }
+
+    p {
+      margin-bottom: 16px;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    @media (max-width: 768px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      h1 {
+        font-size: 36px;
+      }
+      h2 {
+        font-size: 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">Kokkeløren</a>
+      <ul class="nav-links">
+        <li><a href="/meny">Meny</a></li>
+        <li><a href="/om-oss">Om oss</a></li>
+        <li><a href="/faq">FAQ</a></li>
+      </ul>
+      <a href="/start" class="btn">Start nå</a>
+    </div>
+  </nav>
+
+  <div class="hero">
+    <div class="article-body">
+      <div class="eyebrow">Pris og kostnad</div>
+      <h1>Matkasse pris 2026 — Komplett prisoversikt og sammenligning</h1>
+      <p class="hero-lead">Hvor mye koster matkasse i Norge? Og handler det seg billigere enn å handle selv? Vi har samlet prisene fra alle store leverandørene og gjort regnestykket.</p>
+    </div>
+  </div>
+
+  <div class="article-body">
+
+    <div class="pull-quote">I 2026 koster norske matkasser mellom 239 kr og 1449 kr per uke, avhengig av leverandør, familiens størrelse og hvor mange middager per uke.</div>
+
+    <h2>Hva koster en matkasse i Norge?</h2>
+    <p>Du velger først hvor mange personer. Deretter hvor mange middager per uke du vil ha (Kokkeløren tilbyr 3 faste middager per uke). Fra det beregner leverandøren prisen.</p>
+    <p>En familie på fire personer som vil ha tre middager i uken betaler gjerne mellom 450 og 1449 kroner per uke — avhengig av hvem som leverer.</p>
+
+    <h3>Hva går pengene til?</h3>
+    <p>Cirka 60 til 75 prosent går til ingrediensene. Det er det største posten. Premium-leverandører som Kokkeløren bruker småbruk og økologisk produksjon — det koster mer enn masseproducert dagligvare.</p>
+    <p>Frakt og emballasje tar 15 til 25 prosent. Alt må være kjølt og isolert for at råvarene skal nå fram i god stand.</p>
+    <p>Planlegging og kundeservice tar de siste 5 til 15 prosentene. Oppskrifter skal testes, ernæringsinformasjon skal beregnes, support skal fungere.</p>
+
+    <h2>Pris per leverandør — Full oversikt</h2>
+    <p>Her er de fem største leverandørene med gjeldende priser fra mars 2026.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Leverandør</th>
+          <th>2 pers/uke</th>
+          <th>3 pers/uke</th>
+          <th>4 pers/uke</th>
+          <th>Levering</th>
+          <th>Binding</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Kokkeløren</strong></td>
+          <td>1049 kr</td>
+          <td>1249 kr</td>
+          <td>1449 kr</td>
+          <td>Inkludert</td>
+          <td>Ingen</td>
+        </tr>
+        <tr>
+          <td><strong>Godtlevert</strong></td>
+          <td>299 kr</td>
+          <td>399 kr</td>
+          <td>499 kr</td>
+          <td>Gratis (over 300 kr)</td>
+          <td>Ingen</td>
+        </tr>
+        <tr>
+          <td><strong>HelloFresh</strong></td>
+          <td>259 kr</td>
+          <td>359 kr</td>
+          <td>459 kr</td>
+          <td>79–99 kr</td>
+          <td>Ingen</td>
+        </tr>
+        <tr>
+          <td><strong>Linas Matboks</strong></td>
+          <td>239 kr</td>
+          <td>329 kr</td>
+          <td>429 kr</td>
+          <td>49–79 kr</td>
+          <td>Ingen</td>
+        </tr>
+        <tr>
+          <td><strong>Adams Matkasse</strong></td>
+          <td>249 kr</td>
+          <td>349 kr</td>
+          <td>449 kr</td>
+          <td>Inkludert</td>
+          <td>Ingen</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>Prisene varierer basert på flere ting: Antall måltider per uke påvirker prisen per porsjon — flere måltider blir billigere per stykk. Sesongvarer kan gjøre enkelte uker dyrere. Hvor du bor spiller inn — frakt til distrikt koster mer enn til by. Rabattkoder og kampanjer endrer regnestykket helt.</p>
+
+    <h3>Prisforskjellene</h3>
+    <p>Kokkeløren og Godtlevert ligger langt fra hverandre i pris. Kokkeløren er premium med inkludert frakt, mens Godtlevert er betydelig billigere. Godtlevert gir gratis frakt ved ordre over 300 kroner.</p>
+    <p>HelloFresh ligger høyere per porsjon, men kjører aggressive kampanjer — ofte 50 prosent rabatt første gang.</p>
+    <p>Linas og Adams ligger omtrent på samme nivå. Linas' styrke er billigere frakt på små bestillinger.</p>
+
+    <h2>Billigste matkasse — Hvem vinner på pris?</h2>
+
+    <div class="pull-quote">Billigste er ikke alltid best. Ingredientkvalitet, oppskriftdesign og kundeservice varierer mye — og det påvirker både hvor godt maten smaker og hvor mye du kaster.</div>
+
+    <p>Rent pris-fokusert er Godtlevert billigst blant de store leverandørene. Kokkeløren posisjonerer seg som premium med høyere ingredientkvalitet og fullt inkludert frakt.</p>
+
+    <p><strong>Ingredienter:</strong> Godtlevert og Linas bruker konvensjonelt dyrket mat — helt greit for mange. Kokkeløren prioriterer småbruk og økologisk, noe som løfter smaken merkbart.</p>
+
+    <p><strong>Oppskrifter:</strong> HelloFresh og Kokkeløren har litt mer ambisiøse oppskrifter som tar 30–40 minutter. Linas og Adams holder seg til enklere mat på 20–30 minutter.</p>
+
+    <p><strong>Kundeservice:</strong> Kokkeløren og HelloFresh har 24/7 chat og raskt supportteam. Adams og Linas tilbyr email på virkedager.</p>
+
+    <h2>Tilbud og rabattkoder 2026</h2>
+
+    <div class="pull-quote">De fleste norske leverandørene tilbyr 30–50% rabatt på første levering, pluss gratis frakt — som samlet sparer deg 150–300 kroner når du tester.</div>
+
+    <h3>Aktuelle tilbud per leverandør (april 2026)</h3>
+
+    <div class="content-box">
+      <p><strong>Kokkeløren:</strong> Rabatter på første levering. Hvis du inviterer venner, får du bonus per venn som signerer seg opp.</p>
+      <p><strong>Godtlevert:</strong> 50 prosent rabatt på første levering — høyeste rabatt i markedet. Gratis frakt hvis første ordre er over 300 kroner.</p>
+      <p><strong>HelloFresh:</strong> 30–50 prosent rabatt avhengig av kampanje. Gratis frakt på de fire første leveringene.</p>
+      <p><strong>Linas Matboks:</strong> 40 prosent rabatt på første levering, gratis frakt uavhengig av ordrestørrelse. Lojalitetsprogram hvor du samler poeng.</p>
+      <p><strong>Adams Matkasse:</strong> 35 prosent rabatt på første levering, gratis frakt første gang. Studentrabatt på 15 prosent med gyldig studentkort.</p>
+    </div>
+
+    <h3>Tips for å spare</h3>
+    <ul class="price-list">
+      <li class="price-list-item">
+        <span class="price-item-label">Kombiner rabattkoder med referral-bonus</span>
+        <span class="price-item-value">Sparer du:</span>
+      </li>
+      <li class="price-list-item">
+        <span class="price-item-label">Pause abonnementet 3 uker, så gjenoppta det</span>
+        <span class="price-item-value">15–20%</span>
+      </li>
+      <li class="price-list-item">
+        <span class="price-item-label">Abonnement vs. enkeltlevering</span>
+        <span class="price-item-value">10–15%</span>
+      </li>
+      <li class="price-list-item">
+        <span class="price-item-label">Sommermåneder (sesong)</span>
+        <span class="price-item-value">20–30%</span>
+      </li>
+      <li class="price-list-item">
+        <span class="price-item-label">Gruppekjøp med venner/jobb</span>
+        <span class="price-item-value">15–20%</span>
+      </li>
+    </ul>
+
+    <h2>Er matkasse verdt pengene?</h2>
+    <p>Pris alene er ikke hele historien. En dyrere matkasse kan være mer lønnsom hvis den sparer deg tid, reduserer matsvinn eller gir deg større matglede.</p>
+    <p>Norske husstander bruker gjennomsnittlig 5 til 7 timer per uke på handling, matlaging og oppvask. Verdsett tiden til 150 kroner per time — rimelig for de fleste — så er det 750 til 1050 kroner i "tidsverdi" hver uke. En matkasse eliminerer handletur helt, gir deg planlagt meny og følger med oppskrifter.</p>
+    <p><strong>Hvis du sparer bare 1 time i uken, og tiden din er verdt 150 kroner, så betaler matkassen seg selv.</strong></p>
+    <p>Matsvinn er en annen stor faktor. Norske husstander kaster omtrent 70 kilo mat per år — mat som er verdt 3500 til 4500 kroner. En matkasse gir deg bare de ingrediensene du trenger.</p>
+
+    <h2>Velg etter budget</h2>
+
+    <h3>Hvis du har stramt budsjett — under 500 kroner per uke</h3>
+    <p>Godtlevert eller Linas Matboks. Velg 2-person pakker eller færre måltider per uke. Husk rabattkoden på første orden — det sparer du masse på.</p>
+
+    <h3>Hvis du har medium budsjett — 500 til 700 kroner per uke</h3>
+    <p>Kokkeløren eller Adams gir best balanse mellom pris og kvalitet. Du får mer fleksibilitet, bedre kundestøtte, og ingrediensene merker du tydeligere.</p>
+
+    <h3>Hvis pris ikke er ditt viktigste</h3>
+    <p>HelloFresh eller Kokkeløren gir mest oppskriftvariasjonen. Best hvis du liker å eksperimentere og lære nye teknikker.</p>
+
+    <h2>Spørsmål og svar om pris</h2>
+
+    <div class="accordion">
+      <div class="accordion-item open">
+        <button class="accordion-button active" onclick="toggleAccordion(this)">
+          <span>Er prisen fast eller endrer den seg?</span>
+          <svg class="chevron" viewBox="0 0 20 20" fill="none">
+            <path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <div class="accordion-content">
+          <p>Kokkeløren holder gjerne samme pris fra uke til uke — forutsigbart budsjett. Godtlevert har liten variasjon på sesongvarer. HelloFresh har fast pris hvis du velger samme oppskrifter hver uke. Linas og Adams holder det stabilt. De fleste prioriterer stabilitet slik at du kan planlegge.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-button" onclick="toggleAccordion(this)">
+          <span>Kan jeg betale mindre for større mengder?</span>
+          <svg class="chevron" viewBox="0 0 20 20" fill="none">
+            <path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <div class="accordion-content">
+          <p>Ja. Kokkeløren som eksempel: 2 personer = 1049 kr/uke, 3 personer = 1249 kr/uke, 4 personer = 1449 kr/uke. Prisøkningen er mindre enn lineær — større familier betaler mindre per porsjon.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-button" onclick="toggleAccordion(this)">
+          <span>Hva med frakt — er det inkludert?</span>
+          <svg class="chevron" viewBox="0 0 20 20" fill="none">
+            <path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <div class="accordion-content">
+          <p>Det avhenger helt av hvem. Kokkeløren og Adams inkluderer frakt i basisen. Godtlevert gir gratis frakt hvis bestillingen er over 300 kroner — ellers 79–99 kroner. HelloFresh tar 79–99 kroner per levering. Linas ligger på 49–79 kroner. Sjekk småskriften før du velger, fordi frakt kan være avgjørende for den endelige prisen.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-button" onclick="toggleAccordion(this)">
+          <span>Kan jeg pausere og betale mindre senere?</span>
+          <svg class="chevron" viewBox="0 0 20 20" fill="none">
+            <path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <div class="accordion-content">
+          <p>Ja. Alle norske matkasse-leverandørene tillater pause uten gebyr. Du kan pause alt fra én uke til så lenge du vil. Og flere gir rabatt for å komme tilbake som returnerande kunde — gjerne 15–20 prosent.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-button" onclick="toggleAccordion(this)">
+          <span>Hva hvis jeg ikke liker maten?</span>
+          <svg class="chevron" viewBox="0 0 20 20" fill="none">
+            <path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <div class="accordion-content">
+          <p>På første levering har du 14 dagers pengene-tilbake-garanti, alle leverandørene. Hvis det ikke er noe for deg, refunderer de uten problem. Kokkeløren har faste ukemenyer som kokkene bestemmer — du kan ikke velge eller bytte oppskrifter. Hvis ingrediensene kommer i dårlig stand, eller hvis du mottar noe som ikke holder kvalitet, refunderer alle leverandørene.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="cta-banner">
+    <div class="container">
+      <h2>Neste steg — Velg og test</h2>
+      <p>Velg en leverandør basert på budsjett og hva som betyr mest for deg. Start med rabattkoden for første orden. Test det i 4–6 uker før du bestemmer deg langsiktig.</p>
+      <a href="/start" class="btn">Se denne ukens meny</a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Om Kokkeløren</h4>
+        <ul>
+          <li><a href="/om-oss">Om oss</a></li>
+          <li><a href="/karriere">Karriere</a></li>
+          <li><a href="/presse">Presse</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Kundeservice</h4>
+        <ul>
+          <li><a href="/faq">FAQ</a></li>
+          <li><a href="/kontakt">Kontakt oss</a></li>
+          <li><a href="/personvern">Personvern</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Ressurser</h4>
+        <ul>
+          <li><a href="/oppskrifter">Oppskrifter</a></li>
+          <li><a href="/blogg">Blogg</a></li>
+          <li><a href="/meny">Denne ukens meny</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Sosiale medier</h4>
+        <ul>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">TikTok</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Kokkeløren. Alle rettigheter reservert.</p>
+    </div>
+  </footer>
+
+  <div class="wireframe-badge">04-matkasse-pris.html</div>
+
+  <script>
+    function toggleAccordion(button) {
+      const item = button.closest('.accordion-item');
+      const isOpen = item.classList.contains('open');
+      
+      document.querySelectorAll('.accordion-item').forEach(i => {
+        i.classList.remove('open');
+        i.querySelector('.accordion-button').classList.remove('active');
+      });
+      
+      if (!isOpen) {
+        item.classList.add('open');
+        button.classList.add('active');
+      }
+    }
+  </script>
+
+</body>
+</html>
