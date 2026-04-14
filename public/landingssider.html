@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Landingssider — Kokkeløren</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --color-white: #FFFFFF; --color-black: #090A08; --color-accent: #89FF58;
+  --color-green-pale: #F6FFEE;
+  --font-family: "Banana Grotesk", "Plus Jakarta Sans", sans-serif;
+  --border: 1px solid rgba(9,10,8,0.08); --radius-lg: 12px; --radius-md: 8px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; }
+body { font-family: var(--font-family); background: var(--color-white); color: var(--color-black); line-height: 1.5; -webkit-font-smoothing: antialiased; }
+
+.topbar { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,0.96); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-bottom: var(--border); display: flex; align-items: center; height: 52px; padding: 0 1.5rem; }
+.topbar a { text-decoration: none; color: var(--color-black); font-size: 0.875rem; font-weight: 700; letter-spacing: -0.02em; display: flex; align-items: center; gap: 0.5rem; }
+.topbar a::before { content: "←"; font-size: 1rem; }
+
+.wrap { max-width: 960px; margin: 0 auto; padding: 3rem 1.5rem 6rem; }
+.header { margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 2px solid var(--color-black); }
+.title { font-size: 3.75rem; font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 1rem; }
+.subtitle { font-size: 1rem; line-height: 1.6; max-width: 560px; }
+
+.section-label { font-size: 0.875rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 1rem; margin-top: 3rem; }
+.section-label:first-of-type { margin-top: 0; }
+
+.page-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.75rem; }
+.page-link { border: var(--border); border-radius: var(--radius-md); padding: 1rem 1.25rem; text-decoration: none; color: var(--color-black); transition: background 0.15s; display: block; }
+.page-link:hover { background: var(--color-green-pale); }
+.page-link-title { font-size: 0.875rem; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 0.25rem; }
+.page-link-type { font-size: 0.75rem; }
+
+.footer { margin-top: 4rem; padding-top: 2rem; border-top: var(--border); font-size: 0.75rem; }
+
+@media (max-width: 640px) {
+  .title { font-size: 2.25rem; }
+  .page-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="topbar"><a href="/">Kokkeløren — Kundeområde</a></div>
+
+<div class="wrap">
+  <div class="header">
+    <h1 class="title">Landingssider.</h1>
+    <p class="subtitle">16 ferdige landingssider — 9 SEO-sider for organisk synlighet og 7 redaksjonelle artikler. Alle med Kokkeløren-design, fonter og bilder.</p>
+  </div>
+
+  <div class="section-label">SEO-sider</div>
+  <div class="page-grid">
+    <a href="landingssider/design/01-matkasse-guide.html" class="page-link"><div class="page-link-title">Matkasse-guide</div><div class="page-link-type">Pillar page</div></a>
+    <a href="landingssider/design/02-beste-matkasse.html" class="page-link"><div class="page-link-title">Beste matkasse</div><div class="page-link-type">Sammenligning</div></a>
+    <a href="landingssider/design/03-matkasse-vs-handle-selv.html" class="page-link"><div class="page-link-title">Matkasse vs. handle selv</div><div class="page-link-type">Sammenligning</div></a>
+    <a href="landingssider/design/04-matkasse-pris.html" class="page-link"><div class="page-link-title">Matkasse pris</div><div class="page-link-type">Informasjon</div></a>
+    <a href="landingssider/design/13-matkasse-familie.html" class="page-link"><div class="page-link-title">Matkasse familie</div><div class="page-link-type">Segment</div></a>
+    <a href="landingssider/design/09-matkasse-gave.html" class="page-link"><div class="page-link-title">Matkasse gave</div><div class="page-link-type">Segment</div></a>
+    <a href="landingssider/design/10-matkasse-oslo.html" class="page-link"><div class="page-link-title">Matkasse Oslo</div><div class="page-link-type">Geo</div></a>
+    <a href="landingssider/design/06-matkasse-stavanger.html" class="page-link"><div class="page-link-title">Matkasse Stavanger</div><div class="page-link-type">Geo</div></a>
+    <a href="landingssider/design/11-matkasse-trondheim.html" class="page-link"><div class="page-link-title">Matkasse Trondheim</div><div class="page-link-type">Geo</div></a>
+  </div>
+
+  <div class="section-label">Redaksjonelle artikler</div>
+  <div class="page-grid">
+    <a href="landingssider/design/R01-kokkeloren-vs-godtlevert.html" class="page-link"><div class="page-link-title">Kokkeløren vs. GodtLevert</div><div class="page-link-type">Konkurrentanalyse</div></a>
+    <a href="landingssider/design/R02-kokkeloren-vs-hellofresh.html" class="page-link"><div class="page-link-title">Kokkeløren vs. HelloFresh</div><div class="page-link-type">Konkurrentanalyse</div></a>
+    <a href="landingssider/design/R03-grunner-til-matkasse.html" class="page-link"><div class="page-link-title">7 grunner til matkasse</div><div class="page-link-type">Listicle</div></a>
+    <a href="landingssider/design/R04-for-du-bestiller-matkasse.html" class="page-link"><div class="page-link-title">Før du bestiller matkasse</div><div class="page-link-type">Guide</div></a>
+    <a href="landingssider/design/R05-vi-testet-norges-dyreste-matkasse.html" class="page-link"><div class="page-link-title">Vi testet Norges dyreste matkasse</div><div class="page-link-type">Test / review</div></a>
+    <a href="landingssider/design/R06-sausene-som-gjor-forskjellen.html" class="page-link"><div class="page-link-title">Sausene som gjør forskjellen</div><div class="page-link-type">Deep dive</div></a>
+    <a href="landingssider/design/R07-mot-produsentene.html" class="page-link"><div class="page-link-title">Møt produsentene</div><div class="page-link-type">Portrett / storytelling</div></a>
+  </div>
+
+  <div class="footer">Simpleness · simpleness.no</div>
+</div>
+</body>
+</html>
