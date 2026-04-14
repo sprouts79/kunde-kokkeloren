@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Moduler — Nyhetsbrev</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* ── Admin shell (Simpleness) ── */
+:root {
+  --admin-font: "Banana Grotesk", "Plus Jakarta Sans", sans-serif;
+  --admin-black: #090A08;
+  --admin-border: 1px solid rgba(9,10,8,0.08);
+  --admin-accent: #89FF58;
+  --admin-pale: #F6FFEE;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; }
+body { font-family: var(--admin-font); background: #fff; color: var(--admin-black); line-height: 1.5; -webkit-font-smoothing: antialiased; }
+
+.topbar { position: sticky; top: 0; z-index: 200; background: rgba(255,255,255,0.96); backdrop-filter: blur(8px); border-bottom: var(--admin-border); display: flex; align-items: center; height: 52px; padding: 0 1.5rem; }
+.topbar a { text-decoration: none; color: var(--admin-black); font-size: 0.875rem; font-weight: 700; letter-spacing: -0.02em; display: flex; align-items: center; gap: 0.5rem; }
+.topbar a::before { content: "←"; font-size: 1rem; }
+
+.admin-wrap { max-width: 960px; margin: 0 auto; padding: 3rem 1.5rem 2rem; }
+.admin-title { font-size: 3.75rem; font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 0.75rem; }
+.admin-subtitle { font-size: 1rem; line-height: 1.6; margin-bottom: 2rem; max-width: 560px; }
+
+/* Module section wrapper */
+.module-section { margin-bottom: 4rem; }
+.module-header { max-width: 960px; margin: 0 auto; padding: 0 1.5rem; }
+.module-label { font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; background: var(--admin-accent); display: inline-block; padding: 2px 8px; border-radius: 4px; margin-bottom: 0.5rem; }
+.module-name { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 0.25rem; }
+.module-desc { font-size: 0.875rem; line-height: 1.55; margin-bottom: 1.5rem; max-width: 560px; }
+.module-used { font-size: 0.75rem; margin-bottom: 1rem; }
+.module-used strong { font-weight: 700; }
+
+/* Preview frame */
+.preview-frame { border: var(--admin-border); border-radius: 12px; overflow: hidden; max-width: 640px; margin: 0 auto; }
+
+.footer { max-width: 960px; margin: 4rem auto 0; padding: 2rem 1.5rem; border-top: var(--admin-border); font-size: 0.75rem; }
+</style>
+</head>
+<body>
+
+<div class="topbar"><a href="index.html">Nyhetsbrev</a></div>
+
+<div class="admin-wrap">
+  <h1 class="admin-title">Moduler.</h1>
+  <p class="admin-subtitle">Alle e-postkomponenter rendret live med Simpleness-design. Table-basert layout for full e-postkompabilitet. Tilpasses per kunde via designsystem.</p>
+</div>
+
+<!-- ═══════════════════════════════════════ HEADER ═══ -->
+<div class="module-section">
+  <div class="module-header">
+    <div class="module-label">Modul</div>
+    <div class="module-name">Header</div>
+    <div class="module-desc">Logo og navigasjon. Brukes øverst i alle e-poster. Enkel, ren, gjenkjennelig.</div>
+    <div class="module-used"><strong>Brukt i:</strong> Alle maler og flows</div>
+  </div>
+  <div class="preview-frame">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#ffffff;max-width:600px;margin:0 auto">
+      <tr>
+        <td style="padding:24px 32px;border-bottom:1px solid #e5e5e5">
+          <table width="100%" cellpadding="0" cellspacing="0" border="0">
+            <tr>
+              <td style="font-family:'Plus Jakarta Sans',Helvetica,Arial,sans-serif;font-size:18px;font-weight:700;letter-spacing:-0.02em;color:#090A08">
+                simpleness
+              </td>
+              <td align="right" style="font-family:'Plus Jakarta Sans',Helvetica,Arial,sans-serif;font-size:13px;color:#090A08">
+                <a href="#" style="color:#515B12;text-decoration:underline;margin-left:16px">Nettside</a>
+                <a href="#" style="color:#515B12;text-decoration:underline;margin-left:16px">Kontakt</a>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ HERO ═══ -->
+<div class="module-section">
+  <div class="module-header">
+    <div class="module-label">Modul</div>
+    <div class="module-name">Hero</div>
+    <div class="module-desc">Stort bilde med overskrift og CTA. Primær oppmerksomhetsfanger øverst i e-posten.</div>
+    <div class="module-used"><strong>Brukt i:</strong> Produktnyhet, salg, velkomstserie</div>
+  </div>
+  <div class="preview-frame">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#ffffff;max-width:600px;margin:0 auto">
+      <tr>
+        <td style="padding:0">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='300' fill='%23F6FFEE'%3E%3Crect width='600' height='300'/%3E%3Ctext x='300' y='150' text-anchor='middle' fill='%23515B12' font-family='sans-serif' font-size='14'%3EHero-bilde · 600×300%3C/text%3E%3C/svg%3E" width="600" height="300" alt="Hero-bilde" style="display:block;width:100%;height:auto">
+        </td>
+      </tr>
+      <tr>
+        <td style="padding:32px 32px 16px">
+          <h1 style="font-family:Georgia,'Times New Roman',serif;font-size:32px;font-weight:400;line-height:1.15;color:#090A08;margin:0">Overskrift som fanger oppmerksomhet.</h1>
+        </td>
+      </tr>
+      <tr>
+        <td style="padding:0 32px 24px">
+          <p style="font-family:'Plus Jakarta Sans',Helvetica,Arial,sans-serif;font-size:16px;line-height:1.6;color:#090A08;margin:0">Kort og konsis ingress som forklarer hva e-posten handler om. Én til to setninger.</p>
+        </td>
+      </tr>
+      <tr>
+        <td style="padding:0 32px 32px">
+          <a href="#" style="display:inline-block;background:#090A08;color:#ffffff;font-family:'Plus Jakarta Sans',Helvetica,Arial,sans-serif;font-size:15px;font-weight:500;text-decoration:none;padding:12px 28px;border-radius:8px">Les mer →</a>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ TEKSTBLOKK ═══ -->
+<div class="module-section">
+  <div class="module-header">
+    <div class="module-label">Modul</div>
+    <div class="module-name">Tekstblokk</div>
+    <div class="module-desc">Ren tekst med valgfri overskrift. Arbeidshesten i alle e-poster.</div>
+    <div class="module-used"><strong>Brukt i:</strong> Alle maler og flows</div>
+  </div>
+  <div class="preview-frame">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#ffffff;max-width:600px;margin:0 auto">
+      <tr>
+        <td style="padding:32px">
+          <h2 style="font-family:Georgia,'Times New Roman',serif;font-size:24px;font-weight:400;line-height:1.2;color:#090A08;margin:0 0 12px">Seksjonsoverskrift</h2>
+          <p style="font-family:'Plus Jakarta Sans',Helvetica,Arial,sans-serif;font-size:16px;line-height:1.6;color:#090A08;margin:0">Her kommer brødteksten. Den skal være kort og fokusert — maks to-tre setninger per blokk. Respekter leserens tid. Hvert avsnitt har ett poeng.</p>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ PRODUKTKORT ═══ -->
+<div class="module-section">
+  <div class="module-header">
+    <div class="module-label">Modul</div>
+    <div class="module-name">Produktkort</div>
+    <div class="module-desc">Bilde, tittel, kort beskrivelse, pris og CTA. Kan stables 1-, 2- eller 3-kolonne.</div>
+    <div class="module-used"><strong>Brukt i:</strong> Produktnyhet, salg, digest</div>
+  </div>
+  <div class="preview-frame">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#ffffff;max-width:600px;margin:0 auto">
+      <tr>
+        <td style="padding:32px">
+          <table width="100%" cellpadding="0" cellspacing="0" border="0">
+            <tr>
+              <td width="48%" valign="top" style="padding-right:16px">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='200' fill='%23F6FFEE'%3E%3Crect width='260' height='200'/%3E%3Ctext x='130' y='100' text-anchor='middle' fill='%23515B12' font-family='sans-serif' font-size='12'%3EProduktbilde%3C/text%3E%3C/svg%3E" width="260" height="200" alt="Produkt" style="display:block;width:100%;height:auto;border-radius:8px">
+                <h3 style="font-family:'Plus Jakarta Sans',Helvetica,Arial,sans-serif;font-size:16px;font-weight:700;margin:12px 0 4px;color:#090A08">Produktnavn</h3>
+                <p style="font-family:'Plus Jakarta Sans',Helvetica,Arial,sans-serif;font-size:14px;line-height:1.5;color:#090A08;margin:0 0 8px">Kort beskrivelse av produktet på én linje.</p>
+                <p style="font-family:'Plus Jakarta Sans',Helvetica,Arial,sans-serif;font-size:15px;font-weight:700;color:#090A08;margin:0 0 12px">499 kr</p>
+                <a href="#" style="display:inline-block;background:#090A08;color:#ffffff;font-family:'Plus Jakarta Sans',Helvetica,Arial,sans-serif;font-size:13px;font-weight:500;text-decoration:none;padding:8px 20px;border-radius:8px">Se produkt</a>
+              </td>
+              <td width="48%" valign="top" style="padding-left:16px">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='200' fill='%23F6FFEE'%3E%3Crect width='260' height='200'/%3E%3Ctext x='130' y='100' text-anchor='middle' fill='%23515B12' font-family='sans-serif' font-size='12'%3EProduktbilde%3C/text%3E%3C/svg%3E" width="260" height="200" alt="Produkt" style="display:block;width:100%;height:auto;border-radius:8px">
+                <h3 style="font-family:'Plus Jakarta Sans',Helvetica,Arial,sans-serif;font-size:16px;font-weight:700;margin:12px 0 4px;color:#090A08">Produktnavn</h3>
+                <p style="font-family:'Plus Jakarta Sans',Helvetica,Arial,sans-serif;font-size:14px;line-height:1.5;color:#090A08;margin:0 0 8px">Kort beskrivelse av produktet på én linje.</p>
+                <p style="font-family:'Plus Jakarta Sans',Helvetica,Arial,sans-serif;font-size:15px;font-weight:700;color:#090A08;margin:0 0 12px">399 kr</p>
+                <a href="#" style="display:inline-block;background:#090A08;color:#ffffff;font-family:'Plus Jakarta Sans',Helvetica,Arial,sans-serif;font-size:13px;font-weight:500;text-decoration:none;padding:8px 20px;border-radius:8px">Se produkt</a>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ CTA-KNAPP ═══ -->
+<div class="module-section">
+  <div class="module-header">
+    <div class="module-label">Modul</div>
+    <div class="module-name">CTA-knapp</div>
+    <div class="module-desc">Frittstående handlingsknapp. Sentrert, tydelig, én handling per e-post.</div>
+    <div class="module-used"><strong>Brukt i:</strong> Alle maler og flows</div>
+  </div>
+  <div class="preview-frame">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#ffffff;max-width:600px;margin:0 auto">
+      <tr>
+        <td align="center" style="padding:32px">
+          <a href="#" style="display:inline-block;background:#090A08;color:#ffffff;font-family:'Plus Jakarta Sans',Helvetica,Arial,sans-serif;font-size:16px;font-weight:500;text-decoration:none;padding:14px 36px;border-radius:8px">Primær handling →</a>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ BILDEBANNER ═══ -->
+<div class="module-section">
+  <div class="module-header">
+    <div class="module-label">Modul</div>
+    <div class="module-name">Bildebanner</div>
+    <div class="module-desc">Full-bredde bilde med valgfri tekstoverlay. For kampanjer og stemningsbilder.</div>
+    <div class="module-used"><strong>Brukt i:</strong> Redaksjonelt, velkomstserie, salg</div>
+  </div>
+  <div class="preview-frame">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#ffffff;max-width:600px;margin:0 auto">
+      <tr>
+        <td style="padding:0">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='240' fill='%23DFF7CC'%3E%3Crect width='600' height='240'/%3E%3Ctext x='300' y='120' text-anchor='middle' fill='%23515B12' font-family='sans-serif' font-size='14'%3EFull-bredde bildebanner · 600×240%3C/text%3E%3C/svg%3E" width="600" height="240" alt="Banner" style="display:block;width:100%;height:auto">
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ SKILLELINJE ═══ -->
+<div class="module-section">
+  <div class="module-header">
+    <div class="module-label">Modul</div>
+    <div class="module-name">Skillelinje</div>
+    <div class="module-desc">Visuell separator mellom seksjoner. Subtil og ren.</div>
+    <div class="module-used"><strong>Brukt i:</strong> Alle maler og flows</div>
+  </div>
+  <div class="preview-frame">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#ffffff;max-width:600px;margin:0 auto">
+      <tr>
+        <td style="padding:16px 32px">
+          <table width="100%" cellpadding="0" cellspacing="0" border="0">
+            <tr><td style="border-top:1px solid #e5e5e5;font-size:1px;line-height:1px">&nbsp;</td></tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ FOOTER ═══ -->
+<div class="module-section">
+  <div class="module-header">
+    <div class="module-label">Modul</div>
+    <div class="module-name">Footer</div>
+    <div class="module-desc">Avmelding, sosiale lenker og juridisk info. Obligatorisk i alle e-poster.</div>
+    <div class="module-used"><strong>Brukt i:</strong> Alle maler og flows</div>
+  </div>
+  <div class="preview-frame">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#f7f7f7;max-width:600px;margin:0 auto">
+      <tr>
+        <td style="padding:32px;border-top:1px solid #e5e5e5">
+          <table width="100%" cellpadding="0" cellspacing="0" border="0">
+            <tr>
+              <td align="center" style="padding-bottom:16px">
+                <span style="font-family:'Plus Jakarta Sans',Helvetica,Arial,sans-serif;font-size:16px;font-weight:700;color:#090A08">simpleness</span>
+              </td>
+            </tr>
+            <tr>
+              <td align="center" style="padding-bottom:16px">
+                <a href="#" style="color:#515B12;text-decoration:underline;font-family:'Plus Jakarta Sans',Helvetica,Arial,sans-serif;font-size:13px;margin:0 8px">Nettside</a>
+                <a href="#" style="color:#515B12;text-decoration:underline;font-family:'Plus Jakarta Sans',Helvetica,Arial,sans-serif;font-size:13px;margin:0 8px">Instagram</a>
+                <a href="#" style="color:#515B12;text-decoration:underline;font-family:'Plus Jakarta Sans',Helvetica,Arial,sans-serif;font-size:13px;margin:0 8px">LinkedIn</a>
+              </td>
+            </tr>
+            <tr>
+              <td align="center" style="padding-bottom:8px">
+                <p style="font-family:'Plus Jakarta Sans',Helvetica,Arial,sans-serif;font-size:12px;line-height:1.5;color:#999;margin:0">Du mottar denne e-posten fordi du er registrert hos oss.<br>
+                <a href="#" style="color:#999;text-decoration:underline">Meld deg av</a> · <a href="#" style="color:#999;text-decoration:underline">Oppdater preferanser</a></p>
+              </td>
+            </tr>
+            <tr>
+              <td align="center">
+                <p style="font-family:'Plus Jakarta Sans',Helvetica,Arial,sans-serif;font-size:11px;color:#bbb;margin:0">Simpleness AS · Org.nr 123 456 789 · Oslo, Norge</p>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<div class="footer">Simpleness Design System · Nyhetsbrev-moduler · v0.1</div>
+
+</body>
+</html>
