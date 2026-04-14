@@ -364,7 +364,40 @@
     }
     
 
-    /* ── Reviews module (shared Kokkeløren design) ── */
+        /* ── Content-box (shared Kokkeløren module) ── */
+    .content-box {
+      background: var(--neutral-20);
+      border-radius: 16px;
+      padding: 32px 36px;
+      margin: 40px 0;
+    }
+    .content-box h3 {
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 400;
+      color: var(--heading-text);
+      margin: 0 0 16px;
+    }
+    .content-box p {
+      font-size: 17px;
+      font-weight: 300;
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+    .content-box p:last-child { margin-bottom: 0; }
+    .content-box strong { font-weight: 500; }
+    .content-box .cb-source {
+      margin-top: 20px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+      font-size: 14px;
+    }
+    .content-box .cb-source a {
+      color: var(--green);
+      text-decoration: none;
+    }
+    .content-box .cb-source a:hover { text-decoration: underline; }
+/* ── Reviews module (shared Kokkeløren design) ── */
     .reviews-module { background: var(--page-bg, #F1EDE2); padding: 64px 0; margin: 64px 0; }
     .reviews-inner { max-width: 1200px; margin: 0 auto; padding: 0 48px; display: grid; grid-template-columns: 1fr 2fr; gap: 48px; align-items: start; }
     .reviews-intro h2 { font-family: var(--font-display, 'Valizas', Georgia, serif); font-size: 36px; font-weight: 400; line-height: 1.15; color: var(--heading-text, #31261D); margin-bottom: 16px; }
@@ -595,7 +628,7 @@
       </thead>
       <tbody>
         <tr>
-          <td><strong>Kokkeløren</strong></td>
+          <td>Kokkeløren</td>
           <td>1049 kr</td>
           <td>1249 kr</td>
           <td>1449 kr</td>
@@ -603,7 +636,7 @@
           <td>Ingen</td>
         </tr>
         <tr>
-          <td><strong>Godtlevert</strong></td>
+          <td>Godtlevert</td>
           <td>299 kr</td>
           <td>399 kr</td>
           <td>499 kr</td>
@@ -611,7 +644,7 @@
           <td>Ingen</td>
         </tr>
         <tr>
-          <td><strong>HelloFresh</strong></td>
+          <td>HelloFresh</td>
           <td>259 kr</td>
           <td>359 kr</td>
           <td>459 kr</td>
@@ -619,7 +652,7 @@
           <td>Ingen</td>
         </tr>
         <tr>
-          <td><strong>Linas Matboks</strong></td>
+          <td>Linas Matboks</td>
           <td>239 kr</td>
           <td>329 kr</td>
           <td>429 kr</td>
@@ -627,7 +660,7 @@
           <td>Ingen</td>
         </tr>
         <tr>
-          <td><strong>Adams Matkasse</strong></td>
+          <td>Adams Matkasse</td>
           <td>249 kr</td>
           <td>349 kr</td>
           <td>449 kr</td>
@@ -650,11 +683,11 @@
 
     <p>Rent pris-fokusert er Godtlevert billigst blant de store leverandørene. Kokkeløren posisjonerer seg som premium med høyere ingredientkvalitet og fullt inkludert frakt.</p>
 
-    <p><strong>Ingredienter:</strong> Godtlevert og Linas bruker konvensjonelt dyrket mat — helt greit for mange. Kokkeløren prioriterer småbruk og økologisk, noe som løfter smaken merkbart.</p>
+    <p>Ingredienter: Godtlevert og Linas bruker konvensjonelt dyrket mat — helt greit for mange. Kokkeløren prioriterer småbruk og økologisk, noe som løfter smaken merkbart.</p>
 
-    <p><strong>Oppskrifter:</strong> HelloFresh og Kokkeløren har litt mer ambisiøse oppskrifter som tar 30–40 minutter. Linas og Adams holder seg til enklere mat på 20–30 minutter.</p>
+    <p>Oppskrifter: HelloFresh og Kokkeløren har litt mer ambisiøse oppskrifter som tar 30–40 minutter. Linas og Adams holder seg til enklere mat på 20–30 minutter.</p>
 
-    <p><strong>Kundeservice:</strong> Kokkeløren og HelloFresh har 24/7 chat og raskt supportteam. Adams og Linas tilbyr email på virkedager.</p>
+    <p>Kundeservice: Kokkeløren og HelloFresh har 24/7 chat og raskt supportteam. Adams og Linas tilbyr email på virkedager.</p>
 
     <img src="/assets/images/AVE_6440_AnneValeur.jpg" alt="Kokkeløren" class="content-img">
 
@@ -665,11 +698,11 @@
     <h3>Aktuelle tilbud per leverandør (april 2026)</h3>
 
     <div class="content-box">
-      <p><strong>Kokkeløren:</strong> Rabatter på første levering. Hvis du inviterer venner, får du bonus per venn som signerer seg opp.</p>
-      <p><strong>Godtlevert:</strong> 50 prosent rabatt på første levering — høyeste rabatt i markedet. Gratis frakt hvis første ordre er over 300 kroner.</p>
-      <p><strong>HelloFresh:</strong> 30–50 prosent rabatt avhengig av kampanje. Gratis frakt på de fire første leveringene.</p>
-      <p><strong>Linas Matboks:</strong> 40 prosent rabatt på første levering, gratis frakt uavhengig av ordrestørrelse. Lojalitetsprogram hvor du samler poeng.</p>
-      <p><strong>Adams Matkasse:</strong> 35 prosent rabatt på første levering, gratis frakt første gang. Studentrabatt på 15 prosent med gyldig studentkort.</p>
+      <p>Kokkeløren: Rabatter på første levering. Hvis du inviterer venner, får du bonus per venn som signerer seg opp.</p>
+      <p>Godtlevert: 50 prosent rabatt på første levering — høyeste rabatt i markedet. Gratis frakt hvis første ordre er over 300 kroner.</p>
+      <p>HelloFresh: 30–50 prosent rabatt avhengig av kampanje. Gratis frakt på de fire første leveringene.</p>
+      <p>Linas Matboks: 40 prosent rabatt på første levering, gratis frakt uavhengig av ordrestørrelse. Lojalitetsprogram hvor du samler poeng.</p>
+      <p>Adams Matkasse: 35 prosent rabatt på første levering, gratis frakt første gang. Studentrabatt på 15 prosent med gyldig studentkort.</p>
     </div>
 
     <h3>Tips for å spare</h3>
@@ -699,7 +732,7 @@
     <h2>Er matkasse verdt pengene?</h2>
     <p>Pris alene er ikke hele historien. En dyrere matkasse kan være mer lønnsom hvis den sparer deg tid, reduserer matsvinn eller gir deg større matglede.</p>
     <p>Norske husstander bruker gjennomsnittlig 5 til 7 timer per uke på handling, matlaging og oppvask. Verdsett tiden til 150 kroner per time — rimelig for de fleste — så er det 750 til 1050 kroner i "tidsverdi" hver uke. En matkasse eliminerer handletur helt, gir deg planlagt meny og følger med oppskrifter.</p>
-    <p><strong>Hvis du sparer bare 1 time i uken, og tiden din er verdt 150 kroner, så betaler matkassen seg selv.</strong></p>
+    <p>Hvis du sparer bare 1 time i uken, og tiden din er verdt 150 kroner, så betaler matkassen seg selv.</p>
     <p>Matsvinn er en annen stor faktor. Norske husstander kaster omtrent 70 kilo mat per år — mat som er verdt 3500 til 4500 kroner. En matkasse gir deg bare de ingrediensene du trenger.</p>
 
     <h2>Velg etter budget</h2>

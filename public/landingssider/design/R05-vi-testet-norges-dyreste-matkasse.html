@@ -226,7 +226,40 @@
     }
     
 
-    /* ── Reviews module (shared Kokkeløren design) ── */
+        /* ── Content-box (shared Kokkeløren module) ── */
+    .content-box {
+      background: var(--neutral-20);
+      border-radius: 16px;
+      padding: 32px 36px;
+      margin: 40px 0;
+    }
+    .content-box h3 {
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 400;
+      color: var(--heading-text);
+      margin: 0 0 16px;
+    }
+    .content-box p {
+      font-size: 17px;
+      font-weight: 300;
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+    .content-box p:last-child { margin-bottom: 0; }
+    .content-box strong { font-weight: 500; }
+    .content-box .cb-source {
+      margin-top: 20px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+      font-size: 14px;
+    }
+    .content-box .cb-source a {
+      color: var(--green);
+      text-decoration: none;
+    }
+    .content-box .cb-source a:hover { text-decoration: underline; }
+/* ── Reviews module (shared Kokkeløren design) ── */
     .reviews-module { background: var(--page-bg, #F1EDE2); padding: 64px 0; margin: 64px 0; }
     .reviews-inner { max-width: 1200px; margin: 0 auto; padding: 0 48px; display: grid; grid-template-columns: 1fr 2fr; gap: 48px; align-items: start; }
     .reviews-intro h2 { font-family: var(--font-display, 'Valizas', Georgia, serif); font-size: 36px; font-weight: 400; line-height: 1.15; color: var(--heading-text, #31261D); margin-bottom: 16px; }
@@ -482,11 +515,11 @@
       </div>
 
       <h2>Hva vi lærte</h2>
-      <p><strong>Smaken er bedre enn alle andre matkasser vi har prøvd.</strong> Ikke litt bedre — merkbart bedre. De hjemmelagde sausene utgjør en forskjell du kjenner fra første munnfull.</p>
-      <p><strong>Du velger ingenting.</strong> Det er befriende tre av fire uker, og frustrerende den fjerde. Hvis du er kresen eller har sterke preferanser, kan det bli et problem.</p>
-      <p><strong>Råvarene er i en annen klasse.</strong> Fersk pasta fra Østfold, ost fra Røros, tortillas fra Stavanger. Du merker at det er noe annet enn standardvarer fra grossist.</p>
-      <p><strong>Prisen er høy.</strong> 1049 kroner per uke for tre middager er mer enn de fleste andre aktører. Du betaler for håndverket og råvarene, og du merker hva du betaler for. Men det er fortsatt dyrt.</p>
-      <p><strong>Porsjonene er nøyaktige.</strong> Du kaster ingenting, men du får heller ikke restemat.</p>
+      <p>Smaken er bedre enn alle andre matkasser vi har prøvd. Ikke litt bedre — merkbart bedre. De hjemmelagde sausene utgjør en forskjell du kjenner fra første munnfull.</p>
+      <p>Du velger ingenting. Det er befriende tre av fire uker, og frustrerende den fjerde. Hvis du er kresen eller har sterke preferanser, kan det bli et problem.</p>
+      <p>Råvarene er i en annen klasse. Fersk pasta fra Østfold, ost fra Røros, tortillas fra Stavanger. Du merker at det er noe annet enn standardvarer fra grossist.</p>
+      <p>Prisen er høy. 1049 kroner per uke for tre middager er mer enn de fleste andre aktører. Du betaler for håndverket og råvarene, og du merker hva du betaler for. Men det er fortsatt dyrt.</p>
+      <p>Porsjonene er nøyaktige. Du kaster ingenting, men du får heller ikke restemat.</p>
 
       <h2>Er det verdt 1049 kr per uke?</h2>
       <p>Hvis du spiser ute en gang i uken, og den middagen koster 500–600 kroner for to, er Kokkeløren billigere enn restaurant — og bedre enn de fleste takeaway-alternativer. Tre restaurantkvalitets-middager for 1049 kroner er ikke urimelig.</p>

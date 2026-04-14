@@ -147,17 +147,39 @@
     }
 
     /* Content box */
+    /* ── Content-box (shared Kokkeløren module) ── */
     .content-box {
-      background: var(--border);
+      background: var(--neutral-20);
       border-radius: 16px;
-      padding: 32px;
-      margin: 32px 0;
-      line-height: 1.6;
+      padding: 32px 36px;
+      margin: 40px 0;
     }
-
     .content-box h3 {
-      margin-top: 0;
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 400;
+      color: var(--heading-text);
+      margin: 0 0 16px;
     }
+    .content-box p {
+      font-size: 17px;
+      font-weight: 300;
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+    .content-box p:last-child { margin-bottom: 0; }
+    .content-box strong { font-weight: 500; }
+    .content-box .cb-source {
+      margin-top: 20px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+      font-size: 14px;
+    }
+    .content-box .cb-source a {
+      color: var(--green);
+      text-decoration: none;
+    }
+    .content-box .cb-source a:hover { text-decoration: underline; }
 
     /* Table */
     table {
@@ -551,19 +573,15 @@
   <h2>Fordeler og ulemper</h2>
 
     <h3>Fordeler</h3>
-    <div class="content-box">
-      <p><strong>Du sparer tid.</strong> Nordmenn bruker i snitt to til tre timer per uke på å planlegge og handle mat. Med en matkasse blir det null. Du åpner boksen og lager middag.</p>
-      <p><strong>Mindre matsvinn.</strong> Alt er porsjonert til oppskriftene. Du kjøper ikke mer enn du trenger. Matvett sin rapport fra 2024 viser at matkassebrukere kaster opptil 60 prosent mindre mat.</p>
-      <p><strong>Du lager nye ting.</strong> De fleste av oss har fem-seks retter vi lager om igjen. En matkasse gir deg nye oppskrifter hver uke, med kombinasjoner du ikke hadde funnet på selv.</p>
-      <p><strong>Forutsigbar pris.</strong> Du vet hva middagene koster. Ingen impulskjøp, ingen overraskelser.</p>
-    </div>
+    <p>Du sparer tid. Nordmenn bruker i snitt to til tre timer per uke på å planlegge og handle mat. Med en matkasse blir det null. Du åpner boksen og lager middag.</p>
+    <p>Mindre matsvinn. Alt er porsjonert til oppskriftene. Du kjøper ikke mer enn du trenger. Matvett sin rapport fra 2024 viser at matkassebrukere kaster opptil 60 prosent mindre mat.</p>
+    <p>Du lager nye ting. De fleste av oss har fem-seks retter vi lager om igjen. En matkasse gir deg nye oppskrifter hver uke, med kombinasjoner du ikke hadde funnet på selv.</p>
+    <p>Forutsigbar pris. Du vet hva middagene koster. Ingen impulskjøp, ingen overraskelser.</p>
 
     <h3>Ulemper</h3>
-    <div class="content-box">
-      <p><strong>Du velger ikke ingrediensene selv.</strong> Du kan filtrere på allergi og diett, men du har ikke full kontroll over alt som kommer i boksen.</p>
-      <p><strong>Leveringsdagen er fast.</strong> Du kan pause og endre, men det krever at du planlegger litt.</p>
-      <p><strong>Kan være dyrere enn butikken.</strong> Matkasse koster 95 til 160 kr per porsjon, avhengig av leverandør. Handler du på tilbud og kaster ingenting, kan butikken bli billigere. Men de fleste gjør ikke det.</p>
-    </div>
+    <p>Du velger ikke ingrediensene selv. Du kan filtrere på allergi og diett, men du har ikke full kontroll over alt som kommer i boksen.</p>
+    <p>Leveringsdagen er fast. Du kan pause og endre, men det krever at du planlegger litt.</p>
+    <p>Kan være dyrere enn butikken. Matkasse koster 95 til 160 kr per porsjon, avhengig av leverandør. Handler du på tilbud og kaster ingenting, kan butikken bli billigere. Men de fleste gjør ikke det.</p>
 
     <h2>Hva koster det?</h2>
     <p>Prisene gjelder Q2 2026, ordinært abonnement. Frakt er inkludert hos alle. De fleste gir 30–50 prosent rabatt på første bestilling.</p>
@@ -581,7 +599,7 @@
       </thead>
       <tbody>
         <tr>
-          <td><strong>Kokkeløren</strong></td>
+          <td>Kokkeløren</td>
           <td>2</td>
           <td>3</td>
           <td>1049 kr</td>
@@ -589,7 +607,7 @@
           <td>Lokale råvarer, premium</td>
         </tr>
         <tr>
-          <td><strong>Godtlevert</strong></td>
+          <td>Godtlevert</td>
           <td>2</td>
           <td>3</td>
           <td>299 kr</td>
@@ -597,7 +615,7 @@
           <td>Variert, fleksibel</td>
         </tr>
         <tr>
-          <td><strong>Godtlevert</strong></td>
+          <td>Godtlevert</td>
           <td>2</td>
           <td>5</td>
           <td>449 kr</td>
@@ -605,7 +623,7 @@
           <td>Variert, fleksibel</td>
         </tr>
         <tr>
-          <td><strong>HelloFresh</strong></td>
+          <td>HelloFresh</td>
           <td>2</td>
           <td>3</td>
           <td>199 kr</td>
@@ -613,7 +631,7 @@
           <td>Billig, enkel</td>
         </tr>
         <tr>
-          <td><strong>HelloFresh</strong></td>
+          <td>HelloFresh</td>
           <td>2</td>
           <td>5</td>
           <td>299 kr</td>
@@ -621,7 +639,7 @@
           <td>Billig, enkel</td>
         </tr>
         <tr>
-          <td><strong>Linas Matkasse</strong></td>
+          <td>Linas Matkasse</td>
           <td>2</td>
           <td>4</td>
           <td>379 kr</td>
@@ -631,9 +649,9 @@
       </tbody>
     </table>
 
-    <p><strong>Hvorfor så stor forskjell i pris?</strong> Kokkeløren og Godtlevert bruker lokale, sesongbaserte råvarer fra navngitte produsenter. Det koster mer enn å kjøpe inn i volum fra internasjonale leverandører, som HelloFresh gjør.</p>
+    <p>Hvorfor så stor forskjell i pris? Kokkeløren og Godtlevert bruker lokale, sesongbaserte råvarer fra navngitte produsenter. Det koster mer enn å kjøpe inn i volum fra internasjonale leverandører, som HelloFresh gjør.</p>
 
-    <p><strong>Er det verdt det?</strong> Det spørs hva du sammenligner med. De fleste norske husholdninger handler ikke optimalt — det blir impulskjøp og matsvinn. Legger du til det, kommer matkassen ut omtrent likt. Eller billigere.</p>
+    <p>Er det verdt det? Det spørs hva du sammenligner med. De fleste norske husholdninger handler ikke optimalt — det blir impulskjøp og matsvinn. Legger du til det, kommer matkassen ut omtrent likt. Eller billigere.</p>
 
     <img src="/assets/images/AVE_6290_AnneValeur.jpg" alt="Kokkeløren" class="content-img">
 
@@ -651,49 +669,49 @@
       </thead>
       <tbody>
         <tr>
-          <td><strong>Pris per porsjon</strong></td>
+          <td>Pris per porsjon</td>
           <td>64–69 kr</td>
           <td>45–50 kr</td>
           <td>30–35 kr</td>
           <td>47 kr</td>
         </tr>
         <tr>
-          <td><strong>Retter per uke</strong></td>
+          <td>Retter per uke</td>
           <td>3</td>
           <td>3–5</td>
           <td>3–5</td>
           <td>4</td>
         </tr>
         <tr>
-          <td><strong>Matfokus</strong></td>
+          <td>Matfokus</td>
           <td>Lokalt, sesong, premium</td>
           <td>Variert, hjemmekoselig</td>
           <td>Rask, enkel</td>
           <td>Balansert</td>
         </tr>
         <tr>
-          <td><strong>Vegetar</strong></td>
+          <td>Vegetar</td>
           <td>Ikke egen pakke</td>
           <td>Ca. 40 %</td>
           <td>Ca. 30 %</td>
           <td>Ca. 30 %</td>
         </tr>
         <tr>
-          <td><strong>Allergifilter</strong></td>
+          <td>Allergifilter</td>
           <td>Nei (allergener oppført per oppskrift)</td>
           <td>Omfattende</td>
           <td>Basis</td>
           <td>Omfattende</td>
         </tr>
         <tr>
-          <td><strong>Levering</strong></td>
+          <td>Levering</td>
           <td>Inkludert</td>
           <td>Inkludert</td>
           <td>Inkludert</td>
           <td>Inkludert</td>
         </tr>
         <tr>
-          <td><strong>Område</strong></td>
+          <td>Område</td>
           <td>Oslo, Østlandet + utvalgte</td>
           <td>Hele Norge</td>
           <td>Hele Norge</td>
@@ -703,7 +721,7 @@
     </table>
 
     <h3>Kokkeløren</h3>
-    <p>Vi bruker råvarer fra små, norske produsenter. Salsicciapølser fra <strong>Strøm-Larsen</strong>, ost fra <strong>Galåvolden Gård</strong>, viltkjøtt fra <strong>Stølsvidda</strong>. Oppskriftene er laget av kjøkkensjefen vår, Tore. Godt.no ga oss terningkast 5 av 6 og trakk frem smaken som det som skilte oss fra resten. Vi leverer foreløpig Østlandet og utvalgte byer. Prisen er den høyeste på markedet.</p>
+    <p>Vi bruker råvarer fra små, norske produsenter. Salsicciapølser fra Strøm-Larsen, ost fra Galåvolden Gård, viltkjøtt fra Stølsvidda. Oppskriftene er laget av kjøkkensjefen vår, Tore. Godt.no ga oss terningkast 5 av 6 og trakk frem smaken som det som skilte oss fra resten. Vi leverer foreløpig Østlandet og utvalgte byer. Prisen er den høyeste på markedet.</p>
 
     <h3>Godtlevert</h3>
     <p>Varierte menyer, god fleksibilitet, leverer hele Norge. Prisene ligger i mellomsjiktet. Godt.no ga terningkast 3 — solide retter, men noe forutsigbare. Et trygt valg for deg som vil ha en god matkasse uten å strekke budsjettet.</p>
@@ -717,10 +735,10 @@
     <h2>Slik velger du</h2>
 
     <div class="content-box">
-      <p><strong>Par uten barn:</strong> Matinteressert? Kokkeløren. Vil ha solid kvalitet til lavere pris? Godtlevert eller Linas. Vil teste billig? HelloFresh.</p>
-      <p><strong>Familie med barn:</strong> Godtlevert og Linas har gjenkjennelige retter og familieporsjoner. Kokkeløren passer for familier som vil prøve nye smaker. HelloFresh er billigst.</p>
-      <p><strong>Enslig:</strong> Ingen tilbyr matkasse for én person. Bestill for to og frys restene, eller del med noen. Godtlevert og HelloFresh har de minste enhetene.</p>
-      <p><strong>Allergi eller diett:</strong> Kokkeløren og Godtlevert har best filter. HelloFresh dekker det vanligste.</p>
+      <p>Par uten barn: Matinteressert? Kokkeløren. Vil ha solid kvalitet til lavere pris? Godtlevert eller Linas. Vil teste billig? HelloFresh.</p>
+      <p>Familie med barn: Godtlevert og Linas har gjenkjennelige retter og familieporsjoner. Kokkeløren passer for familier som vil prøve nye smaker. HelloFresh er billigst.</p>
+      <p>Enslig: Ingen tilbyr matkasse for én person. Bestill for to og frys restene, eller del med noen. Godtlevert og HelloFresh har de minste enhetene.</p>
+      <p>Allergi eller diett: Kokkeløren og Godtlevert har best filter. HelloFresh dekker det vanligste.</p>
     </div>
 
     <h2>Slik fungerer Kokkeløren</h2>
@@ -769,7 +787,7 @@
             <svg class="faq-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
           <div class="faq-content">
-            <p>Kokkeløren bruker lokale produsenter: <strong>Strøm-Larsen</strong>, <strong>Galåvolden Gård</strong>, <strong>Stølsvidda</strong>, <strong>Gårdsand</strong>. Godtlevert bruker norsk og importert med vekt på sesong. HelloFresh og Linas henter fra norske og europeiske leverandører.</p>
+            <p>Kokkeløren bruker lokale produsenter: Strøm-Larsen, Galåvolden Gård, Stølsvidda, Gårdsand. Godtlevert bruker norsk og importert med vekt på sesong. HelloFresh og Linas henter fra norske og europeiske leverandører.</p>
           </div>
         </li>
         <li class="faq-item">

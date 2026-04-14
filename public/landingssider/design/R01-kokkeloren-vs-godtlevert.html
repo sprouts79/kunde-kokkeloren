@@ -371,7 +371,40 @@
     }
     
 
-    /* ── Reviews module (shared Kokkeløren design) ── */
+        /* ── Content-box (shared Kokkeløren module) ── */
+    .content-box {
+      background: var(--neutral-20);
+      border-radius: 16px;
+      padding: 32px 36px;
+      margin: 40px 0;
+    }
+    .content-box h3 {
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 400;
+      color: var(--heading-text);
+      margin: 0 0 16px;
+    }
+    .content-box p {
+      font-size: 17px;
+      font-weight: 300;
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+    .content-box p:last-child { margin-bottom: 0; }
+    .content-box strong { font-weight: 500; }
+    .content-box .cb-source {
+      margin-top: 20px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+      font-size: 14px;
+    }
+    .content-box .cb-source a {
+      color: var(--green);
+      text-decoration: none;
+    }
+    .content-box .cb-source a:hover { text-decoration: underline; }
+/* ── Reviews module (shared Kokkeløren design) ── */
     .reviews-module { background: var(--page-bg, #F1EDE2); padding: 64px 0; margin: 64px 0; }
     .reviews-inner { max-width: 1200px; margin: 0 auto; padding: 0 48px; display: grid; grid-template-columns: 1fr 2fr; gap: 48px; align-items: start; }
     .reviews-intro h2 { font-family: var(--font-display, 'Valizas', Georgia, serif); font-size: 36px; font-weight: 400; line-height: 1.15; color: var(--heading-text, #31261D); margin-bottom: 16px; }
@@ -680,7 +713,7 @@
       <!-- Råvarer og produsenter -->
       <h2>Råvarer og produsenter</h2>
       <p>Godtlevert fokuserer på kortreist mat og lokale produsenter. De er en del av Cheffelo-konsernet og har god kontroll på leverandørkjeden. Råvarene er gjennomgående ferske og av god kvalitet, ifølge uavhengige tester.</p>
-      <p>Kokkeløren handler direkte fra navngitte småskalaprodusenter: <strong>La Piersante</strong> (pasta fra Østfold), <strong>Galåvolden Gård</strong> (ost fra Røros), <strong>Como México</strong> (tortillas fra Stavanger), <strong>Stølsvidda</strong> (kjøtt fra Valdres). Du vet hvem som har laget maten din, fordi produsentnavnet står på ingredienslisten.</p>
+      <p>Kokkeløren handler direkte fra navngitte småskalaprodusenter: La Piersante (pasta fra Østfold), Galåvolden Gård (ost fra Røros), <strong>Como México</strong> (tortillas fra Stavanger), Stølsvidda (kjøtt fra Valdres). Du vet hvem som har laget maten din, fordi produsentnavnet står på ingredienslisten.</p>
       <p>Begge bruker norske råvarer. Kokkeløren er mer eksplisitt om hvem produsentene er og gjør det til en sentral del av opplevelsen.</p>
 
       <!-- Sauser og smak -->
@@ -699,8 +732,8 @@
 
       <!-- Fleksibilitet -->
       <h2>Fleksibilitet</h2>
-      <p><strong>Godtlevert:</strong> Ingen binding, velg antall retter (2–5), velg ukentlig eller annenhver uke, pause når du vil. Du kan også legge til dagligvarer som brød, frukt og meieriprodukter i bestillingen.</p>
-      <p><strong>Kokkeløren:</strong> Ingen binding, tre retter per uke (fast), ukentlig eller annenhver uke, pause når du vil. Ingen tilleggshandel. Bestillingsfrist søndager for neste uke.</p>
+      <p>Godtlevert: Ingen binding, velg antall retter (2–5), velg ukentlig eller annenhver uke, pause når du vil. Du kan også legge til dagligvarer som brød, frukt og meieriprodukter i bestillingen.</p>
+      <p>Kokkeløren: Ingen binding, tre retter per uke (fast), ukentlig eller annenhver uke, pause når du vil. Ingen tilleggshandel. Bestillingsfrist søndager for neste uke.</p>
       <p>Godtlevert er mer fleksibelt. Kokkeløren er enklere — færre valg betyr færre beslutninger.</p>
 
       <!-- Testresultater -->

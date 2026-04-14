@@ -337,7 +337,40 @@
     }
     
 
-    /* ── Reviews module (shared Kokkeløren design) ── */
+        /* ── Content-box (shared Kokkeløren module) ── */
+    .content-box {
+      background: var(--neutral-20);
+      border-radius: 16px;
+      padding: 32px 36px;
+      margin: 40px 0;
+    }
+    .content-box h3 {
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 400;
+      color: var(--heading-text);
+      margin: 0 0 16px;
+    }
+    .content-box p {
+      font-size: 17px;
+      font-weight: 300;
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+    .content-box p:last-child { margin-bottom: 0; }
+    .content-box strong { font-weight: 500; }
+    .content-box .cb-source {
+      margin-top: 20px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+      font-size: 14px;
+    }
+    .content-box .cb-source a {
+      color: var(--green);
+      text-decoration: none;
+    }
+    .content-box .cb-source a:hover { text-decoration: underline; }
+/* ── Reviews module (shared Kokkeløren design) ── */
     .reviews-module { background: var(--page-bg, #F1EDE2); padding: 64px 0; margin: 64px 0; }
     .reviews-inner { max-width: 1200px; margin: 0 auto; padding: 0 48px; display: grid; grid-template-columns: 1fr 2fr; gap: 48px; align-items: start; }
     .reviews-intro h2 { font-family: var(--font-display, 'Valizas', Georgia, serif); font-size: 36px; font-weight: 400; line-height: 1.15; color: var(--heading-text, #31261D); margin-bottom: 16px; }
@@ -544,7 +577,7 @@
     <h2>Penger — Matkasse mot Dagligvare</h2>
     <p>Det vanligste spørsmålet er om pris. Her er tallene.</p>
 
-    <p><strong>Familie på 2 personer, 3 middager per uke:</strong></p>
+    <p>Familie på 2 personer, 3 middager per uke:</p>
 
     <table>
       <thead>
@@ -575,15 +608,15 @@
           <td>Billigst</td>
         </tr>
         <tr>
-          <td><strong>Dagligvarebutikken (vanligvis)</strong></td>
-          <td><strong>380–550 kr</strong></td>
-          <td><strong>47,50–69 kr</strong></td>
+          <td>Dagligvarebutikken (vanligvis)</td>
+          <td>380–550 kr</td>
+          <td>47,50–69 kr</td>
           <td>Med impulskjøp og matsvinn</td>
         </tr>
         <tr>
-          <td><strong>Dagligvarebutikken (smart kjøpt)</strong></td>
-          <td><strong>240–320 kr</strong></td>
-          <td><strong>30–40 kr</strong></td>
+          <td>Dagligvarebutikken (smart kjøpt)</td>
+          <td>240–320 kr</td>
+          <td>30–40 kr</td>
           <td>Planlagt, intet kastet</td>
         </tr>
       </tbody>
@@ -611,13 +644,13 @@
 
   <h2>Når Matkasse IKKE Passer</h2>
     <div class="content-box">
-      <p><strong>Mange allergi eller sjeldne diettbehov:</strong> Kokkeløren lister opp allergener per oppskrift, men har ikke automatisk allergifiltrering. Du kan bytte ingredienser kostnadsfritt. Men hvis du må justere mer enn halvparten av hver oppskrift, lønner det seg ikke.</p>
+      <p>Mange allergi eller sjeldne diettbehov: Kokkeløren lister opp allergener per oppskrift, men har ikke automatisk allergifiltrering. Du kan bytte ingredienser kostnadsfritt. Men hvis du må justere mer enn halvparten av hver oppskrift, lønner det seg ikke.</p>
 
-      <p><strong>Du er veldig prisbeviste og disiplinert:</strong> Hvis du planlegger måltider grundig, handler bare på tilbud, aldri impulskjøper, og ikke kaster mat, kan du få det billigere selv. Det krever disiplin som få har over tid.</p>
+      <p>Du er veldig prisbeviste og disiplinert: Hvis du planlegger måltider grundig, handler bare på tilbud, aldri impulskjøper, og ikke kaster mat, kan du få det billigere selv. Det krever disiplin som få har over tid.</p>
 
-      <p><strong>Du jobber skift eller uforutsigbar arbeidstid:</strong> Du er låst til leveringsdag og oppskriftene som kommer. Kokkeløren lar deg pause en-to uker gratis, men hvis du pauser 30 prosent av året, forsvinner fordelen.</p>
+      <p>Du jobber skift eller uforutsigbar arbeidstid: Du er låst til leveringsdag og oppskriftene som kommer. Kokkeløren lar deg pause en-to uker gratis, men hvis du pauser 30 prosent av året, forsvinner fordelen.</p>
 
-      <p><strong>Du har lite kjøleskapplass:</strong> En matkasse bruker plass noen dager. Hvis kjøleskapet allerede er fullt, blir det upraktisk.</p>
+      <p>Du har lite kjøleskapplass: En matkasse bruker plass noen dager. Hvis kjøleskapet allerede er fullt, blir det upraktisk.</p>
     </div>
 
     <h2>Hvem Passer Matkasse For?</h2>
@@ -696,7 +729,7 @@
           </svg>
         </button>
         <div class="accordion-content">
-          <p>Vanligvis ja. Den er planlagt til 3–5 dager i kjøleskap, ikke 10 dager som butikkvare. Kokkeløren bruker også høyere kvalitets ingredienser fra små norske produsenter som <strong>Strøm-Larsen</strong>, <strong>Galåvolden Gård</strong> og <strong>Stølsvidda</strong>.</p>
+          <p>Vanligvis ja. Den er planlagt til 3–5 dager i kjøleskap, ikke 10 dager som butikkvare. Kokkeløren bruker også høyere kvalitets ingredienser fra små norske produsenter som Strøm-Larsen, Galåvolden Gård og Stølsvidda.</p>
         </div>
       </div>
     </div>

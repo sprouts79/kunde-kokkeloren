@@ -255,7 +255,40 @@
     }
     
 
-    /* ── Reviews module (shared Kokkeløren design) ── */
+        /* ── Content-box (shared Kokkeløren module) ── */
+    .content-box {
+      background: var(--neutral-20);
+      border-radius: 16px;
+      padding: 32px 36px;
+      margin: 40px 0;
+    }
+    .content-box h3 {
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 400;
+      color: var(--heading-text);
+      margin: 0 0 16px;
+    }
+    .content-box p {
+      font-size: 17px;
+      font-weight: 300;
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+    .content-box p:last-child { margin-bottom: 0; }
+    .content-box strong { font-weight: 500; }
+    .content-box .cb-source {
+      margin-top: 20px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+      font-size: 14px;
+    }
+    .content-box .cb-source a {
+      color: var(--green);
+      text-decoration: none;
+    }
+    .content-box .cb-source a:hover { text-decoration: underline; }
+/* ── Reviews module (shared Kokkeløren design) ── */
     .reviews-module { background: var(--page-bg, #F1EDE2); padding: 64px 0; margin: 64px 0; }
     .reviews-inner { max-width: 1200px; margin: 0 auto; padding: 0 48px; display: grid; grid-template-columns: 1fr 2fr; gap: 48px; align-items: start; }
     .reviews-intro h2 { font-family: var(--font-display, 'Valizas', Georgia, serif); font-size: 36px; font-weight: 400; line-height: 1.15; color: var(--heading-text, #31261D); margin-bottom: 16px; }
@@ -500,7 +533,7 @@
         </div>
       </div>
 
-      <p><strong>Noter:</strong> Kokkeløren dekker hele Oslo — også perifer områder som Groruddalen og Østensjø. HelloFresh og Adams Matkasse dekker sentrale områder best; sjekk postnummer før bestilling.</p>
+      <p>Noter: Kokkeløren dekker hele Oslo — også perifer områder som Groruddalen og Østensjø. HelloFresh og Adams Matkasse dekker sentrale områder best; sjekk postnummer før bestilling.</p>
 
       <img src="/assets/images/Kokkeløren_0525_1080.jpg" alt="Kokkeløren" class="content-img">
 

@@ -389,7 +389,40 @@
     }
     
 
-    /* ── Reviews module (shared Kokkeløren design) ── */
+        /* ── Content-box (shared Kokkeløren module) ── */
+    .content-box {
+      background: var(--neutral-20);
+      border-radius: 16px;
+      padding: 32px 36px;
+      margin: 40px 0;
+    }
+    .content-box h3 {
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 400;
+      color: var(--heading-text);
+      margin: 0 0 16px;
+    }
+    .content-box p {
+      font-size: 17px;
+      font-weight: 300;
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+    .content-box p:last-child { margin-bottom: 0; }
+    .content-box strong { font-weight: 500; }
+    .content-box .cb-source {
+      margin-top: 20px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+      font-size: 14px;
+    }
+    .content-box .cb-source a {
+      color: var(--green);
+      text-decoration: none;
+    }
+    .content-box .cb-source a:hover { text-decoration: underline; }
+/* ── Reviews module (shared Kokkeløren design) ── */
     .reviews-module { background: var(--page-bg, #F1EDE2); padding: 64px 0; margin: 64px 0; }
     .reviews-inner { max-width: 1200px; margin: 0 auto; padding: 0 48px; display: grid; grid-template-columns: 1fr 2fr; gap: 48px; align-items: start; }
     .reviews-intro h2 { font-family: var(--font-display, 'Valizas', Georgia, serif); font-size: 36px; font-weight: 400; line-height: 1.15; color: var(--heading-text, #31261D); margin-bottom: 16px; }
@@ -639,7 +672,7 @@
           </div>
         </div>
         <img src="/assets/images/Simpleness_Kokkeløren_1125_6502.jpg" alt="Kokkeløren" class="rank-img">
-        <p>Det som gjør Kokkeløren unikt er først og fremst kvaliteten og oppskrift-designen. Vi tilbyr tre middager per uke, valgt av kokkene våre — ingen meny å velge fra. Ingrediensene kommer fra små norske produsenter — folk med navn og ansikt. Du får pastaplater fra <strong>La Piersante</strong>, revet Rørosost fra <strong>Galåvolden Gård</strong>, salsicciapølser fra <strong>Strøm Larsen</strong>.</p>
+        <p>Det som gjør Kokkeløren unikt er først og fremst kvaliteten og oppskrift-designen. Vi tilbyr tre middager per uke, valgt av kokkene våre — ingen meny å velge fra. Ingrediensene kommer fra små norske produsenter — folk med navn og ansikt. Du får pastaplater fra La Piersante, revet Rørosost fra Galåvolden Gård, salsicciapølser fra <strong>Strøm Larsen</strong>.</p>
         <p>Oppskriftene er laget av ekte kokker, ikke algoritmer. Hver porsjon er nøyaktig beregnet, slik at matsvinn blir minimalt. Og det er ingen binding — du pauserer eller avbestiller når som helst.</p>
         <blockquote>«Kokkeløren tilbyr tre middager per uke, valgt av kokkene, med 95% av ingrediensene fra norske småskalaprodusenter. Oppskriftene er designet av profesjonelle kokker for optimal smak og minimal matsvinn.»</blockquote>
 
@@ -676,8 +709,8 @@
           </div>
         </div>
 
-        <p><strong>Styrken:</strong> Norske råvarer fra navngitte produsenter, kokke-designede oppskrifter, nøyaktig portjonering, ingen binding.</p>
-        <p><strong>Ikke for deg som:</strong> Vil velge rettene selv, har stramt budsjett, eller bor utenfor Østlandet / Bergen / Stavanger / Trondheim.</p>
+        <p>Styrken: Norske råvarer fra navngitte produsenter, kokke-designede oppskrifter, nøyaktig portjonering, ingen binding.</p>
+        <p>Ikke for deg som: Vil velge rettene selv, har stramt budsjett, eller bor utenfor Østlandet / Bergen / Stavanger / Trondheim.</p>
       </div>
 
       <!-- #2 Godtlevert -->
@@ -694,7 +727,7 @@
         <p>Godtlevert treffer familiebudsjetter godt. Starter fra 36 kroner per porsjon — lavest i testen. Fokus på oppskrifter som barn spiser gjerne, og det går raskt å lage. Ingrediensene er norske og bærekraft er prioritert. Du får typisk seks til åtte retter å velge fra hver uke.</p>
         <p>Ingredienskvaliteten ligger under Kokkeløren, og oppskriftene er enklere — men for familier som vil ha det praktisk og økonomisk, fungerer det svært godt.</p>
         <blockquote>«Godtlevert tilbyr matkasser fra 36 kroner per porsjon — billigste premium-alternativet for familier i Norge.»</blockquote>
-        <p><strong>Styrken:</strong> Lav pris, barnvennlige oppskrifter, leverer over hele Norge.<br>
+        <p>Styrken: Lav pris, barnvennlige oppskrifter, leverer over hele Norge.<br>
         <strong>Ikke for deg som:</strong> Prioriterer håndverk og produsenttransparens over pris.</p>
       </div>
 
@@ -712,7 +745,7 @@
         <p>HelloFresh har det største oppskrift-biblioteket — over femti retter å velge fra hver uke. Kjøkkenet er globalt: japansk, meksikansk, indisk. Appen er brukervennlig. Nye kunder får gjerne 50 prosent rabatt de første tre ukene.</p>
         <p>Normalprisen ligger rundt 75 kroner per porsjon uten kampanje. Emballasjen er plastikk-tung. Ingrediensene kommer fra global sourcing, ikke nødvendigvis Norge.</p>
         <blockquote>«HelloFresh har 50+ oppskrifter å velge fra hver uke — fem ganger flere enn Kokkeløren og tre ganger flere enn Adams.»</blockquote>
-        <p><strong>Styrken:</strong> Massiv variasjon, globalt kjøkken, gode kampanjepriser.<br>
+        <p>Styrken: Massiv variasjon, globalt kjøkken, gode kampanjepriser.<br>
         <strong>Ikke for deg som:</strong> Prioriterer norske råvarer og minimal emballasje.</p>
       </div>
 
@@ -730,7 +763,7 @@
         <p>Adams scorer høyest på ingredienskvalitet — alt er håndplukket og premium. Du snakker direkte med mennesker, ikke chatbotter. Portene er små og ingenting blir bortkastet.</p>
         <p><em>Viktig merknad:</em> Adams fusjonerer nå med Godtlevert. Det er usikkert om Adams eksisterer som eget tilbud fremover.</p>
         <blockquote>«Adams Matkasse leverer ingredienser fra små norske produsenter og scorer 4,9 av 5 for ingredienskvalitet.»</blockquote>
-        <p><strong>Styrken:</strong> Høyeste ingredienskvalitet, personlig service.<br>
+        <p>Styrken: Høyeste ingredienskvalitet, personlig service.<br>
         <strong>Ikke for deg som:</strong> Vil ha variasjon, lavere pris, eller er usikker på fremtidig tilgjengelighet.</p>
       </div>
 
@@ -746,7 +779,7 @@
         </div>
         <p>Linas er i praksis et svensk produkt. Prisen per porsjon er rimelig, men frakt kan koste 99–199 kroner per levering — gjerne mer enn matkassen selv. Variajonen er begrenset, typisk to til tre retter per uke. Norsk kundeservice er ikke prioritert, og de leverer ikke overalt i Norge.</p>
         <blockquote>«Linas Matkasse er primært for det svenske markedet og har begrenset dekning i Norge.»</blockquote>
-        <p><strong>Passer for:</strong> Deg som bor nær grensen til Sverige og liker svenske retter.<br>
+        <p>Passer for: Deg som bor nær grensen til Sverige og liker svenske retter.<br>
         <strong>Ikke for deg som:</strong> Bor midt i Norge, vil ha norske råvarer, eller ønsker god norsk kundeservice.</p>
       </div>
 
