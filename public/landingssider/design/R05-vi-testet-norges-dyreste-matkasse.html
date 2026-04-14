@@ -251,36 +251,23 @@
       margin: 48px 0 16px;
       display: block;
     }
-    /* Social proof / reviews */
-    .reviews {
-      margin: 64px 0;
-    }
-    .reviews-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      margin-top: 32px;
-    }
-    .review-card {
-      background: var(--neutral-20);
-      border-radius: 16px;
-      padding: 28px;
-    }
-    .review-card p {
-      font-size: 17px;
-      line-height: 1.65;
-      color: var(--body-text);
-      margin-bottom: 16px;
-    }
-    .review-card .reviewer {
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--neutral-70);
-      margin-bottom: 0;
-    }
+    
+
+    /* ── Reviews module (shared Kokkeløren design) ── */
+    .reviews-module { background: var(--neutral-20, #E8E2D9); padding: 64px 0; margin: 64px 0; }
+    .reviews-inner { max-width: 1200px; margin: 0 auto; padding: 0 48px; display: grid; grid-template-columns: 1fr 2fr; gap: 48px; align-items: start; }
+    .reviews-intro h2 { font-family: var(--font-display, 'Valizas', Georgia, serif); font-size: 36px; font-weight: 400; line-height: 1.15; color: var(--heading-text, #31261D); margin-bottom: 16px; }
+    .reviews-intro p { font-size: 17px; line-height: 1.65; color: var(--body-text, #31261D); }
+    .reviews-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .review-card-v2 { background: #fff; border-radius: 16px; padding: 24px; display: flex; flex-direction: column; }
+    .review-stars { color: var(--green, #6CC24A); font-size: 18px; letter-spacing: 2px; margin-bottom: 12px; }
+    .review-card-v2 .review-quote { font-size: 15px; font-style: italic; line-height: 1.6; color: var(--body-text, #31261D); flex: 1; margin-bottom: 16px; }
+    .review-card-v2 .review-author { font-size: 14px; font-weight: 500; color: var(--neutral-70, #31261D); }
     @media (max-width: 900px) {
-      .reviews-grid { grid-template-columns: 1fr; }
+      .reviews-inner { grid-template-columns: 1fr; }
+      .reviews-cards { grid-template-columns: 1fr; }
     }
+
     /* ── Nav logo (tekst-basert, matches kokkeloren.no) ── */
     .nav-logo {
       font-family: var(--font-display);
@@ -514,20 +501,28 @@
 
 </main>
   <!-- ANMELDELSER -->
-  <div class="article-body reviews">
-    <h2>Hva kundene sier</h2>
-    <div class="reviews-grid">
-      <div class="review-card">
-        <p>«Finnes det noe sted man kan legge ut tilbakemeldinger? Jeg er vilt imponert over kvalitet, smaker, pris — kort sagt hele pakka — og anbefaler dere til alle jeg snakker med.»</p>
-        <p class="reviewer">— My</p>
+  <div class="reviews-module">
+    <div class="reviews-inner">
+      <div class="reviews-intro">
+        <h2>Det er faktisk kasseforskjell</h2>
+        <p>Vi legger all kjærlighet og kunnskap i å sørge for at dere får et produkt som tilsvarer deres forventningen. Da betyr det veldig mye når vi leser at dere er så fornøyde!</p>
       </div>
-      <div class="review-card">
-        <p>«Tusen, tusen takk for et fantastisk måltid. Nydelige råvarer, perfekte porsjoner og den ekstra lille touchen som er helt magisk! Vi snakker varmt om dere som leverandør.»</p>
-        <p class="reviewer">— Mette</p>
+      <div class="reviews-cards">
+      <div class="review-card-v2">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-quote">«Finnes det noe sted man kan legge ut tilbakemeldinger? Jeg er vilt imponert over kvalitet, smaker, pris — kort sagt hele pakka — og anbefaler dere til alle jeg snakker med.»</p>
+        <p class="review-author">My (31)</p>
       </div>
-      <div class="review-card">
-        <p>«Risottoen som var med i forrige ukes matkasse er den beste vi noen gang har spist! Vi elsker de nye oppskriftene — noe nytt og spennende hver uke.»</p>
-        <p class="reviewer">— Julie</p>
+      <div class="review-card-v2">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-quote">«Tusen, tusen takk for et fantastisk måltid. Nydelige råvarer, perfekte porsjoner og den ekstra lille touchen som er helt magisk! Vi snakker varmt om dere som leverandør.»</p>
+        <p class="review-author">Mette (38)</p>
+      </div>
+      <div class="review-card-v2">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-quote">«Risottoen som var med i forrige ukes matkasse er den beste vi noen gang har spist! Vi elsker de nye oppskriftene — noe nytt og spennende hver uke.»</p>
+        <p class="review-author">Julie (31)</p>
+      </div>
       </div>
     </div>
   </div>
