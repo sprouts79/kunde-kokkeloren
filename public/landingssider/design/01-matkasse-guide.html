@@ -308,14 +308,14 @@
       margin: 40px auto 0;
       display: block;
       border-radius: 16px;
-      object-fit: cover;
+      object-fit: cover; object-position: center 30%;
       aspect-ratio: 16/9;
     }
     /* Inline content images */
     .content-img {
       width: 100%;
       border-radius: 12px;
-      object-fit: cover;
+      object-fit: cover; object-position: center 30%;
       aspect-ratio: 16/9;
       margin: 48px 0 16px;
       display: block;
@@ -422,7 +422,7 @@
     .rank-img {
       width: 100%;
       border-radius: 12px;
-      object-fit: cover;
+      object-fit: cover; object-position: center 30%;
       aspect-ratio: 4/3;
       display: block;
       margin-bottom: 24px;
@@ -432,9 +432,6 @@
     body { font-weight: 300; }
     p, li, td, blockquote { font-weight: 300; }
 
-    /* FAQ accordion answer padding */
-    .accordion-content { padding-top: 4px; }
-    .accordion-content p { padding-top: 12px; }
 
     /* CTA banner — lys bakgrunn, mørk tekst, ingen luft mot footer */
     .cta-banner {
@@ -786,56 +783,6 @@
         </li>
       </ul>
     </div>
-      </div>
-
-      <div class="accordion-item">
-        <button class="accordion-button" onclick="this.parentElement.classList.toggle('open')">
-          <span>Hva hvis jeg skal reise?</span>
-          <svg class="chevron" viewBox="0 0 20 20" fill="none">
-            <path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-        </button>
-        <div class="accordion-content">
-          <p>Du setter abonnementet på pause. Gratis, så mange ganger du vil.</p>
-        </div>
-      </div>
-
-      <div class="accordion-item">
-        <button class="accordion-button" onclick="this.parentElement.classList.toggle('open')">
-          <span>Kan jeg endre antall personer eller retter?</span>
-          <svg class="chevron" viewBox="0 0 20 20" fill="none">
-            <path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-        </button>
-        <div class="accordion-content">
-          <p>Ja, fra uke til uke. Du betaler for det du bestiller.</p>
-        </div>
-      </div>
-
-      <div class="accordion-item">
-        <button class="accordion-button" onclick="this.parentElement.classList.toggle('open')">
-          <span>Hvor kommer ingrediensene fra?</span>
-          <svg class="chevron" viewBox="0 0 20 20" fill="none">
-            <path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-        </button>
-        <div class="accordion-content">
-          <p>Kokkeløren bruker lokale produsenter: <strong>Strøm-Larsen</strong>, <strong>Galåvolden Gård</strong>, <strong>Stølsvidda</strong>, <strong>Gårdsand</strong>. Godtlevert bruker norsk og importert med vekt på sesong. HelloFresh og Linas henter fra norske og europeiske leverandører.</p>
-        </div>
-      </div>
-
-      <div class="accordion-item">
-        <button class="accordion-button" onclick="this.parentElement.classList.toggle('open')">
-          <span>Er matkasse miljøvennlig?</span>
-          <svg class="chevron" viewBox="0 0 20 20" fill="none">
-            <path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-        </button>
-        <div class="accordion-content">
-          <p>Mindre matsvinn fordi alt er porsjonert. Emballasjen er gjenbrukbar eller komposterbar. Færre butikkturer.</p>
-        </div>
-      </div>
-    </div>
 
   </div>
   <!-- ANMELDELSER -->
@@ -918,20 +865,6 @@
 
 
   <script>
-    function toggleAccordion(button) {
-      const item = button.closest('.accordion-item');
-      const isOpen = item.classList.contains('open');
-      
-      document.querySelectorAll('.accordion-item').forEach(i => {
-        i.classList.remove('open');
-        i.querySelector('.accordion-button').classList.remove('active');
-      });
-      
-      if (!isOpen) {
-        item.classList.add('open');
-        button.classList.add('active');
-      }
-    }
   </script>
 
 </body>
