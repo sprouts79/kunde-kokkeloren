@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Velkomstserie — Flow preview</title>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<title>Velkomstserie — Kokkeløren</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap" rel="stylesheet">
 <style>
 :root { --admin-font: "Plus Jakarta Sans", sans-serif; --admin-black: #090A08; --border: 1px solid rgba(9,10,8,0.08); --accent: #89FF58; --pale: #F6FFEE; }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -27,68 +27,243 @@ h1 { font-size: 3rem; font-weight: 700; letter-spacing: -0.03em; line-height: 1.
 </style>
 </head>
 <body>
-<div class="topbar"><a href="/nyhetsbrev.html">Maler</a></div>
+<div class="topbar"><a href="/nyhetsbrev.html">Nyhetsbrev</a></div>
 <div class="wrap">
   <h1>Velkomstserie.</h1>
-  <p class="subtitle">3-stegs automatisert flow for nye abonnenter. Introduksjon → verdi → konvertering.</p>
-  <p class="flow-meta">Trigger: ny e-postabonnent · Delay: dag 0 → dag 2 → dag 5</p>
+  <p class="subtitle">4-stegs automatisert flow for nye Kokkeløren-abonnenter. Velkommen → bak kulissene → sosial proof → konvertering.</p>
+  <p class="flow-meta">Trigger: ny e-postabonnent · Delay: dag 0 → dag 2 → dag 5 → dag 8</p>
 
-  <!-- E-POST 1 -->
+  <!-- ════════════════════════ E-POST 1: VELKOMMEN ════════════════════════ -->
   <div class="email-section">
-    <div class="email-label">E-post 1 / 3</div>
-    <div class="email-name">Velkommen</div>
+    <div class="email-label">E-post 1 / 4</div>
+    <div class="email-name">Velkommen til Kokkeløren</div>
     <div class="email-timing">Sendes umiddelbart</div>
-    <div class="email-subject"><strong>Emne:</strong> Velkommen til [merkenavn] — her er hva du kan forvente</div>
+    <div class="email-subject"><strong>Emne:</strong> Velkommen — her er hva som skjer videre</div>
     <div class="preview-frame">
-      <table width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:600px;margin:0 auto;background:#ffffff">
-        <tr><td style="padding:24px 32px;border-bottom:1px solid #e5e5e5;font-family:'Plus Jakarta Sans',Helvetica,Arial,sans-serif;font-size:18px;font-weight:700;color:#090A08">simpleness</td></tr>
-        <tr><td style="padding:0"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='280' fill='%23F6FFEE'%3E%3Crect width='600' height='280'/%3E%3Ctext x='300' y='140' text-anchor='middle' fill='%23515B12' font-family='sans-serif' font-size='14'%3EVelkomstbilde · merkevare%3C/text%3E%3C/svg%3E" width="600" style="display:block;width:100%;height:auto" alt="Velkommen"></td></tr>
-        <tr><td style="padding:32px"><h1 style="font-family:Georgia,serif;font-size:28px;font-weight:400;line-height:1.2;color:#090A08;margin:0 0 16px">Velkommen — hyggelig å ha deg med.</h1><p style="font-family:'Plus Jakarta Sans',Helvetica,Arial,sans-serif;font-size:16px;line-height:1.6;color:#090A08;margin:0 0 24px">Vi er [merkenavn]. Her er en kort intro om hvem vi er og hva du kan forvente av oss i innboksen din. Ingen spam, bare verdi.</p><a href="#" style="display:inline-block;background:#090A08;color:#ffffff;font-family:'Plus Jakarta Sans',Helvetica,Arial,sans-serif;font-size:15px;font-weight:500;text-decoration:none;padding:12px 28px;border-radius:8px">Se hva vi gjør →</a></td></tr>
-        <tr><td style="padding:32px;background:#f7f7f7;border-top:1px solid #e5e5e5"><p style="font-family:'Plus Jakarta Sans',Helvetica,Arial,sans-serif;font-size:12px;color:#999;margin:0;text-align:center"><a href="#" style="color:#999;text-decoration:underline">Meld deg av</a></p></td></tr>
+      <table width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:600px;margin:0 auto;background:#F1EDE2">
+
+        <!-- Header -->
+        <tr><td style="padding:24px 32px;border-bottom:1px solid #D9D3C7">
+          <table width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+            <td style="font-family:Georgia,serif;font-size:20px;font-weight:400;color:#31261D">Kokkeløren.</td>
+            <td align="right"><a href="#" style="color:#31261D;text-decoration:underline;font-family:'Plus Jakarta Sans',Helvetica,sans-serif;font-size:13px">Vår matkasse</a></td>
+          </tr></table>
+        </td></tr>
+
+        <!-- Hero image -->
+        <tr><td><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='300' fill='%23E8E2D9'%3E%3Crect width='600' height='300'/%3E%3Ctext x='300' y='150' text-anchor='middle' fill='%2331261D' font-family='Georgia,serif' font-size='16' opacity='0.4'%3EFoto: Kokkel%C3%B8ren-boksen p%C3%A5 et kjøkkenbord%3C/text%3E%3C/svg%3E" width="600" style="display:block;width:100%;height:auto" alt="Kokkeløren matkasse"></td></tr>
+
+        <!-- Text -->
+        <tr><td style="padding:32px 32px 16px">
+          <h1 style="font-family:Georgia,serif;font-size:28px;font-weight:400;line-height:1.2;color:#31261D;margin:0 0 16px">Hyggelig å ha deg med.</h1>
+          <p style="font-family:'Plus Jakarta Sans',Helvetica,sans-serif;font-size:16px;font-weight:300;line-height:1.65;color:#31261D;margin:0 0 16px">Du har meldt deg på nyhetsbrevet vårt. Det betyr at du får vite om ukens meny, sesongnytt og tips fra kjøkkenet vårt — rett i innboksen.</p>
+          <p style="font-family:'Plus Jakarta Sans',Helvetica,sans-serif;font-size:16px;font-weight:300;line-height:1.65;color:#31261D;margin:0 0 16px">Kort om oss: Vi lager matkasser med norske råvarer fra små produsenter. Salsicciapølser fra Strøm-Larsen. Ost fra Galåvolden Gård. Viltkjøtt fra Stølsvidda. Oppskriftene lager kjøkkensjefen vår, Tore.</p>
+          <p style="font-family:'Plus Jakarta Sans',Helvetica,sans-serif;font-size:16px;font-weight:300;line-height:1.65;color:#31261D;margin:0">Tre middager i uka. 30 minutter fra pakking til bordet.</p>
+        </td></tr>
+
+        <!-- CTA -->
+        <tr><td style="padding:16px 32px 32px">
+          <a href="#" style="display:inline-block;background:#31261D;color:#ffffff;font-family:'Plus Jakarta Sans',Helvetica,sans-serif;font-size:15px;font-weight:500;text-decoration:none;padding:12px 28px;border-radius:8px">Se ukens meny →</a>
+        </td></tr>
+
+        <!-- Footer -->
+        <tr><td style="padding:24px 32px;border-top:1px solid #D9D3C7">
+          <p style="font-family:'Plus Jakarta Sans',Helvetica,sans-serif;font-size:12px;color:#B79B68;margin:0;text-align:center">Du får denne e-posten fordi du meldte deg på hos kokkeloren.no<br><a href="#" style="color:#B79B68;text-decoration:underline">Meld deg av</a></p>
+        </td></tr>
+
       </table>
     </div>
   </div>
 
   <div class="arrow">↓ 2 dager</div>
 
-  <!-- E-POST 2 -->
+  <!-- ════════════════════════ E-POST 2: BAK KULISSENE ════════════════════════ -->
   <div class="email-section">
-    <div class="email-label">E-post 2 / 3</div>
-    <div class="email-name">Verdi</div>
+    <div class="email-label">E-post 2 / 4</div>
+    <div class="email-name">Bak kulissene — produsentene</div>
     <div class="email-timing">Sendes dag 2</div>
-    <div class="email-subject"><strong>Emne:</strong> Tre ting du kan gjøre med [merkenavn] i dag</div>
+    <div class="email-subject"><strong>Emne:</strong> Hvem lager maten din, egentlig?</div>
     <div class="preview-frame">
-      <table width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:600px;margin:0 auto;background:#ffffff">
-        <tr><td style="padding:24px 32px;border-bottom:1px solid #e5e5e5;font-family:'Plus Jakarta Sans',Helvetica,Arial,sans-serif;font-size:18px;font-weight:700;color:#090A08">simpleness</td></tr>
-        <tr><td style="padding:0"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='240' fill='%23DFF7CC'%3E%3Crect width='600' height='240'/%3E%3Ctext x='300' y='120' text-anchor='middle' fill='%23515B12' font-family='sans-serif' font-size='14'%3EVerdi-bilde · produkt i bruk%3C/text%3E%3C/svg%3E" width="600" style="display:block;width:100%;height:auto" alt="Verdi"></td></tr>
-        <tr><td style="padding:32px"><h1 style="font-family:Georgia,serif;font-size:28px;font-weight:400;line-height:1.2;color:#090A08;margin:0 0 16px">Det du trenger å vite.</h1><p style="font-family:'Plus Jakarta Sans',Helvetica,Arial,sans-serif;font-size:16px;line-height:1.6;color:#090A08;margin:0 0 16px"><strong>1. Fordel nummer én.</strong> Kort forklaring på hvorfor dette er verdifullt for mottakeren.</p><p style="font-family:'Plus Jakarta Sans',Helvetica,Arial,sans-serif;font-size:16px;line-height:1.6;color:#090A08;margin:0 0 16px"><strong>2. Fordel nummer to.</strong> Konkret eksempel eller tall som beviser verdien.</p><p style="font-family:'Plus Jakarta Sans',Helvetica,Arial,sans-serif;font-size:16px;line-height:1.6;color:#090A08;margin:0 0 24px"><strong>3. Fordel nummer tre.</strong> Det som skiller oss fra alternativene.</p><a href="#" style="display:inline-block;background:#090A08;color:#ffffff;font-family:'Plus Jakarta Sans',Helvetica,Arial,sans-serif;font-size:15px;font-weight:500;text-decoration:none;padding:12px 28px;border-radius:8px">Utforsk →</a></td></tr>
-        <tr><td style="padding:32px;background:#f7f7f7;border-top:1px solid #e5e5e5"><p style="font-family:'Plus Jakarta Sans',Helvetica,Arial,sans-serif;font-size:12px;color:#999;margin:0;text-align:center"><a href="#" style="color:#999;text-decoration:underline">Meld deg av</a></p></td></tr>
+      <table width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:600px;margin:0 auto;background:#F1EDE2">
+
+        <!-- Header -->
+        <tr><td style="padding:24px 32px;border-bottom:1px solid #D9D3C7">
+          <table width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+            <td style="font-family:Georgia,serif;font-size:20px;font-weight:400;color:#31261D">Kokkeløren.</td>
+            <td align="right"><a href="#" style="color:#31261D;text-decoration:underline;font-family:'Plus Jakarta Sans',Helvetica,sans-serif;font-size:13px">Våre produsenter</a></td>
+          </tr></table>
+        </td></tr>
+
+        <!-- Text -->
+        <tr><td style="padding:32px">
+          <h1 style="font-family:Georgia,serif;font-size:28px;font-weight:400;line-height:1.2;color:#31261D;margin:0 0 16px">Hvem lager maten din, egentlig?</h1>
+          <p style="font-family:'Plus Jakarta Sans',Helvetica,sans-serif;font-size:16px;font-weight:300;line-height:1.65;color:#31261D;margin:0 0 16px">De fleste matkasser kjøper råvarer i bulk fra store grossister. Vi gjør det annerledes.</p>
+          <p style="font-family:'Plus Jakarta Sans',Helvetica,sans-serif;font-size:16px;font-weight:300;line-height:1.65;color:#31261D;margin:0 0 16px">Vi henter salsicciapølser fra <strong style="font-weight:500">Strøm-Larsen</strong> i Oslo — et familieslakteri siden 1933. Osten kommer fra <strong style="font-weight:500">Galåvolden Gård</strong> i Trøndelag. Viltkjøttet fra <strong style="font-weight:500">Stølsvidda</strong> i Valdres.</p>
+          <p style="font-family:'Plus Jakarta Sans',Helvetica,sans-serif;font-size:16px;font-weight:300;line-height:1.65;color:#31261D;margin:0 0 16px">Kort leveringskjede. Fra bonde til deg på under 48 timer.</p>
+          <p style="font-family:'Plus Jakarta Sans',Helvetica,sans-serif;font-size:16px;font-weight:300;line-height:1.65;color:#31261D;margin:0">Du merker forskjellen. Godt.no ga oss terningkast 5 av 6 og trakk frem smaken som det som skilte oss fra resten.</p>
+        </td></tr>
+
+        <!-- Image -->
+        <tr><td style="padding:0 32px 32px"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='536' height='280' rx='16' fill='%23E8E2D9'%3E%3Crect width='536' height='280' rx='16'/%3E%3Ctext x='268' y='140' text-anchor='middle' fill='%2331261D' font-family='Georgia,serif' font-size='14' opacity='0.4'%3EFoto: R%C3%A5varer fra produsentene%3C/text%3E%3C/svg%3E" width="536" style="display:block;width:100%;height:auto;border-radius:16px" alt="Råvarer fra produsentene"></td></tr>
+
+        <!-- CTA -->
+        <tr><td style="padding:0 32px 32px">
+          <a href="#" style="display:inline-block;background:#31261D;color:#ffffff;font-family:'Plus Jakarta Sans',Helvetica,sans-serif;font-size:15px;font-weight:500;text-decoration:none;padding:12px 28px;border-radius:8px">Møt produsentene →</a>
+        </td></tr>
+
+        <!-- Footer -->
+        <tr><td style="padding:24px 32px;border-top:1px solid #D9D3C7">
+          <p style="font-family:'Plus Jakarta Sans',Helvetica,sans-serif;font-size:12px;color:#B79B68;margin:0;text-align:center"><a href="#" style="color:#B79B68;text-decoration:underline">Meld deg av</a></p>
+        </td></tr>
+
       </table>
     </div>
   </div>
 
   <div class="arrow">↓ 3 dager</div>
 
-  <!-- E-POST 3 -->
+  <!-- ════════════════════════ E-POST 3: SOSIAL PROOF ════════════════════════ -->
   <div class="email-section">
-    <div class="email-label">E-post 3 / 3</div>
-    <div class="email-name">Konvertering</div>
+    <div class="email-label">E-post 3 / 4</div>
+    <div class="email-name">Hva kundene sier</div>
     <div class="email-timing">Sendes dag 5</div>
-    <div class="email-subject"><strong>Emne:</strong> Klar til å prøve? Her er et tilbud til deg.</div>
+    <div class="email-subject"><strong>Emne:</strong> «Den beste risottoen vi noen gang har spist»</div>
     <div class="preview-frame">
-      <table width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:600px;margin:0 auto;background:#ffffff">
-        <tr><td style="padding:24px 32px;border-bottom:1px solid #e5e5e5;font-family:'Plus Jakarta Sans',Helvetica,Arial,sans-serif;font-size:18px;font-weight:700;color:#090A08">simpleness</td></tr>
-        <tr><td style="padding:32px"><h1 style="font-family:Georgia,serif;font-size:28px;font-weight:400;line-height:1.2;color:#090A08;margin:0 0 16px">Vi har noe til deg.</h1><p style="font-family:'Plus Jakarta Sans',Helvetica,Arial,sans-serif;font-size:16px;line-height:1.6;color:#090A08;margin:0 0 24px">Som ny abonnent får du [tilbud]. Gyldig i [antall] dager. Ingen forpliktelser.</p></td></tr>
-        <tr><td style="padding:0 32px 32px">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:600px;margin:0 auto;background:#F1EDE2">
+
+        <!-- Header -->
+        <tr><td style="padding:24px 32px;border-bottom:1px solid #D9D3C7">
+          <table width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+            <td style="font-family:Georgia,serif;font-size:20px;font-weight:400;color:#31261D">Kokkeløren.</td>
+            <td align="right"><a href="#" style="color:#31261D;text-decoration:underline;font-family:'Plus Jakarta Sans',Helvetica,sans-serif;font-size:13px">Anmeldelser</a></td>
+          </tr></table>
+        </td></tr>
+
+        <!-- Text -->
+        <tr><td style="padding:32px 32px 16px">
+          <h1 style="font-family:Georgia,serif;font-size:28px;font-weight:400;line-height:1.2;color:#31261D;margin:0 0 16px">Vi sier ikke at vi er best. Det gjør kundene.</h1>
+        </td></tr>
+
+        <!-- Quote 1 -->
+        <tr><td style="padding:0 32px 16px">
+          <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#ffffff;border-radius:16px">
+            <tr><td style="padding:24px">
+              <p style="font-family:Georgia,serif;font-size:16px;font-style:italic;line-height:1.6;color:#31261D;margin:0 0 12px">«Risottoen som var med i forrige ukes matkasse er den beste vi noen gang har spist! Vi elsker de nye oppskriftene — noe nytt og spennende hver uke.»</p>
+              <p style="font-family:'Plus Jakarta Sans',Helvetica,sans-serif;font-size:14px;font-weight:500;color:#31261D;margin:0">— Julie</p>
+            </td></tr>
+          </table>
+        </td></tr>
+
+        <!-- Quote 2 -->
+        <tr><td style="padding:0 32px 16px">
+          <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#ffffff;border-radius:16px">
+            <tr><td style="padding:24px">
+              <p style="font-family:Georgia,serif;font-size:16px;font-style:italic;line-height:1.6;color:#31261D;margin:0 0 12px">«Nydelige råvarer, perfekte porsjoner og den ekstra lille touchen som er helt magisk! Vi snakker varmt om dere som leverandør.»</p>
+              <p style="font-family:'Plus Jakarta Sans',Helvetica,sans-serif;font-size:14px;font-weight:500;color:#31261D;margin:0">— Mette</p>
+            </td></tr>
+          </table>
+        </td></tr>
+
+        <!-- Quote 3 -->
+        <tr><td style="padding:0 32px 24px">
+          <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#ffffff;border-radius:16px">
+            <tr><td style="padding:24px">
+              <p style="font-family:Georgia,serif;font-size:16px;font-style:italic;line-height:1.6;color:#31261D;margin:0 0 12px">«Jeg er vilt imponert over kvalitet, smaker, pris — kort sagt hele pakka — og anbefaler dere til alle jeg snakker med.»</p>
+              <p style="font-family:'Plus Jakarta Sans',Helvetica,sans-serif;font-size:14px;font-weight:500;color:#31261D;margin:0">— My</p>
+            </td></tr>
+          </table>
+        </td></tr>
+
+        <!-- Godt.no -->
+        <tr><td style="padding:0 32px 24px">
+          <p style="font-family:'Plus Jakarta Sans',Helvetica,sans-serif;font-size:15px;font-weight:300;line-height:1.6;color:#31261D;margin:0;text-align:center">Godt.no: terningkast <strong style="font-weight:700;font-size:20px">5</strong> av 6</p>
+        </td></tr>
+
+        <!-- CTA -->
+        <tr><td align="center" style="padding:0 32px 32px">
+          <a href="#" style="display:inline-block;background:#31261D;color:#ffffff;font-family:'Plus Jakarta Sans',Helvetica,sans-serif;font-size:15px;font-weight:500;text-decoration:none;padding:12px 28px;border-radius:8px">Se hva du får denne uken →</a>
+        </td></tr>
+
+        <!-- Footer -->
+        <tr><td style="padding:24px 32px;border-top:1px solid #D9D3C7">
+          <p style="font-family:'Plus Jakarta Sans',Helvetica,sans-serif;font-size:12px;color:#B79B68;margin:0;text-align:center"><a href="#" style="color:#B79B68;text-decoration:underline">Meld deg av</a></p>
+        </td></tr>
+
+      </table>
+    </div>
+  </div>
+
+  <div class="arrow">↓ 3 dager</div>
+
+  <!-- ════════════════════════ E-POST 4: KONVERTERING ════════════════════════ -->
+  <div class="email-section">
+    <div class="email-label">E-post 4 / 4</div>
+    <div class="email-name">Første bestilling</div>
+    <div class="email-timing">Sendes dag 8</div>
+    <div class="email-subject"><strong>Emne:</strong> 30 % rabatt på din første matkasse</div>
+    <div class="preview-frame">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:600px;margin:0 auto;background:#F1EDE2">
+
+        <!-- Header -->
+        <tr><td style="padding:24px 32px;border-bottom:1px solid #D9D3C7">
+          <table width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+            <td style="font-family:Georgia,serif;font-size:20px;font-weight:400;color:#31261D">Kokkeløren.</td>
+            <td align="right"><a href="#" style="color:#31261D;text-decoration:underline;font-family:'Plus Jakarta Sans',Helvetica,sans-serif;font-size:13px">Bestill</a></td>
+          </tr></table>
+        </td></tr>
+
+        <!-- Dark CTA block -->
+        <tr><td style="background:#31261D;padding:48px 32px;text-align:center">
+          <p style="font-family:'Plus Jakarta Sans',Helvetica,sans-serif;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin:0 0 12px">Kun for nye kunder</p>
+          <h1 style="font-family:Georgia,serif;font-size:32px;font-weight:400;line-height:1.15;color:#ffffff;margin:0 0 16px">30 % på din første matkasse.</h1>
+          <p style="font-family:'Plus Jakarta Sans',Helvetica,sans-serif;font-size:17px;font-weight:300;color:rgba(255,255,255,0.7);margin:0 0 24px">Tre middager. Norske råvarer. Oppskrifter fra kjøkkensjef Tore. Ingen binding.</p>
+          <a href="#" style="display:inline-block;background:#F1EDE2;color:#31261D;font-family:'Plus Jakarta Sans',Helvetica,sans-serif;font-size:16px;font-weight:500;text-decoration:none;padding:14px 36px;border-radius:8px">Bestill matkasse →</a>
+        </td></tr>
+
+        <!-- Hva du får -->
+        <tr><td style="padding:32px">
+          <h2 style="font-family:Georgia,serif;font-size:22px;font-weight:400;line-height:1.2;color:#31261D;margin:0 0 16px">Slik fungerer det.</h2>
           <table width="100%" cellpadding="0" cellspacing="0" border="0">
             <tr>
-              <td width="48%" valign="top" style="padding-right:12px"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='180' fill='%23F6FFEE'%3E%3Crect width='260' height='180'/%3E%3Ctext x='130' y='90' text-anchor='middle' fill='%23515B12' font-family='sans-serif' font-size='12'%3EProdukt 1%3C/text%3E%3C/svg%3E" width="260" style="display:block;width:100%;height:auto;border-radius:8px" alt="Produkt"><p style="font-family:'Plus Jakarta Sans',Helvetica,Arial,sans-serif;font-size:15px;font-weight:700;margin:8px 0 0;color:#090A08">Populært valg</p></td>
-              <td width="48%" valign="top" style="padding-left:12px"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='180' fill='%23F6FFEE'%3E%3Crect width='260' height='180'/%3E%3Ctext x='130' y='90' text-anchor='middle' fill='%23515B12' font-family='sans-serif' font-size='12'%3EProdukt 2%3C/text%3E%3C/svg%3E" width="260" style="display:block;width:100%;height:auto;border-radius:8px" alt="Produkt"><p style="font-family:'Plus Jakarta Sans',Helvetica,Arial,sans-serif;font-size:15px;font-weight:700;margin:8px 0 0;color:#090A08">Bestselger</p></td>
+              <td style="padding:12px 0;border-bottom:1px solid #D9D3C7;vertical-align:top;width:32px">
+                <span style="font-family:'Plus Jakarta Sans',Helvetica,sans-serif;font-size:14px;font-weight:700;color:#6CC24A">1.</span>
+              </td>
+              <td style="padding:12px 0 12px 12px;border-bottom:1px solid #D9D3C7">
+                <p style="font-family:'Plus Jakarta Sans',Helvetica,sans-serif;font-size:15px;font-weight:500;color:#31261D;margin:0">Velg størrelse</p>
+                <p style="font-family:'Plus Jakarta Sans',Helvetica,sans-serif;font-size:14px;font-weight:300;color:#31261D;margin:4px 0 0">To eller fire personer. Tre middager i uka.</p>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:12px 0;border-bottom:1px solid #D9D3C7;vertical-align:top">
+                <span style="font-family:'Plus Jakarta Sans',Helvetica,sans-serif;font-size:14px;font-weight:700;color:#6CC24A">2.</span>
+              </td>
+              <td style="padding:12px 0 12px 12px;border-bottom:1px solid #D9D3C7">
+                <p style="font-family:'Plus Jakarta Sans',Helvetica,sans-serif;font-size:15px;font-weight:500;color:#31261D;margin:0">Boksen kommer på døra</p>
+                <p style="font-family:'Plus Jakarta Sans',Helvetica,sans-serif;font-size:14px;font-weight:300;color:#31261D;margin:4px 0 0">Alt kjølt og isolert. Oppskriftene følger med.</p>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:12px 0;vertical-align:top">
+                <span style="font-family:'Plus Jakarta Sans',Helvetica,sans-serif;font-size:14px;font-weight:700;color:#6CC24A">3.</span>
+              </td>
+              <td style="padding:12px 0 12px 12px">
+                <p style="font-family:'Plus Jakarta Sans',Helvetica,sans-serif;font-size:15px;font-weight:500;color:#31261D;margin:0">Lag middag på 30 minutter</p>
+                <p style="font-family:'Plus Jakarta Sans',Helvetica,sans-serif;font-size:14px;font-weight:300;color:#31261D;margin:4px 0 0">Pause, endre eller stopp når som helst. Ingen binding.</p>
+              </td>
             </tr>
           </table>
         </td></tr>
-        <tr><td align="center" style="padding:0 32px 32px"><a href="#" style="display:inline-block;background:#090A08;color:#ffffff;font-family:'Plus Jakarta Sans',Helvetica,Arial,sans-serif;font-size:16px;font-weight:500;text-decoration:none;padding:14px 36px;border-radius:8px">Bruk tilbudet →</a></td></tr>
-        <tr><td style="padding:32px;background:#f7f7f7;border-top:1px solid #e5e5e5"><p style="font-family:'Plus Jakarta Sans',Helvetica,Arial,sans-serif;font-size:12px;color:#999;margin:0;text-align:center"><a href="#" style="color:#999;text-decoration:underline">Meld deg av</a></p></td></tr>
+
+        <!-- Final CTA -->
+        <tr><td align="center" style="padding:0 32px 32px">
+          <a href="#" style="display:inline-block;background:#31261D;color:#ffffff;font-family:'Plus Jakarta Sans',Helvetica,sans-serif;font-size:16px;font-weight:500;text-decoration:none;padding:14px 36px;border-radius:8px">Prøv Kokkeløren →</a>
+        </td></tr>
+
+        <!-- Footer -->
+        <tr><td style="padding:24px 32px;border-top:1px solid #D9D3C7">
+          <p style="font-family:'Plus Jakarta Sans',Helvetica,sans-serif;font-size:12px;color:#B79B68;margin:0;text-align:center">Tilbudet gjelder din første bestilling. Rabattkoden legges til automatisk.<br><a href="#" style="color:#B79B68;text-decoration:underline">Meld deg av</a></p>
+        </td></tr>
+
       </table>
     </div>
   </div>
