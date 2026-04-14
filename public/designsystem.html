@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Designsystem — Kokkeløren</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --page-bg: #F1EDE2; --body-text: #31261D; --btn-bg: #31261D; --btn-text: #FFFFFF;
+  --green: #6CC24A; --border: #D9D3C7; --neutral-30: #B79B68; --neutral-20: #E8E2D9;
+  --card-radius: 24px; --btn-radius: 8px;
+  --font-display: "Valizas", Georgia, serif;
+  --font-body: "Plus Jakarta Sans", Helvetica, sans-serif;
+  --sp-2: 0.5rem; --sp-3: 0.75rem; --sp-4: 1rem; --sp-5: 1.25rem;
+  --sp-6: 1.5rem; --sp-8: 2rem; --sp-10: 2.5rem; --sp-12: 3rem; --sp-16: 4rem; --sp-20: 5rem;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; }
+body { font-family: var(--font-body); background: var(--page-bg); color: var(--body-text); line-height: 1.6; -webkit-font-smoothing: antialiased; font-weight: 300; }
+
+/* ── NAV ── */
+.topbar { background: var(--page-bg); border-bottom: 1px solid var(--border); display: flex; align-items: center; height: 40px; padding: 0 var(--sp-6); }
+.topbar a { text-decoration: none; color: var(--body-text); font-size: 0.75rem; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; display: flex; align-items: center; gap: 0.5rem; }
+.topbar a::before { content: "←"; font-size: 0.875rem; text-transform: none; }
+
+.nav { position: sticky; top: 0; z-index: 50; background: rgba(241,237,226,0.96); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); display: flex; align-items: center; height: 52px; padding: 0 var(--sp-6); gap: var(--sp-2); }
+.nav-logo { font-family: var(--font-display); font-size: 1rem; font-weight: 400; margin-right: var(--sp-6); white-space: nowrap; }
+.nav-tab { height: 52px; padding: 0 var(--sp-4); border: none; background: none; font-family: var(--font-body); font-size: 0.875rem; font-weight: 300; color: var(--body-text); cursor: pointer; white-space: nowrap; border-bottom: 2px solid transparent; transition: border-color 0.2s; }
+.nav-tab:hover { border-bottom-color: var(--neutral-30); }
+.nav-tab.on { font-weight: 500; border-bottom-color: var(--green); }
+
+/* ── LAYOUT ── */
+.pg { display: none; } .pg.on { display: block; }
+.wrap { max-width: 900px; margin: 0 auto; padding: var(--sp-12) var(--sp-6) var(--sp-20); }
+
+/* ── TYPOGRAPHY ── */
+h1 { font-family: var(--font-display); font-size: 3rem; font-weight: 400; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: var(--sp-4); }
+h2 { font-family: var(--font-display); font-size: 1.875rem; font-weight: 400; letter-spacing: -0.01em; line-height: 1.2; margin-bottom: var(--sp-4); margin-top: var(--sp-12); }
+h3 { font-size: 1.125rem; font-weight: 500; margin-bottom: var(--sp-3); margin-top: var(--sp-8); }
+p { margin-bottom: var(--sp-4); max-width: 640px; }
+.lead { font-size: 1.125rem; line-height: 1.7; color: rgba(49,38,29,0.7); max-width: 560px; margin-bottom: var(--sp-8); }
+
+/* ── SECTIONS ── */
+.section { margin-bottom: var(--sp-16); padding-bottom: var(--sp-16); border-bottom: 1px solid var(--border); }
+.section:last-child { border-bottom: none; }
+
+/* ── SWATCHES ── */
+.swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: var(--sp-4); margin: var(--sp-6) 0; }
+.swatch { border-radius: var(--btn-radius); overflow: hidden; border: 1px solid var(--border); }
+.swatch-color { height: 80px; }
+.swatch-info { padding: var(--sp-3) var(--sp-4); background: rgba(255,255,255,0.6); }
+.swatch-name { font-weight: 500; font-size: 0.875rem; margin-bottom: 2px; }
+.swatch-hex { font-size: 0.75rem; color: rgba(49,38,29,0.5); font-family: monospace; }
+
+/* ── TABLE ── */
+table { width: 100%; border-collapse: collapse; margin: var(--sp-4) 0 var(--sp-8); font-size: 0.875rem; }
+th { text-align: left; font-weight: 500; font-size: 0.75rem; letter-spacing: 0.04em; text-transform: uppercase; color: rgba(49,38,29,0.5); padding: var(--sp-2) var(--sp-3); border-bottom: 2px solid var(--body-text); }
+td { padding: var(--sp-2) var(--sp-3); border-bottom: 1px solid var(--border); vertical-align: top; }
+
+/* ── CODE ── */
+code { font-family: "SF Mono", "Fira Code", monospace; font-size: 0.8125rem; background: rgba(49,38,29,0.06); padding: 2px 6px; border-radius: 4px; }
+
+/* ── EXAMPLE BOXES ── */
+.example { background: rgba(255,255,255,0.5); border: 1px solid var(--border); border-radius: var(--card-radius); padding: var(--sp-6); margin: var(--sp-4) 0 var(--sp-6); }
+.example-do { border-left: 3px solid var(--green); }
+.example-dont { border-left: 3px solid #C44A4A; }
+.example-label { font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: var(--sp-2); }
+.example-do .example-label { color: var(--green); }
+.example-dont .example-label { color: #C44A4A; }
+
+/* ── FONT PREVIEW ── */
+.font-preview { margin: var(--sp-6) 0; }
+.font-sample { margin-bottom: var(--sp-6); }
+.font-sample-name { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; color: rgba(49,38,29,0.5); margin-bottom: var(--sp-2); }
+.font-sample-display { font-family: var(--font-display); font-size: 2.25rem; line-height: 1.2; margin-bottom: var(--sp-2); }
+.font-sample-body { font-family: var(--font-body); font-size: 1rem; font-weight: 300; line-height: 1.6; max-width: 480px; }
+
+/* ── BTN PREVIEW ── */
+.btn-preview { display: flex; gap: var(--sp-4); align-items: center; margin: var(--sp-6) 0; flex-wrap: wrap; }
+.btn { display: inline-block; padding: 12px 28px; border-radius: var(--btn-radius); font-family: var(--font-body); font-size: 0.9375rem; font-weight: 500; text-decoration: none; transition: opacity 0.2s; }
+.btn:hover { opacity: 0.85; }
+.btn-primary { background: var(--btn-bg); color: var(--btn-text); }
+.btn-outline { background: transparent; color: var(--body-text); border: 1px solid var(--body-text); }
+
+@media (max-width: 640px) {
+  h1 { font-size: 2.25rem; }
+  .swatches { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="topbar"><a href="index.html">Kundeområde</a></div>
+
+<nav class="nav">
+  <div class="nav-logo">Kokkeløren</div>
+  <button class="nav-tab on" onclick="show('farger')">Farger</button>
+  <button class="nav-tab" onclick="show('typografi')">Typografi</button>
+  <button class="nav-tab" onclick="show('tone')">Tone of voice</button>
+  <button class="nav-tab" onclick="show('foto')">Foto</button>
+  <button class="nav-tab" onclick="show('elementer')">Elementer</button>
+</nav>
+
+<!-- ═══════════════════════════════════════════════ FARGER ═══ -->
+<div id="farger" class="pg on"><div class="wrap">
+  <div class="section">
+    <h1>Farger</h1>
+    <p class="lead">Varm beige base. Mørk brun tekst. Grønt sparsomt. Premium matkasse — uttrykket skal føles gjennomtenkt og varmt.</p>
+
+    <h2>Primærfarger</h2>
+    <div class="swatches">
+      <div class="swatch"><div class="swatch-color" style="background:#F1EDE2"></div><div class="swatch-info"><div class="swatch-name">Bakgrunn</div><div class="swatch-hex">#F1EDE2 · --page-bg</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#31261D"></div><div class="swatch-info"><div class="swatch-name">Tekst</div><div class="swatch-hex">#31261D · --body-text</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#6CC24A"></div><div class="swatch-info"><div class="swatch-name">Grønn</div><div class="swatch-hex">#6CC24A · --green</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#B79B68"></div><div class="swatch-info"><div class="swatch-name">Gull</div><div class="swatch-hex">#B79B68 · --neutral-30</div></div></div>
+    </div>
+
+    <h2>Nøytralskala</h2>
+    <div class="swatches">
+      <div class="swatch"><div class="swatch-color" style="background:#31261D"></div><div class="swatch-info"><div class="swatch-name">Neutral 90</div><div class="swatch-hex">#31261D</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#B79B68"></div><div class="swatch-info"><div class="swatch-name">Neutral 30</div><div class="swatch-hex">#B79B68</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#D9D3C7"></div><div class="swatch-info"><div class="swatch-name">Border</div><div class="swatch-hex">#D9D3C7</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#E8E2D9"></div><div class="swatch-info"><div class="swatch-name">Neutral 20</div><div class="swatch-hex">#E8E2D9</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#F1EDE2"></div><div class="swatch-info"><div class="swatch-name">Neutral 10</div><div class="swatch-hex">#F1EDE2</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#FFFFFF"></div><div class="swatch-info"><div class="swatch-name">Hvit</div><div class="swatch-hex">#FFFFFF</div></div></div>
+    </div>
+
+    <h2>Kontrast</h2>
+    <table>
+      <tr><th>Kombinasjon</th><th>Ratio</th><th>Status</th></tr>
+      <tr><td>#31261D på #F1EDE2</td><td>10.1:1</td><td>✅ AAA</td></tr>
+      <tr><td>#31261D på #FFFFFF</td><td>14.4:1</td><td>✅ AAA</td></tr>
+      <tr><td>#FFFFFF på #31261D</td><td>14.4:1</td><td>✅ AAA</td></tr>
+      <tr><td>#B79B68 på #F1EDE2</td><td>2.5:1</td><td>⚠️ Kun dekor</td></tr>
+    </table>
+
+    <h3>Regler</h3>
+    <p>Bakgrunn er alltid <code>#F1EDE2</code> eller hvit. Tekst er alltid <code>#31261D</code>. Knapper: mørk bakgrunn med hvit tekst. Grønt er aksent — aldri dominant. Ingen gradienter.</p>
+  </div>
+</div></div>
+
+<!-- ═══════════════════════════════════════════ TYPOGRAFI ═══ -->
+<div id="typografi" class="pg"><div class="wrap">
+  <div class="section">
+    <h1>Typografi</h1>
+    <p class="lead">Valizas for display og overskrifter. GT Flexa for brødtekst og UI. Serifens varme møter sans-serifens klarhet.</p>
+
+    <div class="font-preview">
+      <div class="font-sample">
+        <div class="font-sample-name">Valizas — Display / Headings</div>
+        <div class="font-sample-display">Ferske råvarer, enkle oppskrifter.</div>
+      </div>
+      <div class="font-sample">
+        <div class="font-sample-name">GT Flexa — Body / UI (simulert med Plus Jakarta Sans Light)</div>
+        <div class="font-sample-body">Du får ferske råvarer rett på døra. Alle ingrediensene er norske, og oppskriftene er testet av kokkene våre. Middagen tar 30 minutter.</div>
+      </div>
+    </div>
+
+    <h2>Hierarki</h2>
+    <table>
+      <tr><th>Rolle</th><th>Font</th><th>Vekt</th><th>Bruk</th></tr>
+      <tr><td>H1 / Hero</td><td>Valizas</td><td>400 (Regular)</td><td>Hovedoverskrift, hero-seksjoner</td></tr>
+      <tr><td>H2</td><td>Valizas</td><td>400</td><td>Seksjonsoverskrifter</td></tr>
+      <tr><td>H3</td><td>GT Flexa</td><td>500 (Medium)</td><td>Underoverskrifter</td></tr>
+      <tr><td>Body</td><td>GT Flexa</td><td>300 (Light)</td><td>Brødtekst</td></tr>
+      <tr><td>Small</td><td>GT Flexa</td><td>300</td><td>Metadata, tilleggsinformasjon</td></tr>
+      <tr><td>CTA</td><td>GT Flexa</td><td>500</td><td>Knapper og handlinger</td></tr>
+    </table>
+
+    <h2>Elementer</h2>
+    <table>
+      <tr><th>Element</th><th>Verdi</th></tr>
+      <tr><td>Knapp-radius</td><td><code>8px</code></td></tr>
+      <tr><td>Kort-radius</td><td><code>24px</code></td></tr>
+    </table>
+
+    <h3>Prinsipp</h3>
+    <p>Serifen gjør jobben i display — Valizas trenger ikke bold. GT Flexa i Light gir luft og eleganse i brødtekst. Mykere avrunding enn Simpleness base passer det varme uttrykket.</p>
+  </div>
+</div></div>
+
+<!-- ═════════════════════════════════════════════ TONE ═══ -->
+<div id="tone" class="pg"><div class="wrap">
+  <div class="section">
+    <h1>Tone of voice</h1>
+    <p class="lead">Varm og trygg, som en god venn som lager mat til deg. Aldri belærende, aldri pretensiøs.</p>
+
+    <h2>Slik skriver vi</h2>
+
+    <h3>Varm og direkte</h3>
+    <div class="example example-do"><div class="example-label">Gjør dette</div><p>"Du får ferske råvarer rett på døra. Vi har gjort handleturene for deg."</p></div>
+    <div class="example example-dont"><div class="example-label">Ikke dette</div><p>"Opplev premium matkasseopplevelsen med ferske, håndplukkede råvarer levert hjem."</p></div>
+
+    <h3>Fakta, ikke salg</h3>
+    <div class="example example-do"><div class="example-label">Gjør dette</div><p>"Alle råvarene er norske. Levert fra bonde til deg på under 48 timer."</p></div>
+    <div class="example example-dont"><div class="example-label">Ikke dette</div><p>"Vi er lidenskapelig opptatt av å gi deg den beste matopplevelsen!"</p></div>
+
+    <h3>Vis, ikke fortell</h3>
+    <div class="example example-do"><div class="example-label">Gjør dette</div><p>"Sausen koker vi selv, på ekte fløte og urter fra Lier."</p></div>
+    <div class="example example-dont"><div class="example-label">Ikke dette</div><p>"Våre fantastiske sauser vil ta middagen din til neste nivå."</p></div>
+
+    <h2>Tone per kontekst</h2>
+    <table>
+      <tr><th>Kontekst</th><th>Tone</th><th>Eksempel</th></tr>
+      <tr><td>Hero / landing</td><td>Varm, direkte</td><td>"Ferske råvarer. Enkle oppskrifter. Rett hjem."</td></tr>
+      <tr><td>Produktbeskrivelse</td><td>Konkret, informativ</td><td>"3 middager i uka. Norske råvarer. Fra 499 kr."</td></tr>
+      <tr><td>Versus</td><td>Ærlig, nøktern</td><td>"Vi bruker norske råvarer. De bruker import. Du velger."</td></tr>
+      <tr><td>Redaksjonelt</td><td>Personlig, kunnskapsrik</td><td>"Vi testet vår egen matkasse mot konkurrenten."</td></tr>
+      <tr><td>CTA</td><td>Kort, handlingsorientert</td><td>"Bestill nå" / "Se ukens meny"</td></tr>
+    </table>
+
+    <h2>Aldri</h2>
+    <div class="example example-dont"><div class="example-label">Matblogg-tone</div><p>"Denne retten er en skikkelig crowd-pleaser!" / "Perfekt for den litt ekstra hverdagen."</p></div>
+    <div class="example example-dont"><div class="example-label">Generisk premium</div><p>"Eksklusive råvarer av ypperste kvalitet." / "En unik matopplevelse for hele familien."</p></div>
+    <div class="example example-dont"><div class="example-label">Overdrevet entusiasme</div><p>"Vi ELSKER å lage mat! 🥕" / "Bli med på matkasse-eventyret!"</p></div>
+  </div>
+</div></div>
+
+<!-- ═══════════════════════════════════════════════ FOTO ═══ -->
+<div id="foto" class="pg"><div class="wrap">
+  <div class="section">
+    <h1>Fotostil</h1>
+    <p class="lead">Naturlige bilder fra ekte kjøkken. Aldri iscenesatt studio, aldri stock. Varme toner som matcher bakgrunnsfargen.</p>
+
+    <h2>Mat og råvarer</h2>
+    <p>Nærbilde av ferske råvarer, ferdige retter, sauser og ingredienser. Naturlig lys, gjerne dagslys fra vindu. Enkle oppsett — ikke food styling for matmagasin.</p>
+    <table>
+      <tr><th>Egenskap</th><th>Retning</th></tr>
+      <tr><td>Lys</td><td>Naturlig dagslys, varme toner</td></tr>
+      <tr><td>Beskjæring</td><td>Tett — vis tekstur og farge</td></tr>
+      <tr><td>Overflater</td><td>Tre, lin, keramikk — rustikt</td></tr>
+      <tr><td>Unngå</td><td>Plastikk, emballasje i fokus</td></tr>
+    </table>
+
+    <h2>Mennesker og hverdag</h2>
+    <p>Familier som lager mat, par ved kjøkkenbordet, barn som hjelper til. Ekte situasjoner, ikke poserende.</p>
+
+    <h2>Behandling</h2>
+    <p>Ingen filtre. Minimal etterbehandling. Varm fargetemperatur som matcher <code>#F1EDE2</code>. Bilder kan ha avrundede hjørner (<code>24px</code>).</p>
+  </div>
+</div></div>
+
+<!-- ═══════════════════════════════════════════ ELEMENTER ═══ -->
+<div id="elementer" class="pg"><div class="wrap">
+  <div class="section">
+    <h1>Elementer</h1>
+    <p class="lead">Knapper, kort og UI-komponenter i Kokkelørens visuelle stil.</p>
+
+    <h2>Knapper</h2>
+    <div class="btn-preview">
+      <a href="#" class="btn btn-primary">Bestill nå</a>
+      <a href="#" class="btn btn-outline">Se ukens meny</a>
+    </div>
+    <table>
+      <tr><th>Egenskap</th><th>Primær</th><th>Outline</th></tr>
+      <tr><td>Bakgrunn</td><td><code>#31261D</code></td><td>Transparent</td></tr>
+      <tr><td>Tekst</td><td><code>#FFFFFF</code></td><td><code>#31261D</code></td></tr>
+      <tr><td>Border</td><td>Ingen</td><td><code>1px solid #31261D</code></td></tr>
+      <tr><td>Radius</td><td><code>8px</code></td><td><code>8px</code></td></tr>
+      <tr><td>Font</td><td>GT Flexa Medium</td><td>GT Flexa Medium</td></tr>
+    </table>
+
+    <h2>Kort</h2>
+    <p>Bakgrunn <code>rgba(255,255,255,0.5)</code> eller hvit. Border <code>#D9D3C7</code>. Radius <code>24px</code>. Subtil shadow ved hover.</p>
+
+    <h2>Forskjeller fra Simpleness base</h2>
+    <table>
+      <tr><th>Egenskap</th><th>Simpleness</th><th>Kokkeløren</th></tr>
+      <tr><td>Bakgrunn</td><td>#FFFFFF (hvit)</td><td>#F1EDE2 (varm beige)</td></tr>
+      <tr><td>Tekst</td><td>#090A08 (sort)</td><td>#31261D (mørk brun)</td></tr>
+      <tr><td>Aksent</td><td>#89FF58 (neon)</td><td>#6CC24A (naturlig)</td></tr>
+      <tr><td>Display-font</td><td>Banana Grotesk (sans)</td><td>Valizas (serif)</td></tr>
+      <tr><td>Body-font</td><td>Banana Grotesk</td><td>GT Flexa</td></tr>
+      <tr><td>Kort-radius</td><td>12px</td><td>24px</td></tr>
+      <tr><td>Stemning</td><td>Klinisk / tech</td><td>Varm / premium</td></tr>
+    </table>
+  </div>
+</div></div>
+
+<script>
+function show(id) {
+  document.querySelectorAll('.pg').forEach(p => p.classList.remove('on'));
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('on'));
+  document.getElementById(id).classList.add('on');
+  event.target.classList.add('on');
+  window.scrollTo(0, 0);
+}
+</script>
+</body>
+</html>
