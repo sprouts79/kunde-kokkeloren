@@ -324,35 +324,7 @@
     .t-name { font-size: 14px; font-weight: 600; color: var(--neutral-70); }
 
     /* FAQ */
-    .faq-section { padding: 64px 0; }
-    .faq-list { list-style: none; margin-top: 36px; }
-    .faq-item { border-top: 1px solid var(--border); }
-    .faq-item:last-child { border-bottom: 1px solid var(--border); }
-    .faq-btn {
-      width: 100%;
-      background: none;
-      border: none;
-      padding: 22px 0;
-      text-align: left;
-      font-family: var(--font-body);
-      font-size: 20px;
-      color: var(--body-text);
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-    }
-    .faq-btn:hover { color: var(--neutral-70); }
-    .faq-icon { flex-shrink: 0; transition: transform 0.2s; }
-    .faq-content {
-      display: none;
-      font-size: 18px;
-      line-height: 1.6;
-      color: var(--body-text);
-      padding-bottom: 22px;
-    }
-    .faq-item.open .faq-content { display: block; }
+    
     .faq-item.open .faq-icon { transform: rotate(180deg); }
 
     /* CTA banner */
@@ -546,6 +518,24 @@
     }
     .cta-banner .btn:hover { opacity: 0.85; }
     footer { margin-top: 0 !important; }
+
+    /* ── FAQ (shared Kokkeløren module) ── */
+    .faq-section { margin: 64px 0; }
+    .faq-list { list-style: none; margin-top: 24px; }
+    .faq-item { border-top: 1px solid var(--border); }
+    .faq-item:last-child { border-bottom: 1px solid var(--border); }
+    .faq-btn {
+      width: 100%; padding: 20px 0; background: none; border: none;
+      text-align: left; cursor: pointer; font-family: var(--font-body);
+      font-size: 18px; font-weight: 500; color: var(--heading-text);
+      display: flex; justify-content: space-between; align-items: center; gap: 16px;
+    }
+    .faq-btn:hover { opacity: 0.7; }
+    .faq-icon { flex-shrink: 0; transition: transform 0.2s; }
+    .faq-item.open .faq-icon { transform: rotate(180deg); }
+    .faq-content { display: none; padding: 0 0 20px; font-size: 17px; line-height: 1.6; }
+    .faq-item.open .faq-content { display: block; }
+
   </style>
 </head>
 <body>
@@ -784,7 +774,7 @@
         <ul class="faq-list">
 
           <li class="faq-item">
-            <button class="faq-btn" onclick="toggleFAQ(this)">
+            <button class="faq-btn" onclick="this.parentElement.classList.toggle('open')">
               Hvorfor fikk Kokkeløren høyest skår?
               <svg class="faq-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="#4f4240" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </button>
@@ -794,7 +784,7 @@
           </li>
 
           <li class="faq-item">
-            <button class="faq-btn" onclick="toggleFAQ(this)">
+            <button class="faq-btn" onclick="this.parentElement.classList.toggle('open')">
               Har dere testet på nye kundekampanjer?
               <svg class="faq-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="#4f4240" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </button>
@@ -804,7 +794,7 @@
           </li>
 
           <li class="faq-item">
-            <button class="faq-btn" onclick="toggleFAQ(this)">
+            <button class="faq-btn" onclick="this.parentElement.classList.toggle('open')">
               Hva med matsvinn?
               <svg class="faq-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="#4f4240" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </button>
@@ -814,7 +804,7 @@
           </li>
 
           <li class="faq-item">
-            <button class="faq-btn" onclick="toggleFAQ(this)">
+            <button class="faq-btn" onclick="this.parentElement.classList.toggle('open')">
               Hva koster det å prøve?
               <svg class="faq-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="#4f4240" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </button>
@@ -824,7 +814,7 @@
           </li>
 
           <li class="faq-item">
-            <button class="faq-btn" onclick="toggleFAQ(this)">
+            <button class="faq-btn" onclick="this.parentElement.classList.toggle('open')">
               Hva om jeg har allergier?
               <svg class="faq-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="#4f4240" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </button>
@@ -834,7 +824,7 @@
           </li>
 
           <li class="faq-item">
-            <button class="faq-btn" onclick="toggleFAQ(this)">
+            <button class="faq-btn" onclick="this.parentElement.classList.toggle('open')">
               Hva skjer hvis leveringen blir forsinket?
               <svg class="faq-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="#4f4240" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </button>
@@ -844,7 +834,7 @@
           </li>
 
           <li class="faq-item">
-            <button class="faq-btn" onclick="toggleFAQ(this)">
+            <button class="faq-btn" onclick="this.parentElement.classList.toggle('open')">
               Kan jeg dele en matkasse med noen?
               <svg class="faq-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="#4f4240" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </button>

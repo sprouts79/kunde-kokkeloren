@@ -211,54 +211,7 @@
       font-size: 16px;
     }
 
-    /* Accordion */
-    .accordion {
-      margin: 32px 0;
-    }
-    .accordion-item {
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      margin-bottom: 16px;
-      overflow: hidden;
-    }
-    .accordion-button {
-      width: 100%;
-      padding: 20px 24px;
-      background: white;
-      border: none;
-      text-align: left;
-      cursor: pointer;
-      font-family: var(--font-body);
-      font-size: 18px;
-      font-weight: 500;
-      color: var(--heading-text);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .accordion-button:hover {
-      background: var(--page-bg);
-    }
-    .accordion-button.active {
-      background: var(--border);
-    }
-    .chevron {
-      width: 20px;
-      height: 20px;
-      transition: transform 0.3s;
-    }
-    .accordion-button.active .chevron {
-      transform: rotate(180deg);
-    }
-    .accordion-content {
-      display: none;
-      padding: 0 24px 24px;
-      background: white;
-      line-height: 1.6;
-    }
-    .accordion-item.open .accordion-content {
-      display: block;
-    }
+    
 
     /* CTA Banner */
     .cta-banner {
@@ -498,6 +451,24 @@
     }
     .cta-banner .btn:hover { opacity: 0.85; }
     footer { margin-top: 0 !important; }
+
+    /* ── FAQ (shared Kokkeløren module) ── */
+    .faq-section { margin: 64px 0; }
+    .faq-list { list-style: none; margin-top: 24px; }
+    .faq-item { border-top: 1px solid var(--border); }
+    .faq-item:last-child { border-bottom: 1px solid var(--border); }
+    .faq-btn {
+      width: 100%; padding: 20px 0; background: none; border: none;
+      text-align: left; cursor: pointer; font-family: var(--font-body);
+      font-size: 18px; font-weight: 500; color: var(--heading-text);
+      display: flex; justify-content: space-between; align-items: center; gap: 16px;
+    }
+    .faq-btn:hover { opacity: 0.7; }
+    .faq-icon { flex-shrink: 0; transition: transform 0.2s; }
+    .faq-item.open .faq-icon { transform: rotate(180deg); }
+    .faq-content { display: none; padding: 0 0 20px; font-size: 17px; line-height: 1.6; }
+    .faq-item.open .faq-content { display: block; }
+
   </style>
 </head>
 <body>
@@ -721,21 +692,59 @@
 
     <h2>Vanlige spørsmål</h2>
 
-    <div class="accordion">
-      <div class="accordion-item open">
-        <button class="accordion-button active" onclick="toggleAccordion(this)">
-          <span>Kan jeg bytte oppskrifter?</span>
-          <svg class="chevron" viewBox="0 0 20 20" fill="none">
-            <path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-        </button>
-        <div class="accordion-content">
-          <p>Ja. De fleste lar deg bytte inntil fire-fem dager før levering.</p>
-        </div>
+    <div class="faq-section">
+      <ul class="faq-list">
+        <li class="faq-item">
+          <button class="faq-btn" onclick="this.parentElement.classList.toggle('open')">
+            Kan jeg bytte oppskrifter?
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-content">
+            <p>Ja. De fleste lar deg bytte inntil fire-fem dager før levering.</p>
+          </div>
+        </li>
+        <li class="faq-item">
+          <button class="faq-btn" onclick="this.parentElement.classList.toggle('open')">
+            Hva hvis jeg skal reise?
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-content">
+            <p>Du setter abonnementet på pause. Gratis, så mange ganger du vil.</p>
+          </div>
+        </li>
+        <li class="faq-item">
+          <button class="faq-btn" onclick="this.parentElement.classList.toggle('open')">
+            Kan jeg endre antall personer eller retter?
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-content">
+            <p>Ja, fra uke til uke. Du betaler for det du bestiller.</p>
+          </div>
+        </li>
+        <li class="faq-item">
+          <button class="faq-btn" onclick="this.parentElement.classList.toggle('open')">
+            Hvor kommer ingrediensene fra?
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-content">
+            <p>Kokkeløren bruker lokale produsenter: <strong>Strøm-Larsen</strong>, <strong>Galåvolden Gård</strong>, <strong>Stølsvidda</strong>, <strong>Gårdsand</strong>. Godtlevert bruker norsk og importert med vekt på sesong. HelloFresh og Linas henter fra norske og europeiske leverandører.</p>
+          </div>
+        </li>
+        <li class="faq-item">
+          <button class="faq-btn" onclick="this.parentElement.classList.toggle('open')">
+            Er matkasse miljøvennlig?
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-content">
+            <p>Mindre matsvinn fordi alt er porsjonert. Emballasjen er gjenbrukbar eller komposterbar. Færre butikkturer.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
       </div>
 
       <div class="accordion-item">
-        <button class="accordion-button" onclick="toggleAccordion(this)">
+        <button class="accordion-button" onclick="this.parentElement.classList.toggle('open')">
           <span>Hva hvis jeg skal reise?</span>
           <svg class="chevron" viewBox="0 0 20 20" fill="none">
             <path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
@@ -747,7 +756,7 @@
       </div>
 
       <div class="accordion-item">
-        <button class="accordion-button" onclick="toggleAccordion(this)">
+        <button class="accordion-button" onclick="this.parentElement.classList.toggle('open')">
           <span>Kan jeg endre antall personer eller retter?</span>
           <svg class="chevron" viewBox="0 0 20 20" fill="none">
             <path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
@@ -759,7 +768,7 @@
       </div>
 
       <div class="accordion-item">
-        <button class="accordion-button" onclick="toggleAccordion(this)">
+        <button class="accordion-button" onclick="this.parentElement.classList.toggle('open')">
           <span>Hvor kommer ingrediensene fra?</span>
           <svg class="chevron" viewBox="0 0 20 20" fill="none">
             <path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
@@ -771,7 +780,7 @@
       </div>
 
       <div class="accordion-item">
-        <button class="accordion-button" onclick="toggleAccordion(this)">
+        <button class="accordion-button" onclick="this.parentElement.classList.toggle('open')">
           <span>Er matkasse miljøvennlig?</span>
           <svg class="chevron" viewBox="0 0 20 20" fill="none">
             <path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
