@@ -7,585 +7,240 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
 <style>
-/* ══════════════════════════════════════════════════════════════
-   TOKENS — inlined from Simpleness Design System
-   Source: https://simpleness-design-system.vercel.app/tokens.css
-   ══════════════════════════════════════════════════════════════ */
 :root {
   --color-white:  #FFFFFF;
   --color-black:  #090A08;
   --color-accent: #89FF58;
   --color-link:   #515B12;
-
   --color-background:     var(--color-white);
   --color-text:           var(--color-black);
   --color-text-on-accent: var(--color-black);
-
   --color-green-pale: #F6FFEE;
   --color-yellow:     #F6F94E;
-
   --font-family: "Banana Grotesk", "Plus Jakarta Sans", sans-serif;
-  --font-normal: 400;
-  --font-medium: 500;
-  --font-bold:   700;
-
-  --line-height-tight:  1.1;
-  --line-height-snug:   1.25;
-  --line-height-normal: 1.5;
-
-  --tracking-tight: -0.02em;
-  --tracking-wide:   0.04em;
-
-  --text-xs:   0.75rem;
-  --text-sm:   0.875rem;
-  --text-base: 1rem;
-  --text-lg:   1.125rem;
-  --text-xl:   1.25rem;
-  --text-2xl:  1.5rem;
-  --text-3xl:  1.875rem;
-  --text-4xl:  2.25rem;
-  --text-5xl:  3rem;
-  --text-6xl:  3.75rem;
-
-  --sp-1:  0.25rem;
-  --sp-2:  0.5rem;
-  --sp-3:  0.75rem;
-  --sp-4:  1rem;
-  --sp-5:  1.25rem;
-  --sp-6:  1.5rem;
-  --sp-8:  2rem;
-  --sp-10: 2.5rem;
-  --sp-12: 3rem;
-  --sp-16: 4rem;
-  --sp-20: 5rem;
-
-  --radius-sm:  4px;
-  --radius-md:  8px;
-  --radius-lg:  12px;
-
-  --ease-out: cubic-bezier(0.3, 1, 0.3, 1);
-  --duration-fast: 0.2s;
-
+  --font-normal: 400; --font-medium: 500; --font-bold: 700;
+  --line-height-tight: 1.1; --line-height-snug: 1.25; --line-height-normal: 1.5;
+  --tracking-tight: -0.02em; --tracking-wide: 0.04em;
+  --text-xs: 0.75rem; --text-sm: 0.875rem; --text-base: 1rem; --text-lg: 1.125rem;
+  --text-xl: 1.25rem; --text-2xl: 1.5rem; --text-3xl: 1.875rem; --text-4xl: 2.25rem;
+  --text-5xl: 3rem; --text-6xl: 3.75rem;
+  --sp-1: 0.25rem; --sp-2: 0.5rem; --sp-3: 0.75rem; --sp-4: 1rem; --sp-5: 1.25rem;
+  --sp-6: 1.5rem; --sp-8: 2rem; --sp-10: 2.5rem; --sp-12: 3rem; --sp-16: 4rem; --sp-20: 5rem;
+  --radius-sm: 4px; --radius-md: 8px; --radius-lg: 12px;
+  --ease-out: cubic-bezier(0.3, 1, 0.3, 1); --duration-fast: 0.2s;
   --max-width-text: 960px;
   --border: 1px solid rgba(9,10,8,0.08);
 }
 
-/* ══════════════════════════════════════════════════════════════
-   RESET
-   ══════════════════════════════════════════════════════════════ */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { font-size: 16px; }
-
 body {
-  font-family: var(--font-family);
-  background: var(--color-background);
-  color: var(--color-text);
-  font-size: var(--text-base);
-  font-weight: var(--font-normal);
-  line-height: var(--line-height-normal);
+  font-family: var(--font-family); background: var(--color-background); color: var(--color-text);
+  font-size: var(--text-base); font-weight: var(--font-normal); line-height: var(--line-height-normal);
   -webkit-font-smoothing: antialiased;
 }
 
-/* ══════════════════════════════════════════════════════════════
-   NAV — sticky top bar, accent active state
-   ══════════════════════════════════════════════════════════════ */
+/* ── LANGUAGE TOGGLE ── */
+body.lang-en [data-lang="no"] { display: none !important; }
+body.lang-no [data-lang="en"] { display: none !important; }
+
+/* ── NAV ── */
 .nav {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  background: rgba(255,255,255,0.96);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border-bottom: var(--border);
-  display: flex;
-  align-items: center;
-  height: 52px;
-  padding: 0 var(--sp-6);
-  gap: var(--sp-1);
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(255,255,255,0.96); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  border-bottom: var(--border); display: flex; align-items: center;
+  height: 52px; padding: 0 var(--sp-6); gap: var(--sp-1);
 }
-
-.nav-logo {
-  font-size: var(--text-sm);
-  font-weight: var(--font-bold);
-  letter-spacing: var(--tracking-tight);
-  margin-right: var(--sp-6);
-  white-space: nowrap;
-  flex-shrink: 0;
-}
-
+.nav-logo { font-size: var(--text-sm); font-weight: var(--font-bold); letter-spacing: var(--tracking-tight); margin-right: var(--sp-6); white-space: nowrap; flex-shrink: 0; }
 .nav-tab {
-  height: 52px;
-  padding: 0 var(--sp-4);
-  border: none;
-  background: none;
-  font-family: inherit;
-  font-size: var(--text-sm);
-  font-weight: var(--font-normal);
-  color: var(--color-text);
-  cursor: pointer;
-  white-space: nowrap;
-  border-bottom: 2px solid transparent;
-  transition: border-color var(--duration-fast) var(--ease-out);
+  height: 52px; padding: 0 var(--sp-4); border: none; background: none;
+  font-family: inherit; font-size: var(--text-sm); font-weight: var(--font-normal);
+  color: var(--color-text); cursor: pointer; white-space: nowrap;
+  border-bottom: 2px solid transparent; transition: border-color var(--duration-fast) var(--ease-out);
 }
-
-.nav-tab.on {
-  font-weight: var(--font-bold);
-  border-bottom-color: var(--color-accent);
+.nav-tab.on { font-weight: var(--font-bold); border-bottom-color: var(--color-accent); }
+.nav-right { margin-left: auto; display: flex; align-items: center; gap: var(--sp-1); }
+.lang-btn {
+  padding: 4px 10px; border: none; background: none; font-family: inherit;
+  font-size: var(--text-xs); font-weight: var(--font-bold); letter-spacing: 0.04em;
+  cursor: pointer; border-radius: var(--radius-sm); transition: background 0.15s;
 }
+.lang-btn:hover { background: rgba(9,10,8,0.04); }
+.lang-btn.on { background: var(--color-accent); color: var(--color-text-on-accent); }
 
-/* ══════════════════════════════════════════════════════════════
-   LAYOUT
-   ══════════════════════════════════════════════════════════════ */
-.pg { display: none; }
-.pg.on { display: block; }
+/* ── LAYOUT ── */
+.pg { display: none; } .pg.on { display: block; }
+.wrap { max-width: var(--max-width-text); margin: 0 auto; padding: var(--sp-12) var(--sp-6) var(--sp-20); }
 
-.wrap {
-  max-width: var(--max-width-text);
-  margin: 0 auto;
-  padding: var(--sp-12) var(--sp-6) var(--sp-20);
-}
-
-/* ══════════════════════════════════════════════════════════════
-   TYPOGRAPHY — hierarchy through weight + size only. Never color.
-   ══════════════════════════════════════════════════════════════ */
-.h1 {
-  font-size: var(--text-6xl);
-  font-weight: var(--font-bold);
-  letter-spacing: -0.03em;
-  line-height: 1.05;
-  margin-bottom: var(--sp-4);
-}
-
-.h2 {
-  font-size: var(--text-4xl);
-  font-weight: var(--font-bold);
-  letter-spacing: -0.03em;
-  line-height: var(--line-height-tight);
-  margin: var(--sp-16) 0 var(--sp-5);
-}
-
+/* ── TYPOGRAPHY ── */
+.h1 { font-size: var(--text-6xl); font-weight: var(--font-bold); letter-spacing: -0.03em; line-height: 1.05; margin-bottom: var(--sp-4); }
+.h2 { font-size: var(--text-4xl); font-weight: var(--font-bold); letter-spacing: -0.03em; line-height: var(--line-height-tight); margin: var(--sp-16) 0 var(--sp-5); }
 .h2:first-child { margin-top: 0; }
-
-.subtitle {
-  font-size: var(--text-base);
-  line-height: 1.6;
-  margin-bottom: var(--sp-10);
-  max-width: 560px;
-}
-
-.label {
-  display: block;
-  font-size: var(--text-sm);
-  font-weight: var(--font-bold);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  margin-bottom: var(--sp-2);
-}
-
-.value {
-  display: block;
-  font-size: var(--text-base);
-  line-height: 1.55;
-}
-
+.subtitle { font-size: var(--text-base); line-height: 1.6; margin-bottom: var(--sp-10); max-width: 560px; }
+.label { display: block; font-size: var(--text-sm); font-weight: var(--font-bold); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: var(--sp-2); }
+.value { display: block; font-size: var(--text-base); line-height: 1.55; }
 .value + .label { margin-top: var(--sp-3); }
+.highlight { background: var(--color-yellow); padding: 0 3px 1px; border-radius: 2px; }
+hr { border: none; border-top: var(--border); margin: var(--sp-10) 0; }
 
-.highlight {
-  background: var(--color-yellow);
-  padding: 0 3px 1px;
-  border-radius: 2px;
-}
+/* ── BADGE ── */
+.badge { display: inline-block; font-size: 0.6875rem; font-weight: var(--font-bold); letter-spacing: 0.05em; text-transform: uppercase; padding: 3px 8px; line-height: 1; white-space: nowrap; border-radius: var(--radius-sm); background: var(--color-black); color: var(--color-white); }
+.badge-explore { background: var(--color-accent); color: var(--color-text-on-accent); }
+.badge-awareness { background: var(--color-green-pale); color: var(--color-text); }
 
-/* ══════════════════════════════════════════════════════════════
-   DIVIDERS
-   ══════════════════════════════════════════════════════════════ */
-hr {
-  border: none;
-  border-top: var(--border);
-  margin: var(--sp-10) 0;
-}
+/* ── GRID ── */
+.grid { display: grid; gap: 0; border: var(--border); border-radius: var(--radius-lg); overflow: hidden; margin-top: var(--sp-3); }
+.grid.c2 { grid-template-columns: 1fr 1fr; } .grid.c3 { grid-template-columns: 1fr 1fr 1fr; } .grid.c2l { grid-template-columns: 160px 1fr; }
+.gc { background: var(--color-background); padding: var(--sp-5) var(--sp-6); border-right: var(--border); border-bottom: var(--border); }
+.gc:last-child { border-right: none; } .gc.last-col { border-right: none; } .gc.last-row { border-bottom: none; }
 
-/* ══════════════════════════════════════════════════════════════
-   BADGE — 3 variants only: default (black), explore (accent), awareness (pale)
-   ══════════════════════════════════════════════════════════════ */
-.badge {
-  display: inline-block;
-  font-size: 0.6875rem;
-  font-weight: var(--font-bold);
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  padding: 3px 8px;
-  line-height: 1;
-  white-space: nowrap;
-  border-radius: var(--radius-sm);
-  background: var(--color-black);
-  color: var(--color-white);
-}
+/* ── STAT ── */
+.stat { font-size: var(--text-4xl); font-weight: var(--font-bold); letter-spacing: -0.03em; line-height: 1; }
+.stat span { font-size: var(--text-base); font-weight: var(--font-normal); }
 
-.badge-explore {
-  background: var(--color-accent);
-  color: var(--color-text-on-accent);
-}
-
-.badge-awareness {
-  background: var(--color-green-pale);
-  color: var(--color-text);
-}
-
-/* ══════════════════════════════════════════════════════════════
-   GRID — clean cells, border-separated
-   ══════════════════════════════════════════════════════════════ */
-.grid {
-  display: grid;
-  gap: 0;
-  border: var(--border);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  margin-top: var(--sp-3);
-}
-
-.grid.c2 { grid-template-columns: 1fr 1fr; }
-.grid.c3 { grid-template-columns: 1fr 1fr 1fr; }
-.grid.c2l { grid-template-columns: 160px 1fr; }
-
-.gc {
-  background: var(--color-background);
-  padding: var(--sp-5) var(--sp-6);
-  border-right: var(--border);
-  border-bottom: var(--border);
-}
-
-.gc:last-child { border-right: none; }
-.gc.last-col { border-right: none; }
-.gc.last-row { border-bottom: none; }
-
-/* ══════════════════════════════════════════════════════════════
-   STAT
-   ══════════════════════════════════════════════════════════════ */
-.stat {
-  font-size: var(--text-4xl);
-  font-weight: var(--font-bold);
-  letter-spacing: -0.03em;
-  line-height: 1;
-}
-
-.stat span {
-  font-size: var(--text-base);
-  font-weight: var(--font-normal);
-}
-
-.stat-sub {
-  font-size: var(--text-sm);
-  margin-top: var(--sp-1);
-}
-
-/* ══════════════════════════════════════════════════════════════
-   LEVEL LIST (model page)
-   ══════════════════════════════════════════════════════════════ */
+/* ── LEVEL LIST ── */
 .level-list { margin-top: var(--sp-3); }
-
-.level-item {
-  display: flex;
-  align-items: center;
-  padding: var(--sp-4) 0;
-  gap: var(--sp-4);
-  border-bottom: var(--border);
-}
-
+.level-item { display: flex; align-items: center; padding: var(--sp-4) 0; gap: var(--sp-4); border-bottom: var(--border); }
 .level-item:first-child { border-top: var(--border); }
+.level-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.level-name { font-size: var(--text-base); font-weight: var(--font-bold); letter-spacing: var(--tracking-tight); min-width: 160px; }
+.level-desc { font-size: var(--text-base); flex: 1; }
 
-.level-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  flex-shrink: 0;
-}
+/* ── BRAND HEADER ── */
+.brand-header { display: flex; align-items: flex-end; justify-content: space-between; gap: var(--sp-4); margin-bottom: var(--sp-8); padding-bottom: var(--sp-4); border-bottom: 2px solid var(--color-text); }
+.brand-name { font-size: var(--text-4xl); font-weight: var(--font-bold); letter-spacing: -0.03em; line-height: var(--line-height-tight); }
+.brand-meta { font-size: var(--text-sm); margin-top: var(--sp-1); }
 
-.level-name {
-  font-size: var(--text-base);
-  font-weight: var(--font-bold);
-  letter-spacing: var(--tracking-tight);
-  min-width: 160px;
-}
-
-.level-desc {
-  font-size: var(--text-base);
-  flex: 1;
-}
-
-/* ══════════════════════════════════════════════════════════════
-   BRAND HEADER
-   ══════════════════════════════════════════════════════════════ */
-.brand-header {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: var(--sp-4);
-  margin-bottom: var(--sp-8);
-  padding-bottom: var(--sp-4);
-  border-bottom: 2px solid var(--color-text);
-}
-
-.brand-name {
-  font-size: var(--text-4xl);
-  font-weight: var(--font-bold);
-  letter-spacing: -0.03em;
-  line-height: var(--line-height-tight);
-}
-
-.brand-meta {
-  font-size: var(--text-sm);
-  margin-top: var(--sp-1);
-}
-
-/* ══════════════════════════════════════════════════════════════
-   PERSONA BLOCK
-   ══════════════════════════════════════════════════════════════ */
-.persona {
-  border: var(--border);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  margin-top: var(--sp-3);
-}
-
-.persona-head {
-  padding: var(--sp-5) var(--sp-6) var(--sp-4);
-  border-bottom: var(--border);
-  background: var(--color-green-pale);
-}
-
-.persona-title {
-  font-size: var(--text-2xl);
-  font-weight: var(--font-bold);
-  letter-spacing: -0.03em;
-  line-height: var(--line-height-snug);
-  margin-bottom: var(--sp-1);
-}
-
-.persona-sub {
-  font-size: var(--text-base);
-  margin-bottom: var(--sp-3);
-}
-
+/* ── PERSONA ── */
+.persona { border: var(--border); border-radius: var(--radius-lg); overflow: hidden; margin-top: var(--sp-3); }
+.persona-head { padding: var(--sp-5) var(--sp-6) var(--sp-4); border-bottom: var(--border); background: var(--color-green-pale); }
+.persona-title { font-size: var(--text-2xl); font-weight: var(--font-bold); letter-spacing: -0.03em; line-height: var(--line-height-snug); margin-bottom: var(--sp-1); }
+.persona-sub { font-size: var(--text-base); margin-bottom: var(--sp-3); }
 .persona-badges { display: flex; gap: 5px; flex-wrap: wrap; }
-
-.persona-rows {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-
-.pr {
-  padding: var(--sp-4) var(--sp-6);
-  border-right: var(--border);
-  border-bottom: var(--border);
-}
-
-.pr:nth-child(2n) { border-right: none; }
-.pr.full { grid-column: 1/-1; border-right: none; }
-.pr.last { border-bottom: none; }
-
-.pr-val {
-  font-size: var(--text-base);
-  line-height: 1.55;
-}
-
+.persona-rows { display: grid; grid-template-columns: 1fr 1fr; }
+.pr { padding: var(--sp-4) var(--sp-6); border-right: var(--border); border-bottom: var(--border); }
+.pr:nth-child(2n) { border-right: none; } .pr.full { grid-column: 1/-1; border-right: none; } .pr.last { border-bottom: none; }
+.pr-val { font-size: var(--text-base); line-height: 1.55; }
 .pr-val.it { font-style: italic; }
 
-/* ══════════════════════════════════════════════════════════════
-   KONSEPT GRID
-   ══════════════════════════════════════════════════════════════ */
-.konsept-wrap {
-  border-top: 2px solid var(--color-text);
-  padding: var(--sp-5) var(--sp-6);
-}
-
-.konsept-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0;
-  border: var(--border);
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  margin-top: var(--sp-3);
-}
-
-.konsept-cell {
-  border-right: var(--border);
-  border-bottom: var(--border);
-}
-
-.konsept-cell:nth-child(2n) { border-right: none; }
-.konsept-cell:nth-last-child(-n+2) { border-bottom: none; }
-
-.konsept-head {
-  padding: var(--sp-3) var(--sp-5);
-  border-bottom: var(--border);
-  background: var(--color-green-pale);
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: var(--sp-2);
-}
-
-.konsept-name {
-  font-size: var(--text-base);
-  font-weight: var(--font-bold);
-  letter-spacing: var(--tracking-tight);
-  line-height: 1.3;
-  flex: 1;
-}
-
+/* ── KONSEPT ── */
+.konsept-wrap { border-top: 2px solid var(--color-text); padding: var(--sp-5) var(--sp-6); }
+.konsept-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border: var(--border); border-radius: var(--radius-md); overflow: hidden; margin-top: var(--sp-3); }
+.konsept-cell { border-right: var(--border); border-bottom: var(--border); }
+.konsept-cell:nth-child(2n) { border-right: none; } .konsept-cell:nth-last-child(-n+2) { border-bottom: none; }
+.konsept-head { padding: var(--sp-3) var(--sp-5); border-bottom: var(--border); background: var(--color-green-pale); display: flex; justify-content: space-between; align-items: flex-start; gap: var(--sp-2); }
+.konsept-name { font-size: var(--text-base); font-weight: var(--font-bold); letter-spacing: var(--tracking-tight); line-height: 1.3; flex: 1; }
 .konsept-body { padding: var(--sp-3) var(--sp-5) var(--sp-4); }
-
-.konsept-label {
-  font-size: 0.625rem;
-  font-weight: var(--font-bold);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  margin-bottom: 2px;
-  margin-top: var(--sp-2);
-}
-
+.konsept-label { font-size: 0.625rem; font-weight: var(--font-bold); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 2px; margin-top: var(--sp-2); }
 .konsept-label:first-child { margin-top: 0; }
+.konsept-val { font-size: var(--text-sm); line-height: var(--line-height-normal); }
 
-.konsept-val {
-  font-size: var(--text-sm);
-  line-height: var(--line-height-normal);
-}
-
-/* ══════════════════════════════════════════════════════════════
-   INSIGHT QUOTES
-   ══════════════════════════════════════════════════════════════ */
+/* ── QUOTES ── */
 .quote-list { display: flex; flex-direction: column; gap: 7px; }
 .quote-item { display: flex; align-items: baseline; gap: 7px; }
+.quote-num { font-size: 0.6875rem; font-weight: var(--font-bold); flex-shrink: 0; width: 16px; }
+.quote-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--color-text); flex-shrink: 0; margin-top: 6px; align-self: flex-start; }
+.quote-txt { font-size: var(--text-base); line-height: var(--line-height-normal); font-style: italic; }
 
-.quote-num {
-  font-size: 0.6875rem;
-  font-weight: var(--font-bold);
-  flex-shrink: 0;
-  width: 16px;
-}
-
-.quote-dot {
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: var(--color-text);
-  flex-shrink: 0;
-  margin-top: 6px;
-  align-self: flex-start;
-}
-
-.quote-txt {
-  font-size: var(--text-base);
-  line-height: var(--line-height-normal);
-  font-style: italic;
-}
-
-/* ══════════════════════════════════════════════════════════════
-   NOTE / CALLOUT — one style, palette colors only
-   ══════════════════════════════════════════════════════════════ */
-.note {
-  padding: var(--sp-5) var(--sp-6);
-  font-size: var(--text-base);
-  line-height: 1.6;
-  border-radius: var(--radius-md);
-  margin-top: var(--sp-4);
-  background: var(--color-green-pale);
-  border-left: 3px solid var(--color-text);
-}
-
+/* ── NOTE ── */
+.note { padding: var(--sp-5) var(--sp-6); font-size: var(--text-base); line-height: 1.6; border-radius: var(--radius-md); margin-top: var(--sp-4); background: var(--color-green-pale); border-left: 3px solid var(--color-text); }
 .note strong { font-weight: var(--font-bold); }
 
-/* ══════════════════════════════════════════════════════════════
-   RESPONSIVE
-   ══════════════════════════════════════════════════════════════ */
+/* ── RESPONSIVE ── */
 @media (max-width: 640px) {
   .wrap { padding: var(--sp-8) var(--sp-4) var(--sp-16); }
-  .h1 { font-size: var(--text-5xl); }
-  .h2 { font-size: var(--text-3xl); }
-  .grid.c2, .grid.c3, .persona-rows, .konsept-grid {
-    grid-template-columns: 1fr;
-  }
-  .gc { border-right: none !important; }
-  .pr { border-right: none !important; }
-  .konsept-cell { border-right: none !important; }
+  .h1 { font-size: var(--text-5xl); } .h2 { font-size: var(--text-3xl); }
+  .grid.c2, .grid.c3, .persona-rows, .konsept-grid { grid-template-columns: 1fr; }
+  .gc, .pr, .konsept-cell { border-right: none !important; }
   .brand-header { flex-direction: column; align-items: flex-start; }
 }
 </style>
 </head>
-<body>
+<body class="lang-no">
 
 <nav class="nav">
-  <div class="nav-logo">Kreativt rammeverk</div>
-  <button class="nav-tab on" onclick="go('modell',this)">Modellen</button>
-  <button class="nav-tab" onclick="go('innsikt',this)">Innsikt</button>
-  <button class="nav-tab" onclick="go('kk',this)">Kokkeløren</button>
+  <div class="nav-logo" data-lang="no">Kreativt rammeverk</div>
+  <div class="nav-logo" data-lang="en">Creative framework</div>
+  <button class="nav-tab on" onclick="go('modell',this)" data-lang="no">Modellen</button>
+  <button class="nav-tab on" onclick="go('modell',this)" data-lang="en">The model</button>
+  <button class="nav-tab" onclick="go('innsikt',this)" data-lang="no">Innsikt</button>
+  <button class="nav-tab" onclick="go('innsikt',this)" data-lang="en">Insights</button>
+  <button class="nav-tab" onclick="go('kk',this)" data-lang="no">Kokkeløren</button>
+  <button class="nav-tab" onclick="go('kk',this)" data-lang="en">Kokkeløren</button>
+  <div class="nav-right">
+    <button class="lang-btn on" onclick="setLang('no')">NO</button>
+    <button class="lang-btn" onclick="setLang('en')">EN</button>
+  </div>
 </nav>
 
 
 <!-- ═════ MODELLEN ═════ -->
 <div id="p-modell" class="pg on"><div class="wrap">
+
+  <!-- NO -->
+  <div data-lang="no">
   <h1 class="h1">Kreativt rammeverk.</h1>
   <p class="subtitle">Fra produkt til ferdig annonse. Fem nivåer — tre strategiske, to produksjon. Katalog kjøres alltid ved siden av.</p>
 
   <h2 class="h2" style="margin-top:0">Fem nivåer.</h2>
   <div class="level-list">
-    <div class="level-item">
-      <div class="level-dot" style="background:var(--color-text)"></div>
-      <div class="level-name">Produkt / kategori</div>
-      <div class="level-desc">Utgangspunktet. Katalog alltid på.</div>
-      <span class="badge badge-awareness">Brand-nivå</span>
-    </div>
-    <div class="level-item">
-      <div class="level-dot" style="background:var(--color-text)"></div>
-      <div class="level-name">Målgruppe</div>
-      <div class="level-desc">Hvem vi er for. Stabilt. Tag og filter for kreatørvalg.</div>
-      <span class="badge">Stabil</span>
-    </div>
-    <div class="level-item">
-      <div class="level-dot" style="background:var(--color-accent)"></div>
-      <div class="level-name">Persona</div>
-      <div class="level-desc">Tre spørsmål som til sammen dekker hele funnel.</div>
-      <span class="badge badge-explore">Explore: ny persona</span>
-    </div>
-    <div class="level-item">
-      <div class="level-dot" style="background:var(--color-text)"></div>
-      <div class="level-name">Konsept</div>
-      <div class="level-desc">Det kreative svaret på personaen. Tagges med TOV.</div>
-      <span class="badge badge-explore">Explore: nytt konsept</span>
-    </div>
-    <div class="level-item">
-      <div class="level-dot" style="background:var(--color-text)"></div>
-      <div class="level-name">Diversifisering</div>
-      <div class="level-desc">3–4 annonser per konsept. Hooks · lo-fi/hi-fi · formater.</div>
-      <span class="badge">Expand</span>
-    </div>
+    <div class="level-item"><div class="level-dot" style="background:var(--color-text)"></div><div class="level-name">Produkt / kategori</div><div class="level-desc">Utgangspunktet. Katalog alltid på.</div><span class="badge badge-awareness">Brand-nivå</span></div>
+    <div class="level-item"><div class="level-dot" style="background:var(--color-text)"></div><div class="level-name">Målgruppe</div><div class="level-desc">Hvem vi er for. Stabilt. Tag og filter for kreatørvalg.</div><span class="badge">Stabil</span></div>
+    <div class="level-item"><div class="level-dot" style="background:var(--color-accent)"></div><div class="level-name">Persona</div><div class="level-desc">Tre spørsmål som til sammen dekker hele funnel.</div><span class="badge badge-explore">Explore: ny persona</span></div>
+    <div class="level-item"><div class="level-dot" style="background:var(--color-text)"></div><div class="level-name">Konsept</div><div class="level-desc">Det kreative svaret på personaen. Tagges med TOV.</div><span class="badge badge-explore">Explore: nytt konsept</span></div>
+    <div class="level-item"><div class="level-dot" style="background:var(--color-text)"></div><div class="level-name">Diversifisering</div><div class="level-desc">3–4 annonser per konsept. Hooks · lo-fi/hi-fi · formater.</div><span class="badge">Expand</span></div>
   </div>
-
   <hr>
-
   <h2 class="h2">Persona — tre spørsmål.</h2>
   <div class="grid c2l">
-    <div class="gc"><span class="label">Motivasjon</span></div>
-    <div class="gc last-col"><span class="value">Hva driver dem mot kjøp?</span></div>
-    <div class="gc"><span class="label">Hindring</span></div>
-    <div class="gc last-col"><span class="value">Hva hindrer de som vurderer oss fra å kjøpe?</span></div>
-    <div class="gc last-row"><span class="label">Kunnskap</span></div>
-    <div class="gc last-col last-row"><span class="value">Hva vet de ikke, som ville gjort valget enkelt?</span></div>
+    <div class="gc"><span class="label">Motivasjon</span></div><div class="gc last-col"><span class="value">Hva driver dem mot kjøp?</span></div>
+    <div class="gc"><span class="label">Hindring</span></div><div class="gc last-col"><span class="value">Hva hindrer de som vurderer oss fra å kjøpe?</span></div>
+    <div class="gc last-row"><span class="label">Kunnskap</span></div><div class="gc last-col last-row"><span class="value">Hva vet de ikke, som ville gjort valget enkelt?</span></div>
   </div>
-
   <h2 class="h2">Tone of voice.</h2>
   <div class="grid c3">
     <div class="gc last-row"><span class="badge" style="margin-bottom:7px">Funksjon</span><span class="value">Konkret, målbart, rasjonelt</span></div>
     <div class="gc last-row"><span class="badge" style="margin-bottom:7px">Emosjon</span><span class="value">Aspirational, relaterbar, identitetsdrevet</span></div>
     <div class="gc last-col last-row"><span class="badge" style="margin-bottom:7px">Humor</span><span class="value">Ironi og gjenkjenning, disarmerer hindringen</span></div>
   </div>
-
   <h2 class="h2">Explore og Expand.</h2>
   <div class="grid c2">
     <div class="gc last-row"><span class="label">Explore — 5 per måned</span><span class="value">Ny persona ikke i kontoen<br>Nytt konsept innenfor eksisterende persona</span></div>
     <div class="gc last-col last-row"><span class="label">Expand — 5 per uke</span><span class="value">Ny hook · ny visual · nytt format<br>Lo-fi/hi-fi iterasjon på vinnere</span></div>
+  </div>
+  </div>
+
+  <!-- EN -->
+  <div data-lang="en">
+  <h1 class="h1">Creative framework.</h1>
+  <p class="subtitle">From product to finished ad. Five levels — three strategic, two production. Catalog always runs alongside.</p>
+
+  <h2 class="h2" style="margin-top:0">Five levels.</h2>
+  <div class="level-list">
+    <div class="level-item"><div class="level-dot" style="background:var(--color-text)"></div><div class="level-name">Product / category</div><div class="level-desc">The starting point. Catalog always on.</div><span class="badge badge-awareness">Brand-level</span></div>
+    <div class="level-item"><div class="level-dot" style="background:var(--color-text)"></div><div class="level-name">Audience</div><div class="level-desc">Who we're for. Stable. Tag and filter for creator selection.</div><span class="badge">Stable</span></div>
+    <div class="level-item"><div class="level-dot" style="background:var(--color-accent)"></div><div class="level-name">Persona</div><div class="level-desc">Three questions that together cover the full funnel.</div><span class="badge badge-explore">Explore: new persona</span></div>
+    <div class="level-item"><div class="level-dot" style="background:var(--color-text)"></div><div class="level-name">Concept</div><div class="level-desc">The creative answer to the persona. Tagged with TOV.</div><span class="badge badge-explore">Explore: new concept</span></div>
+    <div class="level-item"><div class="level-dot" style="background:var(--color-text)"></div><div class="level-name">Diversification</div><div class="level-desc">3–4 ads per concept. Hooks · lo-fi/hi-fi · formats.</div><span class="badge">Expand</span></div>
+  </div>
+  <hr>
+  <h2 class="h2">Persona — three questions.</h2>
+  <div class="grid c2l">
+    <div class="gc"><span class="label">Motivation</span></div><div class="gc last-col"><span class="value">What drives them toward purchase?</span></div>
+    <div class="gc"><span class="label">Barrier</span></div><div class="gc last-col"><span class="value">What stops those considering us from buying?</span></div>
+    <div class="gc last-row"><span class="label">Knowledge</span></div><div class="gc last-col last-row"><span class="value">What don't they know that would make the choice easy?</span></div>
+  </div>
+  <h2 class="h2">Tone of voice.</h2>
+  <div class="grid c3">
+    <div class="gc last-row"><span class="badge" style="margin-bottom:7px">Functional</span><span class="value">Concrete, measurable, rational</span></div>
+    <div class="gc last-row"><span class="badge" style="margin-bottom:7px">Emotional</span><span class="value">Aspirational, relatable, identity-driven</span></div>
+    <div class="gc last-col last-row"><span class="badge" style="margin-bottom:7px">Humor</span><span class="value">Irony and recognition, disarms the barrier</span></div>
+  </div>
+  <h2 class="h2">Explore and Expand.</h2>
+  <div class="grid c2">
+    <div class="gc last-row"><span class="label">Explore — 5 per month</span><span class="value">New persona not in the account<br>New concept within existing persona</span></div>
+    <div class="gc last-col last-row"><span class="label">Expand — 5 per week</span><span class="value">New hook · new visual · new format<br>Lo-fi/hi-fi iteration on winners</span></div>
+  </div>
   </div>
 
 </div></div>
@@ -593,158 +248,93 @@ hr {
 
 <!-- ═════ INNSIKT ═════ -->
 <div id="p-innsikt" class="pg"><div class="wrap">
-  <div class="brand-header">
-    <div>
-      <div class="brand-name">Kokkeløren — innsikt.</div>
-      <div class="brand-meta">Typeform 2023 (435 respondenter) + HubSpot mars 2025–2026 (11 562 tickets)</div>
-    </div>
-    <span class="badge">Solution-first</span>
-  </div>
+
+  <!-- NO -->
+  <div data-lang="no">
+  <div class="brand-header"><div><div class="brand-name">Kokkeløren — innsikt.</div><div class="brand-meta">Typeform 2023 (435 respondenter) + HubSpot mars 2025–2026 (11 562 tickets)</div></div><span class="badge">Solution-first</span></div>
 
   <h2 class="h2" style="margin-top:0">Posisjon og produkt.</h2>
   <div class="grid c3">
-    <div class="gc last-row">
-      <span class="label">Posisjon</span>
-      <span class="value">Premium i kategori der konkurrentene konkurrerer på pris og fleksibilitet. Siden 2016.</span>
-      <span class="label">Vinner på</span>
-      <span class="value">Smak · lokale råvarer · kokkenes meny · kundeservice</span>
-    </div>
-    <div class="gc last-row">
-      <span class="label">Taper på</span>
-      <span class="value">Pris · geografi · ingen allergifiltrering · ingen menyvalg</span>
-      <span class="label">Pris</span>
-      <span class="value">97 kr/rett vs. 68 kr/rett billigste konkurrent. 40–50% gap er primær barriere.</span>
-    </div>
-    <div class="gc last-col last-row">
-      <span class="label">Kundetilfredshet</span>
-      <div class="stat" style="margin:var(--sp-2) 0 var(--sp-3)">8,3<span> /10</span></div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-2);margin-bottom:var(--sp-5)">
-        <div><span style="font-size:var(--text-lg);font-weight:700">8,5</span> <span style="font-size:var(--text-sm)">Smak</span></div>
-        <div><span style="font-size:var(--text-lg);font-weight:700">7,8</span> <span style="font-size:var(--text-sm)">Variasjon</span></div>
-        <div><span style="font-size:var(--text-lg);font-weight:700">7,5</span> <span style="font-size:var(--text-sm)">Enkelhet</span></div>
-        <div><span style="font-size:var(--text-lg);font-weight:700">7,3</span> <span style="font-size:var(--text-sm)">Sunnhet</span></div>
-      </div>
-      <span class="label">Anbefaler videre</span>
-      <div class="stat" style="margin-top:var(--sp-2)">94%</div>
-      <span class="value">ganske eller svært sannsynlig å anbefale</span>
-    </div>
+    <div class="gc last-row"><span class="label">Posisjon</span><span class="value">Premium i kategori der konkurrentene konkurrerer på pris og fleksibilitet. Siden 2016.</span><span class="label">Vinner på</span><span class="value">Smak · lokale råvarer · kokkenes meny · kundeservice</span></div>
+    <div class="gc last-row"><span class="label">Taper på</span><span class="value">Pris · geografi · ingen allergifiltrering · ingen menyvalg</span><span class="label">Pris</span><span class="value">97 kr/rett vs. 68 kr/rett billigste konkurrent. 40–50% gap er primær barriere.</span></div>
+    <div class="gc last-col last-row"><span class="label">Kundetilfredshet</span><div class="stat" style="margin:var(--sp-2) 0 var(--sp-3)">8,3<span> /10</span></div><div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-2);margin-bottom:var(--sp-5)"><div><span style="font-size:var(--text-lg);font-weight:700">8,5</span> <span style="font-size:var(--text-sm)">Smak</span></div><div><span style="font-size:var(--text-lg);font-weight:700">7,8</span> <span style="font-size:var(--text-sm)">Variasjon</span></div><div><span style="font-size:var(--text-lg);font-weight:700">7,5</span> <span style="font-size:var(--text-sm)">Enkelhet</span></div><div><span style="font-size:var(--text-lg);font-weight:700">7,3</span> <span style="font-size:var(--text-sm)">Sunnhet</span></div></div><span class="label">Anbefaler videre</span><div class="stat" style="margin-top:var(--sp-2)">94%</div><span class="value">ganske eller svært sannsynlig å anbefale</span></div>
   </div>
 
   <h2 class="h2">Konkurranselandskap.</h2>
   <div class="grid c3">
-    <div class="gc last-row">
-      <span class="value" style="font-weight:700;margin-bottom:2px">HelloFresh</span>
-      <span class="value" style="font-size:var(--text-xs);margin-bottom:6px">Fra 68 kr/rett · 4,3/10 hos egne brukere</span>
-      <span class="value" style="font-size:var(--text-sm)">Fleksibelt menyvalg · allergivennlig · hele Norge · ikke norske råvarer</span>
-    </div>
-    <div class="gc last-row">
-      <span class="value" style="font-weight:700;margin-bottom:2px">GodtLevert / Adams</span>
-      <span class="value" style="font-size:var(--text-xs);margin-bottom:6px">Fra 68–87 kr/rett · 4,6–4,8/10 hos egne brukere</span>
-      <span class="value" style="font-size:var(--text-sm)">Norske veteraner · bredt utvalg · dårlig rykte for abonnementsfeller og levering</span>
-    </div>
-    <div class="gc last-col last-row">
-      <span class="value" style="font-weight:700;margin-bottom:2px">Kokkeløren</span>
-      <span class="value" style="font-size:var(--text-xs);margin-bottom:6px">97 kr/rett · 8,3/10 — nesten dobbelt så høyt som konkurrentene</span>
-      <span class="value" style="font-size:var(--text-sm)">Best på smak · Oslo/omegn · 3 retter/uke · kokkene bestemmer</span>
-    </div>
+    <div class="gc last-row"><span class="value" style="font-weight:700;margin-bottom:2px">HelloFresh</span><span class="value" style="font-size:var(--text-xs);margin-bottom:6px">Fra 68 kr/rett · 4,3/10 hos egne brukere</span><span class="value" style="font-size:var(--text-sm)">Fleksibelt menyvalg · allergivennlig · hele Norge · ikke norske råvarer</span></div>
+    <div class="gc last-row"><span class="value" style="font-weight:700;margin-bottom:2px">GodtLevert / Adams</span><span class="value" style="font-size:var(--text-xs);margin-bottom:6px">Fra 68–87 kr/rett · 4,6–4,8/10 hos egne brukere</span><span class="value" style="font-size:var(--text-sm)">Norske veteraner · bredt utvalg · dårlig rykte for abonnementsfeller og levering</span></div>
+    <div class="gc last-col last-row"><span class="value" style="font-weight:700;margin-bottom:2px">Kokkeløren</span><span class="value" style="font-size:var(--text-xs);margin-bottom:6px">97 kr/rett · 8,3/10 — nesten dobbelt så høyt som konkurrentene</span><span class="value" style="font-size:var(--text-sm)">Best på smak · Oslo/omegn · 3 retter/uke · kokkene bestemmer</span></div>
   </div>
 
   <h2 class="h2">Hva <span class="highlight">driver</span> kjøp.</h2>
   <div class="grid c2">
-    <div class="gc last-row">
-      <span class="label">Hva kundene nevner uoppfordret</span>
-      <div class="quote-list">
-        <div class="quote-item"><span class="quote-num">1.</span><span class="quote-txt">Smak — 28,5% nevner det først</span></div>
-        <div class="quote-item"><span class="quote-num">2.</span><span class="quote-txt">Spennende og annerledes mat — 18,9%</span></div>
-        <div class="quote-item"><span class="quote-num">3.</span><span class="quote-txt">Enkelt å lage — 16,9%</span></div>
-        <div class="quote-item"><span class="quote-num">4.</span><span class="quote-txt">Gode råvarer og kvalitet — 11,2%</span></div>
-        <div class="quote-item"><span class="quote-num">5.</span><span class="quote-txt">Sausene — 6,9% nevner dem spesifikt</span></div>
-      </div>
-    </div>
-    <div class="gc last-col last-row">
-      <span class="label">I kundens eget språk</span>
-      <div class="quote-list">
-        <div class="quote-item"><span class="quote-dot"></span><span class="quote-txt">«Restaurantmat 3 ganger i uka. Nyskapende og enkelt.»</span></div>
-        <div class="quote-item"><span class="quote-dot"></span><span class="quote-txt">«Retter jeg aldri har smakt før, enkelt å lage, følelse av å lykkes på kjøkkenet»</span></div>
-        <div class="quote-item"><span class="quote-dot"></span><span class="quote-txt">«Sausene er x-faktoren :)»</span></div>
-        <div class="quote-item"><span class="quote-dot"></span><span class="quote-txt">«Middagene er gått fra å være tidkrevende og kjedelige til å bli en glede i hverdagen»</span></div>
-        <div class="quote-item"><span class="quote-dot"></span><span class="quote-txt">«Den eneste matkassen der smak og kvalitet gjør at det er verdt pengene»</span></div>
-      </div>
-    </div>
+    <div class="gc last-row"><span class="label">Hva kundene nevner uoppfordret</span><div class="quote-list"><div class="quote-item"><span class="quote-num">1.</span><span class="quote-txt">Smak — 28,5% nevner det først</span></div><div class="quote-item"><span class="quote-num">2.</span><span class="quote-txt">Spennende og annerledes mat — 18,9%</span></div><div class="quote-item"><span class="quote-num">3.</span><span class="quote-txt">Enkelt å lage — 16,9%</span></div><div class="quote-item"><span class="quote-num">4.</span><span class="quote-txt">Gode råvarer og kvalitet — 11,2%</span></div><div class="quote-item"><span class="quote-num">5.</span><span class="quote-txt">Sausene — 6,9% nevner dem spesifikt</span></div></div></div>
+    <div class="gc last-col last-row"><span class="label">I kundens eget språk</span><div class="quote-list"><div class="quote-item"><span class="quote-dot"></span><span class="quote-txt">«Restaurantmat 3 ganger i uka. Nyskapende og enkelt.»</span></div><div class="quote-item"><span class="quote-dot"></span><span class="quote-txt">«Retter jeg aldri har smakt før, enkelt å lage, følelse av å lykkes på kjøkkenet»</span></div><div class="quote-item"><span class="quote-dot"></span><span class="quote-txt">«Sausene er x-faktoren :)»</span></div><div class="quote-item"><span class="quote-dot"></span><span class="quote-txt">«Middagene er gått fra å være tidkrevende og kjedelige til å bli en glede i hverdagen»</span></div><div class="quote-item"><span class="quote-dot"></span><span class="quote-txt">«Den eneste matkassen der smak og kvalitet gjør at det er verdt pengene»</span></div></div></div>
   </div>
   <div class="note"><strong>Nøkkelinnsikt — Kokkeløren.</strong> Smak er den klart sterkeste driveren (korrelasjon r=0,655 med tilfredshet). Kundene snakker om «restaurantmat hjemme», «hverdagsluksus» og «nye smaker» — ikke bekvemmelighet. Sausene nevnes som en x-faktor av nesten 7% uoppfordret.</div>
 
   <h2 class="h2">Hva <span class="highlight">stopper</span> kjøp.</h2>
   <div class="grid c2">
-    <div class="gc last-row">
-      <span class="label">Hindringer — rangert etter volum</span>
-      <div class="quote-list">
-        <div class="quote-item"><span class="quote-num">1.</span><span class="quote-txt">Abonnement vanskelig å styre — 34% av all support (3 930 tickets)</span></div>
-        <div class="quote-item"><span class="quote-num">2.</span><span class="quote-txt">Leveringsproblemer — 19,2% av support (2 222 tickets)</span></div>
-        <div class="quote-item"><span class="quote-num">3.</span><span class="quote-txt">Råvarekvalitet — 14,6% av support (1 690 tickets)</span></div>
-        <div class="quote-item"><span class="quote-num">4.</span><span class="quote-txt">Pris — 6,88/10 på dyrt-skala. Stiger til 7,34 hos de som slutter.</span></div>
-        <div class="quote-item"><span class="quote-num">5.</span><span class="quote-txt">Ikke barnevennlig nok — 8,5% av forbedringsforslag</span></div>
-      </div>
-    </div>
-    <div class="gc last-col last-row">
-      <span class="label">I kundens eget språk</span>
-      <div class="quote-list">
-        <div class="quote-item"><span class="quote-dot"></span><span class="quote-txt">«Jeg klarer ikke kansellere — vi ønsker ikke levering»</span></div>
-        <div class="quote-item"><span class="quote-dot"></span><span class="quote-txt">«Vi fikk matkassen levert klokken 23:10! Det er alt for sent.»</span></div>
-        <div class="quote-item"><span class="quote-dot"></span><span class="quote-txt">«Dere skal være kvalitetstilbyderen — kjøttdeig med salt og vann blir for dumt»</span></div>
-        <div class="quote-item"><span class="quote-dot"></span><span class="quote-txt">«Litt dyrt, men verdt det» — nesten alle som bruker ordet «dyrt» legger til dette</span></div>
-        <div class="quote-item"><span class="quote-dot"></span><span class="quote-txt">«Voksne elsker maten, barna liker den ikke»</span></div>
-      </div>
-    </div>
+    <div class="gc last-row"><span class="label">Hindringer — rangert etter volum</span><div class="quote-list"><div class="quote-item"><span class="quote-num">1.</span><span class="quote-txt">Abonnement vanskelig å styre — 34% av all support (3 930 tickets)</span></div><div class="quote-item"><span class="quote-num">2.</span><span class="quote-txt">Leveringsproblemer — 19,2% av support (2 222 tickets)</span></div><div class="quote-item"><span class="quote-num">3.</span><span class="quote-txt">Råvarekvalitet — 14,6% av support (1 690 tickets)</span></div><div class="quote-item"><span class="quote-num">4.</span><span class="quote-txt">Pris — 6,88/10 på dyrt-skala. Stiger til 7,34 hos de som slutter.</span></div><div class="quote-item"><span class="quote-num">5.</span><span class="quote-txt">Ikke barnevennlig nok — 8,5% av forbedringsforslag</span></div></div></div>
+    <div class="gc last-col last-row"><span class="label">I kundens eget språk</span><div class="quote-list"><div class="quote-item"><span class="quote-dot"></span><span class="quote-txt">«Jeg klarer ikke kansellere — vi ønsker ikke levering»</span></div><div class="quote-item"><span class="quote-dot"></span><span class="quote-txt">«Vi fikk matkassen levert klokken 23:10! Det er alt for sent.»</span></div><div class="quote-item"><span class="quote-dot"></span><span class="quote-txt">«Dere skal være kvalitetstilbyderen — kjøttdeig med salt og vann blir for dumt»</span></div><div class="quote-item"><span class="quote-dot"></span><span class="quote-txt">«Litt dyrt, men verdt det» — nesten alle som bruker ordet «dyrt» legger til dette</span></div><div class="quote-item"><span class="quote-dot"></span><span class="quote-txt">«Voksne elsker maten, barna liker den ikke»</span></div></div></div>
   </div>
   <div class="note"><strong>Nøkkelinnsikt — Kokkeløren.</strong> Pris alene er ikke avgjørende — korrelasjonen mellom prisopplevelse og tilfredshet er nesten null (r=0,043). Kundene som forlater opplever prisen som høyere fordi smaken skuffer. Det er et kvalitetsproblem, ikke et prisproblem. Allergi og barnevennlighet stenger ut reelle kundegrupper.</div>
+  </div>
+
+  <!-- EN -->
+  <div data-lang="en">
+  <div class="brand-header"><div><div class="brand-name">Kokkeløren — insights.</div><div class="brand-meta">Typeform 2023 (435 respondents) + HubSpot Mar 2025–2026 (11,562 tickets)</div></div><span class="badge">Solution-first</span></div>
+
+  <h2 class="h2" style="margin-top:0">Position and product.</h2>
+  <div class="grid c3">
+    <div class="gc last-row"><span class="label">Position</span><span class="value">Premium in a category where competitors compete on price and flexibility. Since 2016.</span><span class="label">Wins on</span><span class="value">Taste · local ingredients · chef-curated menu · customer service</span></div>
+    <div class="gc last-row"><span class="label">Loses on</span><span class="value">Price · geography · no allergy filtering · no menu choice</span><span class="label">Price</span><span class="value">97 NOK/serving vs. 68 NOK/serving cheapest competitor. 40–50% gap is the primary barrier.</span></div>
+    <div class="gc last-col last-row"><span class="label">Customer satisfaction</span><div class="stat" style="margin:var(--sp-2) 0 var(--sp-3)">8.3<span> /10</span></div><div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-2);margin-bottom:var(--sp-5)"><div><span style="font-size:var(--text-lg);font-weight:700">8.5</span> <span style="font-size:var(--text-sm)">Taste</span></div><div><span style="font-size:var(--text-lg);font-weight:700">7.8</span> <span style="font-size:var(--text-sm)">Variety</span></div><div><span style="font-size:var(--text-lg);font-weight:700">7.5</span> <span style="font-size:var(--text-sm)">Simplicity</span></div><div><span style="font-size:var(--text-lg);font-weight:700">7.3</span> <span style="font-size:var(--text-sm)">Health</span></div></div><span class="label">Would recommend</span><div class="stat" style="margin-top:var(--sp-2)">94%</div><span class="value">likely or very likely to recommend</span></div>
+  </div>
+
+  <h2 class="h2">Competitive landscape.</h2>
+  <div class="grid c3">
+    <div class="gc last-row"><span class="value" style="font-weight:700;margin-bottom:2px">HelloFresh</span><span class="value" style="font-size:var(--text-xs);margin-bottom:6px">From 68 NOK/serving · 4.3/10 among own users</span><span class="value" style="font-size:var(--text-sm)">Flexible menu · allergy-friendly · nationwide · non-Norwegian ingredients</span></div>
+    <div class="gc last-row"><span class="value" style="font-weight:700;margin-bottom:2px">GodtLevert / Adams</span><span class="value" style="font-size:var(--text-xs);margin-bottom:6px">From 68–87 NOK/serving · 4.6–4.8/10 among own users</span><span class="value" style="font-size:var(--text-sm)">Norwegian veterans · wide selection · poor reputation for subscription traps and delivery</span></div>
+    <div class="gc last-col last-row"><span class="value" style="font-weight:700;margin-bottom:2px">Kokkeløren</span><span class="value" style="font-size:var(--text-xs);margin-bottom:6px">97 NOK/serving · 8.3/10 — nearly double the competitors</span><span class="value" style="font-size:var(--text-sm)">Best on taste · Oslo area · 3 meals/week · chefs decide the menu</span></div>
+  </div>
+
+  <h2 class="h2">What <span class="highlight">drives</span> purchase.</h2>
+  <div class="grid c2">
+    <div class="gc last-row"><span class="label">What customers mention unprompted</span><div class="quote-list"><div class="quote-item"><span class="quote-num">1.</span><span class="quote-txt">Taste — 28.5% mention it first</span></div><div class="quote-item"><span class="quote-num">2.</span><span class="quote-txt">Exciting and different food — 18.9%</span></div><div class="quote-item"><span class="quote-num">3.</span><span class="quote-txt">Easy to cook — 16.9%</span></div><div class="quote-item"><span class="quote-num">4.</span><span class="quote-txt">Quality ingredients — 11.2%</span></div><div class="quote-item"><span class="quote-num">5.</span><span class="quote-txt">The sauces — 6.9% mention them specifically</span></div></div></div>
+    <div class="gc last-col last-row"><span class="label">In the customer's own words</span><div class="quote-list"><div class="quote-item"><span class="quote-dot"></span><span class="quote-txt">"Restaurant food 3 times a week. Innovative and simple."</span></div><div class="quote-item"><span class="quote-dot"></span><span class="quote-txt">"Dishes I've never tasted before, easy to make, feeling of succeeding in the kitchen"</span></div><div class="quote-item"><span class="quote-dot"></span><span class="quote-txt">"The sauces are the x-factor :)"</span></div><div class="quote-item"><span class="quote-dot"></span><span class="quote-txt">"Dinners went from being time-consuming and boring to a joy in everyday life"</span></div><div class="quote-item"><span class="quote-dot"></span><span class="quote-txt">"The only meal kit where taste and quality make it worth the money"</span></div></div></div>
+  </div>
+  <div class="note"><strong>Key insight — Kokkeløren.</strong> Taste is by far the strongest driver (correlation r=0.655 with satisfaction). Customers talk about "restaurant food at home," "everyday luxury," and "new flavors" — not convenience. The sauces are mentioned as an x-factor by nearly 7% unprompted.</div>
+
+  <h2 class="h2">What <span class="highlight">stops</span> purchase.</h2>
+  <div class="grid c2">
+    <div class="gc last-row"><span class="label">Barriers — ranked by volume</span><div class="quote-list"><div class="quote-item"><span class="quote-num">1.</span><span class="quote-txt">Subscription hard to manage — 34% of all support (3,930 tickets)</span></div><div class="quote-item"><span class="quote-num">2.</span><span class="quote-txt">Delivery issues — 19.2% of support (2,222 tickets)</span></div><div class="quote-item"><span class="quote-num">3.</span><span class="quote-txt">Ingredient quality — 14.6% of support (1,690 tickets)</span></div><div class="quote-item"><span class="quote-num">4.</span><span class="quote-txt">Price — 6.88/10 on expensive scale. Rises to 7.34 among churners.</span></div><div class="quote-item"><span class="quote-num">5.</span><span class="quote-txt">Not kid-friendly enough — 8.5% of improvement suggestions</span></div></div></div>
+    <div class="gc last-col last-row"><span class="label">In the customer's own words</span><div class="quote-list"><div class="quote-item"><span class="quote-dot"></span><span class="quote-txt">"I can't manage to cancel — we don't want delivery"</span></div><div class="quote-item"><span class="quote-dot"></span><span class="quote-txt">"We got the meal kit delivered at 11:10 PM! That's way too late."</span></div><div class="quote-item"><span class="quote-dot"></span><span class="quote-txt">"You're supposed to be the quality provider — ground beef with salt and water is absurd"</span></div><div class="quote-item"><span class="quote-dot"></span><span class="quote-txt">"A bit expensive, but worth it" — nearly everyone who uses the word 'expensive' adds this</span></div><div class="quote-item"><span class="quote-dot"></span><span class="quote-txt">"Adults love the food, the kids don't"</span></div></div></div>
+  </div>
+  <div class="note"><strong>Key insight — Kokkeløren.</strong> Price alone is not decisive — the correlation between price perception and satisfaction is near zero (r=0.043). Customers who leave perceive the price as higher because the taste disappoints. It's a quality problem, not a price problem. Allergy and kid-friendliness lock out real customer segments.</div>
+  </div>
 
 </div></div>
 
 
 <!-- ═════ KOKKELØREN ═════ -->
 <div id="p-kk" class="pg"><div class="wrap">
-  <div class="brand-header">
-    <div>
-      <div class="brand-name">Kokkeløren.</div>
-      <div class="brand-meta">Solution-first · matkasse · lokale råvarer</div>
-    </div>
-    <span class="badge">Solution-first</span>
-  </div>
 
-  <!-- MÅLGRUPPE A -->
+  <!-- NO -->
+  <div data-lang="no">
+  <div class="brand-header"><div><div class="brand-name">Kokkeløren.</div><div class="brand-meta">Solution-first · matkasse · lokale råvarer</div></div><span class="badge">Solution-first</span></div>
+
   <h2 class="h2" style="margin-top:0">Målgruppe A.</h2>
   <div class="grid c3">
-    <div class="gc last-row">
-      <span class="label">Målgruppe</span>
-      <span class="value" style="font-weight:700;font-size:var(--text-base);letter-spacing:var(--tracking-tight);margin-bottom:2px">Matinteressert uten (små) barn</span>
-      <span class="value" style="font-size:var(--text-xs)">28–50 år · Høy kategorikunnskap</span>
-    </div>
-    <div class="gc last-row">
-      <span class="label">Verdier og identitet</span>
-      <span class="value">Mat er identitet, ikke plikt. Opptatt av kvalitet og opprinnelse. Villig til å betale for det lille ekstra.</span>
-      <span class="label">Feed-preferanser</span>
-      <span class="value">Matblogger, restaurantanmeldelser, norske produsenter, bærekraft</span>
-    </div>
-    <div class="gc last-col last-row">
-      <span class="label">Kategorikunnskap</span>
-      <span class="value">Høy — har prøvd eller vurdert matkasse. Kjenner konkurrentene.</span>
-      <span class="label">Kreatørtype</span>
-      <span class="value">Matentusiast-creator, norsk matblogger, hjemmekokk med estetikk.</span>
-    </div>
+    <div class="gc last-row"><span class="label">Målgruppe</span><span class="value" style="font-weight:700;font-size:var(--text-base);letter-spacing:var(--tracking-tight);margin-bottom:2px">Matinteressert uten (små) barn</span><span class="value" style="font-size:var(--text-xs)">28–50 år · Høy kategorikunnskap</span></div>
+    <div class="gc last-row"><span class="label">Verdier og identitet</span><span class="value">Mat er identitet, ikke plikt. Opptatt av kvalitet og opprinnelse. Villig til å betale for det lille ekstra.</span><span class="label">Feed-preferanser</span><span class="value">Matblogger, restaurantanmeldelser, norske produsenter, bærekraft</span></div>
+    <div class="gc last-col last-row"><span class="label">Kategorikunnskap</span><span class="value">Høy — har prøvd eller vurdert matkasse. Kjenner konkurrentene.</span><span class="label">Kreatørtype</span><span class="value">Matentusiast-creator, norsk matblogger, hjemmekokk med estetikk.</span></div>
   </div>
 
-  <!-- P1 -->
   <span class="label" style="margin:var(--sp-6) 0 var(--sp-2)">Persona 1 av 4</span>
   <div class="persona">
-    <div class="persona-head">
-      <div class="persona-title">Lei kjedelig hverdagsmat — vil inspireres.</div>
-      <div class="persona-sub">Spiser det samme hver uke. Vil ha variasjon og oppdage noe nytt.</div>
-      <div class="persona-badges">
-        <span class="badge badge-awareness">Problem-aware</span>
-        <span class="badge badge-explore">Explore: ny persona</span>
-      </div>
-    </div>
+    <div class="persona-head"><div class="persona-title">Lei kjedelig hverdagsmat — vil inspireres.</div><div class="persona-sub">Spiser det samme hver uke. Vil ha variasjon og oppdage noe nytt.</div><div class="persona-badges"><span class="badge badge-awareness">Problem-aware</span><span class="badge badge-explore">Explore: ny persona</span></div></div>
     <div class="persona-rows">
       <div class="pr"><span class="label">Motivasjon</span><div class="pr-val">Vil ha variasjon og bli introdusert til nye smaker og råvarer. Vil at middagen skal bli noe å glede seg til.</div></div>
       <div class="pr"><span class="label">Hindring</span><div class="pr-val">Usikker på abonnement — frykter binding og at det blir mas å administrere.</div></div>
@@ -752,25 +342,17 @@ hr {
       <div class="pr full"><span class="label">Kunnskap de mangler</span><div class="pr-val">Enkelt å pause · ingen binding · kokkens valg = overraskelse, ikke tap av kontroll · <span class="highlight">lokale råvarer smaker faktisk annerledes</span></div></div>
       <div class="pr full last"><span class="label">Intern stemme</span><div class="pr-val it">«Vi lager det samme til middag hver uke. Kjedelig, men vet ikke helt hva jeg skal gjøre med det.»</div></div>
     </div>
-    <div class="konsept-wrap">
-      <span class="label">Konsepter</span>
-      <div class="konsept-grid">
-        <div class="konsept-cell"><div class="konsept-head"><span class="konsept-name">Aldri det samme to ganger</span><span class="badge">Emosjon</span></div><div class="konsept-body"><div class="konsept-label">Svarer på</div><div class="konsept-val">Motivasjonen — lei av hverdagsmat, vil ha overraskelse</div><div class="konsept-label">Idé</div><div class="konsept-val">«Kokkene bestemmer» er ikke en begrensning — det er poenget. Vis gleden ved å ikke vite hva som kommer.</div></div></div>
-        <div class="konsept-cell"><div class="konsept-head"><span class="konsept-name">Råvaren du ikke visste fantes</span><span class="badge">Funksjon</span></div><div class="konsept-body"><div class="konsept-label">Svarer på</div><div class="konsept-val">Kunnskap de mangler — norske råvarer og produsenter</div><div class="konsept-label">Idé</div><div class="konsept-val">Spotlight én lokal råvare. Hvem lager det, hvor kommer det fra — og hva gjør det med smaken.</div></div></div>
-        <div class="konsept-cell"><div class="konsept-head"><span class="konsept-name">Pause når du vil</span><span class="badge">Funksjon</span></div><div class="konsept-body"><div class="konsept-label">Svarer på</div><div class="konsept-val">Hindringen — abonnementsfrykt, binding, mas</div><div class="konsept-label">Idé</div><div class="konsept-val">Gjør det enkelt og tydelig: ingen binding, enkel pause. Kontrast mot konkurrentenes rykte.</div></div></div>
-        <div class="konsept-cell"><div class="konsept-head"><span class="konsept-name">Unboxing — hva er i kassen?</span><span class="badge">Emosjon</span></div><div class="konsept-body"><div class="konsept-label">Svarer på</div><div class="konsept-val">Motivasjonen + kunnskap — overraskelse og oppdagelse</div><div class="konsept-label">Idé</div><div class="konsept-val">Creator åpner ukas kasse. Ekte reaksjon på råvarer og rett.</div></div></div>
-      </div>
-    </div>
+    <div class="konsept-wrap"><span class="label">Konsepter</span><div class="konsept-grid">
+      <div class="konsept-cell"><div class="konsept-head"><span class="konsept-name">Aldri det samme to ganger</span><span class="badge">Emosjon</span></div><div class="konsept-body"><div class="konsept-label">Svarer på</div><div class="konsept-val">Motivasjonen — lei av hverdagsmat, vil ha overraskelse</div><div class="konsept-label">Idé</div><div class="konsept-val">«Kokkene bestemmer» er ikke en begrensning — det er poenget. Vis gleden ved å ikke vite hva som kommer.</div></div></div>
+      <div class="konsept-cell"><div class="konsept-head"><span class="konsept-name">Råvaren du ikke visste fantes</span><span class="badge">Funksjon</span></div><div class="konsept-body"><div class="konsept-label">Svarer på</div><div class="konsept-val">Kunnskap de mangler — norske råvarer og produsenter</div><div class="konsept-label">Idé</div><div class="konsept-val">Spotlight én lokal råvare. Hvem lager det, hvor kommer det fra — og hva gjør det med smaken.</div></div></div>
+      <div class="konsept-cell"><div class="konsept-head"><span class="konsept-name">Pause når du vil</span><span class="badge">Funksjon</span></div><div class="konsept-body"><div class="konsept-label">Svarer på</div><div class="konsept-val">Hindringen — abonnementsfrykt, binding, mas</div><div class="konsept-label">Idé</div><div class="konsept-val">Gjør det enkelt og tydelig: ingen binding, enkel pause. Kontrast mot konkurrentenes rykte.</div></div></div>
+      <div class="konsept-cell"><div class="konsept-head"><span class="konsept-name">Unboxing — hva er i kassen?</span><span class="badge">Emosjon</span></div><div class="konsept-body"><div class="konsept-label">Svarer på</div><div class="konsept-val">Motivasjonen + kunnskap — overraskelse og oppdagelse</div><div class="konsept-label">Idé</div><div class="konsept-val">Creator åpner ukas kasse. Ekte reaksjon på råvarer og rett.</div></div></div>
+    </div></div>
   </div>
 
-  <!-- P2 -->
   <span class="label" style="margin:var(--sp-6) 0 var(--sp-2)">Persona 2 av 4</span>
   <div class="persona">
-    <div class="persona-head">
-      <div class="persona-title">Vil ha restaurant hjemme uten å jobbe for det.</div>
-      <div class="persona-sub">Elsker god mat, men vil ikke bruke fritiden på planlegging og prep.</div>
-      <div class="persona-badges"><span class="badge badge-awareness">Solution-aware</span></div>
-    </div>
+    <div class="persona-head"><div class="persona-title">Vil ha restaurant hjemme uten å jobbe for det.</div><div class="persona-sub">Elsker god mat, men vil ikke bruke fritiden på planlegging og prep.</div><div class="persona-badges"><span class="badge badge-awareness">Solution-aware</span></div></div>
     <div class="persona-rows">
       <div class="pr"><span class="label">Motivasjon</span><div class="pr-val">Elsker godt mat, men vil ikke bruke fritiden på planlegging. Vil at resultatet skal imponere.</div></div>
       <div class="pr"><span class="label">Hindring</span><div class="pr-val">Prisen. Tror ikke Kokkeløren er annerledes nok fra Adams til å forsvare 40% mer.</div></div>
@@ -778,50 +360,24 @@ hr {
       <div class="pr full"><span class="label">Kunnskap de mangler</span><div class="pr-val">Forskjellen er ikke synlig — <span class="highlight">bare smakbar</span>. Hva lokale råvarer og håndverkssauser gjør med smaken er noe du ikke kan lese deg til.</div></div>
       <div class="pr full last"><span class="label">Intern stemme</span><div class="pr-val it">«Jeg liker godt mat, men er Kokkeløren virkelig verdt dobbelt prisen mot GodtLevert?»</div></div>
     </div>
-    <div class="konsept-wrap">
-      <span class="label">Konsepter</span>
-      <div class="konsept-grid">
-        <div class="konsept-cell"><div class="konsept-head"><span class="konsept-name">Sausen du ikke får kjøpt</span><span class="badge">Funksjon</span></div><div class="konsept-body"><div class="konsept-label">Svarer på</div><div class="konsept-val">Kunnskap de mangler — hva gjør Kokkeløren faktisk annerledes</div><div class="konsept-label">Idé</div><div class="konsept-val">Vis det du ikke kan replere: håndverkssausen, puréen, det lille grepet som løfter retten.</div></div></div>
-        <div class="konsept-cell"><div class="konsept-head"><span class="konsept-name">Smakstest — blind</span><span class="badge">Humor</span></div><div class="konsept-body"><div class="konsept-label">Svarer på</div><div class="konsept-val">Hindringen — er det virkelig verdt mer?</div><div class="konsept-label">Idé</div><div class="konsept-val">Blind smakstest mot billigere alternativ. Resultatet taler for seg selv.</div></div></div>
-        <div class="konsept-cell"><div class="konsept-head"><span class="konsept-name">Restaurantopplevelsen hjemme</span><span class="badge">Emosjon</span></div><div class="konsept-body"><div class="konsept-label">Svarer på</div><div class="konsept-val">Motivasjonen — imponere uten å jobbe for det</div><div class="konsept-label">Idé</div><div class="konsept-val">Middag med venner eller partner. Maten ser imponerende ut. Du lagde det selv — med litt hjelp.</div></div></div>
-        <div class="konsept-cell"><div class="konsept-head"><span class="konsept-name">Vunnet test etter test</span><span class="badge">Funksjon</span></div><div class="konsept-body"><div class="konsept-label">Svarer på</div><div class="konsept-val">Hindringen — er prisen rettferdiggjort?</div><div class="konsept-label">Idé</div><div class="konsept-val">Ekstern validering fra uavhengige tester. Ikke selvskryt — bevis.</div></div></div>
-      </div>
-    </div>
+    <div class="konsept-wrap"><span class="label">Konsepter</span><div class="konsept-grid">
+      <div class="konsept-cell"><div class="konsept-head"><span class="konsept-name">Sausen du ikke får kjøpt</span><span class="badge">Funksjon</span></div><div class="konsept-body"><div class="konsept-label">Svarer på</div><div class="konsept-val">Kunnskap de mangler — hva gjør Kokkeløren faktisk annerledes</div><div class="konsept-label">Idé</div><div class="konsept-val">Vis det du ikke kan replere: håndverkssausen, puréen, det lille grepet som løfter retten.</div></div></div>
+      <div class="konsept-cell"><div class="konsept-head"><span class="konsept-name">Smakstest — blind</span><span class="badge">Humor</span></div><div class="konsept-body"><div class="konsept-label">Svarer på</div><div class="konsept-val">Hindringen — er det virkelig verdt mer?</div><div class="konsept-label">Idé</div><div class="konsept-val">Blind smakstest mot billigere alternativ. Resultatet taler for seg selv.</div></div></div>
+      <div class="konsept-cell"><div class="konsept-head"><span class="konsept-name">Restaurantopplevelsen hjemme</span><span class="badge">Emosjon</span></div><div class="konsept-body"><div class="konsept-label">Svarer på</div><div class="konsept-val">Motivasjonen — imponere uten å jobbe for det</div><div class="konsept-label">Idé</div><div class="konsept-val">Middag med venner eller partner. Maten ser imponerende ut. Du lagde det selv — med litt hjelp.</div></div></div>
+      <div class="konsept-cell"><div class="konsept-head"><span class="konsept-name">Vunnet test etter test</span><span class="badge">Funksjon</span></div><div class="konsept-body"><div class="konsept-label">Svarer på</div><div class="konsept-val">Hindringen — er prisen rettferdiggjort?</div><div class="konsept-label">Idé</div><div class="konsept-val">Ekstern validering fra uavhengige tester. Ikke selvskryt — bevis.</div></div></div>
+    </div></div>
   </div>
 
-  <!-- MÅLGRUPPE B -->
   <h2 class="h2">Målgruppe B.</h2>
   <div class="grid c3">
-    <div class="gc last-row">
-      <span class="label">Målgruppe</span>
-      <span class="value" style="font-weight:700;font-size:var(--text-base);letter-spacing:var(--tracking-tight);margin-bottom:2px">Travle foreldre med barn (uten allergi)</span>
-      <span class="value" style="font-size:var(--text-xs)">30–48 år · Middels til høy kategorikunnskap</span>
-    </div>
-    <div class="gc last-row">
-      <span class="label">Verdier og identitet</span>
-      <span class="value">Vil ha middagen løst. Tid er knappere enn penger. Setter pris på at hele familien spiser det samme.</span>
-      <span class="label">Feed-preferanser</span>
-      <span class="value">Familiehverdag, enkle middagstips, tidssparingstips</span>
-    </div>
-    <div class="gc last-col last-row">
-      <span class="label">Kategorikunnskap</span>
-      <span class="value">Middels til høy — bruker eller har brukt matkasse. Skeptisk til binding.</span>
-      <span class="label">Kreatørtype</span>
-      <span class="value">Foreldre-creator med ekte hverdagsliv. Relaterbar og ekte.</span>
-    </div>
+    <div class="gc last-row"><span class="label">Målgruppe</span><span class="value" style="font-weight:700;font-size:var(--text-base);letter-spacing:var(--tracking-tight);margin-bottom:2px">Travle foreldre med barn (uten allergi)</span><span class="value" style="font-size:var(--text-xs)">30–48 år · Middels til høy kategorikunnskap</span></div>
+    <div class="gc last-row"><span class="label">Verdier og identitet</span><span class="value">Vil ha middagen løst. Tid er knappere enn penger. Setter pris på at hele familien spiser det samme.</span><span class="label">Feed-preferanser</span><span class="value">Familiehverdag, enkle middagstips, tidssparingstips</span></div>
+    <div class="gc last-col last-row"><span class="label">Kategorikunnskap</span><span class="value">Middels til høy — bruker eller har brukt matkasse. Skeptisk til binding.</span><span class="label">Kreatørtype</span><span class="value">Foreldre-creator med ekte hverdagsliv. Relaterbar og ekte.</span></div>
   </div>
 
-  <!-- P3 -->
   <span class="label" style="margin:var(--sp-6) 0 var(--sp-2)">Persona 3 av 4</span>
   <div class="persona">
-    <div class="persona-head">
-      <div class="persona-title">Vil slippe middagsdiskusjonen.</div>
-      <div class="persona-sub">Vil at familien spiser det samme, at barna spiser opp, og at middag ikke krever energi.</div>
-      <div class="persona-badges">
-        <span class="badge badge-awareness">Problem-aware</span>
-        <span class="badge badge-explore">Explore: ny persona</span>
-      </div>
-    </div>
+    <div class="persona-head"><div class="persona-title">Vil slippe middagsdiskusjonen.</div><div class="persona-sub">Vil at familien spiser det samme, at barna spiser opp, og at middag ikke krever energi.</div><div class="persona-badges"><span class="badge badge-awareness">Problem-aware</span><span class="badge badge-explore">Explore: ny persona</span></div></div>
     <div class="persona-rows">
       <div class="pr"><span class="label">Motivasjon</span><div class="pr-val">Vil at middagen løser seg. At barna spiser uten diskusjon. At det ikke krever energi å bestemme.</div></div>
       <div class="pr"><span class="label">Hindring</span><div class="pr-val">Prisen. Og bare 3 dager i uken løser ikke hele uken — opplevd som halvt svar.</div></div>
@@ -829,25 +385,17 @@ hr {
       <div class="pr full"><span class="label">Kunnskap de mangler</span><div class="pr-val">Maten er enkel å lage til tross for høyt nivå. <span class="highlight">«Kokkenes meny» = slipper å tenke</span>, ikke vanskelighetsgrad. 3 dager er nok til å bryte mønsteret.</div></div>
       <div class="pr full last"><span class="label">Intern stemme</span><div class="pr-val it">«Jeg vil bare at middagen skal løse seg. Og at det smaker godt. Og at barna spiser.»</div></div>
     </div>
-    <div class="konsept-wrap">
-      <span class="label">Konsepter</span>
-      <div class="konsept-grid">
-        <div class="konsept-cell"><div class="konsept-head"><span class="konsept-name">Barna spiste</span><span class="badge">Emosjon</span></div><div class="konsept-body"><div class="konsept-label">Svarer på</div><div class="konsept-val">Motivasjonen — den største seieren ved bordet</div><div class="konsept-label">Idé</div><div class="konsept-val">Foreldrenes reaksjon når barna spiser uten diskusjon. Gjenkjennelig øyeblikk.</div></div></div>
-        <div class="konsept-cell"><div class="konsept-head"><span class="konsept-name">Middagen er løst</span><span class="badge">Funksjon</span></div><div class="konsept-body"><div class="konsept-label">Svarer på</div><div class="konsept-val">Kunnskap de mangler — kokkenes meny betyr enkelt, ikke komplisert</div><div class="konsept-label">Idé</div><div class="konsept-val">Vis hvor enkelt det faktisk er. Tilberedningstid, antall ingredienser, ingen overraskelser.</div></div></div>
-        <div class="konsept-cell"><div class="konsept-head"><span class="konsept-name">Tre dager er nok</span><span class="badge">Funksjon</span></div><div class="konsept-body"><div class="konsept-label">Svarer på</div><div class="konsept-val">Hindringen — bare 3 dager i uken løser ikke alt</div><div class="konsept-label">Idé</div><div class="konsept-val">Reframer 3 dager som nok. De beste 3 dagene — resten klarer du selv.</div></div></div>
-        <div class="konsept-cell"><div class="konsept-head"><span class="konsept-name">Hverdagshelten</span><span class="badge">Emosjon</span></div><div class="konsept-body"><div class="konsept-label">Svarer på</div><div class="konsept-val">Motivasjonen + identitet</div><div class="konsept-label">Idé</div><div class="konsept-val">Forelder som «vinner» middagen. En liten seier i en travel hverdag.</div></div></div>
-      </div>
-    </div>
+    <div class="konsept-wrap"><span class="label">Konsepter</span><div class="konsept-grid">
+      <div class="konsept-cell"><div class="konsept-head"><span class="konsept-name">Barna spiste</span><span class="badge">Emosjon</span></div><div class="konsept-body"><div class="konsept-label">Svarer på</div><div class="konsept-val">Motivasjonen — den største seieren ved bordet</div><div class="konsept-label">Idé</div><div class="konsept-val">Foreldrenes reaksjon når barna spiser uten diskusjon. Gjenkjennelig øyeblikk.</div></div></div>
+      <div class="konsept-cell"><div class="konsept-head"><span class="konsept-name">Middagen er løst</span><span class="badge">Funksjon</span></div><div class="konsept-body"><div class="konsept-label">Svarer på</div><div class="konsept-val">Kunnskap de mangler — kokkenes meny betyr enkelt, ikke komplisert</div><div class="konsept-label">Idé</div><div class="konsept-val">Vis hvor enkelt det faktisk er. Tilberedningstid, antall ingredienser, ingen overraskelser.</div></div></div>
+      <div class="konsept-cell"><div class="konsept-head"><span class="konsept-name">Tre dager er nok</span><span class="badge">Funksjon</span></div><div class="konsept-body"><div class="konsept-label">Svarer på</div><div class="konsept-val">Hindringen — bare 3 dager i uken løser ikke alt</div><div class="konsept-label">Idé</div><div class="konsept-val">Reframer 3 dager som nok. De beste 3 dagene — resten klarer du selv.</div></div></div>
+      <div class="konsept-cell"><div class="konsept-head"><span class="konsept-name">Hverdagshelten</span><span class="badge">Emosjon</span></div><div class="konsept-body"><div class="konsept-label">Svarer på</div><div class="konsept-val">Motivasjonen + identitet</div><div class="konsept-label">Idé</div><div class="konsept-val">Forelder som «vinner» middagen. En liten seier i en travel hverdag.</div></div></div>
+    </div></div>
   </div>
 
-  <!-- P4 -->
   <span class="label" style="margin:var(--sp-6) 0 var(--sp-2)">Persona 4 av 4</span>
   <div class="persona">
-    <div class="persona-head">
-      <div class="persona-title">Vil imponere med maten uten å jobbe for det.</div>
-      <div class="persona-sub">Mat er en del av identiteten — vil at gjester og familie skal bli imponert.</div>
-      <div class="persona-badges"><span class="badge badge-awareness">Solution-aware</span></div>
-    </div>
+    <div class="persona-head"><div class="persona-title">Vil imponere med maten uten å jobbe for det.</div><div class="persona-sub">Mat er en del av identiteten — vil at gjester og familie skal bli imponert.</div><div class="persona-badges"><span class="badge badge-awareness">Solution-aware</span></div></div>
     <div class="persona-rows">
       <div class="pr"><span class="label">Motivasjon</span><div class="pr-val">Vil at gjester og familie skal bli imponert uten at det koster to timer og full planlegging.</div></div>
       <div class="pr"><span class="label">Hindring</span><div class="pr-val">Følelsen av å «jukse» med matkasse. Og prisen — tror de kan lage det like bra selv.</div></div>
@@ -855,15 +403,104 @@ hr {
       <div class="pr full"><span class="label">Kunnskap de mangler</span><div class="pr-val">Kokkeløren-maten ser og smaker hjemmelaget — fordi det er det. <span class="highlight">Det er ikke juks — det er smartere shopping.</span></div></div>
       <div class="pr full last"><span class="label">Intern stemme</span><div class="pr-val it">«Jeg vil at maten skal se ut som jeg har brukt tid på den, uten at jeg faktisk har det.»</div></div>
     </div>
-    <div class="konsept-wrap">
-      <span class="label">Konsepter</span>
-      <div class="konsept-grid">
-        <div class="konsept-cell"><div class="konsept-head"><span class="konsept-name">Det er ikke juks</span><span class="badge">Humor</span></div><div class="konsept-body"><div class="konsept-label">Svarer på</div><div class="konsept-val">Hindringen — skammen ved å «jukse»</div><div class="konsept-label">Idé</div><div class="konsept-val">Selvironisk. Innrøm åpent at du brukte matkasse — og at alle likevel syntes det var fantastisk.</div></div></div>
-        <div class="konsept-cell"><div class="konsept-head"><span class="konsept-name">Råvaren gjør jobben</span><span class="badge">Funksjon</span></div><div class="konsept-body"><div class="konsept-label">Svarer på</div><div class="konsept-val">Kunnskap de mangler — hva gjør produktet faktisk annerledes</div><div class="konsept-label">Idé</div><div class="konsept-val">Vis den konkrete råvaren: hvor den kommer fra, hvem som produserer, hva den gjør med retten.</div></div></div>
-        <div class="konsept-cell"><div class="konsept-head"><span class="konsept-name">Gjestene spurte om oppskriften</span><span class="badge">Emosjon</span></div><div class="konsept-body"><div class="konsept-label">Svarer på</div><div class="konsept-val">Motivasjonen — imponere uten å avsløre hemmeligheten</div><div class="konsept-label">Idé</div><div class="konsept-val">Gjenkjennelig situasjon: gjestene spør etter oppskriften. Creator holder kortene tett.</div></div></div>
-        <div class="konsept-cell"><div class="konsept-head"><span class="konsept-name">Hjemmelaget er hjemmelaget</span><span class="badge">Emosjon</span></div><div class="konsept-body"><div class="konsept-label">Svarer på</div><div class="konsept-val">Hindringen — reframing av «juks»</div><div class="konsept-label">Idé</div><div class="konsept-val">Du lager det selv — fra råvare til tallerken. Bedre råvarer gjør det ikke mindre hjemmelaget.</div></div></div>
-      </div>
+    <div class="konsept-wrap"><span class="label">Konsepter</span><div class="konsept-grid">
+      <div class="konsept-cell"><div class="konsept-head"><span class="konsept-name">Det er ikke juks</span><span class="badge">Humor</span></div><div class="konsept-body"><div class="konsept-label">Svarer på</div><div class="konsept-val">Hindringen — skammen ved å «jukse»</div><div class="konsept-label">Idé</div><div class="konsept-val">Selvironisk. Innrøm åpent at du brukte matkasse — og at alle likevel syntes det var fantastisk.</div></div></div>
+      <div class="konsept-cell"><div class="konsept-head"><span class="konsept-name">Råvaren gjør jobben</span><span class="badge">Funksjon</span></div><div class="konsept-body"><div class="konsept-label">Svarer på</div><div class="konsept-val">Kunnskap de mangler — hva gjør produktet faktisk annerledes</div><div class="konsept-label">Idé</div><div class="konsept-val">Vis den konkrete råvaren: hvor den kommer fra, hvem som produserer, hva den gjør med retten.</div></div></div>
+      <div class="konsept-cell"><div class="konsept-head"><span class="konsept-name">Gjestene spurte om oppskriften</span><span class="badge">Emosjon</span></div><div class="konsept-body"><div class="konsept-label">Svarer på</div><div class="konsept-val">Motivasjonen — imponere uten å avsløre hemmeligheten</div><div class="konsept-label">Idé</div><div class="konsept-val">Gjenkjennelig situasjon: gjestene spør etter oppskriften. Creator holder kortene tett.</div></div></div>
+      <div class="konsept-cell"><div class="konsept-head"><span class="konsept-name">Hjemmelaget er hjemmelaget</span><span class="badge">Emosjon</span></div><div class="konsept-body"><div class="konsept-label">Svarer på</div><div class="konsept-val">Hindringen — reframing av «juks»</div><div class="konsept-label">Idé</div><div class="konsept-val">Du lager det selv — fra råvare til tallerken. Bedre råvarer gjør det ikke mindre hjemmelaget.</div></div></div>
+    </div></div>
+  </div>
+  </div>
+
+  <!-- EN -->
+  <div data-lang="en">
+  <div class="brand-header"><div><div class="brand-name">Kokkeløren.</div><div class="brand-meta">Solution-first · meal kit · local ingredients</div></div><span class="badge">Solution-first</span></div>
+
+  <h2 class="h2" style="margin-top:0">Audience A.</h2>
+  <div class="grid c3">
+    <div class="gc last-row"><span class="label">Audience</span><span class="value" style="font-weight:700;font-size:var(--text-base);letter-spacing:var(--tracking-tight);margin-bottom:2px">Food enthusiast without (young) children</span><span class="value" style="font-size:var(--text-xs)">28–50 years · High category knowledge</span></div>
+    <div class="gc last-row"><span class="label">Values and identity</span><span class="value">Food is identity, not duty. Cares about quality and origin. Willing to pay for the extra touch.</span><span class="label">Feed preferences</span><span class="value">Food blogs, restaurant reviews, Norwegian producers, sustainability</span></div>
+    <div class="gc last-col last-row"><span class="label">Category knowledge</span><span class="value">High — has tried or considered meal kits. Knows the competitors.</span><span class="label">Creator type</span><span class="value">Food enthusiast creator, Norwegian food blogger, home chef with aesthetics.</span></div>
+  </div>
+
+  <span class="label" style="margin:var(--sp-6) 0 var(--sp-2)">Persona 1 of 4</span>
+  <div class="persona">
+    <div class="persona-head"><div class="persona-title">Tired of boring weeknight food — wants inspiration.</div><div class="persona-sub">Eats the same thing every week. Wants variety and to discover something new.</div><div class="persona-badges"><span class="badge badge-awareness">Problem-aware</span><span class="badge badge-explore">Explore: new persona</span></div></div>
+    <div class="persona-rows">
+      <div class="pr"><span class="label">Motivation</span><div class="pr-val">Wants variety and to be introduced to new flavors and ingredients. Wants dinner to become something to look forward to.</div></div>
+      <div class="pr"><span class="label">Barrier</span><div class="pr-val">Uncertain about subscription — fears commitment and that it'll be a hassle to manage.</div></div>
+      <div class="pr full"><span class="label">Benefit</span><div class="pr-val">Discovers Norwegian producers and ingredients they didn't know existed. Dinner becomes an experience, not a chore.</div></div>
+      <div class="pr full"><span class="label">Knowledge gap</span><div class="pr-val">Easy to pause · no commitment · chef's choice = surprise, not loss of control · <span class="highlight">local ingredients actually taste different</span></div></div>
+      <div class="pr full last"><span class="label">Inner voice</span><div class="pr-val it">"We make the same thing for dinner every week. Boring, but I don't really know what to do about it."</div></div>
     </div>
+    <div class="konsept-wrap"><span class="label">Concepts</span><div class="konsept-grid">
+      <div class="konsept-cell"><div class="konsept-head"><span class="konsept-name">Never the same thing twice</span><span class="badge">Emotional</span></div><div class="konsept-body"><div class="konsept-label">Answers</div><div class="konsept-val">The motivation — tired of weeknight food, wants surprise</div><div class="konsept-label">Idea</div><div class="konsept-val">"The chefs decide" isn't a limitation — it's the point. Show the joy of not knowing what's coming.</div></div></div>
+      <div class="konsept-cell"><div class="konsept-head"><span class="konsept-name">The ingredient you didn't know existed</span><span class="badge">Functional</span></div><div class="konsept-body"><div class="konsept-label">Answers</div><div class="konsept-val">Knowledge gap — Norwegian ingredients and producers</div><div class="konsept-label">Idea</div><div class="konsept-val">Spotlight one local ingredient. Who makes it, where it comes from — and what it does to the flavor.</div></div></div>
+      <div class="konsept-cell"><div class="konsept-head"><span class="konsept-name">Pause whenever you want</span><span class="badge">Functional</span></div><div class="konsept-body"><div class="konsept-label">Answers</div><div class="konsept-val">The barrier — subscription fear, commitment, hassle</div><div class="konsept-label">Idea</div><div class="konsept-val">Make it simple and clear: no commitment, easy pause. Contrast against competitors' reputation.</div></div></div>
+      <div class="konsept-cell"><div class="konsept-head"><span class="konsept-name">Unboxing — what's in the box?</span><span class="badge">Emotional</span></div><div class="konsept-body"><div class="konsept-label">Answers</div><div class="konsept-val">Motivation + knowledge — surprise and discovery</div><div class="konsept-label">Idea</div><div class="konsept-val">Creator opens this week's box. Genuine reaction to ingredients and dish.</div></div></div>
+    </div></div>
+  </div>
+
+  <span class="label" style="margin:var(--sp-6) 0 var(--sp-2)">Persona 2 of 4</span>
+  <div class="persona">
+    <div class="persona-head"><div class="persona-title">Wants restaurant at home without the work.</div><div class="persona-sub">Loves great food, but won't spend free time on planning and prep.</div><div class="persona-badges"><span class="badge badge-awareness">Solution-aware</span></div></div>
+    <div class="persona-rows">
+      <div class="pr"><span class="label">Motivation</span><div class="pr-val">Loves great food, but won't spend free time on planning. Wants the result to impress.</div></div>
+      <div class="pr"><span class="label">Barrier</span><div class="pr-val">The price. Doesn't believe Kokkeløren is different enough from Adams to justify 40% more.</div></div>
+      <div class="pr full"><span class="label">Benefit</span><div class="pr-val">Handmade sauces and purées you don't make yourself. The ingredients elevate the dish. Tastes like restaurant — but you actually made it.</div></div>
+      <div class="pr full"><span class="label">Knowledge gap</span><div class="pr-val">The difference isn't visible — <span class="highlight">only tasteable</span>. What local ingredients and artisan sauces do to the flavor is something you can't read about.</div></div>
+      <div class="pr full last"><span class="label">Inner voice</span><div class="pr-val it">"I like great food, but is Kokkeløren really worth double the price of GodtLevert?"</div></div>
+    </div>
+    <div class="konsept-wrap"><span class="label">Concepts</span><div class="konsept-grid">
+      <div class="konsept-cell"><div class="konsept-head"><span class="konsept-name">The sauce you can't buy</span><span class="badge">Functional</span></div><div class="konsept-body"><div class="konsept-label">Answers</div><div class="konsept-val">Knowledge gap — what actually makes Kokkeløren different</div><div class="konsept-label">Idea</div><div class="konsept-val">Show what you can't replicate: the artisan sauce, the purée, the small touch that elevates the dish.</div></div></div>
+      <div class="konsept-cell"><div class="konsept-head"><span class="konsept-name">Taste test — blind</span><span class="badge">Humor</span></div><div class="konsept-body"><div class="konsept-label">Answers</div><div class="konsept-val">The barrier — is it really worth more?</div><div class="konsept-label">Idea</div><div class="konsept-val">Blind taste test against a cheaper alternative. The result speaks for itself.</div></div></div>
+      <div class="konsept-cell"><div class="konsept-head"><span class="konsept-name">The restaurant experience at home</span><span class="badge">Emotional</span></div><div class="konsept-body"><div class="konsept-label">Answers</div><div class="konsept-val">The motivation — impress without the work</div><div class="konsept-label">Idea</div><div class="konsept-val">Dinner with friends or partner. The food looks impressive. You made it yourself — with a little help.</div></div></div>
+      <div class="konsept-cell"><div class="konsept-head"><span class="konsept-name">Won test after test</span><span class="badge">Functional</span></div><div class="konsept-body"><div class="konsept-label">Answers</div><div class="konsept-val">The barrier — is the price justified?</div><div class="konsept-label">Idea</div><div class="konsept-val">External validation from independent tests. Not self-praise — proof.</div></div></div>
+    </div></div>
+  </div>
+
+  <h2 class="h2">Audience B.</h2>
+  <div class="grid c3">
+    <div class="gc last-row"><span class="label">Audience</span><span class="value" style="font-weight:700;font-size:var(--text-base);letter-spacing:var(--tracking-tight);margin-bottom:2px">Busy parents with children (no allergies)</span><span class="value" style="font-size:var(--text-xs)">30–48 years · Medium to high category knowledge</span></div>
+    <div class="gc last-row"><span class="label">Values and identity</span><span class="value">Wants dinner sorted. Time is scarcer than money. Appreciates the whole family eating the same thing.</span><span class="label">Feed preferences</span><span class="value">Family life, easy dinner tips, time-saving hacks</span></div>
+    <div class="gc last-col last-row"><span class="label">Category knowledge</span><span class="value">Medium to high — uses or has used meal kits. Skeptical of commitment.</span><span class="label">Creator type</span><span class="value">Parent creator with real everyday life. Relatable and authentic.</span></div>
+  </div>
+
+  <span class="label" style="margin:var(--sp-6) 0 var(--sp-2)">Persona 3 of 4</span>
+  <div class="persona">
+    <div class="persona-head"><div class="persona-title">Wants to skip the dinner debate.</div><div class="persona-sub">Wants the family to eat the same thing, kids to finish, and dinner to require no energy.</div><div class="persona-badges"><span class="badge badge-awareness">Problem-aware</span><span class="badge badge-explore">Explore: new persona</span></div></div>
+    <div class="persona-rows">
+      <div class="pr"><span class="label">Motivation</span><div class="pr-val">Wants dinner to sort itself out. Kids eat without argument. No energy needed to decide.</div></div>
+      <div class="pr"><span class="label">Barrier</span><div class="pr-val">The price. And only 3 days a week doesn't solve the whole week — perceived as a half-answer.</div></div>
+      <div class="pr full"><span class="label">Benefit</span><div class="pr-val">Friday feeling on a Tuesday. Kids eat without argument. Dinner is sorted — three days a week.</div></div>
+      <div class="pr full"><span class="label">Knowledge gap</span><div class="pr-val">The food is easy to cook despite the high level. <span class="highlight">"Chef's menu" = don't have to think</span>, not difficulty. 3 days is enough to break the pattern.</div></div>
+      <div class="pr full last"><span class="label">Inner voice</span><div class="pr-val it">"I just want dinner to sort itself out. And taste good. And the kids to eat."</div></div>
+    </div>
+    <div class="konsept-wrap"><span class="label">Concepts</span><div class="konsept-grid">
+      <div class="konsept-cell"><div class="konsept-head"><span class="konsept-name">The kids ate</span><span class="badge">Emotional</span></div><div class="konsept-body"><div class="konsept-label">Answers</div><div class="konsept-val">The motivation — the biggest win at the table</div><div class="konsept-label">Idea</div><div class="konsept-val">Parents' reaction when the kids eat without argument. Recognizable moment.</div></div></div>
+      <div class="konsept-cell"><div class="konsept-head"><span class="konsept-name">Dinner is sorted</span><span class="badge">Functional</span></div><div class="konsept-body"><div class="konsept-label">Answers</div><div class="konsept-val">Knowledge gap — chef's menu means easy, not complicated</div><div class="konsept-label">Idea</div><div class="konsept-val">Show how easy it actually is. Prep time, number of ingredients, no surprises.</div></div></div>
+      <div class="konsept-cell"><div class="konsept-head"><span class="konsept-name">Three days is enough</span><span class="badge">Functional</span></div><div class="konsept-body"><div class="konsept-label">Answers</div><div class="konsept-val">The barrier — only 3 days a week doesn't solve everything</div><div class="konsept-label">Idea</div><div class="konsept-val">Reframe 3 days as enough. The best 3 days — you handle the rest.</div></div></div>
+      <div class="konsept-cell"><div class="konsept-head"><span class="konsept-name">The everyday hero</span><span class="badge">Emotional</span></div><div class="konsept-body"><div class="konsept-label">Answers</div><div class="konsept-val">Motivation + identity</div><div class="konsept-label">Idea</div><div class="konsept-val">Parent who "wins" dinner. A small victory in a busy day.</div></div></div>
+    </div></div>
+  </div>
+
+  <span class="label" style="margin:var(--sp-6) 0 var(--sp-2)">Persona 4 of 4</span>
+  <div class="persona">
+    <div class="persona-head"><div class="persona-title">Wants to impress with the food without the work.</div><div class="persona-sub">Food is part of their identity — wants guests and family to be impressed.</div><div class="persona-badges"><span class="badge badge-awareness">Solution-aware</span></div></div>
+    <div class="persona-rows">
+      <div class="pr"><span class="label">Motivation</span><div class="pr-val">Wants guests and family to be impressed without it costing two hours and full planning.</div></div>
+      <div class="pr"><span class="label">Barrier</span><div class="pr-val">The feeling of "cheating" with a meal kit. And the price — believes they can make it just as well themselves.</div></div>
+      <div class="pr full"><span class="label">Benefit</span><div class="pr-val">Looks like a great cook without being one. Homemade feel that actually is homemade — just with better ingredients.</div></div>
+      <div class="pr full"><span class="label">Knowledge gap</span><div class="pr-val">Kokkeløren food looks and tastes homemade — because it is. <span class="highlight">It's not cheating — it's smarter shopping.</span></div></div>
+      <div class="pr full last"><span class="label">Inner voice</span><div class="pr-val it">"I want the food to look like I spent time on it, without actually having to."</div></div>
+    </div>
+    <div class="konsept-wrap"><span class="label">Concepts</span><div class="konsept-grid">
+      <div class="konsept-cell"><div class="konsept-head"><span class="konsept-name">It's not cheating</span><span class="badge">Humor</span></div><div class="konsept-body"><div class="konsept-label">Answers</div><div class="konsept-val">The barrier — the shame of "cheating"</div><div class="konsept-label">Idea</div><div class="konsept-val">Self-deprecating. Openly admit you used a meal kit — and that everyone still thought it was amazing.</div></div></div>
+      <div class="konsept-cell"><div class="konsept-head"><span class="konsept-name">The ingredient does the work</span><span class="badge">Functional</span></div><div class="konsept-body"><div class="konsept-label">Answers</div><div class="konsept-val">Knowledge gap — what actually makes the product different</div><div class="konsept-label">Idea</div><div class="konsept-val">Show the specific ingredient: where it comes from, who produces it, what it does to the dish.</div></div></div>
+      <div class="konsept-cell"><div class="konsept-head"><span class="konsept-name">The guests asked for the recipe</span><span class="badge">Emotional</span></div><div class="konsept-body"><div class="konsept-label">Answers</div><div class="konsept-val">The motivation — impress without revealing the secret</div><div class="konsept-label">Idea</div><div class="konsept-val">Recognizable situation: guests ask for the recipe. Creator keeps their cards close.</div></div></div>
+      <div class="konsept-cell"><div class="konsept-head"><span class="konsept-name">Homemade is homemade</span><span class="badge">Emotional</span></div><div class="konsept-body"><div class="konsept-label">Answers</div><div class="konsept-val">The barrier — reframing "cheating"</div><div class="konsept-label">Idea</div><div class="konsept-val">You make it yourself — from ingredient to plate. Better ingredients don't make it less homemade.</div></div></div>
+    </div></div>
+  </div>
   </div>
 
 </div></div>
@@ -873,7 +510,25 @@ function go(id, btn) {
   document.querySelectorAll('.pg').forEach(p => p.classList.remove('on'));
   document.querySelectorAll('.nav-tab').forEach(b => b.classList.remove('on'));
   document.getElementById('p-' + id).classList.add('on');
+  // Activate the correct tab for current language
+  const lang = document.body.classList.contains('lang-en') ? 'en' : 'no';
+  btn.closest('.nav').querySelectorAll('.nav-tab[data-lang="'+lang+'"]').forEach(b => b.classList.remove('on'));
   btn.classList.add('on');
+}
+function setLang(lang) {
+  document.body.className = 'lang-' + lang;
+  document.documentElement.lang = lang === 'en' ? 'en' : 'no';
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('on'));
+  document.querySelector('.lang-btn[onclick*="'+lang+'"]').classList.add('on');
+  // Sync active tab state
+  const activePage = document.querySelector('.pg.on');
+  if (activePage) {
+    const pageId = activePage.id.replace('p-','');
+    document.querySelectorAll('.nav-tab').forEach(b => b.classList.remove('on'));
+    document.querySelectorAll('.nav-tab[data-lang="'+lang+'"]').forEach(b => {
+      if (b.getAttribute('onclick').includes("'"+pageId+"'")) b.classList.add('on');
+    });
+  }
 }
 </script>
 </body>
