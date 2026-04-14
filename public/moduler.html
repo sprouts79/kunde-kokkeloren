@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Moduler — Kokkeløren landingssider</title>
+<style>
+  @font-face { font-family: 'GT Flexa'; src: url('/assets/fonts/GT-Flexa-Standard-Light.woff2') format('woff2'); font-weight: 300; }
+  @font-face { font-family: 'GT Flexa'; src: url('/assets/fonts/GT-Flexa-Standard-Medium.woff2') format('woff2'); font-weight: 500; }
+  @font-face { font-family: 'Valizas'; src: url('/assets/fonts/ValizasWeb-Regular.woff2') format('woff2'); font-weight: 400; }
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* ── Admin shell (Simpleness) ── */
+:root {
+  --admin-font: "Banana Grotesk", "Plus Jakarta Sans", sans-serif;
+  --admin-black: #090A08;
+  --admin-border: 1px solid rgba(9,10,8,0.08);
+  --admin-accent: #89FF58;
+  --admin-pale: #F6FFEE;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; }
+body { font-family: var(--admin-font); background: #fff; color: var(--admin-black); line-height: 1.5; -webkit-font-smoothing: antialiased; }
+
+.topbar { position: sticky; top: 0; z-index: 200; background: rgba(255,255,255,0.96); backdrop-filter: blur(8px); border-bottom: var(--admin-border); display: flex; align-items: center; height: 52px; padding: 0 1.5rem; }
+.topbar a { text-decoration: none; color: var(--admin-black); font-size: 0.875rem; font-weight: 700; letter-spacing: -0.02em; display: flex; align-items: center; gap: 0.5rem; }
+.topbar a::before { content: "←"; font-size: 1rem; }
+
+.admin-wrap { max-width: 960px; margin: 0 auto; padding: 3rem 1.5rem 2rem; }
+.admin-title { font-size: 3.75rem; font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 0.75rem; }
+.admin-subtitle { font-size: 1rem; line-height: 1.6; margin-bottom: 2rem; max-width: 560px; }
+
+/* Module section wrapper */
+.module-section { margin-bottom: 4rem; }
+.module-header { max-width: 960px; margin: 0 auto; padding: 0 1.5rem; }
+.module-label { font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; background: var(--admin-accent); display: inline-block; padding: 2px 8px; border-radius: 4px; margin-bottom: 0.5rem; }
+.module-name { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 0.25rem; }
+.module-desc { font-size: 0.875rem; line-height: 1.55; margin-bottom: 1.5rem; max-width: 560px; }
+.module-used { font-size: 0.75rem; margin-bottom: 1rem; }
+
+/* Preview frame */
+.preview-frame { border: var(--admin-border); border-radius: 12px; overflow: hidden; }
+.preview-inner { /* contains the actual Kokkeløren-styled module */ }
+
+/* ── Kokkeløren brand tokens (inside previews) ── */
+.kk {
+  --page-bg: #F1EDE2;
+  --body-text: #31261D;
+  --heading-text: #31261D;
+  --btn-bg: #31261D;
+  --btn-text: #ffffff;
+  --btn-radius: 8px;
+  --border-kk: #D9D3C7;
+  --neutral-90: #31261D;
+  --neutral-70: #31261D;
+  --neutral-20: #E8E2D9;
+  --neutral-10: #F1EDE2;
+  --green: #6CC24A;
+  --font-display: 'Valizas', Georgia, serif;
+  --font-body: 'GT Flexa', Helvetica, sans-serif;
+  font-family: 'GT Flexa', Helvetica, sans-serif;
+  font-size: 20px;
+  line-height: 1.54;
+  color: #31261D;
+  background: #F1EDE2;
+}
+.kk a { color: #31261D; }
+
+/* ── Module styles (Kokkeløren) ── */
+
+/* Nav */
+.kk-nav { background: #F1EDE2; border-bottom: 1px solid #D9D3C7; }
+.kk-nav-inner { max-width: 1488px; margin: 0 auto; padding: 0 40px; height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 40px; }
+.kk-nav-logo { font-family: 'Valizas', Georgia, serif; font-size: 22px; font-weight: 500; color: #31261D; text-decoration: none; }
+.kk-nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+.kk-nav-links a { font-size: 17px; color: #31261D; text-decoration: none; }
+.kk-btn { display: inline-block; background: #31261D; color: #fff !important; border-radius: 8px; padding: 10px 18px; font-family: 'GT Flexa', sans-serif; font-size: 17px; text-decoration: none; }
+
+/* Hero */
+.kk-hero { padding: 72px 40px 56px; }
+.kk-hero-body { max-width: 740px; margin: 0 auto; }
+.kk-eyebrow { font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: #31261D; margin-bottom: 20px; font-family: 'GT Flexa', sans-serif; }
+.kk-h1 { font-family: 'Valizas', Georgia, serif; font-size: 56px; font-weight: 500; color: #31261D; line-height: 1.1; max-width: 800px; margin-bottom: 28px; }
+.kk-lead { font-size: 21px; line-height: 1.6; color: #31261D; max-width: 620px; }
+.kk-hero-img { width: 100%; max-width: 740px; margin: 40px auto 0; display: block; border-radius: 16px; object-fit: cover; aspect-ratio: 16/9; }
+
+/* Reviews */
+.kk-reviews { padding: 64px 0; }
+.kk-reviews-inner { max-width: 1200px; margin: 0 auto; padding: 0 48px; display: grid; grid-template-columns: 1fr 2fr; gap: 48px; align-items: start; }
+.kk-reviews-intro h2 { font-family: 'Valizas', Georgia, serif; font-size: 36px; font-weight: 400; line-height: 1.15; color: #31261D; margin-bottom: 16px; }
+.kk-reviews-intro p { font-size: 17px; line-height: 1.65; }
+.kk-reviews-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.kk-review-card { background: #fff; border-radius: 16px; padding: 24px; display: flex; flex-direction: column; }
+.kk-stars { color: #6CC24A; font-size: 18px; letter-spacing: 2px; margin-bottom: 12px; }
+.kk-review-quote { font-size: 15px; font-style: italic; line-height: 1.6; flex: 1; margin-bottom: 16px; }
+.kk-review-author { font-size: 14px; font-weight: 500; }
+
+/* CTA Banner */
+.kk-cta { background: #31261D; color: #fff; padding: 56px 40px; text-align: center; }
+.kk-cta h2 { font-family: 'Valizas', Georgia, serif; font-size: 40px; font-weight: 500; color: #fff; line-height: 1.1; margin-bottom: 20px; }
+.kk-cta p { max-width: 600px; margin: 0 auto 32px; font-size: 20px; line-height: 1.6; }
+.kk-cta .kk-btn { background: #fff; color: #31261D !important; }
+
+/* Footer */
+.kk-footer { background: #31261D; color: #fff; padding: 56px 40px; }
+.kk-footer-grid { max-width: 1488px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; margin-bottom: 40px; }
+.kk-footer h4 { font-size: 16px; font-weight: 600; margin-bottom: 16px; }
+.kk-footer ul { list-style: none; }
+.kk-footer a { color: #fff; text-decoration: none; font-size: 15px; line-height: 2; }
+.kk-footer-bottom { max-width: 1488px; margin: 0 auto; padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 14px; }
+
+/* FAQ */
+.kk-faq { padding: 40px; max-width: 740px; margin: 0 auto; }
+.kk-h2 { font-family: 'Valizas', Georgia, serif; font-size: 40px; font-weight: 500; color: #31261D; line-height: 1.1; margin-bottom: 24px; }
+.kk-accordion-item { border: 1px solid #D9D3C7; border-radius: 16px; margin-bottom: 16px; overflow: hidden; }
+.kk-accordion-btn { width: 100%; padding: 20px 24px; background: #fff; border: none; text-align: left; cursor: pointer; font-family: 'GT Flexa', sans-serif; font-size: 18px; font-weight: 500; color: #31261D; display: flex; justify-content: space-between; align-items: center; }
+.kk-accordion-btn:hover { background: #F1EDE2; }
+.kk-accordion-content { padding: 0 24px 24px; background: #fff; font-size: 17px; line-height: 1.6; }
+
+@media (max-width: 900px) {
+  .kk-reviews-inner { grid-template-columns: 1fr; }
+  .kk-reviews-cards { grid-template-columns: 1fr; }
+  .kk-footer-grid { grid-template-columns: 1fr 1fr; }
+  .kk-h1 { font-size: 36px; }
+}
+</style>
+</head>
+<body>
+
+<div class="topbar"><a href="landingssider.html">Landingssider</a></div>
+
+<div class="admin-wrap">
+  <h1 class="admin-title">Moduler.</h1>
+  <p class="admin-subtitle">Delte komponenter brukt på tvers av alle Kokkeløren-landingssider. Endringer her skal reflekteres i alle 16 sider.</p>
+</div>
+
+<!-- ════════ 1. NAV ════════ -->
+<div class="module-section">
+  <div class="module-header">
+    <span class="module-label">Delt · 16 sider</span>
+    <h2 class="module-name">Nav</h2>
+    <p class="module-desc">Sticky header med Kokkeløren-logo (Valizas), navigasjonslenker og CTA-knapp.</p>
+  </div>
+  <div class="preview-frame">
+    <div class="kk" style="background:#F1EDE2">
+      <div class="kk-nav">
+        <div class="kk-nav-inner">
+          <a href="#" class="kk-nav-logo">Kokkeløren.</a>
+          <ul class="kk-nav-links">
+            <li><a href="#">Vår matkasse</a></li>
+            <li><a href="#">Produsenter</a></li>
+            <li><a href="#">Oppskrifter</a></li>
+            <li><a href="#">Om oss</a></li>
+          </ul>
+          <a href="#" class="kk-btn">Bestill matkasse</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════ 2. HERO ════════ -->
+<div class="module-section">
+  <div class="module-header">
+    <span class="module-label">Delt · 16 sider</span>
+    <h2 class="module-name">Hero</h2>
+    <p class="module-desc">Eyebrow-label, H1 i Valizas display-font, lead-tekst og fullbredde produktbilde.</p>
+  </div>
+  <div class="preview-frame">
+    <div class="kk">
+      <div class="kk-hero">
+        <div class="kk-hero-body">
+          <div class="kk-eyebrow">Matkasse guide</div>
+          <h1 class="kk-h1">Matkasse — Hva er det, og hvordan velger du riktig?</h1>
+          <p class="kk-lead">Du får en boks med ingredienser og oppskrifter levert hjem. Nok til tre middager i uken. Vi går gjennom hva det er, prisene, fordeler og ulemper — og hva som passer deg.</p>
+          <img src="/assets/images/Simpleness_Kokkeløren_1125_6302.jpg" alt="Kokkeløren matkasse" class="kk-hero-img">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════ 3. ANMELDELSER ════════ -->
+<div class="module-section">
+  <div class="module-header">
+    <span class="module-label">Delt · 16 sider</span>
+    <h2 class="module-name">Anmeldelser</h2>
+    <p class="module-desc">Intro-tekst til venstre, 3 kundekort til høyre med ★★★★★, sitat i kursiv og navn + alder.</p>
+  </div>
+  <div class="preview-frame">
+    <div class="kk">
+      <div class="kk-reviews">
+        <div class="kk-reviews-inner">
+          <div class="kk-reviews-intro">
+            <h2 style="font-family:'Valizas',Georgia,serif;font-size:36px;font-weight:400;line-height:1.15;margin:0 0 16px">Det er faktisk kasseforskjell</h2>
+            <p>Vi legger all kjærlighet og kunnskap i å sørge for at dere får et produkt som tilsvarer deres forventningen. Da betyr det veldig mye når vi leser at dere er så fornøyde!</p>
+          </div>
+          <div class="kk-reviews-cards">
+            <div class="kk-review-card">
+              <div class="kk-stars">★★★★★</div>
+              <p class="kk-review-quote">«Min samboer og jeg har akkurat bestilt vår andre matkasse fra dere og jeg må bare si at vi er helt blåst av banen hvor bra dette er! Tusen takk for tidenes kulinariske opplevelse»</p>
+              <p class="kk-review-author">Even (31)</p>
+            </div>
+            <div class="kk-review-card">
+              <div class="kk-stars">★★★★★</div>
+              <p class="kk-review-quote">«Vi gleder oss hver uke til levering. Gode, smaksrike og varierte middager. Sønn på 14 har som oftest med seg rester (vi er 3 og bestille stor kasse) som lunch på skolen dagen etter.»</p>
+              <p class="kk-review-author">Trude (38)</p>
+            </div>
+            <div class="kk-review-card">
+              <div class="kk-stars">★★★★★</div>
+              <p class="kk-review-quote">«Får ikke takket dere nok for all den nydelige maten. Dere gjør ukene våre så mye bedre og vi heier på dere hele gjengen 🥰🥰🥰»</p>
+              <p class="kk-review-author">Sophie (31)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════ 4. CTA BANNER ════════ -->
+<div class="module-section">
+  <div class="module-header">
+    <span class="module-label">Delt · 16 sider</span>
+    <h2 class="module-name">CTA-banner</h2>
+    <p class="module-desc">Fullbredde med mørk bakgrunn, overskrift, undertekst og bestill-knapp.</p>
+  </div>
+  <div class="preview-frame">
+    <div class="kk-cta">
+      <h2>Bestill matkasse</h2>
+      <p>Se ukens meny og få 30 prosent rabatt på første bestilling. Ingen binding — si opp når som helst.</p>
+      <a href="#" class="kk-btn" style="background:#fff;color:#31261D!important">Bestill matkasse</a>
+    </div>
+  </div>
+</div>
+
+<!-- ════════ 5. FAQ ════════ -->
+<div class="module-section">
+  <div class="module-header">
+    <span class="module-label">Utvalgte sider</span>
+    <h2 class="module-name">FAQ</h2>
+    <p class="module-desc">Accordion med spørsmål og svar. Bruker Schema.org FAQ-markup for SEO.</p>
+  </div>
+  <div class="preview-frame">
+    <div class="kk">
+      <div class="kk-faq">
+        <h2 class="kk-h2">Ofte stilte spørsmål</h2>
+        <div class="kk-accordion-item">
+          <button class="kk-accordion-btn" onclick="this.parentElement.classList.toggle('open');this.classList.toggle('active')">Hva koster Kokkeløren? <span style="font-size:20px">▾</span></button>
+          <div class="kk-accordion-content" style="display:none">Kokkeløren koster 97 kr per porsjon. En standardkasse med 3 middager for 2 personer koster 579 kr per uke.</div>
+        </div>
+        <div class="kk-accordion-item">
+          <button class="kk-accordion-btn" onclick="this.parentElement.classList.toggle('open');this.classList.toggle('active')">Kan jeg pause abonnementet? <span style="font-size:20px">▾</span></button>
+          <div class="kk-accordion-content" style="display:none">Ja, du kan pause når som helst direkte i Min side. Ingen binding, ingen oppsigelsestid.</div>
+        </div>
+        <div class="kk-accordion-item">
+          <button class="kk-accordion-btn" onclick="this.parentElement.classList.toggle('open');this.classList.toggle('active')">Hvor leverer dere? <span style="font-size:20px">▾</span></button>
+          <div class="kk-accordion-content" style="display:none">Vi leverer i Oslo, Bærum, Asker, Drammen og omegn. Vi utvider stadig leveringsområdet.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════ 6. FOOTER ════════ -->
+<div class="module-section">
+  <div class="module-header">
+    <span class="module-label">Delt · 16 sider</span>
+    <h2 class="module-name">Footer</h2>
+    <p class="module-desc">Mørk bakgrunn med logo, kontaktinfo, lenkegrupper og copyright.</p>
+  </div>
+  <div class="preview-frame">
+    <div class="kk-footer">
+      <div class="kk-footer-grid">
+        <div>
+          <div style="font-family:'Valizas',Georgia,serif;font-size:22px;margin-bottom:12px">Kokkeløren.</div>
+          <p style="font-size:15px;line-height:1.6;opacity:0.7">En prisvinnende matkasse proppfull av smak, kjærlighet og ekte matglede.</p>
+          <p style="font-size:14px;margin-top:12px;opacity:0.7">post@kokkeloren.no<br>+47 451 80 893</p>
+        </div>
+        <div>
+          <h4>Handle hos oss</h4>
+          <ul><li><a href="#">Vår matkasse</a></li><li><a href="#">Kokkelørens Handleri</a></li><li><a href="#">Gavekort</a></li><li><a href="#">Våre produsenter</a></li></ul>
+        </div>
+        <div>
+          <h4>Kokkeløren</h4>
+          <ul><li><a href="#">Om oss</a></li><li><a href="#">Kontakt oss</a></li><li><a href="#">Ofte stilte spørsmål</a></li><li><a href="#">Vilkår og garantier</a></li><li><a href="#">Personvern</a></li></ul>
+        </div>
+        <div>
+          <h4>Hold kontakten</h4>
+          <ul><li><a href="#">Instagram</a></li><li><a href="#">Facebook</a></li></ul>
+        </div>
+      </div>
+      <div class="kk-footer-bottom">© 2026 Kokkeløren AS. Alle rettigheter forbeholdes.</div>
+    </div>
+  </div>
+</div>
+
+<div class="admin-wrap"><div class="footer" style="margin-top:2rem;padding-top:2rem;border-top:var(--admin-border);font-size:0.75rem">Simpleness · simpleness.no</div></div>
+
+<script>
+document.querySelectorAll('.kk-accordion-item').forEach(item => {
+  item.querySelector('.kk-accordion-btn').addEventListener('click', () => {
+    const content = item.querySelector('.kk-accordion-content');
+    const isOpen = content.style.display === 'block';
+    content.style.display = isOpen ? 'none' : 'block';
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Templates — Kokkeløren landingssider</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --color-white: #FFFFFF; --color-black: #090A08; --color-accent: #89FF58;
+  --color-green-pale: #F6FFEE;
+  --font-family: "Banana Grotesk", "Plus Jakarta Sans", sans-serif;
+  --border: 1px solid rgba(9,10,8,0.08); --radius-lg: 12px; --radius-md: 8px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; }
+body { font-family: var(--font-family); background: var(--color-white); color: var(--color-black); line-height: 1.5; -webkit-font-smoothing: antialiased; }
+
+.topbar { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,0.96); backdrop-filter: blur(8px); border-bottom: var(--border); display: flex; align-items: center; height: 52px; padding: 0 1.5rem; }
+.topbar a { text-decoration: none; color: var(--color-black); font-size: 0.875rem; font-weight: 700; letter-spacing: -0.02em; display: flex; align-items: center; gap: 0.5rem; }
+.topbar a::before { content: "←"; font-size: 1rem; }
+
+.wrap { max-width: 960px; margin: 0 auto; padding: 3rem 1.5rem 6rem; }
+.title { font-size: 3.75rem; font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 0.75rem; }
+.subtitle { font-size: 1rem; line-height: 1.6; margin-bottom: 3rem; max-width: 560px; }
+
+.template-section { margin-bottom: 4rem; }
+.template-label { font-size: 0.875rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 1rem; }
+.template-card { border: var(--border); border-radius: var(--radius-lg); overflow: hidden; margin-bottom: 1.5rem; }
+.template-info { padding: 1.5rem; }
+.template-name { font-size: 1.25rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 0.5rem; }
+.template-desc { font-size: 0.875rem; line-height: 1.55; margin-bottom: 1rem; }
+
+/* Module stack — visual representation */
+.module-stack { display: flex; flex-direction: column; }
+.module-block { padding: 12px 20px; font-size: 0.8125rem; font-weight: 500; border-bottom: var(--border); display: flex; justify-content: space-between; align-items: center; }
+.module-block:last-child { border-bottom: none; }
+.module-block-name { font-weight: 700; }
+.module-block-note { font-size: 0.75rem; font-weight: 400; }
+.module-block.shared { background: var(--color-green-pale); }
+.module-block.unique { background: #fff; }
+
+.tag { display: inline-block; font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; padding: 2px 7px; border-radius: 4px; }
+.tag-shared { background: var(--color-accent); }
+.tag-unique { background: rgba(9,10,8,0.06); }
+
+.pages-using { margin-top: 1rem; padding-top: 1rem; border-top: var(--border); }
+.pages-using-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 0.5rem; }
+.pages-list { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.pages-list a { font-size: 0.75rem; text-decoration: none; color: var(--color-black); border: var(--border); border-radius: var(--radius-md); padding: 4px 10px; transition: background 0.15s; }
+.pages-list a:hover { background: var(--color-green-pale); }
+
+.footer { margin-top: 4rem; padding-top: 2rem; border-top: var(--border); font-size: 0.75rem; }
+</style>
+</head>
+<body>
+
+<div class="topbar"><a href="landingssider.html">Landingssider</a></div>
+
+<div class="wrap">
+  <h1 class="title">Templates.</h1>
+  <p class="subtitle">Sidetyper brukt på Kokkeløren-landingssidene. Hver template definerer hvilke moduler som brukes og i hvilken rekkefølge.</p>
+
+  <!-- TEMPLATE 1: SEO PILLAR -->
+  <div class="template-section">
+    <div class="template-label">Sidemal</div>
+    <div class="template-card">
+      <div class="template-info">
+        <div class="template-name">SEO — Pillar page</div>
+        <div class="template-desc">Hovedguide for et bredt søkeord. Lang, grundig artikkel med alle relevante underemner dekket. Ankrer intern lenking.</div>
+      </div>
+      <div class="module-stack">
+        <div class="module-block shared"><span class="module-block-name">Nav</span> <span class="tag tag-shared">Delt modul</span></div>
+        <div class="module-block shared"><span class="module-block-name">Hero</span> <span class="tag tag-shared">Delt modul</span></div>
+        <div class="module-block unique"><span class="module-block-name">Artikkelinnhold</span> <span class="module-block-note">H2-seksjoner, bilder, content-bokser, tabeller</span></div>
+        <div class="module-block shared"><span class="module-block-name">Anmeldelser</span> <span class="tag tag-shared">Delt modul</span></div>
+        <div class="module-block shared"><span class="module-block-name">CTA-banner</span> <span class="tag tag-shared">Delt modul</span></div>
+        <div class="module-block shared"><span class="module-block-name">Footer</span> <span class="tag tag-shared">Delt modul</span></div>
+      </div>
+      <div class="template-info">
+        <div class="pages-using">
+          <div class="pages-using-label">Brukes av</div>
+          <div class="pages-list">
+            <a href="landingssider/design/01-matkasse-guide.html">Matkasse-guide</a>
+            <a href="landingssider/design/04-matkasse-pris.html">Matkasse pris</a>
+            <a href="landingssider/design/13-matkasse-familie.html">Matkasse familie</a>
+            <a href="landingssider/design/09-matkasse-gave.html">Matkasse gave</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TEMPLATE 2: SEO COMPARISON -->
+  <div class="template-section">
+    <div class="template-label">Sidemal</div>
+    <div class="template-card">
+      <div class="template-info">
+        <div class="template-name">SEO — Sammenligning</div>
+        <div class="template-desc">Sammenligningsside med tabell, vurderinger og anbefaling. Bygget for «beste X» og «X vs Y» søkeord.</div>
+      </div>
+      <div class="module-stack">
+        <div class="module-block shared"><span class="module-block-name">Nav</span> <span class="tag tag-shared">Delt modul</span></div>
+        <div class="module-block shared"><span class="module-block-name">Hero</span> <span class="tag tag-shared">Delt modul</span></div>
+        <div class="module-block unique"><span class="module-block-name">Sammenligningstabell</span> <span class="module-block-note">Pris, score, egenskaper per leverandør</span></div>
+        <div class="module-block unique"><span class="module-block-name">Artikkelinnhold</span> <span class="module-block-note">Analyse og anbefaling</span></div>
+        <div class="module-block unique"><span class="module-block-name">FAQ</span> <span class="tag tag-unique">Per side</span></div>
+        <div class="module-block shared"><span class="module-block-name">Anmeldelser</span> <span class="tag tag-shared">Delt modul</span></div>
+        <div class="module-block shared"><span class="module-block-name">CTA-banner</span> <span class="tag tag-shared">Delt modul</span></div>
+        <div class="module-block shared"><span class="module-block-name">Footer</span> <span class="tag tag-shared">Delt modul</span></div>
+      </div>
+      <div class="template-info">
+        <div class="pages-using">
+          <div class="pages-using-label">Brukes av</div>
+          <div class="pages-list">
+            <a href="landingssider/design/02-beste-matkasse.html">Beste matkasse</a>
+            <a href="landingssider/design/03-matkasse-vs-handle-selv.html">Matkasse vs. handle selv</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TEMPLATE 3: SEO GEO -->
+  <div class="template-section">
+    <div class="template-label">Sidemal</div>
+    <div class="template-card">
+      <div class="template-info">
+        <div class="template-name">SEO — Geo-side</div>
+        <div class="template-desc">Lokal landingsside for «matkasse [by]». Kombinerer generell matkasse-info med lokal relevans og leveringsdetaljer.</div>
+      </div>
+      <div class="module-stack">
+        <div class="module-block shared"><span class="module-block-name">Nav</span> <span class="tag tag-shared">Delt modul</span></div>
+        <div class="module-block shared"><span class="module-block-name">Hero</span> <span class="tag tag-shared">Delt modul</span></div>
+        <div class="module-block unique"><span class="module-block-name">Artikkelinnhold</span> <span class="module-block-note">Lokal info, leveringsområde, kundehistorier</span></div>
+        <div class="module-block shared"><span class="module-block-name">Anmeldelser</span> <span class="tag tag-shared">Delt modul</span></div>
+        <div class="module-block shared"><span class="module-block-name">CTA-banner</span> <span class="tag tag-shared">Delt modul</span></div>
+        <div class="module-block shared"><span class="module-block-name">Footer</span> <span class="tag tag-shared">Delt modul</span></div>
+      </div>
+      <div class="template-info">
+        <div class="pages-using">
+          <div class="pages-using-label">Brukes av</div>
+          <div class="pages-list">
+            <a href="landingssider/design/10-matkasse-oslo.html">Oslo</a>
+            <a href="landingssider/design/06-matkasse-stavanger.html">Stavanger</a>
+            <a href="landingssider/design/11-matkasse-trondheim.html">Trondheim</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TEMPLATE 4: EDITORIAL -->
+  <div class="template-section">
+    <div class="template-label">Sidemal</div>
+    <div class="template-card">
+      <div class="template-info">
+        <div class="template-name">Redaksjonell artikkel</div>
+        <div class="template-desc">Dyptgående artikkel — konkurrentanalyse, test, listicle, guide eller portrett. Lang lesing med bilder og analyse.</div>
+      </div>
+      <div class="module-stack">
+        <div class="module-block shared"><span class="module-block-name">Nav</span> <span class="tag tag-shared">Delt modul</span></div>
+        <div class="module-block shared"><span class="module-block-name">Hero</span> <span class="tag tag-shared">Delt modul</span></div>
+        <div class="module-block unique"><span class="module-block-name">Artikkelinnhold</span> <span class="module-block-note">Lang-form innhold, bilder, sitater, data</span></div>
+        <div class="module-block unique"><span class="module-block-name">Relaterte artikler</span> <span class="tag tag-unique">Per side</span></div>
+        <div class="module-block unique"><span class="module-block-name">FAQ</span> <span class="tag tag-unique">Per side</span></div>
+        <div class="module-block shared"><span class="module-block-name">Anmeldelser</span> <span class="tag tag-shared">Delt modul</span></div>
+        <div class="module-block shared"><span class="module-block-name">CTA-banner</span> <span class="tag tag-shared">Delt modul</span></div>
+        <div class="module-block shared"><span class="module-block-name">Footer</span> <span class="tag tag-shared">Delt modul</span></div>
+      </div>
+      <div class="template-info">
+        <div class="pages-using">
+          <div class="pages-using-label">Brukes av</div>
+          <div class="pages-list">
+            <a href="landingssider/design/R01-kokkeloren-vs-godtlevert.html">vs. GodtLevert</a>
+            <a href="landingssider/design/R02-kokkeloren-vs-hellofresh.html">vs. HelloFresh</a>
+            <a href="landingssider/design/R03-grunner-til-matkasse.html">7 grunner</a>
+            <a href="landingssider/design/R04-for-du-bestiller-matkasse.html">Før du bestiller</a>
+            <a href="landingssider/design/R05-vi-testet-norges-dyreste-matkasse.html">Vi testet</a>
+            <a href="landingssider/design/R06-sausene-som-gjor-forskjellen.html">Sausene</a>
+            <a href="landingssider/design/R07-mot-produsentene.html">Produsentene</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">Simpleness · simpleness.no</div>
+</div>
+</body>
+</html>
