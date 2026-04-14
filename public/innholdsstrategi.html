@@ -3,115 +3,160 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kokkeløren — Innholdsstrategi</title>
+<title>Innholdsstrategi — Kokkeløren</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:"Banana Grotesk","Plus Jakarta Sans",sans-serif;-webkit-font-smoothing:antialiased;background:#fff;color:#111;font-size:14px;line-height:1.6}
+:root {
+  --color-white:  #FFFFFF;
+  --color-black:  #090A08;
+  --color-accent: #89FF58;
+  --color-link:   #515B12;
+  --color-background: var(--color-white);
+  --color-text:   var(--color-black);
+  --color-green-pale: #F6FFEE;
+  --color-green-mint: #DFF7CC;
+  --font-family: "Banana Grotesk", "Plus Jakarta Sans", sans-serif;
+  --font-normal: 400; --font-medium: 500; --font-bold: 700;
+  --line-height-tight: 1.1; --line-height-snug: 1.25; --line-height-normal: 1.5;
+  --tracking-tight: -0.02em; --tracking-wide: 0.04em;
+  --text-xs: 0.75rem; --text-sm: 0.875rem; --text-base: 1rem; --text-lg: 1.125rem;
+  --text-xl: 1.25rem; --text-2xl: 1.5rem; --text-3xl: 1.875rem; --text-4xl: 2.25rem;
+  --text-5xl: 3rem; --text-6xl: 3.75rem;
+  --sp-1: 0.25rem; --sp-2: 0.5rem; --sp-3: 0.75rem; --sp-4: 1rem; --sp-5: 1.25rem;
+  --sp-6: 1.5rem; --sp-8: 2rem; --sp-10: 2.5rem; --sp-12: 3rem; --sp-16: 4rem; --sp-20: 5rem;
+  --radius-sm: 4px; --radius-md: 8px; --radius-lg: 12px;
+  --ease-out: cubic-bezier(0.3, 1, 0.3, 1); --duration-fast: 0.2s;
+  --max-width-text: 960px;
+  --border: 1px solid rgba(9,10,8,0.08);
+}
 
-.topbar{background:#fff;border-bottom:1px solid rgba(9,10,8,0.08);display:flex;align-items:center;height:40px;padding:0 48px}
-.topbar a{text-decoration:none;color:#111;font-size:12px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;display:flex;align-items:center;gap:0.5rem}
-.topbar a::before{content:"←";font-size:14px;text-transform:none}
-nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.97);backdrop-filter:blur(8px);border-bottom:1px solid rgba(9,10,8,0.08);display:flex;align-items:center;padding:0 48px;overflow-x:auto}
-.nav-brand{font-size:14px;font-weight:600;color:#111;padding:16px 0;margin-right:48px;white-space:nowrap;flex-shrink:0}
-.nav-links{display:flex;list-style:none}
-.nav-links a{display:block;padding:16px 14px;font-size:13px;color:#999;text-decoration:none;border-bottom:2px solid transparent;transition:color .15s,border-color .15s;white-space:nowrap}
-.nav-links a:hover{color:#111}
-.nav-links a.active{color:#090A08;border-bottom-color:#89FF58;font-weight:700}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; }
+body {
+  font-family: var(--font-family); background: var(--color-background); color: var(--color-text);
+  font-size: var(--text-base); font-weight: var(--font-normal); line-height: var(--line-height-normal);
+  -webkit-font-smoothing: antialiased;
+}
 
-section{max-width:900px;margin:0 auto;padding:56px 48px;border-bottom:1px solid rgba(9,10,8,0.08)}
-section:last-child{border-bottom:none}
+/* ── NAV ── */
+.topbar { background: var(--color-background); border-bottom: var(--border); display: flex; align-items: center; height: 40px; padding: 0 var(--sp-6); }
+.topbar a { text-decoration: none; color: var(--color-text); font-size: var(--text-xs); font-weight: var(--font-bold); letter-spacing: 0.04em; text-transform: uppercase; display: flex; align-items: center; gap: 0.5rem; }
+.topbar a::before { content: "←"; font-size: 0.875rem; text-transform: none; }
 
-.slbl{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:#999;margin-bottom:24px}
-h1{font-size:26px;font-weight:400;color:#111;margin-bottom:8px;line-height:1.3}
-.subtitle{font-size:13px;color:#666;max-width:580px;line-height:1.7;margin-bottom:36px}
-h2{font-size:17px;font-weight:500;color:#111;margin:36px 0 12px;line-height:1.3}
-h2:first-of-type{margin-top:0}
-p{font-size:14px;color:#444;line-height:1.7;margin-bottom:12px;max-width:680px}
-p.note{font-size:13px;color:#666;font-style:italic;padding:12px 16px;background:#f7f7f7;border-left:3px solid #ddd;margin:16px 0}
+.nav {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(255,255,255,0.96); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  border-bottom: var(--border); display: flex; align-items: center;
+  height: 52px; padding: 0 var(--sp-6); gap: var(--sp-1);
+}
+.nav-logo { font-size: var(--text-sm); font-weight: var(--font-bold); letter-spacing: var(--tracking-tight); margin-right: var(--sp-6); white-space: nowrap; flex-shrink: 0; }
+.nav-tab {
+  height: 52px; padding: 0 var(--sp-4); border: none; background: none;
+  font-family: inherit; font-size: var(--text-sm); font-weight: var(--font-normal);
+  color: var(--color-text); cursor: pointer; white-space: nowrap;
+  border-bottom: 2px solid transparent; transition: border-color var(--duration-fast) var(--ease-out);
+}
+.nav-tab.on { font-weight: var(--font-bold); border-bottom-color: var(--color-accent); }
 
-.badge{display:inline-block;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;padding:2px 7px;border-radius:2px;margin-right:4px}
-.b-green{background:#f0f7f0;color:#2a6e2a;border:1px solid #b8ddb8}
+/* ── LAYOUT ── */
+.pg { display: none; } .pg.on { display: block; }
+.wrap { max-width: var(--max-width-text); margin: 0 auto; padding: var(--sp-12) var(--sp-6) var(--sp-20); }
+
+/* ── TYPOGRAPHY ── */
+.h1 { font-size: var(--text-6xl); font-weight: var(--font-bold); letter-spacing: -0.03em; line-height: 1.05; margin-bottom: var(--sp-4); }
+.h2 { font-size: var(--text-4xl); font-weight: var(--font-bold); letter-spacing: -0.03em; line-height: var(--line-height-tight); margin: var(--sp-16) 0 var(--sp-5); }
+.h2:first-child { margin-top: 0; }
+.h3 { font-size: var(--text-2xl); font-weight: var(--font-bold); letter-spacing: var(--tracking-tight); margin: var(--sp-10) 0 var(--sp-4); }
+.subtitle { font-size: var(--text-base); line-height: 1.6; margin-bottom: var(--sp-10); max-width: 560px; }
+p { font-size: var(--text-base); color: rgba(9,10,8,0.7); line-height: 1.65; margin-bottom: var(--sp-3); max-width: 680px; }
+h2 { font-size: var(--text-xl); font-weight: var(--font-bold); color: var(--color-text); margin: var(--sp-10) 0 var(--sp-3); line-height: var(--line-height-snug); }
+h2:first-of-type { margin-top: 0; }
+hr { border: none; border-top: var(--border); margin: var(--sp-10) 0; }
+a { color: var(--color-link); text-decoration: underline; text-underline-offset: 3px; }
+
+/* ── BADGES (existing) ── */
+.badge{display:inline-block;font-size:0.6875rem;font-weight:var(--font-bold);text-transform:uppercase;letter-spacing:.5px;padding:3px 8px;border-radius:var(--radius-sm);margin-right:4px}
+.b-green{background:var(--color-green-pale);color:#2a6e2a;border:1px solid #b8ddb8}
 .b-orange{background:#fdf3e7;color:#9a6200;border:1px solid #f5ddb0}
 .b-blue{background:#eff5ff;color:#2a5db0;border:1px solid #c5d8f7}
 .b-red{background:#fef0f0;color:#b02a2a;border:1px solid #f5b8b8}
-.b-gray{background:#f5f5f5;color:#666;border:1px solid #ddd}
+.b-gray{background:rgba(9,10,8,0.04);color:rgba(9,10,8,0.5);border:1px solid rgba(9,10,8,0.1)}
 
-.insight-card{border:1px solid rgba(9,10,8,0.08);margin:12px 0;padding:16px 20px}
-.insight-card.opp{border-left:3px solid #2a6e2a;background:#f8fcf8}
+/* ── CARDS (existing) ── */
+.insight-card{border:var(--border);margin:var(--sp-3) 0;padding:var(--sp-4) var(--sp-5);border-radius:var(--radius-md)}
+.insight-card.opp{border-left:3px solid var(--color-link);background:var(--color-green-pale)}
 .insight-card.warn{border-left:3px solid #e8a030;background:#fdf8f0}
-.insight-title{font-size:14px;font-weight:600;color:#111;margin-bottom:4px}
-.insight-desc{font-size:13px;color:#555;line-height:1.6}
-.insight-action{font-size:12px;color:#2a6e2a;font-weight:600;margin-top:8px}
+.insight-title{font-size:var(--text-base);font-weight:var(--font-bold);color:var(--color-text);margin-bottom:4px}
+.insight-desc{font-size:var(--text-sm);color:rgba(9,10,8,0.6);line-height:1.6}
+.insight-action{font-size:var(--text-xs);color:var(--color-link);font-weight:var(--font-bold);margin-top:var(--sp-2)}
 
-.type-card{border:1px solid rgba(9,10,8,0.08);margin:16px 0;overflow:hidden}
-.type-head{padding:16px 20px;border-bottom:1px solid rgba(9,10,8,0.08);display:flex;align-items:center;justify-content:space-between}
-.type-name{font-size:15px;font-weight:500;color:#111}
-.type-body{padding:16px 20px;font-size:13px;color:#444;line-height:1.7}
-.type-body p{font-size:13px;margin-bottom:8px;max-width:none}
+.type-card{border:var(--border);margin:var(--sp-4) 0;overflow:hidden;border-radius:var(--radius-md)}
+.type-head{padding:var(--sp-4) var(--sp-5);border-bottom:var(--border);display:flex;align-items:center;justify-content:space-between}
+.type-name{font-size:var(--text-base);font-weight:var(--font-bold);color:var(--color-text)}
+.type-body{padding:var(--sp-4) var(--sp-5);font-size:var(--text-sm);color:rgba(9,10,8,0.6);line-height:1.7}
+.type-body p{font-size:var(--text-sm);margin-bottom:var(--sp-2);max-width:none}
 
-.format-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#e5e5e5;border:1px solid rgba(9,10,8,0.08);margin:16px 0}
-.format-cell{background:#fff;padding:16px 18px}
-.format-name{font-size:14px;font-weight:600;color:#111;margin-bottom:4px}
-.format-ex{font-size:12px;color:#888;font-style:italic;margin-bottom:6px}
-.format-desc{font-size:13px;color:#444;line-height:1.6}
-.format-tags{margin-top:8px;display:flex;gap:4px;flex-wrap:wrap}
+.format-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(9,10,8,0.08);border:var(--border);margin:var(--sp-4) 0;border-radius:var(--radius-md);overflow:hidden}
+.format-cell{background:#fff;padding:var(--sp-4) var(--sp-5)}
+.format-name{font-size:var(--text-base);font-weight:var(--font-bold);color:var(--color-text);margin-bottom:4px}
+.format-ex{font-size:var(--text-xs);color:rgba(9,10,8,0.4);font-style:italic;margin-bottom:var(--sp-2)}
+.format-desc{font-size:var(--text-sm);color:rgba(9,10,8,0.6);line-height:1.6}
+.format-tags{margin-top:var(--sp-2);display:flex;gap:4px;flex-wrap:wrap}
 
-.page-wire{border:1px solid #e0e0e0;margin:24px 0;background:#fafafa;overflow:hidden}
-.page-wire-head{padding:16px 20px;background:#fff;border-bottom:1px solid #e0e0e0;display:flex;align-items:baseline;gap:12px;cursor:pointer}
-.page-wire-head:hover{background:#f8f8f8}
-.page-wire-num{font-size:11px;font-weight:700;color:#999;font-variant-numeric:tabular-nums}
-.page-wire-h1{font-size:15px;font-weight:600;color:#111;flex:1}
-.page-wire-intent{font-size:11px;color:#888;white-space:nowrap}
-.page-wire-body{padding:20px 24px;font-size:13px;color:#444;line-height:1.7;display:none}
+p.note{font-size:var(--text-sm);color:rgba(9,10,8,0.6);font-style:italic;padding:var(--sp-3) var(--sp-4);background:var(--color-green-pale);border-left:3px solid var(--color-link);margin:var(--sp-4) 0;border-radius:0 var(--radius-sm) var(--radius-sm) 0}
+
+/* ── PAGE WIREFRAMES (existing) ── */
+.page-wire{border:var(--border);margin:var(--sp-6) 0;background:rgba(9,10,8,0.01);overflow:hidden;border-radius:var(--radius-md)}
+.page-wire-head{padding:var(--sp-4) var(--sp-5);background:#fff;border-bottom:var(--border);display:flex;align-items:baseline;gap:var(--sp-3);cursor:pointer}
+.page-wire-head:hover{background:rgba(9,10,8,0.02)}
+.page-wire-num{font-size:var(--text-xs);font-weight:var(--font-bold);color:rgba(9,10,8,0.4);font-variant-numeric:tabular-nums}
+.page-wire-h1{font-size:var(--text-base);font-weight:var(--font-bold);color:var(--color-text);flex:1}
+.page-wire-intent{font-size:var(--text-xs);color:rgba(9,10,8,0.4);white-space:nowrap}
+.page-wire-body{padding:var(--sp-5) var(--sp-6);font-size:var(--text-sm);color:rgba(9,10,8,0.6);line-height:1.7;display:none}
 .page-wire.open .page-wire-body{display:block}
-.page-wire-toggle{font-size:11px;color:#999;margin-left:8px}
+.page-wire-toggle{font-size:var(--text-xs);color:rgba(9,10,8,0.35);margin-left:var(--sp-2)}
 .page-wire.open .page-wire-toggle{transform:rotate(90deg)}
 
-.pw-h1{font-size:16px;font-weight:600;color:#111;margin:0 0 12px;padding-bottom:8px;border-bottom:1px solid rgba(9,10,8,0.08)}
-.pw-h2{font-size:13px;font-weight:700;color:#111;margin:20px 0 6px;text-transform:uppercase;letter-spacing:.3px}
+.pw-h1{font-size:var(--text-lg);font-weight:var(--font-bold);color:var(--color-text);margin:0 0 var(--sp-3);padding-bottom:var(--sp-2);border-bottom:var(--border)}
+.pw-h2{font-size:var(--text-sm);font-weight:var(--font-bold);color:var(--color-text);margin:var(--sp-5) 0 var(--sp-2);text-transform:uppercase;letter-spacing:.3px}
 .pw-h2:first-child{margin-top:0}
-.pw-h3{font-size:13px;font-weight:600;color:#333;margin:12px 0 4px}
-.pw-p{font-size:13px;color:#555;line-height:1.65;margin-bottom:6px}
+.pw-h3{font-size:var(--text-sm);font-weight:var(--font-bold);color:rgba(9,10,8,0.7);margin:var(--sp-3) 0 4px}
+.pw-p{font-size:var(--text-sm);color:rgba(9,10,8,0.6);line-height:1.65;margin-bottom:var(--sp-2)}
 
-.pw-table{width:100%;border-collapse:collapse;margin:8px 0 16px;font-size:12px}
-.pw-table th{text-align:left;padding:6px 8px;background:#f0f0f0;border:1px solid #e0e0e0;font-weight:600;font-size:11px}
-.pw-table td{padding:6px 8px;border:1px solid #e0e0e0;color:#444}
+.pw-table{width:100%;border-collapse:collapse;margin:var(--sp-2) 0 var(--sp-4);font-size:var(--text-xs)}
+.pw-table th{text-align:left;padding:var(--sp-2);background:rgba(9,10,8,0.03);border:var(--border);font-weight:var(--font-bold);font-size:var(--text-xs)}
+.pw-table td{padding:var(--sp-2);border:var(--border);color:rgba(9,10,8,0.6)}
 
-.dl-bar{margin-top:20px;padding-top:16px;border-top:1px solid #e5e5e5;display:flex;align-items:center;gap:12px}
-.dl-btn{background:#111;color:#fff;border:none;font-size:12px;font-weight:600;padding:8px 16px;cursor:pointer;letter-spacing:.3px}
-.dl-btn:hover{background:#333}
-.dl-note{font-size:11px;color:#999}
+.dl-bar{margin-top:var(--sp-5);padding-top:var(--sp-4);border-top:var(--border);display:flex;align-items:center;gap:var(--sp-3)}
+.dl-btn{background:var(--color-black);color:var(--color-white);border:none;font-size:var(--text-xs);font-weight:var(--font-bold);padding:var(--sp-2) var(--sp-4);cursor:pointer;letter-spacing:.3px;border-radius:var(--radius-sm)}
+.dl-btn:hover{opacity:0.85}
+.dl-note{font-size:var(--text-xs);color:rgba(9,10,8,0.4)}
 
-.link-diagram{font-family:monospace;font-size:12px;color:#666;background:#f7f7f7;padding:16px 20px;border:1px solid rgba(9,10,8,0.08);margin:16px 0;line-height:1.8;white-space:pre}
+.link-diagram{font-family:monospace;font-size:var(--text-xs);color:rgba(9,10,8,0.5);background:rgba(9,10,8,0.02);padding:var(--sp-4) var(--sp-5);border:var(--border);margin:var(--sp-4) 0;line-height:1.8;white-space:pre;border-radius:var(--radius-md)}
 
-footer{max-width:900px;margin:0 auto;padding:32px 48px;font-size:12px;color:#bbb}
-
-/* ── THEME CARDS ── */
-.theme-grid{display:flex;flex-direction:column;gap:24px;margin:24px 0}
-.theme-card{border:1px solid rgba(9,10,8,0.08);overflow:hidden}
-.theme-head{padding:20px 24px;background:#fff;cursor:default}
-.theme-name{font-size:18px;font-weight:700;color:#090A08;margin-bottom:4px;letter-spacing:-0.01em}
-.theme-desc{font-size:14px;color:rgba(9,10,8,0.55);line-height:1.6}
-.theme-tag{display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:2px 7px;border-radius:2px;margin-right:6px;margin-bottom:8px}
-.theme-tag-series{background:#f0f7f0;color:#2a6e2a;border:1px solid #b8ddb8}
+/* ── THEME CARDS (new) ── */
+.theme-grid{display:flex;flex-direction:column;gap:var(--sp-6);margin:var(--sp-6) 0}
+.theme-card{border:var(--border);overflow:hidden;border-radius:var(--radius-lg)}
+.theme-head{padding:var(--sp-5) var(--sp-6);background:#fff}
+.theme-name{font-size:var(--text-xl);font-weight:var(--font-bold);color:var(--color-text);margin-bottom:4px;letter-spacing:var(--tracking-tight)}
+.theme-desc{font-size:var(--text-base);color:rgba(9,10,8,0.55);line-height:1.6}
+.theme-tag{display:inline-block;font-size:0.6875rem;font-weight:var(--font-bold);text-transform:uppercase;letter-spacing:.5px;padding:3px 8px;border-radius:var(--radius-sm);margin-bottom:var(--sp-2)}
+.theme-tag-series{background:var(--color-green-pale);color:var(--color-link);border:1px solid var(--color-green-mint)}
 .theme-tag-wip{background:#fdf3e7;color:#9a6200;border:1px solid #f5ddb0}
-.concept-list{border-top:1px solid rgba(9,10,8,0.08)}
-.concept-item{padding:16px 24px;border-bottom:1px solid rgba(9,10,8,0.06);display:flex;gap:16px;align-items:flex-start}
+.concept-list{border-top:var(--border)}
+.concept-item{padding:var(--sp-4) var(--sp-6);border-bottom:1px solid rgba(9,10,8,0.04);display:flex;gap:var(--sp-4);align-items:flex-start}
 .concept-item:last-child{border-bottom:none}
-.concept-num{width:24px;height:24px;flex-shrink:0;background:#89FF58;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;margin-top:1px}
+.concept-num{width:28px;height:28px;flex-shrink:0;background:var(--color-accent);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:var(--text-xs);font-weight:var(--font-bold);margin-top:2px}
 .concept-info{flex:1}
-.concept-name{font-size:14px;font-weight:700;color:#090A08;margin-bottom:2px}
-.concept-desc{font-size:13px;color:rgba(9,10,8,0.55);line-height:1.55}
+.concept-name{font-size:var(--text-base);font-weight:var(--font-bold);color:var(--color-text);margin-bottom:2px}
+.concept-desc{font-size:var(--text-sm);color:rgba(9,10,8,0.55);line-height:1.55}
 
-@media(max-width:700px){
-  nav{padding:0 16px}
-  section{padding:36px 16px}
-  .format-grid{grid-template-columns:1fr}
-  .page-wire-head{flex-wrap:wrap}
-  .page-wire-intent{margin-left:0}
-  footer{padding:24px 16px}
+/* ── RESPONSIVE ── */
+@media (max-width: 640px) {
+  .wrap { padding: var(--sp-8) var(--sp-4) var(--sp-16); }
+  .h1 { font-size: var(--text-5xl); }
+  .format-grid { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -119,22 +164,19 @@ footer{max-width:900px;margin:0 auto;padding:32px 48px;font-size:12px;color:#bbb
 
 <div class="topbar"><a href="/">Kokkeløren — Kundeområde</a></div>
 
-<nav>
-  <div class="nav-brand">Kokkeløren · Innholdsstrategi</div>
-  <ul class="nav-links">
-    <li><a href="#innsikt" class="active">Innsikt</a></li>
-    <li><a href="#sidetyper">Sidetyper</a></li>
-    <li><a href="#landingssider">Landingssider</a></li>
-    <li><a href="#temaer">Redaksjonelle temaer</a></li>
-  </ul>
+<nav class="nav">
+  <div class="nav-logo">Innholdsstrategi</div>
+  <button class="nav-tab on" onclick="go('innsikt',this)">Innsikt</button>
+  <button class="nav-tab" onclick="go('sidetyper',this)">Sidetyper</button>
+  <button class="nav-tab" onclick="go('landingssider',this)">Landingssider</button>
+  <button class="nav-tab" onclick="go('temaer',this)">Redaksjonelle temaer</button>
 </nav>
 
-<!-- 1. INNSIKT -->
-<section id="innsikt">
-  <div class="slbl">01 — Innsikt fra analysen</div>
-  <h1>Søkeord, content gaps og strategiske funn.</h1>
-  <div class="subtitle">Basert på søkeordsanalyse, SERP-analyse, kundeundersøkelse (n=434) og gjennomgang av konkurrentinnhold.</div>
 
+<!-- ═════ INNSIKT ═════ -->
+<div id="p-innsikt" class="pg on"><div class="wrap">
+<h1 class="h1">Innsikt.</h1>
+<p class="subtitle">Søkeord, content gaps og strategiske funn. Basert på søkeordsanalyse, SERP-analyse og gjennomgang av konkurrentinnhold.</p>
   <h2>Søkeordslandskap</h2>
   <p>Matkasse-kategorien i Norge domineres av informational og commercial intent. De viktigste clusterene vi dekker:</p>
 
@@ -192,14 +234,12 @@ footer{max-width:900px;margin:0 auto;padding:32px 48px;font-size:12px;color:#bbb
     <div class="insight-title">«Norske råvarer» krever presisjon</div>
     <div class="insight-desc">Kunder velger Kokkeløren for norske råvarer, men alt er ikke norsk. Innholdet bruker «norske råvarer og småskalaprodusenter» — aldri «100% norsk». Viktig å opprettholde.</div>
   </div>
-</section>
+</div></div>
 
-<!-- 2. SIDETYPER -->
-<section id="sidetyper">
-  <div class="slbl">02 — Sidetyper</div>
-  <h1>To sidetyper som ikke overlapper.</h1>
-  <div class="subtitle">SEO-sider styres av søkeintensjon. Redaksjonelle sider styres av funnel-posisjon og format.</div>
-
+<!-- ═════ SIDETYPER ═════ -->
+<div id="p-sidetyper" class="pg"><div class="wrap">
+<h1 class="h1">Sidetyper.</h1>
+<p class="subtitle">To sidetyper som ikke overlapper — SEO-landingssider og redaksjonelle artikler. Definert av format og intensjon.</p>
   <div class="type-card">
     <div class="type-head">
       <div class="type-name">Type 1 — SEO-landingssider</div>
@@ -261,13 +301,12 @@ Geo-sider → pillar + pris-side
 Versus (R01, R02) → SEO-side 02 (beste matkasse)
 Deep dives (R06, R07) → pillar + cluster
 Redaksjonelle ← soft CTA → SEO-sider</div>
-</section>
+</div></div>
 
-<!-- 3. SEO-SIDER -->
-<section id="landingssider">
-  <div class="slbl">03 — Landingssider</div>
-  <h1>9 sider med ferdig copy.</h1>
-  <div class="subtitle">Klikk på en side for å lese teksten. Alle er faktasjekket mot kokkeloren.no.</div>
+<!-- ═════ LANDINGSSIDER ═════ -->
+<div id="p-landingssider" class="pg"><div class="wrap">
+<h1 class="h1">Landingssider.</h1>
+<p class="subtitle">16 ferdige landingssider — 9 SEO-sider og 7 redaksjonelle artikler. Klikk på en side for å se innholdet.</p>
 
 
   <div class="page-wire" id="side-01">
@@ -5679,7 +5718,12 @@ Du vet hvem som har laget maten din. Og det er i en kasse for seg.
 
 
 <!-- 4. REDAKSJONELLE TEMAER -->
-<section id="temaer">
+</div></div>
+
+<!-- ═════ REDAKSJONELLE TEMAER ═════ -->
+<div id="p-temaer" class="pg"><div class="wrap">
+<h1 class="h1">Redaksjonelle temaer.</h1>
+<p class="subtitle">Innholdskonsepter som bygger merkevare, engasjement og tillit over tid. Hvert tema kan rulles ut på tvers av kanaler — video, artikler, nyhetsbrev og sosiale medier.</p>
   <div class="slbl">04 — Redaksjonelle temaer</div>
   <h1>Innholdskonsepter for Kokkeløren.</h1>
   <div class="subtitle">Redaksjonelle serier som bygger merkevare, engasjement og tillit over tid. Hvert tema har ett eller flere konsepter som kan rulles ut på tvers av kanaler — video, artikler, nyhetsbrev og sosiale medier.</div>
@@ -5746,44 +5790,21 @@ Du vet hvem som har laget maten din. Og det er i en kasse for seg.
     </div>
 
   </div>
-</section>
-
-  <div class="page-wire" id="side-R08">
-    <div class="page-wire-head">
-      <span class="page-wire-num">R08</span>
-      <span class="page-wire-h1">Hva koster matkasse egentlig — og er det verdt det?</span>
-      <span class="page-wire-intent"><span class="badge b-red">Deep dive</span> MOF</span>
-    </div>
-    <div class="page-wire-body">
-      <div class="pw-h2">Brief</div>
-      <div class="pw-p">Journalistisk, ikke tabellbasert (skiller seg fra SEO 04). «Vi regnet på alt — matsvinn, tid, impulskjøp, strøm, kjøretid.» Total-kostnadsanalyse. Innrømmer at Kokkeløren er dyrere, men forklarer hvorfor.</div>
-      <div class="pw-h2">Distribusjon</div>
-      <div class="pw-p">Intern lenking fra SEO 04, søk (long-tail), betalt sosial.</div>
-    </div>
-  </div>
-
-  <p class="note"><strong>Quiz-funnel</strong> («Hvilken matkasse passer deg?») scopes separat som utviklingsprosjekt.</p>
-</section>
-
-<footer>
-  Kokkeløren · Innholdsstrategi · Simpleness · April 2026
-</footer>
+</div></div>
 
 <script>
-// Nav scroll tracking
-const sections=document.querySelectorAll('section[id]');
-const links=document.querySelectorAll('.nav-links a');
-window.addEventListener('scroll',()=>{
-  let cur='';
-  sections.forEach(s=>{if(window.scrollY>=s.offsetTop-80)cur=s.id;});
-  links.forEach(a=>{a.classList.remove('active');if(a.getAttribute('href')==='#'+cur)a.classList.add('active');});
-});
+function go(id, btn) {
+  document.querySelectorAll('.pg').forEach(p => p.classList.remove('on'));
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('on'));
+  document.getElementById('p-' + id).classList.add('on');
+  btn.classList.add('on');
+  window.scrollTo(0, 0);
+}
 
 // Download markdown file
 function dlMd(id,filename){
   const el=document.getElementById(id);
   if(!el)return;
-  // Unescape HTML entities
   const ta=document.createElement('textarea');
   ta.innerHTML=el.textContent;
   const md=ta.value;
