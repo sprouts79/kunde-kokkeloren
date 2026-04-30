@@ -12,8 +12,7 @@
 
    Parent-sider (med children): pillen er read-only og arver status:
    - Alle children = godkjent → parent = godkjent
-   - Minst én under_utvikling → parent = under_utvikling
-   - Ellers → parent = til_avsjekk
+   - Ellers → parent = under_utvikling
    ===================================================================== */
 
 (function () {
@@ -72,8 +71,7 @@
     if (Array.isArray(node.children) && node.children.length > 0) {
       const childStatuses = node.children.map(computeStatus);
       if (childStatuses.every(s => s === "godkjent")) return "godkjent";
-      if (childStatuses.some(s => s === "under_utvikling")) return "under_utvikling";
-      return "til_avsjekk";
+      return "under_utvikling";
     }
 
     // Leaf — override har prioritet over default i REGISTRY
