@@ -4,135 +4,330 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Velkomstserie — Kokkeløren</title>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/designsystem/colors_and_type.css">
 <style>
-:root { --admin-font: "Plus Jakarta Sans", sans-serif; --admin-black: #090A08; --border: 1px solid rgba(9,10,8,0.08); --accent: #89FF58; --pale: #F6FFEE; --muted: rgba(9,10,8,0.55); }
+:root {
+  --shell-bg: #F1EDE2;
+  --sidebar-bg: #EAE4D4;
+  --sidebar-width: 280px;
+  --header-height: 56px;
+  --hairline: rgba(49, 38, 29, 0.14);
+  --muted: rgba(49, 38, 29, 0.6);
+  --muted-soft: rgba(49, 38, 29, 0.4);
+  --ink: #31261D;
+}
+
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: var(--admin-font); background: #fff; color: var(--admin-black); line-height: 1.5; -webkit-font-smoothing: antialiased; }
-.topbar { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,0.96); backdrop-filter: blur(8px); border-bottom: var(--border); display: flex; align-items: center; height: 52px; padding: 0 1.5rem; }
-.topbar a { text-decoration: none; color: var(--admin-black); font-size: 0.875rem; font-weight: 700; display: flex; align-items: center; gap: 0.5rem; }
-.topbar a::before { content: "←"; font-size: 1rem; }
+html, body { height: 100%; overflow: hidden; }
+body {
+  font-family: var(--kl-sans);
+  background: var(--shell-bg);
+  color: var(--ink);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
 
-.wrap { max-width: 760px; margin: 0 auto; padding: 3rem 1.5rem 6rem; }
-h1 { font-size: 3rem; font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 0.5rem; }
-.subtitle { font-size: 1rem; line-height: 1.6; margin-bottom: 0.5rem; max-width: 580px; }
-.flow-meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 2rem; }
+/* ── HEADER ─────────────────────────────────────────────── */
+.header {
+  display: flex; align-items: center; justify-content: space-between;
+  height: var(--header-height);
+  padding: 0 24px;
+  border-bottom: 1px solid var(--hairline);
+  background: var(--shell-bg);
+  position: relative; z-index: 5;
+}
+.header-left { display: flex; align-items: center; gap: 16px; }
+.header-back {
+  font-size: 12px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase;
+  text-decoration: none; color: var(--muted);
+  display: inline-flex; align-items: center; gap: 6px;
+  transition: color 0.18s var(--kl-ease);
+}
+.header-back::before { content: "←"; font-size: 14px; }
+.header-back:hover { color: var(--ink); }
+.header-divider { width: 1px; height: 20px; background: var(--hairline); }
+.header-title {
+  font-family: var(--kl-serif); font-weight: 400;
+  font-size: 18px; letter-spacing: -0.01em;
+}
+.header-right { display: flex; align-items: center; gap: 14px; }
 
-.status-banner { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 0.875rem; background: var(--pale); border: 1px solid #C8E5B4; border-radius: 6px; font-size: 0.8125rem; font-weight: 500; margin-bottom: 3rem; }
-.status-banner::before { content: "●"; color: #6CC24A; font-size: 0.7rem; }
+/* Toggle */
+.toggle {
+  display: inline-flex; align-items: center; gap: 0;
+  background: var(--sidebar-bg);
+  border-radius: 999px;
+  padding: 4px;
+  border: 1px solid var(--hairline);
+}
+.toggle-btn {
+  font-family: var(--kl-sans); font-weight: 500;
+  font-size: 12px; letter-spacing: 0.02em;
+  background: transparent; color: var(--muted);
+  border: 0; cursor: pointer;
+  padding: 6px 14px; border-radius: 999px;
+  display: inline-flex; align-items: center; gap: 6px;
+  transition: all 0.18s var(--kl-ease);
+}
+.toggle-btn svg { width: 14px; height: 14px; }
+.toggle-btn[aria-pressed="true"] {
+  background: var(--ink); color: var(--shell-bg);
+}
 
-.email-section { margin-bottom: 3rem; }
-.email-meta-row { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-bottom: 0.5rem; }
-.email-label { display: inline-block; font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; background: var(--accent); padding: 2px 8px; border-radius: 4px; }
-.email-timing { font-size: 0.8rem; color: var(--muted); }
-.email-name { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 0.5rem; }
-.email-subject { font-size: 0.875rem; margin-bottom: 1rem; color: var(--muted); }
-.email-subject strong { color: var(--admin-black); font-weight: 700; }
-.email-actions { margin-bottom: 1rem; }
-.btn { display: inline-block; font-size: 0.8125rem; font-weight: 500; text-decoration: none; padding: 0.5rem 0.875rem; border-radius: 6px; border: var(--border); color: var(--admin-black); transition: background 0.15s; }
-.btn:hover { background: rgba(9,10,8,0.04); }
+/* ── SHELL ──────────────────────────────────────────────── */
+.shell {
+  display: flex;
+  height: calc(100vh - var(--header-height));
+}
 
-.preview-frame { border: var(--border); border-radius: 12px; overflow: hidden; background: #F1EDE2; }
-.preview-frame iframe { display: block; width: 100%; height: 720px; border: 0; background: #F1EDE2; }
+/* ── SIDEBAR ────────────────────────────────────────────── */
+.sidebar {
+  width: var(--sidebar-width);
+  flex-shrink: 0;
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--hairline);
+  overflow-y: auto;
+  padding: 16px 0 24px;
+  display: flex;
+  flex-direction: column;
+}
+.sidebar::-webkit-scrollbar { width: 6px; }
+.sidebar::-webkit-scrollbar-thumb { background: var(--hairline); border-radius: 3px; }
 
-.arrow { text-align: center; padding: 1.5rem 0; font-size: 1rem; color: rgba(9,10,8,0.35); letter-spacing: 0.04em; }
-.arrow::before { content: "↓"; display: block; font-size: 1.25rem; color: rgba(9,10,8,0.15); margin-bottom: 0.25rem; }
+.nav-section { padding: 8px 0; }
+.nav-label {
+  font-size: 10px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--muted-soft);
+  padding: 8px 24px 6px;
+}
+.nav-item {
+  display: flex; flex-direction: column; gap: 2px;
+  padding: 10px 24px;
+  text-decoration: none;
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.15s var(--kl-ease);
+  border-left: 3px solid transparent;
+}
+.nav-item:hover {
+  color: var(--ink);
+  background: rgba(49, 38, 29, 0.05);
+}
+.nav-item.active {
+  color: var(--ink);
+  background: var(--shell-bg);
+  border-left-color: var(--ink);
+}
+.nav-item-row { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+.nav-item-title { font-size: 13px; font-weight: 500; line-height: 1.3; }
+.nav-item.active .nav-item-title { font-weight: 700; }
+.nav-item-num { font-size: 10px; font-weight: 700; letter-spacing: 0.06em; color: var(--muted-soft); }
+.nav-item-meta { font-size: 11px; color: var(--muted-soft); margin-top: 2px; }
 
-.footer-note { margin-top: 4rem; padding-top: 2rem; border-top: var(--border); font-size: 0.8125rem; color: var(--muted); line-height: 1.6; }
-.footer-note strong { color: var(--admin-black); font-weight: 700; }
+.flow-meta {
+  margin: auto 16px 0;
+  padding: 14px 16px;
+  background: var(--shell-bg);
+  border: 1px solid var(--hairline);
+  border-radius: 12px;
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+.flow-meta strong { color: var(--ink); display: block; margin-bottom: 4px; font-weight: 700; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; }
 
-@media (max-width: 640px) {
-  h1 { font-size: 2.25rem; }
-  .preview-frame iframe { height: 540px; }
+/* ── STAGE ──────────────────────────────────────────────── */
+.stage {
+  flex: 1;
+  min-width: 0;
+  display: flex; align-items: stretch; justify-content: center;
+  background: var(--shell-bg);
+  padding: 24px;
+  overflow: hidden;
+}
+.stage-mobile-wrap {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.frame-shell {
+  background: #F1EDE2;
+  border-radius: 16px;
+  border: 1px solid var(--hairline);
+  box-shadow: 0 6px 24px -12px rgba(49, 38, 29, 0.18);
+  overflow: hidden;
+  display: flex; flex-direction: column;
+  width: 100%;
+  height: 100%;
+  transition: max-width 0.24s var(--kl-ease), max-height 0.24s var(--kl-ease);
+}
+.frame-shell.is-mobile {
+  max-width: 390px;
+  max-height: 844px;
+}
+
+.frame-chrome {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 8px 14px;
+  background: var(--ink);
+  color: var(--shell-bg);
+  font: 300 11px/1.2 var(--kl-mono, ui-monospace, Menlo, monospace);
+  letter-spacing: 0.04em;
+  flex-shrink: 0;
+}
+.frame-chrome .url { opacity: 0.85; flex: 1; padding: 0 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-weight: 500; }
+.frame-chrome .url-prefix { opacity: 0.5; margin-right: 6px; }
+.frame-chrome .device { opacity: 0.5; font-size: 10px; }
+.frame-chrome .open-link { color: var(--shell-bg); opacity: 0.7; text-decoration: none; font-size: 11px; padding-right: 8px; }
+.frame-chrome .open-link:hover { opacity: 1; }
+
+.frame-iframe {
+  flex: 1;
+  width: 100%;
+  border: 0;
+  background: #F1EDE2;
+  display: block;
+}
+
+/* ── RESPONSIVE ─────────────────────────────────────────── */
+@media (max-width: 800px) {
+  .sidebar { width: 220px; }
+  .stage { padding: 12px; }
+  .header-title { font-size: 15px; }
+  .toggle-btn { padding: 5px 10px; font-size: 11px; }
+}
+@media (max-width: 600px) {
+  html, body { overflow: auto; }
+  .shell { flex-direction: column; height: auto; min-height: calc(100vh - var(--header-height)); }
+  .sidebar { width: 100%; height: auto; border-right: 0; border-bottom: 1px solid var(--hairline); max-height: 220px; }
+  .stage { padding: 8px; min-height: 70vh; }
+  .frame-shell { height: 70vh; }
 }
 </style>
 </head>
 <body>
 
-<div class="topbar"><a href="/nyhetsbrev.html">Nyhetsbrev</a></div>
-
-<div class="wrap">
-  <h1>Velkomstserie.</h1>
-  <p class="subtitle">4-stegs automatisert flow for nye Kokkeløren-abonnenter. Introduksjon → produsentene → kundene → konvertering.</p>
-  <p class="flow-meta">Trigger: ny e-postabonnent · Delay: dag 0 → dag 2 → dag 5 → dag 8</p>
-
-  <div class="status-banner">Klar til godkjenning — venter på tilbakemelding fra Kokkeløren</div>
-
-  <!-- E-POST 1 -->
-  <div class="email-section">
-    <div class="email-meta-row">
-      <span class="email-label">E-post 1 / 4</span>
-      <span class="email-timing">Sendes umiddelbart</span>
-    </div>
-    <div class="email-name">Velkommen som kokkelør</div>
-    <div class="email-subject"><strong>Emne:</strong> Velkommen som kokkelør</div>
-    <div class="email-actions">
-      <a class="btn" href="velkomstserie/welcome-01.html" target="_blank" rel="noopener">Åpne i ny fane ↗</a>
-    </div>
-    <div class="preview-frame">
-      <iframe src="velkomstserie/welcome-01.html" loading="lazy" title="E-post 1 — Velkommen som kokkelør"></iframe>
+<header class="header">
+  <div class="header-left">
+    <a href="/nyhetsbrev.html" class="header-back">Nyhetsbrev</a>
+    <span class="header-divider"></span>
+    <span class="header-title">Velkomstserie</span>
+  </div>
+  <div class="header-right">
+    <span data-status-mount></span>
+    <div class="toggle" role="group" aria-label="Visningsmodus">
+      <button class="toggle-btn" data-mode="desktop" aria-pressed="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="12" rx="1"/><path d="M8 20h8M12 16v4"/></svg>
+        Desktop
+      </button>
+      <button class="toggle-btn" data-mode="mobile" aria-pressed="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="7" y="3" width="10" height="18" rx="2"/><path d="M11 18h2"/></svg>
+        Mobil
+      </button>
     </div>
   </div>
+</header>
 
-  <div class="arrow">2 dager</div>
+<div class="shell">
 
-  <!-- E-POST 2 -->
-  <div class="email-section">
-    <div class="email-meta-row">
-      <span class="email-label">E-post 2 / 4</span>
-      <span class="email-timing">Dag 2</span>
-    </div>
-    <div class="email-name">Hvem lager maten din, egentlig?</div>
-    <div class="email-subject"><strong>Emne:</strong> Hvem lager maten din, egentlig?</div>
-    <div class="email-actions">
-      <a class="btn" href="velkomstserie/welcome-02.html" target="_blank" rel="noopener">Åpne i ny fane ↗</a>
-    </div>
-    <div class="preview-frame">
-      <iframe src="velkomstserie/welcome-02.html" loading="lazy" title="E-post 2 — Hvem lager maten din, egentlig?"></iframe>
-    </div>
-  </div>
+  <aside class="sidebar">
 
-  <div class="arrow">3 dager</div>
+    <div class="nav-section">
+      <div class="nav-label">E-poster</div>
+      <a class="nav-item" data-src="velkomstserie/welcome-01.html"
+         data-subject="Velkommen som kokkelør" data-timing="Sendes umiddelbart">
+        <div class="nav-item-row"><div class="nav-item-title">Velkommen som kokkelør</div><div class="nav-item-num">1 / 4</div></div>
+        <div class="nav-item-meta">Dag 0 · Introduksjon</div>
+      </a>
+      <a class="nav-item" data-src="velkomstserie/welcome-02.html"
+         data-subject="Hvem lager maten din, egentlig?" data-timing="Dag 2">
+        <div class="nav-item-row"><div class="nav-item-title">Hvem lager maten din, egentlig?</div><div class="nav-item-num">2 / 4</div></div>
+        <div class="nav-item-meta">Dag 2 · Bak kulissene</div>
+      </a>
+      <a class="nav-item" data-src="velkomstserie/welcome-03.html"
+         data-subject="Kundene sier at det er kasseforskjell" data-timing="Dag 5">
+        <div class="nav-item-row"><div class="nav-item-title">Kundene sier at det er kasseforskjell</div><div class="nav-item-num">3 / 4</div></div>
+        <div class="nav-item-meta">Dag 5 · Sosial proof</div>
+      </a>
+      <a class="nav-item" data-src="velkomstserie/welcome-04.html"
+         data-subject="30 % på din første matkasse — kun for deg" data-timing="Dag 8">
+        <div class="nav-item-row"><div class="nav-item-title">30 % på din første matkasse — kun for deg</div><div class="nav-item-num">4 / 4</div></div>
+        <div class="nav-item-meta">Dag 8 · Konvertering</div>
+      </a>
+    </div>
 
-  <!-- E-POST 3 -->
-  <div class="email-section">
-    <div class="email-meta-row">
-      <span class="email-label">E-post 3 / 4</span>
-      <span class="email-timing">Dag 5</span>
+    <div class="flow-meta">
+      <strong>Om flowen</strong>
+      Trigger: ny e-postabonnent.<br>
+      Delay: dag 0 → 2 → 5 → 8.<br>
+      4 e-poster.
     </div>
-    <div class="email-name">Kundene sier at det er kasseforskjell</div>
-    <div class="email-subject"><strong>Emne:</strong> Kundene sier at det er kasseforskjell</div>
-    <div class="email-actions">
-      <a class="btn" href="velkomstserie/welcome-03.html" target="_blank" rel="noopener">Åpne i ny fane ↗</a>
-    </div>
-    <div class="preview-frame">
-      <iframe src="velkomstserie/welcome-03.html" loading="lazy" title="E-post 3 — Kundene sier at det er kasseforskjell"></iframe>
-    </div>
-  </div>
 
-  <div class="arrow">3 dager</div>
+  </aside>
 
-  <!-- E-POST 4 -->
-  <div class="email-section">
-    <div class="email-meta-row">
-      <span class="email-label">E-post 4 / 4</span>
-      <span class="email-timing">Dag 8</span>
+  <main class="stage">
+    <div class="stage-mobile-wrap">
+      <div class="frame-shell" id="frame-shell">
+        <div class="frame-chrome">
+          <span class="url" id="frame-url"><span class="url-prefix">Emne:</span><span id="frame-subject">—</span></span>
+          <a class="open-link" id="frame-open" href="#" target="_blank" rel="noopener">Åpne i ny fane ↗</a>
+          <span class="device" id="frame-device">DESKTOP</span>
+        </div>
+        <iframe class="frame-iframe" id="preview-frame" src="" title="E-post forhåndsvisning"></iframe>
+      </div>
     </div>
-    <div class="email-name">30 % på din første matkasse — kun for deg</div>
-    <div class="email-subject"><strong>Emne:</strong> 30 % på din første matkasse — kun for deg</div>
-    <div class="email-actions">
-      <a class="btn" href="velkomstserie/welcome-04.html" target="_blank" rel="noopener">Åpne i ny fane ↗</a>
-    </div>
-    <div class="preview-frame">
-      <iframe src="velkomstserie/welcome-04.html" loading="lazy" title="E-post 4 — 30 % på din første matkasse"></iframe>
-    </div>
-  </div>
+  </main>
 
-  <div class="footer-note">
-    <strong>Til godkjenning</strong><br>
-    Dette er ferskt utkast fra Simpleness — alle fire e-poster er ferdig designet og skrevet i Kokkelørens stemme. Bla gjennom hver e-post i forhåndsvisningen, eller åpne i egen fane. Send tilbakemelding på tekst, bilder eller flyt — så justerer vi før vi pakker for utsending i HubSpot.
-  </div>
 </div>
+
+<script src="/assets/page-status.js"></script>
+<script>
+(function() {
+  const items = document.querySelectorAll('.nav-item');
+  const iframe = document.getElementById('preview-frame');
+  const subjectLabel = document.getElementById('frame-subject');
+  const openLink = document.getElementById('frame-open');
+  const deviceLabel = document.getElementById('frame-device');
+  const shell = document.getElementById('frame-shell');
+  const toggleButtons = document.querySelectorAll('.toggle-btn');
+
+  function setActive(item) {
+    items.forEach(i => i.classList.remove('active'));
+    item.classList.add('active');
+    const src = item.dataset.src;
+    iframe.src = src;
+    subjectLabel.textContent = item.dataset.subject;
+    openLink.href = src;
+  }
+
+  function setMode(mode) {
+    toggleButtons.forEach(b => b.setAttribute('aria-pressed', b.dataset.mode === mode ? 'true' : 'false'));
+    if (mode === 'mobile') {
+      shell.classList.add('is-mobile');
+      deviceLabel.textContent = 'MOBIL · 390 × 844';
+    } else {
+      shell.classList.remove('is-mobile');
+      deviceLabel.textContent = 'DESKTOP';
+    }
+  }
+
+  items.forEach(item => {
+    item.addEventListener('click', (e) => {
+      e.preventDefault();
+      setActive(item);
+    });
+  });
+
+  toggleButtons.forEach(btn => {
+    btn.addEventListener('click', () => setMode(btn.dataset.mode));
+  });
+
+  if (items.length > 0) setActive(items[0]);
+})();
+</script>
 
 </body>
 </html>
