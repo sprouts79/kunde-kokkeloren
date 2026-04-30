@@ -27,14 +27,8 @@
 
     "/designsystem.html":                         { status: "til_avsjekk" },
 
-    "/nyhetsbrev.html":                           { children: ["/nyhetsbrev/moduler.html", "/nyhetsbrev/maler.html", "/nyhetsbrev/flows/velkomstserie.html", "/nyhetsbrev/maler/produktnyhet.html", "/nyhetsbrev/maler/salg.html", "/nyhetsbrev/maler/redaksjonelt.html", "/nyhetsbrev/maler/digest.html"] },
-    "/nyhetsbrev/moduler.html":                   { status: "under_utvikling" },
-    "/nyhetsbrev/maler.html":                     { status: "under_utvikling" },
+    "/nyhetsbrev.html":                           { children: ["/nyhetsbrev/flows/velkomstserie.html"] },
     "/nyhetsbrev/flows/velkomstserie.html":       { status: "til_avsjekk" },
-    "/nyhetsbrev/maler/produktnyhet.html":        { status: "under_utvikling" },
-    "/nyhetsbrev/maler/salg.html":                { status: "under_utvikling" },
-    "/nyhetsbrev/maler/redaksjonelt.html":        { status: "under_utvikling" },
-    "/nyhetsbrev/maler/digest.html":              { status: "under_utvikling" },
 
     "/innholdsstrategi.html":                     { status: "under_utvikling" },
     "/kreativ-strategi.html":                     { status: "under_utvikling" },
