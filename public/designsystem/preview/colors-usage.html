@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="no"><head><meta charset="utf-8"><title>Colors — usage</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0;background:#fff;font-family:var(--kl-sans);color:#31261D;}
+  .wrap{padding:20px;display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .block{border-radius:var(--kl-radius-md);padding:22px;min-height:118px;}
+  .block .t{font:var(--kl-h4);margin:0 0 4px;font-family:var(--kl-serif);}
+  .block .b{font:var(--kl-body-s);max-width:28ch;}
+  .bad{position:relative;}
+  .bad::after{content:"✕ ikke gjør";position:absolute;top:8px;right:10px;font:var(--kl-overline);color:#FF6720;}
+  .ok::after{content:"✓ regel";position:absolute;top:8px;right:10px;font:var(--kl-overline);color:#31261D;}
+  .ok{position:relative;}
+</style></head>
+<body><div class="wrap">
+  <div class="block ok" style="background:#DCE261"><div class="t">Curry bakgrunn</div><div class="b">Tekst i Black #31261D — regel på alle fargede bakgrunner.</div></div>
+  <div class="block ok" style="background:#31261D;color:#F1EDE2"><div class="t" style="color:#F1EDE2">På Black</div><div class="b" style="color:#F1EDE2">Tekst i White #F1EDE2. Black brukes aldri som full bakgrunn — unntak: knapper, stickers.</div></div>
+  <div class="block ok" style="background:#F8C1B8"><div class="t">Pink ton-i-ton</div><div class="b">Aksentfarger velges etter matbildet — ikke for kontrastens skyld.</div></div>
+  <div class="block bad" style="background:#6CC24A;color:#F1EDE2"><div class="t" style="color:#F1EDE2">Feil</div><div class="b" style="color:#F1EDE2">White-tekst på fargebakgrunn bryter regelen.</div></div>
+</div></body></html>

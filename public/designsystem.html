@@ -4,440 +4,330 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kokkeløren Design System</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="designsystem/colors_and_type.css">
 <style>
-/* ── TOKENS ────────────────────────────────────────────────── */
 :root {
-  --color-white:   #FFFFFF;
-  --color-black:   #090A08;
-  --color-accent:  #89FF58;
-  --color-link:    #515B12;
-
-  --color-green-moss:  #515B12;
-  --color-green-deep:  #41BD0E;
-  --color-green-clear: #89FF58;
-  --color-green-mint:  #DFF7CC;
-  --color-green-pale:  #F6FFEE;
-  --color-yellow:      #F6F94E;
-  --color-gold:        #FFD25F;
-
-  --font-family: "Plus Jakarta Sans", sans-serif;
-  --font-normal: 400;
-  --font-medium: 500;
-  --font-bold:   700;
-
-  --line-height-tight:  1.1;
-  --line-height-normal: 1.5;
-
-  --sp-2:  0.5rem;
-  --sp-3:  0.75rem;
-  --sp-4:  1rem;
-  --sp-5:  1.25rem;
-  --sp-6:  1.5rem;
-  --sp-8:  2rem;
-  --sp-10: 2.5rem;
-  --sp-12: 3rem;
-  --sp-16: 4rem;
-
-  --radius-md: 8px;
-  --radius-lg: 12px;
-
-  --sidebar-width: 240px;
-  --border: 1px solid rgba(9,10,8,0.08);
+  --shell-bg: #F1EDE2;
+  --sidebar-bg: #EAE4D4;
+  --sidebar-width: 260px;
+  --header-height: 56px;
+  --hairline: rgba(49, 38, 29, 0.14);
+  --muted: rgba(49, 38, 29, 0.6);
+  --muted-soft: rgba(49, 38, 29, 0.4);
+  --ink: #31261D;
 }
 
-/* ── RESET ─────────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { font-size: 16px; }
+html, body { height: 100%; overflow: hidden; }
 body {
-  font-family: var(--font-family);
-  background: var(--color-white);
-  color: var(--color-black);
-  font-weight: var(--font-normal);
-  line-height: var(--line-height-normal);
+  font-family: var(--kl-sans);
+  background: var(--shell-bg);
+  color: var(--ink);
+  line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 }
-a { color: var(--color-link); text-decoration: underline; text-underline-offset: 3px; }
-a:hover { color: #3A4209; }
 
-/* ── LAYOUT ────────────────────────────────────────────────── */
-.shell { display: flex; min-height: 100vh; }
+/* ── HEADER ─────────────────────────────────────────────── */
+.header {
+  display: flex; align-items: center; justify-content: space-between;
+  height: var(--header-height);
+  padding: 0 24px;
+  border-bottom: 1px solid var(--hairline);
+  background: var(--shell-bg);
+  position: relative; z-index: 5;
+}
+.header-left { display: flex; align-items: center; gap: 16px; }
+.header-back {
+  font-size: 12px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase;
+  text-decoration: none; color: var(--muted);
+  display: inline-flex; align-items: center; gap: 6px;
+  transition: color 0.18s var(--kl-ease);
+}
+.header-back::before { content: "←"; font-size: 14px; }
+.header-back:hover { color: var(--ink); }
+.header-divider { width: 1px; height: 20px; background: var(--hairline); }
+.header-title {
+  font-family: var(--kl-serif); font-weight: 400;
+  font-size: 18px; letter-spacing: -0.01em;
+}
+.header-title em { font-style: italic; opacity: 0.7; }
 
-/* ── SIDEBAR ───────────────────────────────────────────────── */
-.sidebar { width: var(--sidebar-width); flex-shrink: 0; border-right: var(--border); position: sticky; top: 0; height: 100vh; overflow-y: auto; padding: var(--sp-6) 0; display: flex; flex-direction: column; }
-.sidebar-logo { padding: 0 var(--sp-5) var(--sp-6); border-bottom: var(--border); margin-bottom: var(--sp-5); }
-.sidebar-back { display: flex; align-items: center; gap: 0.4rem; padding: 0 var(--sp-5) var(--sp-4); font-size: 0.75rem; font-weight: var(--font-bold); letter-spacing: 0.04em; text-transform: uppercase; text-decoration: none; color: rgba(9,10,8,0.5); }
-.sidebar-back:hover { color: var(--color-black); }
-.sidebar-back::before { content: "←"; font-size: 0.875rem; text-transform: none; }
-.logo-mark { display: flex; align-items: center; gap: var(--sp-3); text-decoration: none; color: var(--color-black); }
-.logo-wordmark { font-size: 1rem; font-weight: var(--font-bold); letter-spacing: -0.02em; }
-.nav-section { padding: 0 var(--sp-5); margin-bottom: var(--sp-5); }
-.nav-label { font-size: 0.65rem; font-weight: var(--font-bold); letter-spacing: 0.08em; text-transform: uppercase; color: rgba(9,10,8,0.35); margin-bottom: var(--sp-2); padding: 0 var(--sp-3); }
-.nav-item { display: block; padding: var(--sp-2) var(--sp-3); border-radius: 6px; font-size: 0.875rem; font-weight: var(--font-medium); text-decoration: none; color: rgba(9,10,8,0.6); transition: all 0.15s ease; margin-bottom: 2px; }
-.nav-item:hover { color: var(--color-black); background: rgba(9,10,8,0.04); }
-.nav-item.active { color: var(--color-black); background: var(--color-accent); font-weight: var(--font-bold); }
-.sidebar-badge { margin: auto var(--sp-5) 0; padding: var(--sp-3); background: var(--color-green-pale); border-radius: var(--radius-md); font-size: 0.75rem; color: var(--color-green-moss); line-height: 1.4; }
-.sidebar-badge strong { display: block; margin-bottom: 2px; }
+/* Toggle */
+.toggle {
+  display: inline-flex; align-items: center; gap: 0;
+  background: var(--sidebar-bg);
+  border-radius: 999px;
+  padding: 4px;
+  border: 1px solid var(--hairline);
+}
+.toggle-btn {
+  font-family: var(--kl-sans); font-weight: 500;
+  font-size: 12px; letter-spacing: 0.02em;
+  background: transparent; color: var(--muted);
+  border: 0; cursor: pointer;
+  padding: 6px 14px; border-radius: 999px;
+  display: inline-flex; align-items: center; gap: 6px;
+  transition: all 0.18s var(--kl-ease);
+}
+.toggle-btn svg { width: 14px; height: 14px; }
+.toggle-btn[aria-pressed="true"] {
+  background: var(--ink); color: var(--shell-bg);
+}
 
-/* ── MAIN ──────────────────────────────────────────────────── */
-.main { flex: 1; min-width: 0; padding: var(--sp-12) var(--sp-12) var(--sp-16); max-width: 900px; }
+/* ── SHELL ──────────────────────────────────────────────── */
+.shell {
+  display: flex;
+  height: calc(100vh - var(--header-height));
+}
 
-/* ── SECTION ───────────────────────────────────────────────── */
-.section { margin-bottom: var(--sp-16); padding-bottom: var(--sp-16); border-bottom: var(--border); }
-.section:last-child { border-bottom: none; }
-.section-eyebrow { font-size: 0.7rem; font-weight: var(--font-bold); letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-link); margin-bottom: var(--sp-3); }
-.section-title { font-size: 2rem; font-weight: var(--font-bold); letter-spacing: -0.02em; line-height: var(--line-height-tight); margin-bottom: var(--sp-4); }
-.section-desc { font-size: 1rem; color: rgba(9,10,8,0.6); max-width: 560px; line-height: 1.6; margin-bottom: var(--sp-8); }
+/* ── SIDEBAR ────────────────────────────────────────────── */
+.sidebar {
+  width: var(--sidebar-width);
+  flex-shrink: 0;
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--hairline);
+  overflow-y: auto;
+  padding: 16px 0 24px;
+}
+.sidebar::-webkit-scrollbar { width: 6px; }
+.sidebar::-webkit-scrollbar-thumb { background: var(--hairline); border-radius: 3px; }
 
-/* ── HERO ──────────────────────────────────────────────────── */
-.hero { margin-bottom: var(--sp-16); padding-bottom: var(--sp-16); border-bottom: var(--border); }
-.hero-tag { display: inline-block; font-size: 0.7rem; font-weight: var(--font-bold); letter-spacing: 0.08em; text-transform: uppercase; background: var(--color-accent); color: var(--color-black); padding: 3px 10px; border-radius: 4px; margin-bottom: var(--sp-5); }
-.hero-title { font-size: 3rem; font-weight: var(--font-bold); letter-spacing: -0.03em; line-height: 1.0; margin-bottom: var(--sp-5); }
-.hero-sub { font-size: 1.125rem; color: rgba(9,10,8,0.55); max-width: 480px; line-height: 1.6; margin-bottom: var(--sp-8); }
-.hero-meta { display: flex; gap: var(--sp-8); font-size: 0.8rem; color: rgba(9,10,8,0.4); }
-.hero-meta span strong { display: block; font-weight: var(--font-bold); color: var(--color-black); font-size: 0.875rem; }
+.nav-section { padding: 8px 0; }
+.nav-label {
+  font-size: 10px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--muted-soft);
+  padding: 8px 24px 6px;
+}
+.nav-item {
+  display: block;
+  padding: 8px 24px;
+  font-size: 14px; font-weight: 400;
+  text-decoration: none;
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.15s var(--kl-ease);
+  border-left: 3px solid transparent;
+}
+.nav-item:hover {
+  color: var(--ink);
+  background: rgba(49, 38, 29, 0.05);
+}
+.nav-item.active {
+  color: var(--ink);
+  font-weight: 500;
+  background: var(--shell-bg);
+  border-left-color: var(--ink);
+}
 
-/* ── COLOR ─────────────────────────────────────────────────── */
-.color-grid-primary { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-3); margin-bottom: var(--sp-8); }
-.color-swatch { border-radius: var(--radius-lg); overflow: hidden; border: var(--border); }
-.swatch-block { height: 80px; }
-.swatch-info { padding: var(--sp-3) var(--sp-4); background: var(--color-white); }
-.swatch-name { font-size: 0.8rem; font-weight: var(--font-bold); margin-bottom: 2px; }
-.swatch-hex { font-size: 0.75rem; color: rgba(9,10,8,0.45); font-variant-numeric: tabular-nums; letter-spacing: 0.02em; }
-.swatch-role { font-size: 0.7rem; color: var(--color-link); margin-top: 4px; font-weight: var(--font-medium); }
-.color-rule { background: var(--color-green-pale); border: 1px solid var(--color-green-mint); border-radius: var(--radius-md); padding: var(--sp-4) var(--sp-5); font-size: 0.875rem; line-height: 1.6; margin-bottom: var(--sp-6); }
-.color-rule strong { color: var(--color-link); }
-.palette-row-label { font-size: 0.7rem; color: rgba(9,10,8,0.4); margin-bottom: var(--sp-3); font-weight: var(--font-medium); letter-spacing: 0.04em; text-transform: uppercase; }
+/* ── STAGE ──────────────────────────────────────────────── */
+.stage {
+  flex: 1;
+  min-width: 0;
+  display: flex; align-items: stretch; justify-content: center;
+  background: var(--shell-bg);
+  padding: 24px;
+  overflow: hidden;
+}
+.stage-mobile-wrap {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
 
-/* ── TYPOGRAPHY ────────────────────────────────────────────── */
-.type-scale { display: flex; flex-direction: column; gap: 0; }
-.type-row { display: flex; align-items: baseline; gap: var(--sp-6); padding: var(--sp-5) 0; border-bottom: var(--border); }
-.type-row:first-child { padding-top: 0; }
-.type-meta { width: 120px; flex-shrink: 0; }
-.type-label { font-size: 0.7rem; font-weight: var(--font-bold); letter-spacing: 0.06em; text-transform: uppercase; color: rgba(9,10,8,0.35); display: block; }
-.type-spec { font-size: 0.7rem; color: rgba(9,10,8,0.4); margin-top: 2px; }
-.type-sample { flex: 1; overflow: hidden; }
-.weight-row { display: flex; gap: var(--sp-6); margin-top: var(--sp-6); }
-.weight-card { flex: 1; padding: var(--sp-5); border: var(--border); border-radius: var(--radius-lg); }
-.weight-name { font-size: 0.7rem; font-weight: var(--font-bold); letter-spacing: 0.08em; text-transform: uppercase; color: rgba(9,10,8,0.35); margin-bottom: var(--sp-3); }
+.frame-shell {
+  background: #fff;
+  border-radius: 16px;
+  border: 1px solid var(--hairline);
+  box-shadow: var(--kl-shadow-soft);
+  overflow: hidden;
+  display: flex; flex-direction: column;
+  width: 100%;
+  height: 100%;
+  transition: max-width 0.24s var(--kl-ease), max-height 0.24s var(--kl-ease);
+}
+.frame-shell.is-mobile {
+  max-width: 390px;
+  max-height: 844px;
+  margin-top: 0;
+}
 
-/* ── VOICE ─────────────────────────────────────────────────── */
-.voice-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-4); margin-bottom: var(--sp-8); }
-.voice-card { padding: var(--sp-5) var(--sp-6); border-radius: var(--radius-lg); border: var(--border); }
-.voice-card.do { border-color: var(--color-green-mint); background: var(--color-green-pale); }
-.voice-card.dont { background: rgba(9,10,8,0.02); }
-.voice-verdict { font-size: 0.65rem; font-weight: var(--font-bold); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: var(--sp-3); }
-.voice-card.do .voice-verdict { color: var(--color-link); }
-.voice-card.dont .voice-verdict { color: rgba(9,10,8,0.35); }
-.voice-quote { font-size: 0.9rem; line-height: 1.5; }
-.voice-card.dont .voice-quote { color: rgba(9,10,8,0.4); text-decoration: line-through; text-decoration-color: rgba(9,10,8,0.2); }
-.principle-list { display: flex; flex-direction: column; gap: var(--sp-4); }
-.principle-item { display: flex; gap: var(--sp-4); padding: var(--sp-4) 0; border-bottom: var(--border); }
-.principle-item:last-child { border-bottom: none; }
-.principle-num { width: 28px; height: 28px; flex-shrink: 0; background: var(--color-black); color: var(--color-white); font-size: 0.75rem; font-weight: var(--font-bold); display: flex; align-items: center; justify-content: center; border-radius: 6px; margin-top: 2px; }
-.principle-title { font-size: 0.875rem; font-weight: var(--font-bold); margin-bottom: 4px; }
-.principle-desc { font-size: 0.875rem; color: rgba(9,10,8,0.55); line-height: 1.55; }
+.frame-chrome {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 8px 14px;
+  background: var(--ink);
+  color: var(--shell-bg);
+  font: 300 11px/1.2 var(--kl-mono, ui-monospace, Menlo, monospace);
+  letter-spacing: 0.04em;
+}
+.frame-chrome .dots { display: inline-flex; gap: 5px; }
+.frame-chrome .dot { width: 9px; height: 9px; border-radius: 50%; background: rgba(241,237,226,0.3); }
+.frame-chrome .url { opacity: 0.7; flex: 1; text-align: center; padding: 0 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.frame-chrome .device { opacity: 0.5; font-size: 10px; }
 
-/* ── SHAPE ─────────────────────────────────────────────────── */
-.radius-grid { display: flex; gap: var(--sp-4); margin-bottom: var(--sp-8); flex-wrap: wrap; }
-.radius-card { display: flex; flex-direction: column; align-items: center; gap: var(--sp-3); }
-.radius-demo { width: 64px; height: 64px; background: var(--color-black); }
-.radius-label { font-size: 0.7rem; font-weight: var(--font-bold); color: rgba(9,10,8,0.4); text-align: center; letter-spacing: 0.04em; }
-.radius-value { font-size: 0.7rem; color: var(--color-link); }
+.frame-iframe {
+  flex: 1;
+  width: 100%;
+  border: 0;
+  background: #fff;
+  display: block;
+}
 
-/* ── PHOTO ─────────────────────────────────────────────────── */
-.photo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-4); margin-bottom: var(--sp-6); }
-.photo-card { border: var(--border); border-radius: var(--radius-lg); padding: var(--sp-5) var(--sp-6); }
-.photo-card-title { font-size: 0.875rem; font-weight: var(--font-bold); margin-bottom: var(--sp-2); }
-.photo-card-desc { font-size: 0.875rem; color: rgba(9,10,8,0.55); line-height: 1.55; }
+/* ── EMPTY ──────────────────────────────────────────────── */
+.empty {
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column; gap: 12px;
+  color: var(--muted-soft);
+  font-size: 14px;
+  text-align: center;
+}
+.empty h3 { font-family: var(--kl-serif); font-size: 32px; font-weight: 400; color: var(--muted); margin: 0; }
 
-/* ── CONTRAST TABLE ────────────────────────────────────────── */
-.contrast-table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
-.contrast-table th { text-align: left; font-size: 0.7rem; font-weight: var(--font-bold); letter-spacing: 0.08em; text-transform: uppercase; color: rgba(9,10,8,0.35); padding: var(--sp-3) var(--sp-4); border-bottom: 2px solid var(--color-black); }
-.contrast-table td { padding: var(--sp-3) var(--sp-4); border-bottom: var(--border); }
-.contrast-table tr:last-child td { border-bottom: none; }
-.contrast-preview { display: inline-flex; align-items: center; justify-content: center; padding: 4px 10px; border-radius: 4px; font-weight: var(--font-bold); font-size: 0.8rem; }
-.pass { color: var(--color-link); font-weight: var(--font-bold); }
-.fail { color: rgba(9,10,8,0.35); }
-
-/* ── STATUS BAR ────────────────────────────────────────────── */
-.status-bar { display: flex; align-items: center; gap: var(--sp-3); padding: var(--sp-3) var(--sp-4); background: var(--color-green-pale); border: 1px solid var(--color-green-mint); border-radius: var(--radius-md); margin-bottom: var(--sp-12); font-size: 0.8rem; }
-.status-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--color-accent); flex-shrink: 0; }
+/* ── RESPONSIVE ─────────────────────────────────────────── */
+@media (max-width: 800px) {
+  .sidebar { width: 200px; }
+  .stage { padding: 12px; }
+  .frame-shell.is-mobile { max-height: 700px; }
+  .header-title { font-size: 15px; }
+}
+@media (max-width: 600px) {
+  html, body { overflow: auto; }
+  .shell { flex-direction: column; height: auto; min-height: calc(100vh - var(--header-height)); }
+  .sidebar { width: 100%; height: auto; border-right: 0; border-bottom: 1px solid var(--hairline); max-height: 200px; }
+  .stage { padding: 8px; min-height: 70vh; }
+  .frame-shell { height: 70vh; }
+}
 </style>
 </head>
 <body>
+
+<header class="header">
+  <div class="header-left">
+    <a href="/" class="header-back">Kundeområde</a>
+    <span class="header-divider"></span>
+    <span class="header-title">Designsystem</span>
+  </div>
+  <div class="toggle" role="group" aria-label="Visningsmodus">
+    <button class="toggle-btn" data-mode="desktop" aria-pressed="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="12" rx="1"/><path d="M8 20h8M12 16v4"/></svg>
+      Desktop
+    </button>
+    <button class="toggle-btn" data-mode="mobile" aria-pressed="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="7" y="3" width="10" height="18" rx="2"/><path d="M11 18h2"/></svg>
+      Mobil
+    </button>
+  </div>
+</header>
+
 <div class="shell">
 
-  <!-- SIDEBAR -->
   <aside class="sidebar">
-    <a href="/" class="sidebar-back">Kundeområde</a>
-    <div class="sidebar-logo">
-      <a href="index.html" class="logo-mark">
-        <span class="logo-wordmark">Kokkeløren</span>
-      </a>
+
+    <div class="nav-section">
+      <div class="nav-label">Brand</div>
+      <a class="nav-item" data-src="designsystem/preview/brand-logo.html">Logo</a>
+      <a class="nav-item" data-src="designsystem/preview/brand-mascot.html">Maskot</a>
+      <a class="nav-item" data-src="designsystem/preview/brand-imagery.html">Bildebruk</a>
+      <a class="nav-item" data-src="designsystem/preview/brand-iconography.html">Iconography</a>
     </div>
 
-    <nav class="nav-section">
-      <div class="nav-label">Foundations</div>
-      <a href="#intro" class="nav-item active">Introduksjon</a>
-      <a href="#color" class="nav-item">Farger</a>
-      <a href="#typography" class="nav-item">Typografi</a>
-      <a href="#shape" class="nav-item">Form og radius</a>
-      <a href="#photography" class="nav-item">Fotostil</a>
-      <a href="#voice" class="nav-item">Tone of voice</a>
-    </nav>
-
-    <nav class="nav-section">
-      <div class="nav-label">Resources</div>
-      <a href="#tokens" class="nav-item">Tokens</a>
-    </nav>
-
-    <div class="sidebar-badge">
-      <strong>v0.1 — foundations</strong>
-      Basert på Simpleness Design System
+    <div class="nav-section">
+      <div class="nav-label">Farger</div>
+      <a class="nav-item" data-src="designsystem/preview/colors-primary.html">Primær</a>
+      <a class="nav-item" data-src="designsystem/preview/colors-accents.html">Aksenter</a>
+      <a class="nav-item" data-src="designsystem/preview/colors-usage.html">Bruk</a>
     </div>
+
+    <div class="nav-section">
+      <div class="nav-label">Typografi</div>
+      <a class="nav-item" data-src="designsystem/preview/type-families.html">Familier</a>
+      <a class="nav-item" data-src="designsystem/preview/type-display.html">Display</a>
+      <a class="nav-item" data-src="designsystem/preview/type-headings.html">Overskrifter</a>
+      <a class="nav-item" data-src="designsystem/preview/type-body.html">Brødtekst</a>
+    </div>
+
+    <div class="nav-section">
+      <div class="nav-label">Form</div>
+      <a class="nav-item" data-src="designsystem/preview/spacing.html">Spacing</a>
+      <a class="nav-item" data-src="designsystem/preview/radii.html">Radius</a>
+      <a class="nav-item" data-src="designsystem/preview/shadow.html">Skygger</a>
+    </div>
+
+    <div class="nav-section">
+      <div class="nav-label">Komponenter</div>
+      <a class="nav-item" data-src="designsystem/preview/component-cta.html">CTA</a>
+      <a class="nav-item" data-src="designsystem/preview/component-cards.html">Kort</a>
+      <a class="nav-item" data-src="designsystem/preview/component-stickers.html">Stickers</a>
+      <a class="nav-item" data-src="designsystem/preview/component-form.html">Skjema</a>
+    </div>
+
+    <div class="nav-section">
+      <div class="nav-label">UI-kits</div>
+      <a class="nav-item" data-src="designsystem/ui_kits/email/index.html">E-postkit</a>
+      <a class="nav-item" data-src="designsystem/ui_kits/web/index.html">Web-kit</a>
+    </div>
+
   </aside>
 
-  <!-- MAIN CONTENT -->
-  <main class="main">
-
-    <!-- INTRO -->
-    <div id="intro" class="hero">
-      <div class="hero-tag">Design System</div>
-      <h1 class="hero-title">kokkeløren<br>design system</h1>
-      <p class="hero-sub">Kundetilpasset designsystem for alle visuelle leveranser til Kokkeløren. Bygget på Simpleness Design System — alle avvik fra base er dokumentert her.</p>
-      <div class="hero-meta">
-        <span><strong>Valizas + GT Flexa</strong>Serif + sans.</span>
-        <span><strong>Varm beige</strong>#F1EDE2 base.</span>
-        <span><strong>Premium matkasse</strong>Varmt, tillitvekkende.</span>
-        <span><strong>AA</strong>WCAG for alt innhold.</span>
+  <main class="stage">
+    <div class="stage-mobile-wrap">
+      <div class="frame-shell" id="frame-shell">
+        <div class="frame-chrome">
+          <span class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></span>
+          <span class="url" id="frame-url">designsystem / oversikt</span>
+          <span class="device" id="frame-device">DESKTOP</span>
+        </div>
+        <iframe class="frame-iframe" id="preview-frame" src="" title="Designsystem preview"></iframe>
       </div>
     </div>
-
-    <div class="status-bar">
-      <span class="status-dot"></span>
-      <span>Foundations komplett. Instans av <strong>Simpleness Design System v0.1</strong>.</span>
-    </div>
-
-    <!-- COLOR -->
-    <section id="color" class="section">
-      <div class="section-eyebrow">Foundations</div>
-      <h2 class="section-title">Farger</h2>
-      <p class="section-desc">Varm beige base. Mørk brun tekst. Naturlig grønn energi. Premium matkasse — uttrykket skal føles gjennomtenkt og varmt.</p>
-
-      <div class="color-rule">
-        <strong>Bakgrunn er alltid #F1EDE2 eller hvit</strong> — aldri mørk.<br>
-        <strong>Tekst er alltid #31261D</strong> — aldri grå brødtekst. Grønt er aksent, aldri dominant.
-      </div>
-
-      <div class="color-grid-primary">
-        <div class="color-swatch">
-          <div class="swatch-block" style="background:#F1EDE2"></div>
-          <div class="swatch-info"><div class="swatch-name">Bakgrunn</div><div class="swatch-hex">#F1EDE2</div><div class="swatch-role">Base — dominerer</div></div>
-        </div>
-        <div class="color-swatch">
-          <div class="swatch-block" style="background:#31261D"></div>
-          <div class="swatch-info"><div class="swatch-name">Tekst</div><div class="swatch-hex">#31261D</div><div class="swatch-role">Tekst — dominerer</div></div>
-        </div>
-        <div class="color-swatch">
-          <div class="swatch-block" style="background:#6CC24A"></div>
-          <div class="swatch-info"><div class="swatch-name">Grønn</div><div class="swatch-hex">#6CC24A</div><div class="swatch-role">Energi — sparsomt</div></div>
-        </div>
-        <div class="color-swatch">
-          <div class="swatch-block" style="background:#B79B68"></div>
-          <div class="swatch-info"><div class="swatch-name">Gull</div><div class="swatch-hex">#B79B68</div><div class="swatch-role">Aksent — detaljer</div></div>
-        </div>
-      </div>
-
-      <h3 style="font-size:0.875rem;font-weight:700;margin-bottom:var(--sp-3);margin-top:var(--sp-6)">Nøytralskala</h3>
-      <div class="palette-row-label">Fra mørkest til lysest</div>
-      <div style="display:flex;gap:var(--sp-3);margin-bottom:var(--sp-8)">
-        <div style="flex:1;border-radius:var(--radius-md);overflow:hidden;border:var(--border)">
-          <div style="height:56px;background:#31261D"></div>
-          <div style="padding:var(--sp-3);font-size:0.75rem"><strong>Neutral 90</strong><div style="color:rgba(9,10,8,.4)">#31261D</div></div>
-        </div>
-        <div style="flex:1;border-radius:var(--radius-md);overflow:hidden;border:var(--border)">
-          <div style="height:56px;background:#B79B68"></div>
-          <div style="padding:var(--sp-3);font-size:0.75rem"><strong>Neutral 30</strong><div style="color:rgba(9,10,8,.4)">#B79B68</div></div>
-        </div>
-        <div style="flex:1;border-radius:var(--radius-md);overflow:hidden;border:var(--border)">
-          <div style="height:56px;background:#D9D3C7"></div>
-          <div style="padding:var(--sp-3);font-size:0.75rem"><strong>Border</strong><div style="color:rgba(9,10,8,.4)">#D9D3C7</div></div>
-        </div>
-        <div style="flex:1;border-radius:var(--radius-md);overflow:hidden;border:var(--border)">
-          <div style="height:56px;background:#E8E2D9"></div>
-          <div style="padding:var(--sp-3);font-size:0.75rem"><strong>Neutral 20</strong><div style="color:rgba(9,10,8,.4)">#E8E2D9</div></div>
-        </div>
-        <div style="flex:1;border-radius:var(--radius-md);overflow:hidden;border:var(--border)">
-          <div style="height:56px;background:#F1EDE2"></div>
-          <div style="padding:var(--sp-3);font-size:0.75rem"><strong>Neutral 10</strong><div style="color:rgba(9,10,8,.4)">#F1EDE2</div></div>
-        </div>
-        <div style="flex:1;border-radius:var(--radius-md);overflow:hidden;border:var(--border)">
-          <div style="height:56px;background:#FFFFFF"></div>
-          <div style="padding:var(--sp-3);font-size:0.75rem"><strong>Hvit</strong><div style="color:rgba(9,10,8,.4)">#FFFFFF</div></div>
-        </div>
-      </div>
-
-      <h3 style="font-size:0.875rem;font-weight:700;margin-bottom:var(--sp-4);margin-top:var(--sp-8)">Kontrast</h3>
-      <table class="contrast-table">
-        <thead><tr><th>Kombinasjon</th><th>Forhåndsvisning</th><th>Ratio</th><th>Status</th></tr></thead>
-        <tbody>
-          <tr><td>Brun tekst på beige</td><td><span class="contrast-preview" style="background:#F1EDE2;color:#31261D">Abc</span></td><td>10.1:1</td><td class="pass">✓ AAA</td></tr>
-          <tr><td>Brun tekst på hvit</td><td><span class="contrast-preview" style="background:#FFFFFF;color:#31261D;border:1px solid #eee">Abc</span></td><td>14.4:1</td><td class="pass">✓ AAA</td></tr>
-          <tr><td>Hvit tekst på brun (knapper)</td><td><span class="contrast-preview" style="background:#31261D;color:#FFFFFF">Abc</span></td><td>14.4:1</td><td class="pass">✓ AAA</td></tr>
-          <tr><td>Gull på beige</td><td><span class="contrast-preview" style="background:#F1EDE2;color:#B79B68">Abc</span></td><td>2.5:1</td><td class="fail">✗ Kun dekor</td></tr>
-        </tbody>
-      </table>
-    </section>
-
-    <!-- TYPOGRAPHY -->
-    <section id="typography" class="section">
-      <div class="section-eyebrow">Foundations</div>
-      <h2 class="section-title">Typografi</h2>
-      <p class="section-desc">Valizas for display og overskrifter. GT Flexa for brødtekst og UI. Serifens varme møter sans-serifens klarhet.</p>
-
-      <div class="weight-row" style="margin-bottom:var(--sp-10)">
-        <div class="weight-card">
-          <div class="weight-name">Valizas — Regular 400</div>
-          <div style="font-size:1.5rem;font-weight:400;letter-spacing:-0.01em;font-family:Georgia,serif">Kokkeløren</div>
-          <div style="font-size:0.8rem;color:rgba(9,10,8,.4);margin-top:var(--sp-2)">Display, overskrifter</div>
-        </div>
-        <div class="weight-card">
-          <div class="weight-name">GT Flexa — Light 300</div>
-          <div style="font-size:1.5rem;font-weight:300;letter-spacing:-0.01em">Ferske råvarer</div>
-          <div style="font-size:0.8rem;color:rgba(9,10,8,.4);margin-top:var(--sp-2)">Brødtekst</div>
-        </div>
-        <div class="weight-card">
-          <div class="weight-name">GT Flexa — Medium 500</div>
-          <div style="font-size:1.5rem;font-weight:500;letter-spacing:-0.01em">Bestill nå</div>
-          <div style="font-size:0.8rem;color:rgba(9,10,8,.4);margin-top:var(--sp-2)">Knapper, labels</div>
-        </div>
-      </div>
-
-      <div class="type-scale">
-        <div class="type-row">
-          <div class="type-meta"><span class="type-label">H1</span><span class="type-spec">48px · Valizas 400</span></div>
-          <div class="type-sample" style="font-size:clamp(1.75rem,3vw,3rem);font-weight:400;font-family:Georgia,serif;letter-spacing:-0.02em;line-height:1.1">Ferske råvarer, enkle oppskrifter.</div>
-        </div>
-        <div class="type-row">
-          <div class="type-meta"><span class="type-label">H2</span><span class="type-spec">30px · Valizas 400</span></div>
-          <div class="type-sample" style="font-size:1.875rem;font-weight:400;font-family:Georgia,serif;letter-spacing:-0.01em;line-height:1.2">Premium matkasse med norske råvarer</div>
-        </div>
-        <div class="type-row">
-          <div class="type-meta"><span class="type-label">H3</span><span class="type-spec">18px · GT Flexa 500</span></div>
-          <div class="type-sample" style="font-size:1.125rem;font-weight:500;line-height:1.3">Slik fungerer det</div>
-        </div>
-        <div class="type-row">
-          <div class="type-meta"><span class="type-label">Body</span><span class="type-spec">16px · GT Flexa 300</span></div>
-          <div class="type-sample" style="font-size:1rem;font-weight:300;line-height:1.6;max-width:480px">Du får ferske råvarer rett på døra. Alle ingrediensene er norske, og oppskriftene er testet av kokkene våre. Middagen tar 30 minutter.</div>
-        </div>
-        <div class="type-row">
-          <div class="type-meta"><span class="type-label">Small</span><span class="type-spec">14px · GT Flexa 300</span></div>
-          <div class="type-sample" style="font-size:0.875rem;font-weight:300;color:rgba(9,10,8,.5)">Fra 499 kr/uke · Norske råvarer · Levert på døra</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SHAPE -->
-    <section id="shape" class="section">
-      <div class="section-eyebrow">Foundations</div>
-      <h2 class="section-title">Form og radius</h2>
-      <p class="section-desc">Mykere avrunding enn Simpleness base — passer det varme, premium uttrykket.</p>
-
-      <div class="radius-grid">
-        <div class="radius-card"><div class="radius-demo" style="border-radius:0;background:#31261D"></div><div class="radius-label">None<br><span class="radius-value">0px</span></div></div>
-        <div class="radius-card"><div class="radius-demo" style="border-radius:8px;background:#31261D"></div><div class="radius-label">Knapper<br><span class="radius-value">8px</span></div></div>
-        <div class="radius-card"><div class="radius-demo" style="border-radius:24px;background:#31261D"></div><div class="radius-label">Kort<br><span class="radius-value">24px</span></div></div>
-      </div>
-
-      <h3 style="font-size:0.875rem;font-weight:700;margin-bottom:var(--sp-4)">Knapper</h3>
-      <div style="display:flex;gap:var(--sp-4);align-items:center;margin-bottom:var(--sp-6)">
-        <div style="display:inline-block;padding:12px 28px;border-radius:8px;background:#31261D;color:#FFFFFF;font-weight:500;font-size:0.9375rem">Bestill nå</div>
-        <div style="display:inline-block;padding:12px 28px;border-radius:8px;background:transparent;color:#31261D;font-weight:500;font-size:0.9375rem;border:1px solid #31261D">Se ukens meny</div>
-      </div>
-    </section>
-
-    <!-- PHOTOGRAPHY -->
-    <section id="photography" class="section">
-      <div class="section-eyebrow">Foundations</div>
-      <h2 class="section-title">Fotostil</h2>
-      <p class="section-desc">Naturlige bilder fra ekte kjøkken. Aldri iscenesatt studio, aldri stock. Varme toner som matcher bakgrunnsfargen.</p>
-
-      <div class="photo-grid">
-        <div class="photo-card">
-          <div class="photo-card-title">Mat og råvarer</div>
-          <div class="photo-card-desc">Nærbilde av ferske råvarer, ferdige retter, sauser og ingredienser. Naturlig dagslys. Rustikke overflater: tre, lin, keramikk.</div>
-        </div>
-        <div class="photo-card">
-          <div class="photo-card-title">Mennesker og hverdag</div>
-          <div class="photo-card-desc">Familier som lager mat, par ved kjøkkenbordet, barn som hjelper til. Ekte situasjoner, bevegelse og aktivitet.</div>
-        </div>
-      </div>
-
-      <div class="color-rule">
-        <strong>Behandling:</strong> Ingen filtre. Minimal etterbehandling. Varm fargetemperatur som matcher #F1EDE2. Bilder kan ha avrundede hjørner (24px).
-      </div>
-    </section>
-
-    <!-- VOICE & TONE -->
-    <section id="voice" class="section">
-      <div class="section-eyebrow">Foundations</div>
-      <h2 class="section-title">Tone of voice</h2>
-      <p class="section-desc">Varm og trygg, som en god venn som lager mat til deg. Aldri belærende, aldri pretensiøs.</p>
-
-      <div class="voice-grid">
-        <div class="voice-card do"><div class="voice-verdict">✓ Varm og direkte</div><div class="voice-quote">"Du får ferske råvarer rett på døra. Vi har gjort handleturene for deg."</div></div>
-        <div class="voice-card dont"><div class="voice-verdict">✗ Generisk premium</div><div class="voice-quote">"Opplev premium matkasseopplevelsen med ferske, håndplukkede råvarer levert hjem."</div></div>
-        <div class="voice-card do"><div class="voice-verdict">✓ Fakta, ikke salg</div><div class="voice-quote">"Alle råvarene er norske. Levert fra bonde til deg på under 48 timer."</div></div>
-        <div class="voice-card dont"><div class="voice-verdict">✗ Overdrevet entusiasme</div><div class="voice-quote">"Vi er lidenskapelig opptatt av å gi deg den beste matopplevelsen!"</div></div>
-        <div class="voice-card do"><div class="voice-verdict">✓ Vis, ikke fortell</div><div class="voice-quote">"Sausen koker vi selv, på ekte fløte og urter fra Lier."</div></div>
-        <div class="voice-card dont"><div class="voice-verdict">✗ Matblogg-tone</div><div class="voice-quote">"Våre fantastiske sauser vil ta middagen din til neste nivå."</div></div>
-      </div>
-
-      <div class="principle-list">
-        <div class="principle-item"><div class="principle-num">1</div><div><div class="principle-title">Varm og direkte — aldri kald</div><div class="principle-desc">Snakk som om du anbefaler noe til en venn. Ikke som en annonse.</div></div></div>
-        <div class="principle-item"><div class="principle-num">2</div><div><div class="principle-title">Fakta, ikke salg</div><div class="principle-desc">Si hva som er sant. Norske råvarer, kort leveringskjede, gode kokker. Det holder.</div></div></div>
-        <div class="principle-item"><div class="principle-num">3</div><div><div class="principle-title">Enkel norsk</div><div class="principle-desc">Kort. Konkret. Ingen bransjejargong, ingen matblogg-klisjeer.</div></div></div>
-        <div class="principle-item"><div class="principle-num">4</div><div><div class="principle-title">Vis, ikke fortell</div><div class="principle-desc">Ikke si at maten er god. Si hva som gjør den god.</div></div></div>
-      </div>
-    </section>
-
-    <!-- TOKENS -->
-    <section id="tokens" class="section">
-      <div class="section-eyebrow">Resources</div>
-      <h2 class="section-title">Tokens</h2>
-      <p class="section-desc">Kokkeløren-tokens lastes etter Simpleness base. Alt som ikke er overstyrt arves.</p>
-
-      <div style="background:var(--color-black);border-radius:var(--radius-lg);padding:var(--sp-8);font-family:monospace;font-size:0.8rem;line-height:1.8;color:rgba(255,255,255,0.7);margin-bottom:var(--sp-6)">
-        <div style="color:rgba(255,255,255,0.3);margin-bottom:var(--sp-4)">/* Last inn base først, deretter kundeoverride */</div>
-        <div><span style="color:#89FF58">&lt;link</span> rel=<span style="color:#DFF7CC">"stylesheet"</span> href=<span style="color:#DFF7CC">"tokens.css"</span><span style="color:#89FF58">&gt;</span></div>
-        <div><span style="color:#89FF58">&lt;link</span> rel=<span style="color:#DFF7CC">"stylesheet"</span> href=<span style="color:#DFF7CC">"kokkeloren-tokens.css"</span><span style="color:#89FF58">&gt;</span></div>
-        <div style="margin-top:var(--sp-6);color:rgba(255,255,255,0.3)">/* Kokkeløren overrides */</div>
-        <div>--color-background: <span style="color:#DFF7CC">#F1EDE2</span>;</div>
-        <div>--color-text: <span style="color:#DFF7CC">#31261D</span>;</div>
-        <div>--color-accent: <span style="color:#DFF7CC">#6CC24A</span>;</div>
-        <div>--font-family-heading: <span style="color:#DFF7CC">'Valizas', Georgia, serif</span>;</div>
-        <div>--font-family-body: <span style="color:#DFF7CC">'GT Flexa', Helvetica, sans-serif</span>;</div>
-      </div>
-    </section>
-
   </main>
+
 </div>
 
 <script>
-const sections = document.querySelectorAll('section[id], div[id]');
-const navItems = document.querySelectorAll('.nav-item');
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      navItems.forEach(item => item.classList.remove('active'));
-      const active = document.querySelector(`.nav-item[href="#${entry.target.id}"]`);
-      if (active) active.classList.add('active');
+(function() {
+  const items = document.querySelectorAll('.nav-item');
+  const iframe = document.getElementById('preview-frame');
+  const urlLabel = document.getElementById('frame-url');
+  const deviceLabel = document.getElementById('frame-device');
+  const shell = document.getElementById('frame-shell');
+  const toggleButtons = document.querySelectorAll('.toggle-btn');
+
+  function setActive(item) {
+    items.forEach(i => i.classList.remove('active'));
+    item.classList.add('active');
+    const src = item.dataset.src;
+    iframe.src = src;
+    urlLabel.textContent = src.replace('designsystem/', '').replace('.html', '').replace(/\//g, ' / ');
+  }
+
+  function setMode(mode) {
+    toggleButtons.forEach(b => b.setAttribute('aria-pressed', b.dataset.mode === mode ? 'true' : 'false'));
+    if (mode === 'mobile') {
+      shell.classList.add('is-mobile');
+      deviceLabel.textContent = 'MOBIL · 390 × 844';
+    } else {
+      shell.classList.remove('is-mobile');
+      deviceLabel.textContent = 'DESKTOP';
     }
+  }
+
+  items.forEach(item => {
+    item.addEventListener('click', (e) => {
+      e.preventDefault();
+      setActive(item);
+    });
   });
-}, { threshold: 0.3 });
-sections.forEach(s => observer.observe(s));
+
+  toggleButtons.forEach(btn => {
+    btn.addEventListener('click', () => setMode(btn.dataset.mode));
+  });
+
+  // Initial: åpne første nav-item (Logo)
+  if (items.length > 0) setActive(items[0]);
+})();
 </script>
+
 </body>
 </html>

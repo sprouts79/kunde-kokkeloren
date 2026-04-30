@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="no">
+<head>
+<meta charset="utf-8">
+<title>Kokkeløren — Web UI Kit</title>
+<link rel="stylesheet" href="../../colors_and_type.css">
+<style>
+  html,body{margin:0;background:#F1EDE2;color:#31261D;font-family:var(--kl-sans);}
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel" src="./WebKit.jsx"></script>
+<script type="text/babel" src="./HomeSections.jsx"></script>
+<script type="text/babel" src="./FlowViews.jsx"></script>
+<script type="text/babel">
+const { Nav, Footer, Hero, HowItWorks, WeekMenu, Producers, QuoteBand, SignupStrip, MascotBand, SignupView, ThankYouView } = window;
+
+function App() {
+  const initial = (typeof localStorage !== 'undefined' && localStorage.getItem('kl_route')) || 'home';
+  const [route, setRoute] = React.useState(initial);
+  React.useEffect(()=>{ try{ localStorage.setItem('kl_route', route); }catch(e){} }, [route]);
+
+  return (
+    <div>
+      <Nav route={route} onNav={setRoute}/>
+      {route === 'home' && (
+        <>
+          <Hero onOrder={()=>setRoute('signup')}/>
+          <HowItWorks/>
+          <WeekMenu/>
+          <Producers/>
+          <QuoteBand/>
+          <SignupStrip onOrder={()=>setRoute('signup')}/>
+          <MascotBand/>
+        </>
+      )}
+      {route === 'signup' && <SignupView onBack={()=>setRoute('home')} onSubmit={()=>setRoute('thanks')} />}
+      {route === 'thanks' && <ThankYouView onHome={()=>setRoute('home')} />}
+      {route === 'menu' && (<><WeekMenu/><QuoteBand/></>)}
+      {route === 'how' && (<><HowItWorks/><SignupStrip onOrder={()=>setRoute('signup')}/></>)}
+      {route === 'stories' && (<><Producers/><QuoteBand/></>)}
+      {route === 'account' && (
+        <section style={{padding:'120px 24px', textAlign:'center'}}>
+          <div style={{fontFamily:'var(--kl-serif)', fontWeight:400, fontSize:48}}>Logg inn på min side</div>
+          <div style={{marginTop:20, color:'rgba(49,38,29,.6)'}}>(Prototype — ikke implementert)</div>
+        </section>
+      )}
+      <Footer/>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script>
+</body>
+</html>

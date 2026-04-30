@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="no"><head><meta charset="utf-8"><title>CTA</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0;background:#F1EDE2;color:#31261D;font-family:var(--kl-sans);}
+  .wrap{padding:32px 32px 40px;}
+  .lede{max-width:640px;margin-bottom:28px;}
+  .lede h1{font-family:var(--kl-serif);font-weight:400;font-size:40px;line-height:1.06;margin:0 0 10px;}
+  .lede p{font-weight:300;font-size:15px;line-height:1.55;margin:0;color:rgba(49,38,29,.75);max-width:58ch;}
+
+  .section{margin-top:36px;}
+  .section h3{font-family:var(--kl-serif);font-weight:400;font-size:22px;margin:0 0 6px;}
+  .section .subtitle{font:300 14px/1.5 var(--kl-sans);color:rgba(49,38,29,.7);margin:0 0 20px;max-width:54ch;}
+  .grid{display:grid;grid-template-columns:auto 1fr;gap:16px 28px;align-items:center;}
+  .lbl{font:500 11px/1.2 var(--kl-sans);letter-spacing:.14em;text-transform:uppercase;color:rgba(49,38,29,.6);}
+  .on-black{background:#31261D;color:#F1EDE2;padding:20px 24px;border-radius:16px;display:inline-block;}
+
+  /* Primary: black pill, white text, inline arrow */
+  .kl-btn-primary{
+    display:inline-flex;align-items:center;gap:14px;
+    background:#31261D;color:#F1EDE2;
+    border:none;border-radius:999px;
+    padding:16px 26px 16px 28px;
+    font:500 16px/1 "GT Flexa",system-ui,-apple-system,Arial,sans-serif;
+    cursor:pointer;transition:opacity .24s cubic-bezier(0.22,0.61,0.36,1);
+  }
+  .kl-btn-primary .arrow{display:inline-block;transition:transform .24s cubic-bezier(0.22,0.61,0.36,1);}
+  .kl-btn-primary:hover{opacity:.88;}
+  .kl-btn-primary:hover .arrow{transform:translateX(4px);}
+  .kl-btn-primary:active{opacity:.75;}
+  .kl-btn-primary.on-white-bg{/* default */}
+
+  /* Primary on dark surface — invert */
+  .kl-btn-primary.inverted{background:#F1EDE2;color:#31261D;}
+
+  /* Secondary: outlined pill, transparent fill */
+  .kl-btn-secondary{
+    display:inline-flex;align-items:center;gap:12px;
+    background:transparent;color:#31261D;
+    border:1.5px solid #31261D;border-radius:999px;
+    padding:14px 22px;
+    font:500 15px/1 "GT Flexa",system-ui,-apple-system,Arial,sans-serif;
+    cursor:pointer;transition:background .24s cubic-bezier(0.22,0.61,0.36,1), color .24s;
+  }
+  .kl-btn-secondary:hover{background:#31261D;color:#F1EDE2;}
+
+  .kl-btn-secondary.inverted{border-color:#F1EDE2;color:#F1EDE2;}
+  .kl-btn-secondary.inverted:hover{background:#F1EDE2;color:#31261D;}
+
+  /* Disabled */
+  .kl-btn-primary[disabled]{opacity:.4;cursor:not-allowed;}
+  .kl-btn-primary[disabled]:hover{opacity:.4;}
+  .kl-btn-primary[disabled]:hover .arrow{transform:none;}
+
+  /* Token reference block */
+  .tokens{margin-top:40px;padding:22px 24px;background:#EAE4D4;border-radius:16px;font:300 13px/1.6 "GT Flexa Mono",ui-monospace,Menlo,monospace;color:#31261D;white-space:pre-wrap;}
+  .tokens b{font-weight:500;}
+</style></head>
+<body>
+<div class="wrap">
+  <div class="lede">
+    <h1>CTA — <em>pill.</em></h1>
+    <p>To varianter fra kokkeloren.no: en primær, fylt sort pille med hvit tekst og inline pil, og en sekundær, outlined pille uten fyll. Begge er 999 px radius og GT&nbsp;Flexa Medium 15–16 px. Én primær CTA per flate.</p>
+  </div>
+
+  <div class="section">
+    <h3>Primary</h3>
+    <p class="subtitle">Black `#31261D` fyll, White `#F1EDE2` tekst, inline pil (→). Brukes til hovedhandlingen — "Bestill", "Sjekk levering", "Gå til betaling".</p>
+    <div class="grid">
+      <div class="lbl">default</div>
+      <div><button class="kl-btn-primary">Sjekk om vi leverer til deg <span class="arrow">→</span></button></div>
+      <div class="lbl">hover</div>
+      <div><button class="kl-btn-primary" style="opacity:.88"><span>Sjekk om vi leverer til deg</span> <span class="arrow" style="transform:translateX(4px)">→</span></button></div>
+      <div class="lbl">active</div>
+      <div><button class="kl-btn-primary" style="opacity:.75">Sjekk om vi leverer til deg <span class="arrow" style="transform:translateX(4px)">→</span></button></div>
+      <div class="lbl">disabled</div>
+      <div><button class="kl-btn-primary" disabled>Sjekk om vi leverer til deg <span class="arrow">→</span></button></div>
+      <div class="lbl">on dark</div>
+      <div class="on-black"><button class="kl-btn-primary inverted">Bestill uke 17 <span class="arrow">→</span></button></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>Secondary</h3>
+    <p class="subtitle">Outlined pille, 1.5&nbsp;px Black border, transparent fyll. Brukes på sekundære handlinger — "Ukens smaker", "Se tidligere uker", "Les mer". Ingen pil.</p>
+    <div class="grid">
+      <div class="lbl">default</div>
+      <div><button class="kl-btn-secondary">Ukens smaker</button></div>
+      <div class="lbl">hover</div>
+      <div><button class="kl-btn-secondary" style="background:#31261D;color:#F1EDE2">Ukens smaker</button></div>
+      <div class="lbl">on dark</div>
+      <div class="on-black"><button class="kl-btn-secondary inverted">Ukens smaker</button></div>
+    </div>
+  </div>
+
+  <div class="tokens"><b>/* Tokens */</b>
+background:       #31261D  (primary fill)
+foreground:       #F1EDE2  (primary text)
+border:           1.5px solid #31261D  (secondary)
+border-radius:    999px    (pill)
+padding:          16px 26px  (primary) · 14px 22px  (secondary)
+font:             500 16px/1 "GT Flexa"
+gap (text→arrow): 14px
+transition:       opacity .24s cubic-bezier(0.22, 0.61, 0.36, 1)
+hover arrow:      translateX(4px)</div>
+</div>
+</body></html>

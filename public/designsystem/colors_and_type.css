@@ -1,0 +1,184 @@
+/* ==========================================================================
+   Kokkeløren — Colors & Type
+   Brand system tokens. Import once; use the variables downstream.
+   ========================================================================== */
+
+/* --- Fonts -------------------------------------------------------------- */
+
+@font-face {
+  font-family: "Valizas";
+  src: url("./fonts/ValizasWeb-Regular.woff2") format("woff2"),
+       url("./fonts/Valizas-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Valizas";
+  src: url("./fonts/ValizasWeb-RegularItalic.woff2") format("woff2"),
+       url("./fonts/Valizas-RegularItalic.otf") format("opentype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "GT Flexa";
+  src: url("./fonts/GT-Flexa-Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "GT Flexa";
+  src: url("./fonts/GT-Flexa-Light-Italic.otf") format("opentype");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "GT Flexa";
+  src: url("./fonts/GT-Flexa-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "GT Flexa Mono";
+  src: url("./fonts/GT-Flexa-Mono-Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* --- Tokens ------------------------------------------------------------- */
+
+:root {
+  /* Brand palette — EXACT values. Never introduce new shades. */
+  --kl-black:        #31261D;  /* primary text + logo */
+  --kl-white:        #F1EDE2;  /* primary background */
+  --kl-pure-white:   #FFFFFF;  /* ONLY on photography */
+
+  --kl-green:        #6CC24A;
+  --kl-yellow:       #FFC72C;
+  --kl-dark-orange:  #DB864E;
+  --kl-orange:       #FF9E1B;
+  --kl-pink:         #F8C1B8;
+  --kl-blue:         #A7D8E7;
+  --kl-brown:        #B79B68;
+  --kl-curry:        #DCE261;
+  --kl-red:          #FF6720;
+
+  /* Semantic surface + ink.
+     Rule: text on any coloured background is always --kl-black.
+     On --kl-black, text is --kl-white. Black is NEVER a background. */
+  --kl-fg:           var(--kl-black);
+  --kl-fg-on-black:  var(--kl-white);
+  --kl-bg:           var(--kl-white);
+  --kl-surface-alt:  #EAE4D4;    /* a touch darker than --kl-white, for subtle cards */
+  --kl-hairline:     rgba(49, 38, 29, 0.14);
+  --kl-muted:        rgba(49, 38, 29, 0.66);
+
+  /* Type families */
+  --kl-serif:        "Valizas", "Cormorant Garamond", "Times New Roman", serif;
+  --kl-sans:         "GT Flexa", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --kl-mono:         "GT Flexa Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --kl-fallback-email: system-ui, -apple-system, Arial, sans-serif;
+
+  /* Type scale (desktop/tablet). Titles = Valizas, body = GT Flexa Light. */
+  --kl-display-1: 400 96px/1.02 var(--kl-serif);
+  --kl-display-2: 400 72px/1.05 var(--kl-serif);
+  --kl-h1:        400 56px/1.08 var(--kl-serif);
+  --kl-h2:        400 40px/1.12 var(--kl-serif);
+  --kl-h3:        400 32px/1.15 var(--kl-serif);
+  --kl-h4:        400 24px/1.22 var(--kl-serif);
+  --kl-lead:      300 22px/1.45 var(--kl-sans);
+  --kl-body:      300 18px/1.55 var(--kl-sans);
+  --kl-body-s:    300 16px/1.5  var(--kl-sans);
+  --kl-caption:   300 14px/1.4  var(--kl-sans);
+  --kl-overline:  500 12px/1.2  var(--kl-sans);
+  --kl-cta:       500 16px/1    var(--kl-sans);
+
+  /* Radius — kokkeloren.no-konvensjon: 16 px overalt. Pill kun for stickers. */
+  --kl-radius:      16px;
+  --kl-radius-pill: 999px;
+
+  /* Spacing (8pt grid, romslig whitespace) */
+  --kl-space-1:  4px;
+  --kl-space-2:  8px;
+  --kl-space-3:  12px;
+  --kl-space-4:  16px;
+  --kl-space-5:  24px;
+  --kl-space-6:  32px;
+  --kl-space-7:  48px;
+  --kl-space-8:  64px;
+  --kl-space-9:  96px;
+  --kl-space-10: 128px;
+
+  /* Shadow (used sparingly; brand prefers flat) */
+  --kl-shadow-sticker: 0 2px 0 rgba(49, 38, 29, 0.9);
+  --kl-shadow-soft:    0 6px 24px -12px rgba(49, 38, 29, 0.18);
+  --kl-shadow-card:    0 18px 48px -24px rgba(49, 38, 29, 0.24);
+
+  /* Motion */
+  --kl-ease:       cubic-bezier(0.22, 0.61, 0.36, 1);
+  --kl-ease-out:   cubic-bezier(0.16, 1, 0.3, 1);
+  --kl-dur-fast:   140ms;
+  --kl-dur:        240ms;
+  --kl-dur-slow:   420ms;
+
+  /* Content widths */
+  --kl-email-width: 600px;
+  --kl-content-max: 1120px;
+}
+
+/* --- Semantic base styles ---------------------------------------------- */
+
+.kl-body  { font: var(--kl-body);  color: var(--kl-fg); }
+.kl-lead  { font: var(--kl-lead);  color: var(--kl-fg); }
+.kl-s     { font: var(--kl-body-s);color: var(--kl-fg); }
+.kl-cap   { font: var(--kl-caption); color: var(--kl-muted); }
+.kl-over  { font: var(--kl-overline); color: var(--kl-fg); letter-spacing: 0.12em; text-transform: uppercase; }
+
+.kl-h1 { font: var(--kl-h1); color: var(--kl-fg); margin: 0; letter-spacing: -0.01em; }
+.kl-h2 { font: var(--kl-h2); color: var(--kl-fg); margin: 0; letter-spacing: -0.005em; }
+.kl-h3 { font: var(--kl-h3); color: var(--kl-fg); margin: 0; }
+.kl-h4 { font: var(--kl-h4); color: var(--kl-fg); margin: 0; }
+.kl-display-1 { font: var(--kl-display-1); color: var(--kl-fg); margin: 0; letter-spacing: -0.02em; }
+.kl-display-2 { font: var(--kl-display-2); color: var(--kl-fg); margin: 0; letter-spacing: -0.015em; }
+
+em, .kl-em, i { font-style: italic; }
+
+/* CTA — NEVER a filled pill button. Underlined text in GT Flexa Medium. */
+.kl-cta {
+  font: var(--kl-cta);
+  color: var(--kl-fg);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1.5px;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: opacity var(--kl-dur) var(--kl-ease), text-decoration-thickness var(--kl-dur) var(--kl-ease);
+}
+.kl-cta:hover { text-decoration-thickness: 2.5px; opacity: 0.85; }
+.kl-cta:active { opacity: 0.7; }
+.kl-cta .arrow { transition: transform var(--kl-dur) var(--kl-ease); display: inline-block; }
+.kl-cta:hover .arrow { transform: translateX(4px); }
+
+/* Inverted versions for black surfaces (rare — black is not a bg) */
+.kl-on-black { color: var(--kl-white); }
+.kl-on-black .kl-cta { color: var(--kl-white); }
+
+/* Link */
+a.kl-link {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+a.kl-link:hover { text-decoration-thickness: 2px; }

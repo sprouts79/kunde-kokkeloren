@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="no"><head><meta charset="utf-8"><title>Shadow</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>html,body{margin:0;background:#F1EDE2;color:#31261D;font-family:var(--kl-sans);}
+.wrap{padding:28px 24px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.c{background:#fff;border-radius:var(--kl-radius-md);padding:22px;height:60px;display:flex;align-items:flex-end;font:var(--kl-caption);font-family:var(--kl-mono);color:var(--kl-muted);}
+.a{box-shadow:none;}
+.b{box-shadow:var(--kl-shadow-soft);}
+.d{box-shadow:var(--kl-shadow-card);}
+</style></head>
+<body><div class="wrap">
+  <div class="c a">flat · default</div>
+  <div class="c b">soft · rarely</div>
+  <div class="c d">card · modals only</div>
+</div></body></html>

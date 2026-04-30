@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="no"><head><meta charset="utf-8"><title>Colors — primary</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0;background:#fff;font-family:var(--kl-sans);}
+  .card{padding:20px;display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .sw{border-radius:var(--kl-radius-md);padding:16px;min-height:104px;display:flex;flex-direction:column;justify-content:space-between;}
+  .sw .name{font:var(--kl-overline);letter-spacing:.14em;text-transform:uppercase;}
+  .sw .hex{font:var(--kl-body-s);font-family:var(--kl-mono);}
+  .a{background:#31261D;color:#F1EDE2;}
+  .b{background:#F1EDE2;color:#31261D;border:1px solid var(--kl-hairline);}
+  .c{background:#FFFFFF;color:#31261D;border:1px solid var(--kl-hairline);}
+  .note{grid-column:1/-1;font:var(--kl-caption);color:var(--kl-muted);margin-top:2px;}
+</style></head>
+<body><div class="card">
+  <div class="sw a"><div class="name">Black</div><div class="hex">#31261D</div></div>
+  <div class="sw b"><div class="name">White</div><div class="hex">#F1EDE2</div></div>
+  <div class="sw c" style="grid-column:1/-1"><div class="name">Pure White · only on photography</div><div class="hex">#FFFFFF</div></div>
+  <div class="note">Black is primary text + logo. White is primary background. Black is never used as a full background fill.</div>
+</div></body></html>

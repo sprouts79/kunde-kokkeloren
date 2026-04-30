@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="no"><head><meta charset="utf-8"><title>Stickers</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0;background:#F1EDE2;color:#31261D;font-family:var(--kl-sans);}
+  .wrap{padding:32px 32px 40px;}
+  .lede{max-width:640px;margin-bottom:28px;}
+  .lede h1{font-family:var(--kl-serif);font-weight:400;font-size:40px;line-height:1.06;margin:0 0 10px;}
+  .lede p{font-weight:300;font-size:15px;line-height:1.55;margin:0;color:rgba(49,38,29,.75);max-width:58ch;}
+
+  .section{margin-top:32px;}
+  .section h3{font-family:var(--kl-serif);font-weight:400;font-size:22px;margin:0 0 6px;}
+  .section .subtitle{font:300 14px/1.5 var(--kl-sans);color:rgba(49,38,29,.7);margin:0 0 20px;max-width:54ch;}
+  .row{display:flex;flex-wrap:wrap;gap:28px;align-items:center;}
+  .stage{background:#EAE4D4;border-radius:16px;padding:28px 28px;}
+  .palette{display:grid;grid-template-columns:repeat(5,max-content);gap:22px 26px;align-items:center;}
+
+  /* ----- Sticker (inline SVG shape) -----
+     Silhouette: horizontal pill whose MIDDLE section is taller than the
+     rounded end-caps. That creates the two "shoulders" top and bottom —
+     a ticket / price-tag look. One flat fill, no border, no shadow.
+  ----- */
+  /* ----- Sticker (inline SVG shape, fixed 1:1 size from Figma source) -----
+     ViewBox is the Figma source: 396 × 164. Rendered at 50% ≈ 198 × 82.
+     Label sits in the middle band (y = 30 → 134 in source units, which is
+     ~ 20px top / ~ 15px bottom padding at 50%). All stickers share the
+     same dimensions — they are not scaled per text length.
+  ----- */
+  .kl-sticker{
+    position:relative;display:inline-block;
+    width:230px;height:95px;
+    font-family:"GT Flexa",system-ui,-apple-system,Arial,sans-serif;
+    font-weight:300;font-size:24px;line-height:1.05;
+    letter-spacing:.01em;text-transform:uppercase;color:#31261D;
+  }
+  .kl-sticker > svg{display:block;width:100%;height:100%;position:absolute;inset:0;}
+  .kl-sticker > .label{
+    position:absolute;inset:18px 34px;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    text-align:center;gap:2px;
+  }
+  .kl-sticker .small{font-weight:300;font-size:14px;letter-spacing:.02em;text-transform:none;}
+  /* Smaller size variant for inline stickers in emails / compact layouts */
+  .kl-sticker.sm{width:165px;height:68px;font-size:17px;}
+  .kl-sticker.sm > .label{inset:12px 24px;}
+  .kl-sticker.sm .small{font-size:11px;}
+
+  .tokens{margin-top:40px;padding:22px 24px;background:#EAE4D4;border-radius:16px;font:300 13px/1.6 "GT Flexa Mono",ui-monospace,Menlo,monospace;color:#31261D;white-space:pre-wrap;}
+  .tokens b{font-weight:500;}
+</style></head>
+<body>
+<div class="wrap">
+  <div class="lede">
+    <h1>Stickers — <em>prislapper</em>.</h1>
+    <p>Billett-formet aksent. Avrundede, bulende kortender med små utsparinger mot topp og bunn, som en gammel prislapp. Flat fyllfarge, Black tekst, ingen outline, ingen rotasjon, ingen skygge. Stickeren brukes i 1:1-størrelse — den skaleres ikke opp eller ned.</p>
+  </div>
+
+  <div class="section">
+    <h3>Standard</h3>
+    <p class="subtitle">Stickeren har 3 tekst-varianter: én linje, to linjer, eller én stor linje med en underlinje.</p>
+    <div class="row" style="background:#EAE4D4;border-radius:16px;padding:24px;">
+      <div class="kl-sticker"><svg viewBox="0 0 396 164"><path fill="#F1EDE2" d="M385.944 81.8622C385.944 58.3533 368.657 38.6085 345.04 32.3967C344.191 32.1792 343.604 31.4285 343.604 30.5582V1.93641C343.604 0.870295 342.733 0 341.667 0L57.5376 0C56.4715 0 55.6012 0.870295 55.6012 1.93641V29.7097C55.6012 30.6235 54.9485 31.3959 54.0455 31.5808C28.7199 36.7265 9.79102 57.2546 9.79102 81.8622C9.79102 106.437 28.7199 126.987 54.0455 132.143C54.9485 132.328 55.5903 133.09 55.5903 134.015V161.788C55.5903 162.854 56.4606 163.724 57.5267 163.724H341.656C342.723 163.724 343.593 162.854 343.593 161.788V133.166C343.593 132.296 344.191 131.545 345.029 131.328C368.646 125.105 385.944 105.349 385.944 81.8622Z"/></svg><div class="label">Best i test</div></div>
+      <div class="kl-sticker"><svg viewBox="0 0 396 164"><path fill="#F1EDE2" d="M385.944 81.8622C385.944 58.3533 368.657 38.6085 345.04 32.3967C344.191 32.1792 343.604 31.4285 343.604 30.5582V1.93641C343.604 0.870295 342.733 0 341.667 0L57.5376 0C56.4715 0 55.6012 0.870295 55.6012 1.93641V29.7097C55.6012 30.6235 54.9485 31.3959 54.0455 31.5808C28.7199 36.7265 9.79102 57.2546 9.79102 81.8622C9.79102 106.437 28.7199 126.987 54.0455 132.143C54.9485 132.328 55.5903 133.09 55.5903 134.015V161.788C55.5903 162.854 56.4606 163.724 57.5267 163.724H341.656C342.723 163.724 343.593 162.854 343.593 161.788V133.166C343.593 132.296 344.191 131.545 345.029 131.328C368.646 125.105 385.944 105.349 385.944 81.8622Z"/></svg><div class="label"><span>Neste</span><span>uke</span></div></div>
+      <div class="kl-sticker"><svg viewBox="0 0 396 164"><path fill="#F1EDE2" d="M385.944 81.8622C385.944 58.3533 368.657 38.6085 345.04 32.3967C344.191 32.1792 343.604 31.4285 343.604 30.5582V1.93641C343.604 0.870295 342.733 0 341.667 0L57.5376 0C56.4715 0 55.6012 0.870295 55.6012 1.93641V29.7097C55.6012 30.6235 54.9485 31.3959 54.0455 31.5808C28.7199 36.7265 9.79102 57.2546 9.79102 81.8622C9.79102 106.437 28.7199 126.987 54.0455 132.143C54.9485 132.328 55.5903 133.09 55.5903 134.015V161.788C55.5903 162.854 56.4606 163.724 57.5267 163.724H341.656C342.723 163.724 343.593 162.854 343.593 161.788V133.166C343.593 132.296 344.191 131.545 345.029 131.328C368.646 125.105 385.944 105.349 385.944 81.8622Z"/></svg><div class="label"><span>Uke 14</span><span class="small">Bestill før 28/4</span></div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>Andre farger</h3>
+    <p class="subtitle">Kopier stickeren i den fargen du trenger til annonseflaten — uten å skalere opp eller ned.</p>
+    <div class="palette">
+      <div class="kl-sticker"><svg viewBox="0 0 396 164" ><path fill="#6CC24A" d="M385.944 81.8622C385.944 58.3533 368.657 38.6085 345.04 32.3967C344.191 32.1792 343.604 31.4285 343.604 30.5582V1.93641C343.604 0.870295 342.733 0 341.667 0L57.5376 0C56.4715 0 55.6012 0.870295 55.6012 1.93641V29.7097C55.6012 30.6235 54.9485 31.3959 54.0455 31.5808C28.7199 36.7265 9.79102 57.2546 9.79102 81.8622C9.79102 106.437 28.7199 126.987 54.0455 132.143C54.9485 132.328 55.5903 133.09 55.5903 134.015V161.788C55.5903 162.854 56.4606 163.724 57.5267 163.724H341.656C342.723 163.724 343.593 162.854 343.593 161.788V133.166C343.593 132.296 344.191 131.545 345.029 131.328C368.646 125.105 385.944 105.349 385.944 81.8622Z"/></svg><div class="label">Best i test</div></div>
+      <div class="kl-sticker"><svg viewBox="0 0 396 164" ><path fill="#FFC72C" d="M385.944 81.8622C385.944 58.3533 368.657 38.6085 345.04 32.3967C344.191 32.1792 343.604 31.4285 343.604 30.5582V1.93641C343.604 0.870295 342.733 0 341.667 0L57.5376 0C56.4715 0 55.6012 0.870295 55.6012 1.93641V29.7097C55.6012 30.6235 54.9485 31.3959 54.0455 31.5808C28.7199 36.7265 9.79102 57.2546 9.79102 81.8622C9.79102 106.437 28.7199 126.987 54.0455 132.143C54.9485 132.328 55.5903 133.09 55.5903 134.015V161.788C55.5903 162.854 56.4606 163.724 57.5267 163.724H341.656C342.723 163.724 343.593 162.854 343.593 161.788V133.166C343.593 132.296 344.191 131.545 345.029 131.328C368.646 125.105 385.944 105.349 385.944 81.8622Z"/></svg><div class="label">Best i test</div></div>
+      <div class="kl-sticker"><svg viewBox="0 0 396 164" ><path fill="#DB864E" d="M385.944 81.8622C385.944 58.3533 368.657 38.6085 345.04 32.3967C344.191 32.1792 343.604 31.4285 343.604 30.5582V1.93641C343.604 0.870295 342.733 0 341.667 0L57.5376 0C56.4715 0 55.6012 0.870295 55.6012 1.93641V29.7097C55.6012 30.6235 54.9485 31.3959 54.0455 31.5808C28.7199 36.7265 9.79102 57.2546 9.79102 81.8622C9.79102 106.437 28.7199 126.987 54.0455 132.143C54.9485 132.328 55.5903 133.09 55.5903 134.015V161.788C55.5903 162.854 56.4606 163.724 57.5267 163.724H341.656C342.723 163.724 343.593 162.854 343.593 161.788V133.166C343.593 132.296 344.191 131.545 345.029 131.328C368.646 125.105 385.944 105.349 385.944 81.8622Z"/></svg><div class="label">Best i test</div></div>
+      <div class="kl-sticker"><svg viewBox="0 0 396 164" ><path fill="#FF9E1B" d="M385.944 81.8622C385.944 58.3533 368.657 38.6085 345.04 32.3967C344.191 32.1792 343.604 31.4285 343.604 30.5582V1.93641C343.604 0.870295 342.733 0 341.667 0L57.5376 0C56.4715 0 55.6012 0.870295 55.6012 1.93641V29.7097C55.6012 30.6235 54.9485 31.3959 54.0455 31.5808C28.7199 36.7265 9.79102 57.2546 9.79102 81.8622C9.79102 106.437 28.7199 126.987 54.0455 132.143C54.9485 132.328 55.5903 133.09 55.5903 134.015V161.788C55.5903 162.854 56.4606 163.724 57.5267 163.724H341.656C342.723 163.724 343.593 162.854 343.593 161.788V133.166C343.593 132.296 344.191 131.545 345.029 131.328C368.646 125.105 385.944 105.349 385.944 81.8622Z"/></svg><div class="label">Best i test</div></div>
+      <div class="kl-sticker"><svg viewBox="0 0 396 164" ><path fill="#F8C1B8" d="M385.944 81.8622C385.944 58.3533 368.657 38.6085 345.04 32.3967C344.191 32.1792 343.604 31.4285 343.604 30.5582V1.93641C343.604 0.870295 342.733 0 341.667 0L57.5376 0C56.4715 0 55.6012 0.870295 55.6012 1.93641V29.7097C55.6012 30.6235 54.9485 31.3959 54.0455 31.5808C28.7199 36.7265 9.79102 57.2546 9.79102 81.8622C9.79102 106.437 28.7199 126.987 54.0455 132.143C54.9485 132.328 55.5903 133.09 55.5903 134.015V161.788C55.5903 162.854 56.4606 163.724 57.5267 163.724H341.656C342.723 163.724 343.593 162.854 343.593 161.788V133.166C343.593 132.296 344.191 131.545 345.029 131.328C368.646 125.105 385.944 105.349 385.944 81.8622Z"/></svg><div class="label">Best i test</div></div>
+      <div class="kl-sticker"><svg viewBox="0 0 396 164" ><path fill="#A7D8E7" d="M385.944 81.8622C385.944 58.3533 368.657 38.6085 345.04 32.3967C344.191 32.1792 343.604 31.4285 343.604 30.5582V1.93641C343.604 0.870295 342.733 0 341.667 0L57.5376 0C56.4715 0 55.6012 0.870295 55.6012 1.93641V29.7097C55.6012 30.6235 54.9485 31.3959 54.0455 31.5808C28.7199 36.7265 9.79102 57.2546 9.79102 81.8622C9.79102 106.437 28.7199 126.987 54.0455 132.143C54.9485 132.328 55.5903 133.09 55.5903 134.015V161.788C55.5903 162.854 56.4606 163.724 57.5267 163.724H341.656C342.723 163.724 343.593 162.854 343.593 161.788V133.166C343.593 132.296 344.191 131.545 345.029 131.328C368.646 125.105 385.944 105.349 385.944 81.8622Z"/></svg><div class="label">Best i test</div></div>
+      <div class="kl-sticker"><svg viewBox="0 0 396 164" ><path fill="#B79B68" d="M385.944 81.8622C385.944 58.3533 368.657 38.6085 345.04 32.3967C344.191 32.1792 343.604 31.4285 343.604 30.5582V1.93641C343.604 0.870295 342.733 0 341.667 0L57.5376 0C56.4715 0 55.6012 0.870295 55.6012 1.93641V29.7097C55.6012 30.6235 54.9485 31.3959 54.0455 31.5808C28.7199 36.7265 9.79102 57.2546 9.79102 81.8622C9.79102 106.437 28.7199 126.987 54.0455 132.143C54.9485 132.328 55.5903 133.09 55.5903 134.015V161.788C55.5903 162.854 56.4606 163.724 57.5267 163.724H341.656C342.723 163.724 343.593 162.854 343.593 161.788V133.166C343.593 132.296 344.191 131.545 345.029 131.328C368.646 125.105 385.944 105.349 385.944 81.8622Z"/></svg><div class="label">Best i test</div></div>
+      <div class="kl-sticker"><svg viewBox="0 0 396 164" ><path fill="#DCE261" d="M385.944 81.8622C385.944 58.3533 368.657 38.6085 345.04 32.3967C344.191 32.1792 343.604 31.4285 343.604 30.5582V1.93641C343.604 0.870295 342.733 0 341.667 0L57.5376 0C56.4715 0 55.6012 0.870295 55.6012 1.93641V29.7097C55.6012 30.6235 54.9485 31.3959 54.0455 31.5808C28.7199 36.7265 9.79102 57.2546 9.79102 81.8622C9.79102 106.437 28.7199 126.987 54.0455 132.143C54.9485 132.328 55.5903 133.09 55.5903 134.015V161.788C55.5903 162.854 56.4606 163.724 57.5267 163.724H341.656C342.723 163.724 343.593 162.854 343.593 161.788V133.166C343.593 132.296 344.191 131.545 345.029 131.328C368.646 125.105 385.944 105.349 385.944 81.8622Z"/></svg><div class="label">Best i test</div></div>
+      <div class="kl-sticker"><svg viewBox="0 0 396 164" ><path fill="#FF6720" d="M385.944 81.8622C385.944 58.3533 368.657 38.6085 345.04 32.3967C344.191 32.1792 343.604 31.4285 343.604 30.5582V1.93641C343.604 0.870295 342.733 0 341.667 0L57.5376 0C56.4715 0 55.6012 0.870295 55.6012 1.93641V29.7097C55.6012 30.6235 54.9485 31.3959 54.0455 31.5808C28.7199 36.7265 9.79102 57.2546 9.79102 81.8622C9.79102 106.437 28.7199 126.987 54.0455 132.143C54.9485 132.328 55.5903 133.09 55.5903 134.015V161.788C55.5903 162.854 56.4606 163.724 57.5267 163.724H341.656C342.723 163.724 343.593 162.854 343.593 161.788V133.166C343.593 132.296 344.191 131.545 345.029 131.328C368.646 125.105 385.944 105.349 385.944 81.8622Z"/></svg><div class="label">Best i test</div></div>
+    </div>
+  </div>
+
+  <div class="tokens"><b>/* Tokens */</b>
+shape:          ticket / price-tag — horizontal pill with taller center band
+svg viewBox:    0 0 396 164  (from Figma master)
+default size:   230 × 95 px (1:1 — do not scale per text length)
+compact size:   165 × 68 px (.kl-sticker.sm) for tight layouts
+fill:           any palette accent or #F1EDE2 (White)
+text:           #31261D (Black) always
+font:           300 24px/1.05 "GT Flexa", all-caps, letter-spacing .01em
+subline:        300 14px/1.2, sentence-case
+border:         none   · shadow: none   · rotation: none</div>
+</div>
+</body></html>

@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="no"><head><meta charset="utf-8"><title>Imagery</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0;background:#F1EDE2;color:#31261D;font-family:var(--kl-sans);}
+  .wrap{padding:32px 32px 40px;}
+  .lede{max-width:640px;margin-bottom:28px;}
+  .lede h1{font-family:var(--kl-serif);font-weight:400;font-size:40px;line-height:1.06;margin:0 0 10px;}
+  .lede p{font-weight:300;font-size:15px;line-height:1.55;margin:0;color:rgba(49,38,29,.75);max-width:58ch;}
+
+  .card{border-radius:16px;overflow:hidden;background:#F1EDE2;box-shadow:0 1px 0 rgba(49,38,29,.08);}
+  .card + .card{margin-top:24px;}
+
+  /* --- HERO PATTERN ---
+     Cut-out produce is scattered around the edges/corners of a flat
+     eggshell or ton-i-ton surface. Text + CTA live in the clear center.
+     The produce image is a single transparent PNG positioned behind
+     the text block — absolutely positioned and offset so cut-outs cluster
+     at the corners, leaving the middle clear.
+  */
+  .hero{position:relative;background:#F1EDE2;min-height:520px;overflow:hidden;}
+  .hero .produce{position:absolute;inset:0;pointer-events:none;}
+  .hero .produce img{position:absolute;display:block;}
+  /* Positioning is baked into the single hero-produce.png (it already has
+     a cluster top-left, top-right box, and bottom-left pesto cluster,
+     with transparent middle). So we just size and center it. */
+  .hero .produce img{
+    top:0;left:50%;transform:translateX(-50%);
+    width:108%;max-width:none;height:auto;
+  }
+  .hero .content{
+    position:relative;z-index:1;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    text-align:center;
+    padding:120px 72px;
+    min-height:520px;
+  }
+  .hero .eyebrow{font:500 12px/1.2 var(--kl-sans);letter-spacing:.18em;text-transform:uppercase;color:#31261D;margin:0 0 14px;}
+  .hero h2{font-family:var(--kl-serif);font-weight:400;font-size:44px;line-height:1.04;letter-spacing:-0.01em;margin:0;max-width:12ch;}
+  .hero h2 em{font-style:italic;}
+  .hero p{font:300 17px/1.55 var(--kl-sans);color:#31261D;margin:14px 0 0;max-width:38ch;}
+  .hero .cta{margin-top:22px;}
+  .hero .cta a{display:inline-flex;align-items:center;gap:10px;background:#31261D;color:#F1EDE2;border-radius:999px;padding:14px 24px;font:500 15px/1 var(--kl-sans);text-decoration:none;}
+
+  /* Alt surface — ton-i-ton pink */
+  .hero.pink{background:#F8C1B8;}
+
+  /* Anti-pattern card */
+  .dontdo{background:#EAE4D4;border:1px dashed rgba(49,38,29,.2);border-radius:16px;padding:18px 22px;display:flex;gap:18px;align-items:center;margin-top:24px;}
+  .dontdo .mini{width:140px;height:100px;border-radius:10px;background:url(../assets/images/hero-produce.png) center/cover no-repeat #F8C1B8;position:relative;flex-shrink:0;}
+  .dontdo .mini::after{content:"Tekst oppå bilde";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:500 10px/1.2 var(--kl-sans);color:rgba(49,38,29,.9);text-align:center;padding:0 8px;}
+  .dontdo .cross{position:absolute;top:-8px;right:-8px;width:24px;height:24px;border-radius:50%;background:#31261D;color:#F1EDE2;display:flex;align-items:center;justify-content:center;font:500 14px/1 var(--kl-sans);}
+  .dontdo .txt h5{font:500 11px/1.2 var(--kl-sans);letter-spacing:.14em;text-transform:uppercase;margin:0 0 4px;color:#31261D;}
+  .dontdo .txt p{font:300 13px/1.5 var(--kl-sans);color:rgba(49,38,29,.75);margin:0;max-width:50ch;}
+
+  .rules{margin-top:24px;padding:20px 24px;background:#EAE4D4;border-radius:16px;display:grid;grid-template-columns:1fr 1fr;gap:16px 32px;}
+  .rules h5{font:500 11px/1.2 var(--kl-sans);letter-spacing:.14em;text-transform:uppercase;margin:0 0 6px;}
+  .rules p{font:300 14px/1.55 var(--kl-sans);color:rgba(49,38,29,.8);margin:0;}
+</style></head>
+<body>
+<div class="wrap">
+  <div class="lede">
+    <h1>Imagery.</h1>
+    <p>Matbilder klippes ut og spres rundt kantene av flaten — topp-venstre, topp-høyre, bunn-venstre. Teksten lever i det rolige feltet i midten. Bakgrunnen er alltid eggeskall-hvit eller en støvet palett-farge; aldri studiohvit, aldri gradient.</p>
+  </div>
+
+  <div class="card">
+    <div class="hero">
+      <div class="produce"><img src="../assets/images/hero-produce.png" alt=""></div>
+      <div class="content">
+        <p class="eyebrow">Velkommen</p>
+        <h2>Endelig, tid for <em>matkasse igjen!</em></h2>
+        <p>Ferien nærmer seg slutt for de fleste, og vi gleder oss til å sende ut våre nydelige middager til dere.</p>
+        <div class="cta"><a href="#">Sjekk ditt abonnement</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="hero pink">
+      <div class="produce"><img src="../assets/images/hero-produce.png" alt="" style="opacity:.95"></div>
+      <div class="content">
+        <p class="eyebrow">Uke 17</p>
+        <h2>En meny <em>for norsk vår.</em></h2>
+        <p>Reinsdyr fra Stensaas, asparges fra Lier, pannacotta med Rørosrømme — tre retter, én pakke.</p>
+        <div class="cta"><a href="#">Bestill uke 17</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dontdo">
+    <div class="mini"><div class="cross">×</div></div>
+    <div class="txt">
+      <h5>Ikke gjør dette</h5>
+      <p>Ikke legg tekst direkte oppå et matbilde uten at bildet er en klart utvalgt, dempet bakgrunn. Og: aldri på studiohvit eller gradient.</p>
+    </div>
+  </div>
+
+  <div class="rules">
+    <div><h5>Gjør</h5><p>Spre cut-outs rundt kantene av flaten. Hold det midterste feltet rolig — der lever tekst og CTA. Bruk eggeskall eller støvet palett-farge som bunn.</p></div>
+    <div><h5>Unngå</h5><p>Ikke dekk teksten med produkter. Ikke bruk gradient, slagskygge eller studiohvit. Ikke la cut-outs overlappe CTA-knappen.</p></div>
+  </div>
+</div>
+</body></html>

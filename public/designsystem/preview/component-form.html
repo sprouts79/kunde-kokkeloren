@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="no"><head><meta charset="utf-8"><title>Form</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>html,body{margin:0;background:#F1EDE2;color:#31261D;font-family:var(--kl-sans);}
+.wrap{padding:22px 24px;display:flex;flex-direction:column;gap:12px;max-width:380px;}
+label{font:var(--kl-overline);letter-spacing:.14em;text-transform:uppercase;}
+.input{background:#fff;border:1px solid var(--kl-hairline);border-radius:var(--kl-radius-sm);padding:12px 14px;font:var(--kl-body-s);color:#31261D;outline:none;}
+.input:focus{border-color:#31261D;}
+.row{display:flex;gap:10px;}
+.check{display:flex;align-items:center;gap:10px;font:var(--kl-body-s);}
+.box{width:18px;height:18px;border:1.5px solid #31261D;border-radius:4px;display:inline-grid;place-items:center;}
+.box.on{background:#31261D;color:#F1EDE2;font-size:12px;}
+</style></head>
+<body><div class="wrap">
+  <label for="e">E‑post</label>
+  <input class="input" id="e" placeholder="navn@domene.no" value="tore@kokkeloren.no">
+  <div class="row"><span class="check"><span class="box on">✓</span> 2 personer</span><span class="check"><span class="box"></span> 4 personer</span></div>
+</div></body></html>
