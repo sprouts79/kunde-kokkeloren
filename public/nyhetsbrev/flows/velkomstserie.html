@@ -38,8 +38,7 @@ h1 { font-size: 3rem; font-weight: 700; letter-spacing: -0.03em; line-height: 1.
 
 .preview-frame { border: var(--border); border-radius: 12px; overflow: hidden; background: #F1EDE2; transition: max-width 0.24s ease; margin-left: auto; margin-right: auto; }
 .preview-frame.is-mobile { max-width: 390px; }
-.preview-frame iframe { display: block; width: 100%; height: 720px; border: 0; background: #F1EDE2; transition: height 0.24s ease; }
-.preview-frame.is-mobile iframe { height: 760px; }
+.preview-frame iframe { display: block; width: 100%; border: 0; background: #F1EDE2; }
 
 .arrow { text-align: center; padding: 1.5rem 0; font-size: 1rem; color: rgba(9,10,8,0.35); letter-spacing: 0.04em; }
 .arrow::before { content: "↓"; display: block; font-size: 1.25rem; color: rgba(9,10,8,0.15); margin-bottom: 0.25rem; }
@@ -49,8 +48,6 @@ h1 { font-size: 3rem; font-weight: 700; letter-spacing: -0.03em; line-height: 1.
 
 @media (max-width: 640px) {
   h1 { font-size: 2.25rem; }
-  .preview-frame iframe { height: 540px; }
-  .preview-frame.is-mobile iframe { height: 660px; }
 }
 </style>
 </head>
@@ -165,15 +162,42 @@ h1 { font-size: 3rem; font-weight: 700; letter-spacing: -0.03em; line-height: 1.
 
 <script src="/assets/page-status.js"></script>
 <script>
+function fitIframe(iframe) {
+  try {
+    const doc = iframe.contentDocument || iframe.contentWindow.document;
+    if (!doc || !doc.body) return;
+    // Reset, then re-measure based on content
+    iframe.style.height = '0px';
+    const h = Math.max(doc.documentElement.scrollHeight, doc.body.scrollHeight);
+    iframe.style.height = h + 'px';
+  } catch (e) { iframe.style.height = '720px'; }
+}
+
+document.querySelectorAll('.preview-frame iframe').forEach(iframe => {
+  iframe.addEventListener('load', () => fitIframe(iframe));
+});
+
 document.querySelectorAll('.viewport-toggle').forEach(toggle => {
   const frame = document.getElementById(toggle.dataset.frame);
+  const iframe = frame.querySelector('iframe');
   toggle.querySelectorAll('button').forEach(btn => {
     btn.addEventListener('click', () => {
       toggle.querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'));
       if (btn.dataset.mode === 'mobile') frame.classList.add('is-mobile');
       else frame.classList.remove('is-mobile');
+      // Re-measure etter at bredde har endret seg (e-postinnhold reflower)
+      requestAnimationFrame(() => requestAnimationFrame(() => fitIframe(iframe)));
     });
   });
+});
+
+// Re-fit ved window resize (debouncet)
+let resizeTimer;
+window.addEventListener('resize', () => {
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(() => {
+    document.querySelectorAll('.preview-frame iframe').forEach(fitIframe);
+  }, 150);
 });
 </script>
 
